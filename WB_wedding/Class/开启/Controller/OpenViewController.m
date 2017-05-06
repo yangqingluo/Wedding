@@ -629,7 +629,6 @@ CGFloat yFromCenter;
     NSDictionary *dic = self.items[index];
     
     WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeHome];
-    self.tabBarController.hidesBottomBarWhenPushed = YES;
     vc.dic = dic;
     vc.ID = dic[@"id"];
     [self.navigationController pushViewController:vc animated:YES];
@@ -709,8 +708,6 @@ CGFloat yFromCenter;
     
     vc.modelsAr = [self.items copy];
     
-    
-    self.tabBarController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc
                                          animated:YES];
     

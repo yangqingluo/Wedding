@@ -239,7 +239,6 @@
     vc.dic = self.dataSource[indexPath.row];
     NSDictionary *dic = self.dataSource[indexPath.row];
     vc.ID =dic[@"recieverId"];
-    self.tabBarController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     
     

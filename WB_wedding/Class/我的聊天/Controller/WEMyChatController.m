@@ -153,7 +153,6 @@
 #pragma mark -- 聊天
 - (IBAction)talk:(UIButton *)sender {
     WETestChatViewController *vc = [[WETestChatViewController alloc]init];
-    self.tabBarController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 
 //    if (loverPhone.length == 0) {
@@ -161,7 +160,6 @@
 //        return;
 //    }
 //    EaseMessageViewController *chatVC = [[EaseMessageViewController alloc] initWithConversationChatter:@"18190019728" conversationType:EMConversationTypeChat];
-//    self.tabBarController.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:chatVC animated:YES];
     
     

@@ -152,7 +152,6 @@
       NSDictionary *dic = self.dataSource[indexPath.row];
     vc.ID = dic[@"senderId"];
     vc.dic = dic;
-    self.tabBarController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     
     
