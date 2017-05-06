@@ -56,6 +56,8 @@
 #define kUserName                    @"username_wedding"
 #define kUserData                    @"userdata_wedding"
 
+#define downloadImagePlace  @"download_image_default"
+
 @interface AppPublic : NSObject
 
 @property (nonatomic, strong) AppUserData *userData;
@@ -74,6 +76,7 @@ NSString *sha1(NSString *string);
 
 //new button
 UIButton *NewTextButton(NSString *title, UIColor *textColor);
+UIButton *NewBackButton(UIColor *color);
 
 //日期-文本转换
 NSDate *dateFromString(NSString *dateString, NSString *format);

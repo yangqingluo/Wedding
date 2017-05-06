@@ -16,6 +16,8 @@
 #import "WETimeLineDetailController.h"
 #import "JKAlert.h"
 #import "ImagePickerController.h"
+#import "UIImage+Color.h"
+
 @interface WETimeLineController ()<UITableViewDelegate,UITableViewDataSource,WETimeLineHeaderViewDelegate,WERecoderViewDelegate,UIAlertViewDelegate>
 
 @property (nonatomic,strong)UITableView     *tableView;
@@ -30,12 +32,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self configUserInterface];
+    
+    [self setupNav];
 //    [self configDataSource];
     // 发布成功 刷新数据
     [KNotiCenter addObserver:self selector:@selector(configNewData) name:@"PostSuccess" object:nil];
 }
 
+- (void)setupNav {
+    [self createNavWithTitle:nil createMenuItem:^UIView *(int nIndex){
+        if (nIndex == 0){
+            UIButton *btn = NewBackButton(navigationBarColor);
+            [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+            return btn;
+        }
+        else if (nIndex == 1) {
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            UIImage *i = [UIImage imageNamed:@"bottom_location@2x"];
+            [btn setImage:[i imageWithColor:navigationBarColor] forState:UIControlStateNormal];
+            [btn setFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
+            
+            return btn;
+        }
+        
+        return nil;
+    }];
+    
+    self.navBottomLine.backgroundColor = [UIColor clearColor];
+    self.navigationBarView.backgroundColor = [UIColor clearColor];
+}
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 -(void)configNewData{
@@ -44,7 +75,7 @@
     
     
     if ([KUserDefaults objectForKey:KHisHerID]==nil) {
-        [self showMessage:@"你还没有匹配的人" toView:self.view];
+        [self showHint:@"你还没有匹配的人"];
         return;
     }
     NSDictionary *dic = @{
@@ -53,18 +84,18 @@
                           
                           };
     
-     [self showActivity];
+     [self showHudInView:self.view hint:nil];
     [HQBaseNetManager GET:BASEURL(@"/timeevent/find") parameters:dic completionHandler:^(id responseObj, NSError *error) {
         if ([responseObj[@"msg"]isEqualToString:@"请求成功"]) {
             // 这里设置背景图片
-            [self cancleActivity];
+            [self hideHud];
             self.infoDic  = responseObj[@"data"];
             
             
-            NSURL *imagURL =[NSURL URLWithString: [NSString stringWithFormat:@"%@/tebg/%@/%@",ImageURL,self.infoDic[@"id"],self.infoDic[@"backgroundUrl"]]];
+            NSURL *imagURL =[NSURL URLWithString: [NSString stringWithFormat:@"%@/tebg/%@",ImageURL, self.infoDic[@"backgroundUrl"]]];
             
             
-            [self.headrView.bgInamegView sd_setImageWithURL:imagURL placeholderImage:nil];
+            [self.headrView.bgInamegView sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:downloadImagePlace]];
 
             
             NSDictionary *dicc = @{
@@ -77,13 +108,13 @@
                 NSArray  *array = responseObjsss[@"data"][@"content"];
                 [self.dataSource addObjectsFromArray:array];
                 [self.tableView reloadData];
-                [self cancleActivity];
+                [self hideHud];
                 [self.tableView.mj_header endRefreshing];
                 
             }];
             
         }else{
-            [self cancleActivity];
+            [self hideHud];
             [self.tableView.mj_header endRefreshing];
             
         }
@@ -100,7 +131,7 @@
 
 - (void)configUserInterface{
     
-      self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,KScreenWidth, KScreenHeight) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,KScreenWidth, KScreenHeight) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -129,16 +160,6 @@
     
     [self.tableView.mj_header beginRefreshing];
     
-
-    
-    
-    
-    self.baseNavigationBar.backgroundColor = [[UIColor colorWithRed:251.0/255 green:114.0/255.0 blue:114/255.0 alpha:1.0]colorWithAlphaComponent:0];
-    self.statusView.backgroundColor = [[UIColor colorWithRed:251.0/255 green:114.0/255.0 blue:114/255.0 alpha:1.0]colorWithAlphaComponent:0];
-    
-    [self.baseNavigationBar.backBtn setImage:[UIImage imageNamed:@"return48"] forState:UIControlStateNormal];
-
-    
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = KNaviBarTintColor;
@@ -159,7 +180,7 @@
 - (void)btnClick:(UIButton *)sender{
     
     if ([KUserDefaults objectForKey:KHisHerID]==nil) {
-        [self showMessage:@"你还没有匹配的人" toView:self.view];
+        [self showHint:@"你还没有匹配的人"];
         return;
     }
     WEPostTimeLineController  *vc = [[WEPostTimeLineController alloc]init];
@@ -196,15 +217,15 @@
             
             
             if (self.infoDic) {
-                [self showActivity];
+                [self showHudInView:self.view hint:nil];
                 [WEMyChatTool postBgPicWithtimeEventId:self.infoDic[@"id"] imag:originalImage success:^(id model) {
                     self.headrView.bgInamegView.image = originalImage;
-                    [self cancleActivity];
-                    [self showMessage:@"上传成功" toView:self.view];
+                    [self hideHud];
+                    [self showHint:@"上传成功"];
                     
                 } failed:^(NSString *error) {
-                    [self cancleActivity];
-                    [self showMessage:error.description toView:self.view];
+                    [self hideHud];
+                    [self showHint:error.description];
                     
                     
                 }];
@@ -231,15 +252,15 @@
             
             
             if (self.infoDic) {
-                [self showActivity];
+                [self showHudInView:self.view hint:nil];
                 [WEMyChatTool postBgPicWithtimeEventId:self.infoDic[@"id"] imag:originalImage success:^(id model) {
                     self.headrView.bgInamegView.image = originalImage;
-                    [self cancleActivity];
-                    [self showMessage:@"上传成功" toView:self.view];
+                    [self hideHud];
+                    [self showHint:@"上传成功"];
                     
                 } failed:^(NSString *error) {
-                    [self cancleActivity];
-                    [self showMessage:error.description toView:self.view];
+                    [self hideHud];
+                    [self showHint:error.description];
                     
                     
                 }];
@@ -274,7 +295,7 @@
     NSLog(@"点击了定位");
     
     if ([KUserDefaults objectForKey:KHisHerID]==nil) {
-        [self showMessage:@"你还没有匹配的人" toView:self.view];
+        [self showHint:@"你还没有匹配的人"];
         return;
     }
 
@@ -297,18 +318,18 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-        [self showActivity];
+        [self showHudInView:self.view hint:nil];
         XWUserModel  *mdoel = [XWUserModel getUserInfoFromlocal];
         
         NSString *hisrID = [KUserDefaults objectForKey:KHisHerID];
         
         
         [WEMyChatTool openLocationWithMyId:mdoel.xw_id hisOrHerId:hisrID success:^(NSString  *model) {
-            [self cancleActivity];
+            [self hideHud];
             if ([model isEqualToString:@"2"] ) {
-                [self showMessage:@"已经向对方申请" toView:self.view];
+                [self showHint:@"已经向对方申请"];
             }else if([model isEqualToString:@"1"]){
-                  [self showMessage:@"你们双方已经开启" toView:self.navigationController.view];
+                  [self showHint:@"你们双方已经开启"];
                    //  进入下一届界面
                 WELocationViewController *vc = [[WELocationViewController alloc]init];
                 [self.navigationController pushViewController:vc animated:YES];
@@ -316,8 +337,8 @@
             
             
         } failed:^(NSString *error) {
-            [self cancleActivity];
-            [self showMessage:error toView:self.view];
+            [self hideHud];
+            [self showHint:error];
         }];
 
     }

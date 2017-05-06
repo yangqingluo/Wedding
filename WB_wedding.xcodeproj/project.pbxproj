@@ -303,6 +303,11 @@
 		E9D582561E4E07800071E88F /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9D582551E4E07800071E88F /* area.plist */; };
 		FCA704DE1EBDC17F00630129 /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704DC1EBDC17F00630129 /* cell_next@2x.png */; };
 		FCA704DF1EBDC17F00630129 /* cell_next@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704DD1EBDC17F00630129 /* cell_next@3x.png */; };
+		FCA704E11EBDC5C200630129 /* download_image_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E01EBDC5C200630129 /* download_image_default@2x.png */; };
+		FCA704E51EBDC90300630129 /* nav_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E21EBDC90300630129 /* nav_add@2x.png */; };
+		FCA704E61EBDC90300630129 /* nav_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E31EBDC90300630129 /* nav_edit@2x.png */; };
+		FCA704E71EBDC90300630129 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E41EBDC90300630129 /* nav_back@2x.png */; };
+		FCA704E91EBDC95100630129 /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E81EBDC95100630129 /* bottom_location@2x.png */; };
 		FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */; };
 		FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */; };
 		FCD3AAE31EBCE3B2005AC352 /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AAC51EBCE3B2005AC352 /* AppPublic.m */; };
@@ -965,6 +970,11 @@
 		EC7DCA563DE1AD2614468DAF /* libPods-WB_wedding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WB_wedding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA704DC1EBDC17F00630129 /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
 		FCA704DD1EBDC17F00630129 /* cell_next@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@3x.png"; sourceTree = "<group>"; };
+		FCA704E01EBDC5C200630129 /* download_image_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download_image_default@2x.png"; sourceTree = "<group>"; };
+		FCA704E21EBDC90300630129 /* nav_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_add@2x.png"; sourceTree = "<group>"; };
+		FCA704E31EBDC90300630129 /* nav_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_edit@2x.png"; sourceTree = "<group>"; };
+		FCA704E41EBDC90300630129 /* nav_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
+		FCA704E81EBDC95100630129 /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCD3AA8D1EBC8599005AC352 /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
 		FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+EaseMob.m"; sourceTree = "<group>"; };
 		FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDemoHelper.m; sourceTree = "<group>"; };
@@ -2481,6 +2491,11 @@
 		FCA704DB1EBDC17F00630129 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				FCA704E81EBDC95100630129 /* bottom_location@2x.png */,
+				FCA704E21EBDC90300630129 /* nav_add@2x.png */,
+				FCA704E31EBDC90300630129 /* nav_edit@2x.png */,
+				FCA704E41EBDC90300630129 /* nav_back@2x.png */,
+				FCA704E01EBDC5C200630129 /* download_image_default@2x.png */,
 				FCA704DC1EBDC17F00630129 /* cell_next@2x.png */,
 				FCA704DD1EBDC17F00630129 /* cell_next@3x.png */,
 			);
@@ -2667,7 +2682,9 @@
 				5DBA2BCD1E348BE1005B414A /* WEMyMessgaeController.xib in Resources */,
 				5D5F6DCB1E2377BD00A0D82A /* FirstPageController.xib in Resources */,
 				57FE2E2A1E97EDDC003AE287 /* OpenLikeAnswerVC.xib in Resources */,
+				FCA704E61EBDC90300630129 /* nav_edit@2x.png in Resources */,
 				5D9E49A11E2CBDC600B9C88C /* WERecoderView.xib in Resources */,
+				FCA704E11EBDC5C200630129 /* download_image_default@2x.png in Resources */,
 				5D5F6DD01E237A1800A0D82A /* LoginViewController.xib in Resources */,
 				E950D8631E4600B000149037 /* WEAnswerFansSureBtnCell.xib in Resources */,
 				5D9E49811E2C99F700B9C88C /* WEYourMessageCollectionCell.xib in Resources */,
@@ -2675,6 +2692,7 @@
 				E93175B31E2E046500E5FF14 /* WEMeViewController.xib in Resources */,
 				E9A63E3E1E50392D00C7F4B7 /* SomeOneAnswerQuestionCell.xib in Resources */,
 				5D5F6DAF1E2337E000A0D82A /* XWTabBar.xib in Resources */,
+				FCA704E91EBDC95100630129 /* bottom_location@2x.png in Resources */,
 				5D793B2C1E1B429100236506 /* LaunchScreen.storyboard in Resources */,
 				57FEBD291EB8E884008D6AE1 /* EaseUIResource.bundle in Resources */,
 				5D746A551E2E0CE6001FE1A1 /* WEMYAskViewController.xib in Resources */,
@@ -2685,6 +2703,7 @@
 				5D746A5F1E2E238F001FE1A1 /* WEBianjiSelfInfoController.xib in Resources */,
 				5DBBF9C71E558B4000DB716E /* WETimeLineDetailHeaderView.xib in Resources */,
 				5D746A5A1E2E0DCD001FE1A1 /* WEMyAskCell.xib in Resources */,
+				FCA704E71EBDC90300630129 /* nav_back@2x.png in Resources */,
 				E94025FE1E3A00810038EC7E /* WESomeOneAnswerQuestionVC.xib in Resources */,
 				E93175CA1E2E2AC400E5FF14 /* WalletDetailInfoTVCell.xib in Resources */,
 				E9D582561E4E07800071E88F /* area.plist in Resources */,
@@ -2699,6 +2718,7 @@
 				5D90623E1E641D5C00200C7F /* AlipaySDK.bundle in Resources */,
 				5D746A011E2DACCA001FE1A1 /* WERegisterController.xib in Resources */,
 				5D9E498C1E2CAF8000B9C88C /* WEMyChatController.xib in Resources */,
+				FCA704E51EBDC90300630129 /* nav_add@2x.png in Resources */,
 				5DBBF9B51E55519900DB716E /* WEPostTimeLineController.xib in Resources */,
 				5D9E498A1E2CAD9300B9C88C /* XWPopViewCell.xib in Resources */,
 				5DBBF9C21E558A3500DB716E /* WETimeLineDetailCell.xib in Resources */,

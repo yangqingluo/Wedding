@@ -6,10 +6,10 @@
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "HQBaseViewController.h"
+#import "AppBasicViewController.h"
 /**
  *  时间轴控制器
  */
-@interface WETimeLineController : HQBaseViewController
+@interface WETimeLineController : AppBasicViewController
 
 @end

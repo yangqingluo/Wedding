@@ -9,6 +9,7 @@
 #import "AppPublic.h"
 #import <CommonCrypto/CommonDigest.h>
 
+#import "UIImage+Color.h"
 #import "MainTabNavController.h"
 #import "FirstPageController.h"
 #import "HQMainTabBarController.h"
@@ -110,6 +111,18 @@ UIButton *NewTextButton(NSString *title, UIColor *textColor){
     //    saveButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     
     return button;
+}
+
+UIButton *NewBackButton(UIColor *color){
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *i = [UIImage imageNamed:@"nav_back"];
+    if (color) {
+        i = [i imageWithColor:color];
+    }
+    [btn setImage:i forState:UIControlStateNormal];
+    [btn setFrame:CGRectMake(0, 0, 64, 44)];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(10, kEdge, 10, 64 - kEdge - 14);
+    return btn;
 }
 
 //日期-文本转换
