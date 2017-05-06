@@ -31,10 +31,6 @@
     self.title = @"记录时间轴";
     WS;
     [self setNavigationRightBtnWithTitle:@"确定" actionBack:^{
-        if (kAppDelegate.isOnLine == NO) {
-            [weakSelf showNoNetError];
-            return ;
-        }
         if (_titleLable.text.length&&self.textView.text.length&&self.adressTextFile.text.length) {
             [weakSelf postTimeLine:weakSelf.adressTextFile.text tile:weakSelf.titleLable.text note:weakSelf.textView.text];
                      

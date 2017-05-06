@@ -46,11 +46,11 @@
                           @"ids":ID
                           };
     
-    [HQBaseNetManager POST:BASEURL(@"/urreply/delete") parameters:dic completionHandler:^(id responseObj, NSError *error) {
+    [[QKNetworkSingleton sharedManager] Post:dic HeadParm:nil URLFooter:@"/urreply/delete" completion:^(id responseObj, NSError *error) {
         
         if ([responseObj[@"msg"]isEqualToString:@"请求成功"]) {
-          
             
+            success(responseObj);
             
         }else{
             failed(responseObj[@"msg"]);
@@ -60,6 +60,21 @@
         
         
     }];
+    
+//    [HQBaseNetManager POST:BASEURL(@"/urreply/delete") parameters:dic completionHandler:^(id responseObj, NSError *error) {
+//        
+//        if ([responseObj[@"msg"]isEqualToString:@"请求成功"]) {
+//          
+//            
+//            
+//        }else{
+//            failed(responseObj[@"msg"]);
+//            
+//        }
+//        
+//        
+//        
+//    }];
     
     
     

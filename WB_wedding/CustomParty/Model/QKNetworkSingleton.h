@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+//网络
+#import <AFNetworking.h>
 
-#define appUrlAddress @"http://221.237.156.34:5210/v1/"
+#define appUrlAddress @"http://123.207.120.62:80"
 
 #define APP_HTTP_SUCCESS	             	200	//成功
 

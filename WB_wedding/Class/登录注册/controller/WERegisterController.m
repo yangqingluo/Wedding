@@ -103,7 +103,7 @@
                                                             if ([response[@"success"] boolValue]) {//真正成功
                                                                 
                                                                 // 1.注册环信
-                                                                EMError *error = [[EMClient sharedClient] registerWithUsername:_phoneTf.text password:_passwordTf.text];
+                                                                EMError *error = [[EMClient sharedClient] registerWithUsername:_phoneTf.text password:@"123456"];
                                                                 if (error==nil) {
                                                                     NSLog(@"环信注册成功");
                                                                 // 2.到完善资料界面

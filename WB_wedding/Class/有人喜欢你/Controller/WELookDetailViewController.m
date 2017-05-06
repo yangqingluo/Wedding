@@ -629,13 +629,6 @@
         
     }else{
         // 提醒
-        if (kAppDelegate.isOnLine ==  NO ) {
-            [self showNoNetError];
-            return;
-        }
-        NSLog(@"=====%@",self.dic);
-        
-        
         [self showActivity];
         [WESomeOneLikeTool remindYourLikeWithID:self.dic[@"id"] success:^(id model) {
             [self cancleActivity];

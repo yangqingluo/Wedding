@@ -32,10 +32,6 @@
 }
 
 - (IBAction)loginBtn:(id)sender {
-    if (kAppDelegate.isOnLine == NO) {
-        [self showNoNetError];
-        return;
-    }
     if ([self isMobileNumber:self.numText.text] == NO) {
         [self showMessage:@"请输入正确的手机号" toView:self.view];
         return;

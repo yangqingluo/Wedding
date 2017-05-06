@@ -168,10 +168,7 @@ BMKLocationServiceDelegate>
 }
 
 - (IBAction)login:(UIButton *)sender {
-    if (kAppDelegate.isOnLine == NO) {
-        [self showMessage:@"请检查你的网络" toView:self.view];
-        return;
-    }
+
     //验证手机号
     if (self.passWordText.text.length && self.numberText.text.length) {
         [self showActivity];

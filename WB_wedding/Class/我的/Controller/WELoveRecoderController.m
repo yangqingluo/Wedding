@@ -122,10 +122,7 @@
     self.currentIndex = index;
     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
     NSDictionary *dic = self.dataSource[index.row];
-    if (kAppDelegate.isOnLine == NO) {
-        [self showNoNetError];
-        return;
-    }
+    
     [self showActivity];
     [WEMeTool queryOppositeWithMyId:model.xw_id hisOrHerId:dic[@"id"] success:^(NSString *modelss) {
         if ([modelss isEqualToString:@"2"]) {

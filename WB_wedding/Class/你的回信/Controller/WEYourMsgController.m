@@ -14,7 +14,6 @@
 
 @property (nonatomic,strong) UICollectionView  *collectionView;
 @property (nonatomic,strong) NSMutableArray  *dataSource;
-@property (nonatomic,strong) NSMutableArray  *cellArray;
 @property (nonatomic,strong) UIButton *editButton ;
 @property (nonatomic,assign) NSInteger       page;
 @end
@@ -27,7 +26,6 @@
     [self setupNav];
     
     self.dataSource = [NSMutableArray array];
-    self.cellArray = [NSMutableArray array];
     self.page = 1;
     
     [self configUserInterface];
@@ -129,20 +127,7 @@
 - (void)editButtonAction{
      self.editButton.selected = !self.editButton.selected;
     
-    if (self.editButton.selected) {
-        for (WEYourMessageCollectionCell *cell in self.cellArray) {
-            cell.deleteBtn.hidden = NO;
-            [AppPublic BeginWobble:cell];
-        }
-    }else{
-        
-        for (WEYourMessageCollectionCell *cell in self.cellArray) {
-            cell.deleteBtn.hidden = YES;
-            [AppPublic EndWobble:cell];
-        }
-
-    }
-    
+    [self.collectionView reloadData];
 }
 
 #pragma mark -- 删除
@@ -153,13 +138,12 @@
     NSString *s = [AppPublic convertArrayToJson:array];
     
     [self showHudInView:self.view hint:nil];
-    [WEYourMessageTool  deleteLikeYouWithID:s  success:^(id model) {
+    [WEYourMessageTool deleteLikeYouWithID:s  success:^(id model) {
         [self hideHud];
         [self.dataSource removeObjectAtIndex:indexPath.row];
         [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
         [self.collectionView reloadData];
         
-    
     } failed:^(NSString *error) {
         [self hideHud];
         [self showHint:error];
@@ -176,7 +160,7 @@
     
     
 }
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     WEYourMessageCollectionCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WEYourMessageCollectionCellID forIndexPath:indexPath];
     cell.indePath = indexPath;
     cell.delegate = self;
@@ -210,8 +194,9 @@
         [cell.imageVIew sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:@"baby"]];
         
     }
-        
-    [self.cellArray addObject:cell];
+    
+    cell.deleteBtn.hidden = !self.editButton.selected;
+    
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

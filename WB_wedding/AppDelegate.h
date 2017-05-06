@@ -14,7 +14,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property(nonatomic,getter=isOnLine) BOOL  onLine; //网络状态
+
 @property (nonatomic,getter=isWiFi) BOOL   wifiStatus;//是否是wifi状态
 /**
  *  百度地图管理者

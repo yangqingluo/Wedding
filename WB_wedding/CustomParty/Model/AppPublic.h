@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "AppType.h"
+#import "QKNetworkSingleton.h"
 
 #import "EaseUI.h"
 
-//网络
-#import <AFNetworking.h>
 //键盘
 #import <IQKeyboardManager.h>
 //布局
