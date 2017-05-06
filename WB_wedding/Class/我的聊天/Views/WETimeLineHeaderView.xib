@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WETimeLineHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="STv-IN-6mw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SJ-Zg-RX9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                    <connections>
+                        <action selector="bgBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="E4k-Yy-SJN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPo-fD-ZNQ">
+                    <rect key="frame" x="325" y="10" width="40" height="40"/>
+                    <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="1ms-tk-zZc"/>
+                        <constraint firstAttribute="width" constant="40" id="cuc-xC-tnD"/>
+                    </constraints>
+                    <state key="normal" title="定位">
+                        <color key="titleColor" red="1" green="0.13279198780000001" blue="0.12503892429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="locationBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="1DR-jE-1zA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPt-LR-LB6">
+                    <rect key="frame" x="20" y="10" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="61h-Qf-1h7"/>
+                        <constraint firstAttribute="width" constant="30" id="S7x-D9-vQc"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="return48_white"/>
+                    <connections>
+                        <action selector="bakBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="P9X-vR-9I2"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="WPt-LR-LB6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="0IE-f3-Tkc"/>
+                <constraint firstAttribute="bottom" secondItem="2SJ-Zg-RX9" secondAttribute="bottom" id="9em-Dq-qaY"/>
+                <constraint firstAttribute="trailing" secondItem="STv-IN-6mw" secondAttribute="trailing" id="CEj-5b-kon"/>
+                <constraint firstItem="STv-IN-6mw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EMw-7e-EE2"/>
+                <constraint firstAttribute="trailing" secondItem="2SJ-Zg-RX9" secondAttribute="trailing" id="FQc-dv-8kR"/>
+                <constraint firstAttribute="bottom" secondItem="STv-IN-6mw" secondAttribute="bottom" id="GCR-68-jek"/>
+                <constraint firstItem="WPt-LR-LB6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="LGP-8v-4A9"/>
+                <constraint firstAttribute="trailing" secondItem="CPo-fD-ZNQ" secondAttribute="trailing" constant="10" id="OSZ-B1-HmZ"/>
+                <constraint firstItem="STv-IN-6mw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XEj-3C-W3k"/>
+                <constraint firstItem="2SJ-Zg-RX9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dDS-Jb-oms"/>
+                <constraint firstItem="2SJ-Zg-RX9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="k0e-Y3-OIa"/>
+                <constraint firstItem="CPo-fD-ZNQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="m9i-L9-uY3"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bavkkkk" destination="WPt-LR-LB6" id="wre-at-EW2"/>
+                <outlet property="bgBtn" destination="2SJ-Zg-RX9" id="6Rs-tU-qpz"/>
+                <outlet property="bgInamegView" destination="STv-IN-6mw" id="G8w-dM-brM"/>
+            </connections>
+            <point key="canvasLocation" x="253.5" y="159"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="3" width="472" height="582"/>
+        <image name="return48_white" width="22" height="22"/>
+    </resources>
+</document>

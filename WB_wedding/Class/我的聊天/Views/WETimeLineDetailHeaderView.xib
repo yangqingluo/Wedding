@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WETimeLineDetailHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第一次唱歌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAc-pw-ZjD">
+                    <rect key="frame" x="10" y="5" width="300" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.13279198780000001" blue="0.12503892429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成都  欢乐迪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phW-8D-IUJ">
+                    <rect key="frame" x="10" y="36" width="88.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="1" green="0.13279198780000001" blue="0.12503892429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019年10月1日" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1x-wO-Ji2">
+                    <rect key="frame" x="201" y="36" width="108.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="1" green="0.13279198780000001" blue="0.12503892429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldm-Ed-zDN">
+                    <rect key="frame" x="0.0" y="69" width="320" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="VLb-dJ-H8l"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="phW-8D-IUJ" firstAttribute="top" secondItem="qAc-pw-ZjD" secondAttribute="bottom" constant="10" id="2Jv-Q9-o0v"/>
+                <constraint firstItem="W1x-wO-Ji2" firstAttribute="trailing" secondItem="qAc-pw-ZjD" secondAttribute="trailing" id="4JA-sV-F3n"/>
+                <constraint firstItem="qAc-pw-ZjD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="H3b-h6-6sF"/>
+                <constraint firstItem="phW-8D-IUJ" firstAttribute="leading" secondItem="qAc-pw-ZjD" secondAttribute="leading" id="HPA-jA-inr"/>
+                <constraint firstItem="qAc-pw-ZjD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="NJH-5l-vdT"/>
+                <constraint firstAttribute="trailing" secondItem="qAc-pw-ZjD" secondAttribute="trailing" constant="10" id="RG4-h0-ble"/>
+                <constraint firstItem="ldm-Ed-zDN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fej-l2-Ok9"/>
+                <constraint firstAttribute="bottom" secondItem="ldm-Ed-zDN" secondAttribute="bottom" id="hiz-HA-DUu"/>
+                <constraint firstAttribute="trailing" secondItem="ldm-Ed-zDN" secondAttribute="trailing" id="iaT-Ok-5su"/>
+                <constraint firstItem="W1x-wO-Ji2" firstAttribute="centerY" secondItem="phW-8D-IUJ" secondAttribute="centerY" id="nJI-pd-weO"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="adress" destination="phW-8D-IUJ" id="Ey0-ki-mcc"/>
+                <outlet property="evnet" destination="qAc-pw-ZjD" id="CFQ-kQ-mq8"/>
+                <outlet property="time" destination="W1x-wO-Ji2" id="Rte-2G-hR2"/>
+            </connections>
+        </view>
+    </objects>
+</document>

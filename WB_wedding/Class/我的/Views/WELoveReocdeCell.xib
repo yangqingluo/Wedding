@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WELoveReocdeCellID" id="KGk-i7-Jjw" customClass="WELoveReocdeCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby" translatesAutoresizingMaskIntoConstraints="NO" id="sNc-hu-18b">
+                        <rect key="frame" x="20" y="5" width="40" height="40"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Qfv-GQ-Kun"/>
+                            <constraint firstAttribute="width" constant="40" id="h1c-UT-Eyx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baby" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-9L-n2g">
+                        <rect key="frame" x="23" y="50" width="34.5" height="18"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共同经历了3个月零19天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFU-jC-ve9">
+                        <rect key="frame" x="80" y="27" width="139.5" height="16"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeF-G7-cXU">
+                        <rect key="frame" x="255" y="20" width="60" height="30"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="8vd-J1-u92"/>
+                            <constraint firstAttribute="width" constant="60" id="Xxs-Dw-371"/>
+                        </constraints>
+                        <state key="normal" title="复合">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="fuheClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ika-sp-dKG"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypu-Rj-WxK">
+                        <rect key="frame" x="0.0" y="68.5" width="320" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.85490196080000003" green="0.86666666670000003" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Gjr-Le-asM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="I5g-9L-n2g" firstAttribute="centerX" secondItem="sNc-hu-18b" secondAttribute="centerX" id="AVg-Ff-edc"/>
+                    <constraint firstItem="eFU-jC-ve9" firstAttribute="leading" secondItem="sNc-hu-18b" secondAttribute="trailing" constant="20" id="FGF-sD-Rce"/>
+                    <constraint firstItem="sNc-hu-18b" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-10" id="S10-Zy-QKg"/>
+                    <constraint firstItem="sNc-hu-18b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="SyZ-Co-gVn"/>
+                    <constraint firstItem="MeF-G7-cXU" firstAttribute="centerY" secondItem="eFU-jC-ve9" secondAttribute="centerY" id="TOn-1m-LZx"/>
+                    <constraint firstItem="I5g-9L-n2g" firstAttribute="top" secondItem="sNc-hu-18b" secondAttribute="bottom" constant="5" id="Xbh-vh-HZX"/>
+                    <constraint firstAttribute="trailing" secondItem="Ypu-Rj-WxK" secondAttribute="trailing" id="Xxg-Hp-o46"/>
+                    <constraint firstItem="Ypu-Rj-WxK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ecv-dM-vds"/>
+                    <constraint firstAttribute="trailing" secondItem="MeF-G7-cXU" secondAttribute="trailing" constant="5" id="fes-lp-f84"/>
+                    <constraint firstItem="eFU-jC-ve9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="o3l-Fq-8yr"/>
+                    <constraint firstAttribute="bottom" secondItem="Ypu-Rj-WxK" secondAttribute="bottom" id="rto-xa-uqO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="btn" destination="MeF-G7-cXU" id="UI1-c6-oKV"/>
+                <outlet property="icon" destination="sNc-hu-18b" id="1TH-Ug-0np"/>
+                <outlet property="name" destination="I5g-9L-n2g" id="wTu-xb-Qji"/>
+                <outlet property="time" destination="eFU-jC-ve9" id="bTX-Kn-MFa"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="baby" width="596" height="592"/>
+    </resources>
+</document>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WEMYAskViewController">
+            <connections>
+                <outlet property="tabelView" destination="QpB-1d-uW5" id="Qv9-YE-zp4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的问题将会被发送给您选中的心仪对象，您可以通过ta的回答来判断是否选择与他交往" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ill-M1-Vxm">
+                    <rect key="frame" x="20" y="64" width="335" height="61"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QpB-1d-uW5">
+                    <rect key="frame" x="0.0" y="135" width="375" height="532"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="fNg-je-kUU"/>
+                        <outlet property="delegate" destination="-1" id="Ryb-zn-JeP"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ill-M1-Vxm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1nV-Zl-uu2"/>
+                <constraint firstItem="ill-M1-Vxm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="67o-1a-I4b"/>
+                <constraint firstAttribute="trailing" secondItem="ill-M1-Vxm" secondAttribute="trailing" constant="20" id="KjI-tW-Ic7"/>
+                <constraint firstAttribute="trailing" secondItem="QpB-1d-uW5" secondAttribute="trailing" id="OWN-8i-3z1"/>
+                <constraint firstAttribute="bottom" secondItem="QpB-1d-uW5" secondAttribute="bottom" id="TtY-1l-6Cf"/>
+                <constraint firstItem="ill-M1-Vxm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="W1Q-HR-RA2"/>
+                <constraint firstItem="QpB-1d-uW5" firstAttribute="top" secondItem="ill-M1-Vxm" secondAttribute="bottom" constant="10" id="jzz-iV-RjX"/>
+                <constraint firstItem="QpB-1d-uW5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="k7y-Qq-9b1"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>

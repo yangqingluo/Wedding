@@ -1,0 +1,412 @@
+//
+//  PrefixHeader.pch
+//  WB_wedding
+//
+//  Created by 谢威 on 17/1/3.
+//  Copyright © 2017年 龙山科技. All rights reserved.
+//
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "AppPublic.h"
+#import "MainTabBarController.h"
+
+#import "AppDelegate.h"
+#import "XWContentView.h"
+#import "UIImage+XW.h"
+#import "NSString+XW.h"
+#import "UILabel+XW.h"
+#import "UIView+Extension.h"
+#import "UITableView+XW.h"
+#import "iCarousel.h"
+
+#import "UIButton+XW.h"
+
+
+
+
+#import "XWPopView.h"
+
+
+
+#import "HQBaseNetManager.h"
+#import "XWUserModel.h"
+
+#import "UIImageView+WebCache.h"
+
+#import "FMDB.h"
+#import "WEHomeCacheTool.h"
+
+// 7.4 增加打印的宏
+//#ifdef DEBUG
+//#define NSLog(...) NSLog(__VA_ARGS__)
+//#else
+//#define 
+//#endif
+
+
+
+
+#define AlipaySuccessNotification @"AlipaySuccessNotification"
+
+
+
+
+
+
+//屏幕宽度
+#define KScreenWidth [UIScreen mainScreen].bounds.size.width
+//屏幕高度
+#define KScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define KFont(A) [UIFont systemFontOfSize:A];
+
+#define kAppDelegate ((AppDelegate*)([UIApplication sharedApplication].delegate))
+
+#define KNotiCenter [NSNotificationCenter defaultCenter]
+
+#define KUserDefaults [NSUserDefaults standardUserDefaults]
+
+
+/**
+ *  以5为基础屏幕的宽高的比例
+ */
+#define XW_WITH  [UIScreen mainScreen].bounds.size.width/320
+#define XW_HIGHT [UIScreen mainScreen].bounds.size.height/568
+
+
+//通过RGB设置颜色
+#define kRGBColor(R,G,B)   [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
+
+#define KNaviBarTintColor [UIColor colorWithRed:251.0/255 green:114.0/255.0 blue:114/255.0 alpha:1.0]
+
+
+// 图片的地址
+#define ImageURL @"http://olea6cyar.bkt.clouddn.com/img"
+
+// 手机号的key
+#define KPhoneNumber @"KPhoneNumber"
+
+// 匹配成功的通知
+#define KMarchSuccess @"KMarchSuccess"
+
+// 取消匹配的通知
+#define KCancleMarch @"KCancleMarch"
+
+
+// 匹配的那个人的id
+#define KHisHerID @"KHisHerID"
+
+
+#define KHomeSize @"KHomeSize"
+
+#define KLng @"KLng"
+
+
+
+#define KLat @"KLat"
+
+#define AlipyPrviteKey @"MIIEpAIBAAKCAQEAuJvT2KsvH94RQ0ztFKSI/G/PYWhV6WGRlMQ5T0WVnoAqOqlH6O9+n/pqCUpyudFuuKXrr/MkXtGaRgKxIG7jKUpsbnlqmeb3gnGvI9dSPUUoLmy3orsT8Q4ehUgvV/HZ00vEG3NWbfvCcGDuHApcPRGM1Yn+EVSeLDjW15GS5G/OOVA0qQ0kE/rSwbFBujn02QBrKXVjppTOTXPgOatURSqx7SMSm97Y0PPafUQ6mnkIqrvxEhYSrrC+o+bPnPodclN/O0jZp2+1df09mwboCVSWENAf7mpWhk/7M/9AgkQbrV6N8dmfaf9ow2peLMNX+l5aP1xxEBwgtzUZdp0fTwIDAQABAoIBAFMHowx8UcGfe1wtqSPzrLj9AOTqrFk/TN8AMlZ5EYYsVtHzeShHL0h8tFxhY6A3lfjuh0ansOAEncKHS2su9HSJyKMXcN6vhvrgbslL+u0bwaq/swg55AozM372rHR9jl7+YMGH6oOlDBrHPdDWyA2faxxP6DmbOVjiZ56lFtAuxNnsSdl7IfEcezeaqJRIiz8SfsLmDCaYgdFwlHhv8NLlmFYn5VTVAS8JYmMcb7RusZru9oWNc11ca8ngc0tHDm28vLQCIxFaVrLFhrmBZebuc0mJmiBi5k7yWsRSoRysaLutfZA48bEoigjv3y0In+NBfkpIaHfKoolUjSij9yECgYEA7aG746F2BCmwtSgt37DRzOpZVhCue8wlBSNoHF50zm+uO6/VbNIAxI6vkyTolCuH/wd1vPmhjlv9ew2xUCMmsDD+2hzWPUWRhnWoXLi+NHweIadp0X66ddzxX/60ow/Bk2dSw3AhK8xULlKoSsPTpgF4vHsIeXpWWOjum2LaagMCgYEAxuDfAoBocF8HsIy2aiPwRZqIHO+aV6QznL/b+xWSpIUBzReJ7RqMbB3EbDM7JMaR76w7dMb0fdZDUkMJ/j62Z2l2de90UjdwIF22CJmtEhyDPvJfSrOqHz9NXDxdx3REt6iMvFFgDl1qPIv6UbDragbH703OVSxYFe/F1AOP2cUCgYEA0V//vME2ytQw7m1Ifh+9u1+A92QbWNi2haB8ywIuyPV9/vkeg5NFOeq+qFeM1YDFgt9/zdHllxlWbmXSJVnTbMq+wk9GNRZm8qIYhhoA/R2fLufjRML0Z4UU6A/z+PiZBtezBKB3ma+fPHF39ug0Q8BoMSn2fZJdIlmaYy7mYyECgYEAhNF5HjqThThx8j6HNKt7s4BYlrqN4SoQLgcT6sOlg6owYb/upSKt1SasH3a3cQAMRnxH2N1mOwP1QeLzsZBAUR/ltS2OCbpsb7El+Oho5UeVf1xut3z1iJjGGWtXVfUYT2+JTdsqw20vne/95MC697w/mlnkCo3q5fuTqtwWHeECgYBus4TCd/oTy0Xy1Pp62vEyh0I/zG8XKkU5RJWVh+C6sI8qq6wZ7XFCmlI+JiZyPpK8RxRrkLq/cNG+cAFPDWdOfNt1/oGZP7vULRi3GFzY5htzTTrNvQBHUXyCik1YF3RclFilL+WNiOh0s2Lw1d57cZHVnMCbshMTxIHSnWJ5Zw=="
+
+
+
+
+/**
+ *  百度地图的key
+ *
+ *  @return
+ */
+#define BaiduMapKey @"HDrG4AhcqHzYIAGD78Bak2cpHvEcCexW"
+
+
+/**
+ *  release不打印
+ */
+//#if (!defined(DEBUG))
+//#define NSLog(...)
+//#endif
+
+#pragma mark - 自己定义些宏
+#define IsHadUse                @"isHadUse"               //第一次使用APP
+#define IsHadAccountAndPassword @"IsHadAccountAndPassword"//已经有密码和账号了
+#define USERACCOUNT             @"userdefaultAccount"
+#define USERPWD                 @"userdefaultPassword"
+#define NUMBERS                 @"0123456789\n"
+#define TOKEN                   @"token"
+#define USERID                  @"userId"
+
+#define IMGURL(__x__) [@"http://pandaouba.oss-cn-shanghai.aliyuncs.com/image/" stringByAppendingString:__x__]
+#define HTTP_BASE_URL @"http://123.207.120.62:80"
+#define BASEURL(__xx__) [HTTP_BASE_URL stringByAppendingString:__xx__]
+#define QJRefreshToken @"QJRefreshToken"
+
+#define WS __weak typeof(self) weakSelf = self
+
+#pragma mark - 要引入的库
+#import "Constants.h"
+#import <SVProgressHUD.h>
+//#import "WMPageController.h"
+
+
+
+#pragma mark - 屏幕
+//----------------------屏幕    ----------------------------
+
+#define SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define SCREEN_H [UIScreen mainScreen].bounds.size.height
+#define SCREEN_W_X(X) ([UIScreen mainScreen].bounds.size.width / X)
+#define SCREEN_H_X(X) ([UIScreen mainScreen].bounds.size.height / X)
+#define KEYWINDOW [UIApplication sharedApplication].keyWindow
+#define SCREEN_POINT (float)SCREEN_W/320.f
+#define SCREEN_H_POINT (float)SCREEN_H/480.f
+#define kTabBarH        49.0f
+#define kStatusBarH     20.0f
+#define kNavigationBarH 44.0f
+
+//判断是否 Retina屏、设备是否iPhone 5、是否是iPad
+#define isRetina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+/** 判断是否为iPhone */
+#define isiPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+
+/** 判断是否是iPad */
+#define isiPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+/** 判断是否为iPod */
+#define isiPod ([[[UIDevice currentDevice] model] isEqualToString:@"iPod touch"])
+
+/** 设备是否为iPhone 4/4S 分辨率320x480，像素640x960，@2x */
+#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+/** 设备是否为iPhone 5C/5/5S 分辨率320x568，像素640x1136，@2x */
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+/** 设备是否为iPhone 6 分辨率375x667，像素750x1334，@2x */
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+
+/** 设备是否为iPhone 6 Plus 分辨率414x736，像素1242x2208，@3x */
+#define iPhone6P ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+
+
+#pragma mark - 系统版本
+//----------------------ABOUT SYSTYM & VERSION 系统与版本 ----------------------------
+
+//Get the OS version.       判断操作系统版本
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define CurrentSystemVersion ([[UIDevice currentDevice] systemVersion])
+#define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+
+//judge the simulator or hardware device        判断是真机还是模拟器
+#if TARGET_OS_IPHONE
+//iPhone Device
+#endif
+
+#if TARGET_IPHONE_SIMULATOR
+//iPhone Simulator
+#endif
+
+/** 获取系统版本 */
+#define iOS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
+#define CurrentSystemVersion ([[UIDevice currentDevice] systemVersion])
+
+/** 是否为iOS6 */
+#define iOS6 (([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0) ? YES : NO)
+
+/** 是否为iOS7 */
+#define iOS7 (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) ? YES : NO)
+
+/** 是否为iOS8 */
+#define iOS8 (([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) ? YES : NO)
+
+/** 是否为iOS9 */
+#define iOS9 (([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) ? YES : NO)
+
+/** 获取当前语言 */
+#define kCurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+
+
+
+
+#pragma mark - 图片
+//----------------------ABOUT IMAGE 图片 ----------------------------
+
+//LOAD LOCAL IMAGE FILE     读取本地图片
+#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
+
+//DEFINE IMAGE      定义UIImage对象//    imgView.image = IMAGE(@"Default.png");
+
+#define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]
+
+//DEFINE IMAGE      定义UIImage对象
+#define ImageNamed(_pointer) [UIImage imageNamed:[UIUtil imageName:_pointer]]
+
+//BETTER USER THE FIRST TWO WAY, IT PERFORM WELL. 优先使用前两种宏定义,性能高于后面.
+
+
+
+
+#pragma mark - 打印日志
+//----------------------ABOUT PRINTING LOG 打印日志 ----------------------------
+
+//Using dlog to print while in debug model.        调试状态下打印日志
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+//Printing while in the debug model and pop an alert.       模式下打印日志,当前行 并弹出一个警告
+#ifdef DEBUG
+#   define ULog(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
+#else
+#   define ULog(...)
+#endif
+
+
+/** print 打印rect,size,point */
+#ifdef DEBUG
+#define kLogPoint(point)    NSLog(@"%s = { x:%.4f, y:%.4f }", #point, point.x, point.y)
+#define kLogSize(size)      NSLog(@"%s = { w:%.4f, h:%.4f }", #size, size.width, size.height)
+#define kLogRect(rect)      NSLog(@"%s = { x:%.4f, y:%.4f, w:%.4f, h:%.4f }", #rect, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
+#endif
+
+
+
+
+#pragma mark - 颜色相关
+//----------------------ABOUT COLOR 颜色相关 ----------------------------
+
+#define MAINCOLOR  [UIColor colorWithRed:232.0/255.0 green:148.0/255.0 blue:45.0/255.0 alpha:1]
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+// rgb颜色转换（16进制->10进制）
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+//带有RGBA的颜色设置
+#define COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+
+#define kClearColor [UIColor clearColor]
+
+#define COLOR_BLUE_             UIColorFromRGB(0x41CEF2)
+#define COLOR_GRAY_             UIColorFromRGB(0xababab) //171
+#define COLOR_333               UIColorFromRGB(0x333333) //51
+#define COLOR_666               UIColorFromRGB(0x666666) //102
+#define COLOR_888               UIColorFromRGB(0x888888) //136
+#define COLOR_999               UIColorFromRGB(0x999999) //153
+#define COLOR_PLACEHOLD_        UIColorFromRGB(0xc5c5c5) //197
+#define COLOR_RED_              UIColorFromRGB(0xff5400) //红色
+#define COLOR_GREEN_            UIColorFromRGB(0x31d8ab)//绿色
+#define COLOR_YELLOW_           UIColorFromRGB(0xffa200)//黄色
+#define COLOR_SEPARATE_LINE     UIColorFromRGB(0xC8C8C8)//200
+#define COLOR_LIGHTGRAY         COLOR(200, 200, 200, 0.4)//淡灰色
+
+
+
+#pragma mark - 存储
+//----------------------SOMETHING ELSE 存储 ----------------------------
+#define QJ_USERDEFAULT [NSUserDefaults standardUserDefaults]
+/**
+ *  the saving objects      存储对象
+ *
+ *  @param __VALUE__ V
+ *  @param __KEY__   K
+ *
+ *  @return
+ */
+#define UserDefaultSetObjectForKey(__VALUE__,__KEY__) \
+{\
+[[NSUserDefaults standardUserDefaults] setObject:__VALUE__ forKey:__KEY__];\
+[[NSUserDefaults standardUserDefaults] synchronize];\
+}
+
+/**
+ *  get the saved objects       获得存储的对象
+ */
+#define UserDefaultObjectForKey(__KEY__)  [[NSUserDefaults standardUserDefaults] objectForKey:__KEY__]
+
+/**
+ *  delete objects      删除对象
+ */
+#define UserDefaultRemoveObjectForKey(__KEY__) \
+{\
+[[NSUserDefaults standardUserDefaults] removeObjectForKey:__KEY__];\
+[[NSUserDefaults standardUserDefaults] synchronize];\
+}
+
+#define PLIST_TICKET_INFO_EDIT [NSHomeDirectory() stringByAppendingString:@"/Documents/data.plist"] //edit the plist
+
+
+
+#pragma mark - UI
+#define TableViewCellDequeueInit(__INDETIFIER__) [tableView dequeueReusableCellWithIdentifier:(__INDETIFIER__)];
+
+#define TableViewCellDequeue(__CELL__,__CELLCLASS__,__INDETIFIER__) \
+{\
+if (__CELL__ == nil) {\
+__CELL__ = [[__CELLCLASS__ alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:__INDETIFIER__];\
+}\
+}
+
+
+
+#pragma mark - 提示框
+//----------------------提示框  ----------------------------
+
+//Show Alert, brackets is the parameters.       宏定义一个弹窗方法,括号里面是方法的参数
+#define ShowAlert    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning." message:nil delegate:self cancelButtonTitle:@"cancel" otherButtonTitles: @"OK"];[alert show];
+
+#define SVPERROR(__KEY__) [self showHint:__KEY__];\
+[SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+
+#define SVPSTATUS(__KEY__) [SVProgressHUD showWithStatus:__KEY__];\
+[SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+
+#define SVPSUCCESS(__KEY__)  [SVProgressHUD showSuccessWithStatus:__KEY__];
+
+#define SVPINFO(__KEY__) [SVProgressHUD showInfoWithStatus:__KEY__];\
+[SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+
+
+
+#define iPhone5AndEarlyDevice (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width <= 320*568)?YES:NO)
+#define Iphone6 (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width <= 375*667)?YES:NO)
+
+static inline float lengthFit(float iphone6PlusLength)
+{
+    if (iPhone5AndEarlyDevice) {
+        return iphone6PlusLength *320.0f/414.0f;
+    }
+    if (Iphone6) {
+        return iphone6PlusLength *375.0f/414.0f;
+    }
+    return iphone6PlusLength;
+}
+
+#define PAN_DISTANCE 120
+#define CARD_WIDTH lengthFit(333)
+#define CARD_HEIGHT lengthFit(400)
+
+
+
+#define iPhone5AndEarlyDevice (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width <= 320*568)?YES:NO)
+#define Iphone6 (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width <= 375*667)?YES:NO)
+
+
+
+
+
+
+
+
+
+
+
+#endif
+
+
+#endif

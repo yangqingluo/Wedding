@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WEMyAskCellID" id="KGk-i7-Jjw" customClass="WEMyAskCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzY-nZ-vs5">
+                        <rect key="frame" x="28" y="18.5" width="242" height="40"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="1vC-wB-1b6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X90-1r-3Qu">
+                        <rect key="frame" x="20" y="58.5" width="250" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="dFW-HF-Y6H"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Owk-VV-lWA">
+                        <rect key="frame" x="290" y="29" width="20" height="20"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.4039215686" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="vQ0-d5-7yU"/>
+                            <constraint firstAttribute="width" constant="20" id="vrW-Nf-VJk"/>
+                        </constraints>
+                        <state key="normal" title="-">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="deleBntClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="m5o-6l-Gsw"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1J-7i-l5o">
+                        <rect key="frame" x="8" y="27" width="12" height="20.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="X90-1r-3Qu" secondAttribute="trailing" constant="50" id="3yQ-TE-18d"/>
+                    <constraint firstItem="Owk-VV-lWA" firstAttribute="centerY" secondItem="NzY-nZ-vs5" secondAttribute="centerY" id="98t-3F-ES5"/>
+                    <constraint firstItem="NzY-nZ-vs5" firstAttribute="trailing" secondItem="X90-1r-3Qu" secondAttribute="trailing" id="Atk-B8-pny"/>
+                    <constraint firstItem="U1J-7i-l5o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="CG7-dP-VFy"/>
+                    <constraint firstAttribute="bottom" secondItem="U1J-7i-l5o" secondAttribute="bottom" constant="12" id="IIF-ar-4dE"/>
+                    <constraint firstItem="X90-1r-3Qu" firstAttribute="top" secondItem="NzY-nZ-vs5" secondAttribute="bottom" id="Ukn-mn-PAg"/>
+                    <constraint firstAttribute="trailing" secondItem="Owk-VV-lWA" secondAttribute="trailing" constant="10" id="gsc-LK-xVB"/>
+                    <constraint firstAttribute="bottom" secondItem="X90-1r-3Qu" secondAttribute="bottom" id="ng4-bp-cC9"/>
+                    <constraint firstItem="X90-1r-3Qu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="w9V-dK-No6"/>
+                    <constraint firstItem="NzY-nZ-vs5" firstAttribute="leading" secondItem="X90-1r-3Qu" secondAttribute="leading" constant="8" id="y3C-DU-a4r"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="deleteBtn" destination="Owk-VV-lWA" id="XQj-Hc-q77"/>
+                <outlet property="one" destination="U1J-7i-l5o" id="ASz-xZ-LpW"/>
+                <outlet property="textFiled" destination="NzY-nZ-vs5" id="OGv-J7-a5r"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
