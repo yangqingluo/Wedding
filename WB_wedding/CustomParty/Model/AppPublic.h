@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AppType.h"
 #import "QKNetworkSingleton.h"
+#import "UIView+KGViewExtend.h"
 
 #import "EaseUI.h"
 
@@ -74,11 +75,22 @@ NSString *sha1(NSString *string);
 //new button
 UIButton *NewTextButton(NSString *title, UIColor *textColor);
 
+//日期-文本转换
+NSDate *dateFromString(NSString *dateString, NSString *format);
+NSString *stringFromDate(NSDate *date, NSString *format);
+
++ (CGSize)textSizeWithString:(NSString *)text font:(UIFont *)font constantWidth:(CGFloat)width;
++ (CGSize)textSizeWithString:(NSString *)text font:(UIFont *)font constantHeight:(CGFloat)height;
+
 //开始抖动
 + (void)BeginWobble:(UIView *)view;
 
 //停止抖动
 + (void)EndWobble:(UIView *)view;
+
+//切圆角
++ (void)roundCornerRadius:(UIView *)view;
+
 
 /** 将数组转化为json字符串 */
 + (NSString *)convertArrayToJson:(NSArray *)array;

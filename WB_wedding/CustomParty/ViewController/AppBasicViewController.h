@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIView+KGViewExtend.h"
 
 #define iosVersion      ([[[UIDevice currentDevice] systemVersion] floatValue])
 

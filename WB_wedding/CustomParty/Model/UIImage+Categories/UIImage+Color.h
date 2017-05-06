@@ -13,6 +13,9 @@
 /** 根据颜色生成纯色图片 */
 + (UIImage *)imageWithColor:(UIColor *)color;
 
+/** 改变图片颜色 */
+- (UIImage *)imageWithColor:(UIColor *)color;
+
 /** 取图片某一像素的颜色 */
 - (UIColor *)colorAtPixel:(CGPoint)point;
 

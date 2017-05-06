@@ -8,14 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *WETimeLineCellID=  @"WETimeLineCellID";
 /**
  *  时间轴的控制器
  */
 @interface WETimeLineCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIView *tipView;
-@property (weak, nonatomic) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UILabel *envent;
-@property (weak, nonatomic) IBOutlet UILabel *adress;
+
+@property (nonatomic, strong) UIView *tipView;
+@property (nonatomic, strong) UIView *upLineView;
+@property (nonatomic, strong) UIView *bottomLineView;
+@property (nonatomic, strong) UIImageView *nextArrowView;
+@property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) UILabel *eventLabel;
+@property (nonatomic, strong) UILabel *addressLabel;
+
+@property (nonatomic, strong) NSDictionary *data;
+
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withData:(NSDictionary *)data;
+
 
 @end

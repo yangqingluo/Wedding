@@ -104,7 +104,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerNib:[UINib nibWithNibName:@"WETimeLineCell" bundle:nil] forCellReuseIdentifier:WETimeLineCellID];
     self.tableView.rowHeight = 100;
     
     
@@ -144,11 +143,12 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = KNaviBarTintColor;
     [btn setTitle:@"记录" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14.0];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    btn.layer.masksToBounds= YES;
-    btn.layer.cornerRadius = 30;
-    btn.frame = CGRectMake(KScreenWidth-80,300,60, 60);
+    
+    btn.frame = CGRectMake(KScreenWidth - 45, headrView.bottom - 20, 40, 40);
+    [AppPublic roundCornerRadius:btn];
     [self.view addSubview:btn];
     
 
@@ -324,34 +324,40 @@
 }
 
 
+#pragma tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     return self.dataSource.count;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    WETimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:WETimeLineCellID];
-    
-    if (self.dataSource.count) {
-        NSLog(@"%@",self.dataSource);
-        NSDictionary  *dic = self.dataSource[indexPath.row];
-        cell.adress.text  = [NSString stringWithFormat:@"%@  %@",dic[@"city"],dic[@"location"]];
-        cell.envent.text = dic[@"eventContent"];
-        NSString *time = [NSString stringWithFormat:@"%@",dic[@"eventTime"]];
-        
-        NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:[time longLongValue]/1000.0];
-        
-        NSDateFormatter *df = [[NSDateFormatter alloc] init];//格式化
-        [df setDateFormat:@"yy-MM-dd HH:mm"];
-        [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"] ];
-        NSString * timeStr =[df stringFromDate:d];
-        cell.time.text = timeStr;
-        
-        
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [WETimeLineCell tableView:tableView heightForRowAtIndexPath:indexPath withData:self.dataSource[indexPath.row]];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *cellIndentifier = @"timelineCell";
+    WETimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+    
+    if (!cell) {
+        cell = [[WETimeLineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    
+    cell.data = self.dataSource[indexPath.row];
+    
     return cell;
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     WETimeLineDetailController *vc = [[WETimeLineDetailController alloc]init];
     

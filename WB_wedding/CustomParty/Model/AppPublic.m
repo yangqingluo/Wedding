@@ -112,6 +112,55 @@ UIButton *NewTextButton(NSString *title, UIColor *textColor){
     return button;
 }
 
+//日期-文本转换
+NSDate *dateFromString(NSString *dateString, NSString *format){
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:format];
+    
+    NSDate *destDate= [dateFormatter dateFromString:dateString];
+    
+    
+    return destDate;
+    
+}
+
+NSString *stringFromDate(NSDate *date, NSString *format){
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:format];
+    
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    
+    
+    return destDateString;
+}
+
++ (CGSize)textSizeWithString:(NSString *)text font:(UIFont *)font constantWidth:(CGFloat)width{
+    NSMutableParagraphStyle *paragraphStyle= [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraphStyle.alignment = 0;
+    
+    NSStringDrawingOptions drawOptions = NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+    NSDictionary *attibutes = @{NSFontAttributeName:font,NSParagraphStyleAttributeName:paragraphStyle};
+    
+    return [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:drawOptions attributes:attibutes context:nil].size;
+}
+
++ (CGSize)textSizeWithString:(NSString *)text font:(UIFont *)font constantHeight:(CGFloat)height{
+    NSMutableParagraphStyle *paragraphStyle= [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraphStyle.alignment = 0;
+    
+    
+    NSStringDrawingOptions drawOptions = NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+    NSDictionary *attibutes = @{NSFontAttributeName:font,NSParagraphStyleAttributeName:paragraphStyle};
+    
+    return [text boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:drawOptions attributes:attibutes context:nil].size;
+}
+
 /** 将数组转化为json字符串 */
 + (NSString *)convertArrayToJson:(NSArray *)array{
     NSError *error = nil;
@@ -169,6 +218,12 @@ UIButton *NewTextButton(NSString *title, UIColor *textColor){
     } completion:^(BOOL finished) {
         
     }];
+}
+
+//切圆角
++ (void)roundCornerRadius:(UIView *)view{
+    view.layer.cornerRadius = 0.5 * MAX(view.width, view.height);
+    view.layer.masksToBounds = YES;
 }
 
 - (void)logOut{

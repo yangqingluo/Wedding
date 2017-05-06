@@ -234,7 +234,6 @@
 		5D9E498F1E2CB3AF00B9C88C /* WETestChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E498E1E2CB3AF00B9C88C /* WETestChatViewController.m */; };
 		5D9E49921E2CB48600B9C88C /* WETimeLineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E49911E2CB48600B9C88C /* WETimeLineController.m */; };
 		5D9E49961E2CB66400B9C88C /* WETimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E49941E2CB66400B9C88C /* WETimeLineCell.m */; };
-		5D9E49971E2CB66400B9C88C /* WETimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9E49951E2CB66400B9C88C /* WETimeLineCell.xib */; };
 		5D9E499A1E2CB8A300B9C88C /* WETimeLineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E49991E2CB8A300B9C88C /* WETimeLineHeaderView.m */; };
 		5D9E499C1E2CB8AF00B9C88C /* WETimeLineHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9E499B1E2CB8AF00B9C88C /* WETimeLineHeaderView.xib */; };
 		5D9E499F1E2CBDBC00B9C88C /* WERecoderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E499E1E2CBDBC00B9C88C /* WERecoderView.m */; };
@@ -302,6 +301,8 @@
 		E9D582441E4D9A190071E88F /* STUI.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5823A1E4D9A190071E88F /* STUI.m */; };
 		E9D582451E4D9A190071E88F /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5823C1E4D9A190071E88F /* UIView+ST.m */; };
 		E9D582561E4E07800071E88F /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9D582551E4E07800071E88F /* area.plist */; };
+		FCA704DE1EBDC17F00630129 /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704DC1EBDC17F00630129 /* cell_next@2x.png */; };
+		FCA704DF1EBDC17F00630129 /* cell_next@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704DD1EBDC17F00630129 /* cell_next@3x.png */; };
 		FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */; };
 		FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */; };
 		FCD3AAE31EBCE3B2005AC352 /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AAC51EBCE3B2005AC352 /* AppPublic.m */; };
@@ -852,7 +853,6 @@
 		5D9E49911E2CB48600B9C88C /* WETimeLineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETimeLineController.m; sourceTree = "<group>"; };
 		5D9E49931E2CB66400B9C88C /* WETimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETimeLineCell.h; sourceTree = "<group>"; };
 		5D9E49941E2CB66400B9C88C /* WETimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETimeLineCell.m; sourceTree = "<group>"; };
-		5D9E49951E2CB66400B9C88C /* WETimeLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WETimeLineCell.xib; sourceTree = "<group>"; };
 		5D9E49981E2CB8A300B9C88C /* WETimeLineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETimeLineHeaderView.h; sourceTree = "<group>"; };
 		5D9E49991E2CB8A300B9C88C /* WETimeLineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETimeLineHeaderView.m; sourceTree = "<group>"; };
 		5D9E499B1E2CB8AF00B9C88C /* WETimeLineHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WETimeLineHeaderView.xib; sourceTree = "<group>"; };
@@ -963,6 +963,8 @@
 		E9D5823C1E4D9A190071E88F /* UIView+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ST.m"; sourceTree = "<group>"; };
 		E9D582551E4E07800071E88F /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		EC7DCA563DE1AD2614468DAF /* libPods-WB_wedding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WB_wedding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA704DC1EBDC17F00630129 /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
+		FCA704DD1EBDC17F00630129 /* cell_next@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@3x.png"; sourceTree = "<group>"; };
 		FCD3AA8D1EBC8599005AC352 /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
 		FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+EaseMob.m"; sourceTree = "<group>"; };
 		FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDemoHelper.m; sourceTree = "<group>"; };
@@ -1740,6 +1742,7 @@
 		5D793B1C1E1B429100236506 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FCA704DB1EBDC17F00630129 /* Pictures */,
 				5D793B281E1B429100236506 /* Assets.xcassets */,
 				5D793B2D1E1B429100236506 /* Info.plist */,
 				5D793B2A1E1B429100236506 /* LaunchScreen.storyboard */,
@@ -1993,7 +1996,6 @@
 			children = (
 				5D9E49931E2CB66400B9C88C /* WETimeLineCell.h */,
 				5D9E49941E2CB66400B9C88C /* WETimeLineCell.m */,
-				5D9E49951E2CB66400B9C88C /* WETimeLineCell.xib */,
 				5D9E49981E2CB8A300B9C88C /* WETimeLineHeaderView.h */,
 				5D9E49991E2CB8A300B9C88C /* WETimeLineHeaderView.m */,
 				5D9E499B1E2CB8AF00B9C88C /* WETimeLineHeaderView.xib */,
@@ -2476,6 +2478,15 @@
 			path = STConfig;
 			sourceTree = "<group>";
 		};
+		FCA704DB1EBDC17F00630129 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				FCA704DC1EBDC17F00630129 /* cell_next@2x.png */,
+				FCA704DD1EBDC17F00630129 /* cell_next@3x.png */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
 		FCD3AA8C1EBC8599005AC352 /* AppEaseMob */ = {
 			isa = PBXGroup;
 			children = (
@@ -2638,7 +2649,6 @@
 				5D5F6DC11E235E5D00A0D82A /* CardCellCollectionViewCell.xib in Resources */,
 				5D7469FC1E2DAA3A001FE1A1 /* WECodeLoginController.xib in Resources */,
 				E93175C21E2E221F00E5FF14 /* WalletVC.xib in Resources */,
-				5D9E49971E2CB66400B9C88C /* WETimeLineCell.xib in Resources */,
 				5DD451E71E8C0DB100135479 /* WEChangePwdController.xib in Resources */,
 				5D3085F91E276E6400CA138C /* WECommentCell.xib in Resources */,
 				E9415ACB1E2FC6C5002325A0 /* LoveCoinRechargeVC.xib in Resources */,
@@ -2648,8 +2658,10 @@
 				5D9E5A921E52E841000E9216 /* WELocationCell.xib in Resources */,
 				E9415ACE1E2FC6C5002325A0 /* WalletPayVC.xib in Resources */,
 				5D39E5681E35D65C0093A4A5 /* WESeletedController.xib in Resources */,
+				FCA704DF1EBDC17F00630129 /* cell_next@3x.png in Resources */,
 				5DBBF9CC1E558C6000DB716E /* WETimeLineFooterView.xib in Resources */,
 				5D3085E21E2755D500CA138C /* WELookDetailCell.xib in Resources */,
+				FCA704DE1EBDC17F00630129 /* cell_next@2x.png in Resources */,
 				5D3085E71E275BC500CA138C /* WELookDetailHeaderView.xib in Resources */,
 				5DBBF9BD1E55899900DB716E /* WETimeLineDetailController.xib in Resources */,
 				5DBA2BCD1E348BE1005B414A /* WEMyMessgaeController.xib in Resources */,
