@@ -61,8 +61,8 @@
 - (void)createNavWithTitle:(NSString *)szTitle createMenuItem:(UIView *(^)(int nIndex))menuItem{
     [self setupNavigationViews];
     
-    self.title = szTitle;
-    
+//    self.title = szTitle;
+    self.titleLabel.text = szTitle;
     NSUInteger itemCount = 4;
     for (int i = 0; i < itemCount; i++) {
         UIView *item = menuItem(i);
@@ -90,6 +90,14 @@
     }
     
     return _titleLabel;
+}
+
+- (CGFloat)scaleX{
+    return screen_width / 320.0;
+}
+
+- (CGFloat)scaleY{
+    return screen_height / 568.0;
 }
 
 @end

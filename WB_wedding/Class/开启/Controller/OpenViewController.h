@@ -6,8 +6,8 @@
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "HQBaseViewController.h"
+#import "AppBasicViewController.h"
 
-@interface OpenViewController : HQBaseViewController
+@interface OpenViewController : AppBasicViewController
 
 @end

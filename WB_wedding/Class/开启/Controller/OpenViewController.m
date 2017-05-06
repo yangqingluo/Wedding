@@ -78,22 +78,15 @@ CGFloat yFromCenter;
 
 @implementation OpenViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"完美人生";
-    self.view.backgroundColor = [UIColor whiteColor];
+    [self setupNav];
+
     self.dataSource = [NSMutableArray array];
     self.items = [NSMutableArray array];
     self.cellArray = [NSMutableArray array];
     self.allPicArray = [NSMutableArray array];
      self.page = 1;
-//    [self.items addObject:@"baby"];
-//    [self.items addObject:@"bg"];
-//    [self.items addObject:@"test"];
-//    [self.items addObject:@"3"];
-//    [self.items addObject:@"3"];
     
     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
     
@@ -195,6 +188,14 @@ CGFloat yFromCenter;
     
 }
 
+- (void)setupNav {
+    [self createNavWithTitle:@"完美人生" createMenuItem:^UIView *(int nIndex){
+        
+        return nil;
+    }];
+    
+}
+
 #pragma mark -- 请求数据
 - (void)getData{
     
@@ -224,7 +225,7 @@ CGFloat yFromCenter;
         
     }
 //    [self.allPicArray removeAllObjects];
-    [self showActivity];
+    [self showHudInView:self.view hint:nil];
     [KUserDefaults setObject:[NSString stringWithFormat:@"%ld",page] forKey:@"KPage"];
     [WEMarchTool marchPersonWithID:[XWUserModel getUserInfoFromlocal].xw_id  page:[NSString stringWithFormat:@"%ld",page] size:@"15" success:^(NSArray *modelss) {
       
@@ -247,14 +248,14 @@ CGFloat yFromCenter;
             
         }
         
-          [self cancleActivity];
+        [self hideHud];
         [self.carousel reloadData];
         [self.allPicArray addObjectsFromArray:modelss];
         
         
     } failed:^(NSString *error) {
-        [self cancleActivity];
-        [self showMessage:error toView:self.view];
+        [self hideHud];
+        [self showHint:error];
         
     }];
     

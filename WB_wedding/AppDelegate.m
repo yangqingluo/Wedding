@@ -64,9 +64,6 @@ static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
     apnsCertName = @"ww_dis";
 #endif
     
-
-    // 监听网络环境 //
-    [self configNetInfo];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
@@ -303,44 +300,6 @@ didFinishLaunchingWithOptions:launchOptions
 }
 
 - (void)configJPush {
-    
-    
-}
-
-
-
-// // // 
-#pragma mark -- 配置网络信息
-- (void)configNetInfo{
-    
-    //    电池条显示网络活动
-    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    //    检测网络状态
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        
-        switch (status) {
-            case AFNetworkReachabilityStatusReachableViaWiFi:{
-                self.wifiStatus = YES;
-                self.onLine = YES;
-                break;
-            }
-            case AFNetworkReachabilityStatusReachableViaWWAN:{
-                self.wifiStatus = NO;
-                self.onLine = YES;
-                break;
-            }
-            case AFNetworkReachabilityStatusNotReachable:{
-                break;
-            }
-            default:{
-                self.wifiStatus = NO;
-                self.onLine = NO;
-                //断网的时候将登陆状态置为否
-                break;
-            }
-        }
-    }];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     
 }

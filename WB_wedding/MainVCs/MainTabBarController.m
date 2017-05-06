@@ -38,7 +38,7 @@
     if (self) {
         self.viewControllers = @[[WEMyChatController new], [WEYourMsgController new],[OpenViewController new], [WESomeOneLikeController new], [WEMeViewController new]];
         self.tabBar.backgroundImage = [[UIImage imageWithColor:[UIColor whiteColor]] stretchableImageWithLeftCapWidth:25 topCapHeight:25];
-        self.tabBar.tintColor = [UIColor redColor];
+        self.tabBar.tintColor = navigationBarColor;
         
         for (UIViewController *vc in self.viewControllers) {
             NSDictionary *dic = self.tabItemArray[[self.viewControllers indexOfObject:vc]];

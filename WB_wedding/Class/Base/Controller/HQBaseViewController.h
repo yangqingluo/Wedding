@@ -17,8 +17,8 @@ typedef void(^actionBack)(void);
 /**
  *  宽高比
  */
-@property (nonatomic,assign)CGFloat scaleX;
-@property (nonatomic,assign)CGFloat scaleY;
+@property (nonatomic, assign) CGFloat scaleX;
+@property (nonatomic, assign) CGFloat scaleY;
 /**
  *  自定义的导航栏 系统的导航栏被隐藏了
  */

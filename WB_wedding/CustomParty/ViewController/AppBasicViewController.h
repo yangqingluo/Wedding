@@ -13,6 +13,11 @@
 
 @interface AppBasicViewController : UIViewController
 
+/**
+ *  宽高比
+ */
+@property (nonatomic, assign) CGFloat scaleX;
+@property (nonatomic, assign) CGFloat scaleY;
 
 @property (nonatomic, strong) UIImageView *navigationBarView;
 

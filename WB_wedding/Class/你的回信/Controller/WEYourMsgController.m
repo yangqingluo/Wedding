@@ -11,11 +11,12 @@
 #import "WELookDetailViewController.h"
 #import "WEYourMessageTool.h"
 @interface WEYourMsgController ()<UICollectionViewDelegate,UICollectionViewDataSource,WEYourMessageCollectionCellDelegate>
-@property (nonatomic,strong)UICollectionView  *collectionView;
-@property (nonatomic,strong)NSMutableArray  *dataSource;
-@property (nonatomic,strong)NSMutableArray  *cellArray;
-@property (nonatomic,strong)  UIButton *btn ;
-@property (nonatomic,assign)NSInteger       page;
+
+@property (nonatomic,strong) UICollectionView  *collectionView;
+@property (nonatomic,strong) NSMutableArray  *dataSource;
+@property (nonatomic,strong) NSMutableArray  *cellArray;
+@property (nonatomic,strong) UIButton *editButton ;
+@property (nonatomic,assign) NSInteger       page;
 @end
 
 @implementation WEYourMsgController
@@ -23,25 +24,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"丘比特的信";
+    [self setupNav];
+    
     self.dataSource = [NSMutableArray array];
-     self.cellArray = [NSMutableArray array];
+    self.cellArray = [NSMutableArray array];
     self.page = 1;
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
-//    [self.dataSource addObject:@"1"];
+    
     [self configUserInterface];
     
     
 }
+
+- (void)setupNav {
+    [self createNavWithTitle:@"丘比特的信" createMenuItem:^UIView *(int nIndex){
+        if (nIndex == 0) {
+            UIButton *btn = NewTextButton(@"编辑", [UIColor whiteColor]);
+            [btn addTarget:self action:@selector(editButtonAction) forControlEvents:UIControlEventTouchUpInside];
+            
+            [btn setTitle:@"完成" forState:UIControlStateSelected];
+            self.editButton = btn;
+            return btn;
+        }
+        
+        return nil;
+    }];
+    
+}
+
 
 - (void)configUserInterface{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
@@ -63,24 +72,6 @@
 
     
     [self.view addSubview:self.collectionView];
-    
-    // 2.
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"编辑" forState:UIControlStateNormal];
-    [btn setTitle:@"完成" forState:UIControlStateSelected];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:15];
-    [btn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.baseNavigationBar addSubview:btn];
-    CGSize size = [@"编辑" boundingRectWithSize:CGSizeMake(KScreenWidth, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil].size;
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.baseNavigationBar);
-        make.height.width.mas_equalTo(size.width);
-        make.right.mas_equalTo(self.baseNavigationBar.mas_right).offset(-20);
-    }];
-    self.btn = btn;
-    
-    
 }
 
 
@@ -98,7 +89,7 @@
 
     } failed:^(NSString *error) {
         [self.collectionView.mj_header endRefreshing];
-        [self showMessage:error toView:self.view];
+        [self showHint:error];
         
         
     }];
@@ -126,7 +117,7 @@
         
     } failed:^(NSString *error) {
         
-        [self showMessage:error toView:self.view];
+        [self showHint:error];
         [self.collectionView.mj_footer endRefreshing];
 
         
@@ -135,30 +126,19 @@
 }
 
 
-
-
-
--(void)rightBtnClick:(UIButton *)sender{
-     sender.selected = !sender.selected;
+- (void)editButtonAction{
+     self.editButton.selected = !self.editButton.selected;
     
-    if (sender.selected == YES) {
+    if (self.editButton.selected) {
         for (WEYourMessageCollectionCell *cell in self.cellArray) {
             cell.deleteBtn.hidden = NO;
-//            CAKeyframeAnimation * keyAnimaion = [CAKeyframeAnimation animation];
-//            keyAnimaion.keyPath = @"transform.rotation";
-//            keyAnimaion.values = @[@(-5 / 180.0 * M_PI),@(5 /180.0 * M_PI),@(-5/ 180.0 * M_PI)];//度数转弧度
-//            keyAnimaion.removedOnCompletion = NO;
-//            keyAnimaion.fillMode = kCAFillModeForwards;
-//            keyAnimaion.duration = 0.5;
-//            keyAnimaion.repeatCount = MAXFLOAT;
-//            [cell.layer addAnimation:keyAnimaion forKey:nil];
-            
+            [AppPublic BeginWobble:cell];
         }
     }else{
         
         for (WEYourMessageCollectionCell *cell in self.cellArray) {
             cell.deleteBtn.hidden = YES;
-            [cell.layer removeAllAnimations];
+            [AppPublic EndWobble:cell];
         }
 
     }
@@ -170,19 +150,19 @@
     NSDictionary *dic = self.dataSource[indexPath.row];
 
     NSArray *array = @[dic[@"id"]];
-    NSString *s = [self convertArrayToJson:array];
+    NSString *s = [AppPublic convertArrayToJson:array];
     
-    [self showActivity];
+    [self showHudInView:self.view hint:nil];
     [WEYourMessageTool  deleteLikeYouWithID:s  success:^(id model) {
-        [self cancleActivity];
+        [self hideHud];
         [self.dataSource removeObjectAtIndex:indexPath.row];
         [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
         [self.collectionView reloadData];
         
     
     } failed:^(NSString *error) {
-        [self cancleActivity];
-        [self showMessage:error toView:self.view];
+        [self hideHud];
+        [self showHint:error];
         
         
     }];

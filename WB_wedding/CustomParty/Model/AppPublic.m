@@ -102,17 +102,60 @@ NSString *sha1(NSString *string){
     return outputStr;
 }
 
+UIButton *NewTextButton(NSString *title, UIColor *textColor){
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:textColor forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:16.0];
+    //    saveButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    
+    return button;
+}
+
+/** 将数组转化为json字符串 */
++ (NSString *)convertArrayToJson:(NSArray *)array{
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array options:NSJSONWritingPrettyPrinted error:&error];
+    if (!error) {
+        if (jsonData && jsonData.length > 0) {
+            NSString *jsonStr = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+            return jsonStr;
+        }
+        return nil;
+    } else {
+        return nil;
+    }
+}
+
+
+/** 将字典转化为json字符串 *///
++ (NSString *)convertDictionaryToJson:(NSDictionary *)dictionary{
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
+    if (!error) {
+        if (jsonData && jsonData.length > 0) {
+            NSString *jsonStr = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+            return jsonStr;
+        }
+        return nil;
+    } else {
+        return nil;
+    }
+}
+
 //开始抖动
-- (void)BeginWobble:(UIView *)view{
++ (void)BeginWobble:(UIView *)view{
     srand([[NSDate date] timeIntervalSince1970]);
-    float rand=(float)random();
+    float rand = (float)random();
     CFTimeInterval t = rand * 0.0000000001;
     
     [UIView animateWithDuration:0.1 delay:t options:0 animations:^{
-        view.transform = CGAffineTransformMakeRotation(-0.05);
+        view.transform = CGAffineTransformMakeRotation(-0.01);
     } completion:^(BOOL finished){
         [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionRepeat|UIViewAnimationOptionAutoreverse|UIViewAnimationOptionAllowUserInteraction  animations:^{
-            view.transform = CGAffineTransformMakeRotation(0.05);
+            view.transform = CGAffineTransformMakeRotation(0.01);
         } completion:^(BOOL finished) {
             
         }];
@@ -120,7 +163,7 @@ NSString *sha1(NSString *string){
 }
 
 //停止抖动
-- (void)EndWobble:(UIView *)view{
++ (void)EndWobble:(UIView *)view{
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionBeginFromCurrentState animations:^{
         view.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {

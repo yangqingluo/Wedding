@@ -31,7 +31,7 @@
 
 #define RGBA(R, G, B, A) [UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:A]
 
-#define navigationBarColor           RGBA(0x30, 0x30, 0x30, 1.0)
+#define navigationBarColor           RGBA(251, 114, 114, 1.0)
 #define separaterColor               RGBA(0xe5, 0xe5, 0xe5, 1)
 #define separaterAlphaColor          RGBA(0xe5, 0xe5, 0xe5, 0.6)
 
@@ -71,6 +71,21 @@ BOOL isFirstUsing();
  @brief sha1加密
  */
 NSString *sha1(NSString *string);
+
+//new button
+UIButton *NewTextButton(NSString *title, UIColor *textColor);
+
+//开始抖动
++ (void)BeginWobble:(UIView *)view;
+
+//停止抖动
++ (void)EndWobble:(UIView *)view;
+
+/** 将数组转化为json字符串 */
++ (NSString *)convertArrayToJson:(NSArray *)array;
+
+/** 将字典转化为json字符串 *///
++ (NSString *)convertDictionaryToJson:(NSDictionary *)dictionary;
 
 - (void)logOut;
 - (void)loginDonewithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password;
