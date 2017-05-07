@@ -176,7 +176,7 @@ BMKLocationServiceDelegate>
         [WELoginTool normalLoginWithNumber:self.numberText.text latitude:self.lat ? self.lat : @"0" loginType:@"0" longitude:self.lng ? self.lng : @"0" password:self.passWordText.text success:^(id model) {
             
             
-            EMError *error = [[EMClient sharedClient] loginWithUsername:self.numberText.text password:self.passWordText.text];
+            EMError *error = [[EMClient sharedClient] loginWithUsername:self.numberText.text password:EMPassword];
             if (!error || error.code == EMErrorUserAlreadyLogin) {
                 
                 // 1.环信自动登录

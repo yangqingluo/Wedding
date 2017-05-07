@@ -56,11 +56,14 @@
 #define kUserName                    @"username_wedding"
 #define kUserData                    @"userdata_wedding"
 
+
+#define EMPassword          @"123456"
 #define downloadImagePlace  @"download_image_default"
 
 @interface AppPublic : NSObject
 
 @property (nonatomic, strong) AppUserData *userData;
+@property (nonatomic, strong) NSArray *infoItemLists;
 
 + (AppPublic *)getInstance;
 

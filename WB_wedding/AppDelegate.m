@@ -11,7 +11,6 @@
 #import "WELoginTool.h"
 #import <SMS_SDK/SMSSDK.h>
 #import <SMS_SDK/Extend/SMSSDK+AddressBookMethods.h>
-#import "FirstPageController.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "XWUserModel.h"
 #import <CoreLocation/CoreLocation.h>
@@ -33,16 +32,11 @@
 static NSString *const MOB_AppKey = @"1b12a4df0aba0";
 static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
 
-@interface AppDelegate ()<JPUSHRegisterDelegate,CLLocationManagerDelegate,BMKGeoCodeSearchDelegate>
-
-{
-    
+@interface AppDelegate ()<JPUSHRegisterDelegate,CLLocationManagerDelegate,BMKGeoCodeSearchDelegate>{
     CLLocationManager *locationManager;
     CLLocation        *newLocation;
     CLLocationCoordinate2D coordinate;
 }
-
-
 
 @end
 
@@ -69,27 +63,27 @@ static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
     
     if (model!=nil) {
-//
-//        // 刷新个人信息
-//        [WEMarchTool refreshSelfInfoWithID:model.xw_id success:^(id model) {
-//            
-//        } failed:^(NSString *error) {
-//            
-//        }];
-//        
-//        
-//        // 刷新地理位置
-//        [self ffff];
-//        
-//        
-//        // 登录过的
+        //
+        //        // 刷新个人信息
+        //        [WEMarchTool refreshSelfInfoWithID:model.xw_id success:^(id model) {
+        //
+        //        } failed:^(NSString *error) {
+        //
+        //        }];
+        //
+        //
+        //        // 刷新地理位置
+        //        [self ffff];
+        //
+        //
+        //        // 登录过的
         [[AppPublic getInstance] goToMainVC];
         
     }else{
         // 没有登录
         [[AppPublic getInstance] goToLoginCompletion:nil];
-
-     }
+        
+    }
     [self.window makeKeyAndVisible];
     
     [self easemobApplication:application
@@ -132,7 +126,7 @@ didFinishLaunchingWithOptions:launchOptions
     
     //注册远端消息通知获取device token
     [application registerForRemoteNotifications];
-
+    
     
     return YES;
 }
@@ -145,8 +139,6 @@ didFinishLaunchingWithOptions:launchOptions
 }
 - (void)registSuccessNoti:(NSNotification *)noti{
     NSLog(@"aaaaaaaaaaaaaaaaaaaa注册通知成功:%@",noti.userInfo);
-    
-    
 }
 - (void)getUserNoti:(NSNotification *)noti{
     NSLog(@"iiiiiiiiiiiiiiiiiiii收到自定义通知(非APNS):%@",noti.userInfo);
@@ -182,7 +174,7 @@ didFinishLaunchingWithOptions:launchOptions
     
     [KUserDefaults setObject:[NSString stringWithFormat:@"%f",lat] forKey:KLat];
     [KUserDefaults setObject:[NSString stringWithFormat:@"%f",lon] forKey:KLng];
-
+    
     
     ///反geo检索信息类
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
@@ -198,9 +190,6 @@ didFinishLaunchingWithOptions:launchOptions
     else{
         NSLog(@"反geo检索发送失败");
     }
-
-    
-    
     
 }
 
@@ -218,8 +207,6 @@ didFinishLaunchingWithOptions:launchOptions
         [KUserDefaults setObject:result.addressDetail.city forKey:@"locationCity"];
         [locationManager stopUpdatingLocation];
     }
-    
-    
 }
 
 
@@ -229,13 +216,13 @@ didFinishLaunchingWithOptions:launchOptions
 }
 
 - (void)ffff{
-//    // 上传位置
+    //    // 上传位置
     
     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
     
     double lat = newLocation.coordinate.latitude;
     double lon = newLocation.coordinate.longitude;
-
+    
     if (model != nil) {
         NSDictionary *dic = @{
                               @"userId":model.xw_id,
@@ -248,9 +235,9 @@ didFinishLaunchingWithOptions:launchOptions
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",nil];
         manager.requestSerializer.timeoutInterval = 10.0;
         [manager.securityPolicy setAllowInvalidCertificates:YES];
-
+        
         AFHTTPRequestSerializer  *requestSerializer = [AFHTTPRequestSerializer serializer];
-
+        
         
         manager.requestSerializer = requestSerializer;
         
@@ -276,9 +263,9 @@ didFinishLaunchingWithOptions:launchOptions
         }];
         
         
-
         
-     
+        
+        
     }
     
     
@@ -286,17 +273,11 @@ didFinishLaunchingWithOptions:launchOptions
 
 
 - (void)configBaiduMap{
-    
     _mapManager = [[BMKMapManager alloc]init];
     BOOL isSuccess = [_mapManager start:BaiduMapKey generalDelegate:nil];
     if (!isSuccess) {
-        NSLog(@"百度地图管理者初始化失败,请大侠重新来过。。。。。");
-    }else{
-        NSLog(@"百度地图管理者初始化成功,大侠好棒啊。。。。。");
-        
+        NSLog(@"百度地图管理者初始化失败");
     }
-    
-
 }
 
 - (void)configJPush {
@@ -305,7 +286,6 @@ didFinishLaunchingWithOptions:launchOptions
 }
 
 - (void)requireLocationRight {
-    
     [[QJCLLocationTool locationTool] getUserLocation];
 }
 
@@ -331,7 +311,6 @@ didFinishLaunchingWithOptions:launchOptions
 
 
 - (void)configMOB {
-    
     //初始化应用，appKey和appSecret从后台申请得
     [SMSSDK registerApp:MOB_AppKey
              withSecret:MOB_AppSecret];
@@ -350,7 +329,7 @@ didFinishLaunchingWithOptions:launchOptions
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-    
+            
             NSLog(@"---网页支付宝回调--->%@",resultDic);
             if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
                 // 发送个通知
@@ -372,11 +351,6 @@ didFinishLaunchingWithOptions:launchOptions
     
     return YES;
 }
-
-
-
-
-
 
 
 
@@ -425,21 +399,14 @@ forRemoteNotification:(NSDictionary *)userInfo
 }
 #endif
 
-- (void)application:(UIApplication *)application
-didReceiveRemoteNotification:(NSDictionary *)userInfo {
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [JPUSHService handleRemoteNotification:userInfo];
-    
     
     NSLog(@"%@收到通知:%@",userInfo, [self logDic:userInfo]);
     
 }
 
-- (void)application:(UIApplication *)application
-didReceiveRemoteNotification:(NSDictionary *)userInfo
-fetchCompletionHandler:
-(void (^)(UIBackgroundFetchResult))completionHandler {
-    
-    
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     [JPUSHService handleRemoteNotification:userInfo];
     NSLog(@"收到通知:%@", [self logDic:userInfo]);
@@ -448,9 +415,7 @@ fetchCompletionHandler:
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
-- (void)application:(UIApplication *)application
-didReceiveLocalNotification:(UILocalNotification *)notification {
-    
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     
     [JPUSHService showLocalNotificationAtFront:notification identifierKey:nil];
 }
@@ -475,12 +440,6 @@ didReceiveLocalNotification:(UILocalNotification *)notification {
                                      errorDescription:NULL];
     return str;
 }
-
-
-
-
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

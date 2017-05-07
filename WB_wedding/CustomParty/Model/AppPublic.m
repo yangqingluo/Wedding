@@ -55,6 +55,14 @@ __strong static AppPublic  *_singleManger = nil;
     return _userData;
 }
 
+- (NSArray *)infoItemLists{
+    if (!_infoItemLists) {
+        _infoItemLists = @[@"行业",@"工作领域",@"学历",@"自我评价",@"娱乐休闲",@"业余爱好",@"喜欢的运动",@"喜欢的食物",@"喜欢的电影",@"喜欢的书籍和动漫",@"去过的地方",@"工资"];
+    }
+    
+    return _infoItemLists;
+}
+
 #pragma public
 //检查该版本是否第一次使用
 BOOL isFirstUsing(){
