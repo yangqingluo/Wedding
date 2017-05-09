@@ -121,7 +121,7 @@
             break;
         case 6://帮组和设置
         {
-            WEHelpAndSuportController *vc = [[WEHelpAndSuportController alloc]init];
+            WEHelpAndSuportController *vc = [[WEHelpAndSuportController alloc] initWithURLString:@"http://123.207.120.62:8080/wanwanpage/pages/help.html"];
             
             [self.navigationController pushViewController:vc animated:YES];
         }

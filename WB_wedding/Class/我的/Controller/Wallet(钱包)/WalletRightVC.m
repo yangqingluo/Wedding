@@ -15,24 +15,27 @@
 @implementation WalletRightVC
 
 - (void)viewDidLoad {
+    [self setupNav];
+    
     [super viewDidLoad];
-    self.title = @"特权";
-    self.view.backgroundColor = [UIColor whiteColor];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupNav {
+    [self createNavWithTitle:@"特权" createMenuItem:^UIView *(int nIndex){
+        if (nIndex == 0){
+            UIButton *btn = NewBackButton([UIColor whiteColor]);
+            [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+            return btn;
+        }
+        
+        return nil;
+    }];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
+    
 
 @end

@@ -139,7 +139,6 @@
 		5D6417F01E4B0F5C00844027 /* WEMyChatTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6417EF1E4B0F5C00844027 /* WEMyChatTool.m */; };
 		5D6417F31E4B1A5400844027 /* WEMarchTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6417F21E4B1A5400844027 /* WEMarchTool.m */; };
 		5D6F98D31E2F10CC001E5D06 /* WEHelpAndSuportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F98D11E2F10CC001E5D06 /* WEHelpAndSuportController.m */; };
-		5D6F98D41E2F10CC001E5D06 /* WEHelpAndSuportController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6F98D21E2F10CC001E5D06 /* WEHelpAndSuportController.xib */; };
 		5D6F98D71E2F1304001E5D06 /* WESettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F98D61E2F1304001E5D06 /* WESettingController.m */; };
 		5D6F98DA1E2F1417001E5D06 /* YHSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F98D91E2F1417001E5D06 /* YHSlider.m */; };
 		5D6F98DD1E2F185A001E5D06 /* EMChoicePriceSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F98DC1E2F185A001E5D06 /* EMChoicePriceSliderView.m */; };
@@ -279,7 +278,6 @@
 		E9415ACD1E2FC6C5002325A0 /* WalletPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AC51E2FC6C5002325A0 /* WalletPayVC.m */; };
 		E9415ACE1E2FC6C5002325A0 /* WalletPayVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9415AC61E2FC6C5002325A0 /* WalletPayVC.xib */; };
 		E9415ACF1E2FC6C5002325A0 /* WalletRightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AC81E2FC6C5002325A0 /* WalletRightVC.m */; };
-		E9415AD01E2FC6C5002325A0 /* WalletRightVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9415AC91E2FC6C5002325A0 /* WalletRightVC.xib */; };
 		E9415AD51E2FCB78002325A0 /* MyEvaluateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AD41E2FCB78002325A0 /* MyEvaluateVC.m */; };
 		E9415AD91E2FCC17002325A0 /* MyEvaluateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AD71E2FCC17002325A0 /* MyEvaluateCell.m */; };
 		E950D85C1E45F8F500149037 /* WEAnswerFanseHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E950D85B1E45F8F500149037 /* WEAnswerFanseHeader.m */; };
@@ -310,6 +308,8 @@
 		FCA704E91EBDC95100630129 /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E81EBDC95100630129 /* bottom_location@2x.png */; };
 		FCC547DF1EC1950C00C0F018 /* loginBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCC547DE1EC1950C00C0F018 /* loginBg.jpg */; };
 		FCC547E11EC1967100C0F018 /* heartbeat.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCC547E01EC1967100C0F018 /* heartbeat.gif */; };
+		FCC547E41EC19E5500C0F018 /* AppBasicWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */; };
+		FCC547E61EC1A68400C0F018 /* nav_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCC547E51EC1A68400C0F018 /* nav_close@2x.png */; };
 		FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */; };
 		FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */; };
 		FCD3AAE31EBCE3B2005AC352 /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AAC51EBCE3B2005AC352 /* AppPublic.m */; };
@@ -616,7 +616,6 @@
 		5D6417F21E4B1A5400844027 /* WEMarchTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEMarchTool.m; sourceTree = "<group>"; };
 		5D6F98D01E2F10CC001E5D06 /* WEHelpAndSuportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEHelpAndSuportController.h; sourceTree = "<group>"; };
 		5D6F98D11E2F10CC001E5D06 /* WEHelpAndSuportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEHelpAndSuportController.m; sourceTree = "<group>"; };
-		5D6F98D21E2F10CC001E5D06 /* WEHelpAndSuportController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WEHelpAndSuportController.xib; sourceTree = "<group>"; };
 		5D6F98D51E2F1304001E5D06 /* WESettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WESettingController.h; sourceTree = "<group>"; };
 		5D6F98D61E2F1304001E5D06 /* WESettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WESettingController.m; sourceTree = "<group>"; };
 		5D6F98D81E2F1417001E5D06 /* YHSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHSlider.h; sourceTree = "<group>"; };
@@ -930,7 +929,6 @@
 		E9415AC61E2FC6C5002325A0 /* WalletPayVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletPayVC.xib; sourceTree = "<group>"; };
 		E9415AC71E2FC6C5002325A0 /* WalletRightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletRightVC.h; sourceTree = "<group>"; };
 		E9415AC81E2FC6C5002325A0 /* WalletRightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletRightVC.m; sourceTree = "<group>"; };
-		E9415AC91E2FC6C5002325A0 /* WalletRightVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletRightVC.xib; sourceTree = "<group>"; };
 		E9415AD31E2FCB78002325A0 /* MyEvaluateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEvaluateVC.h; path = "WB_wedding/Class/我的/Controller/Wallet(钱包)/MyEvaluateVC.h"; sourceTree = SOURCE_ROOT; };
 		E9415AD41E2FCB78002325A0 /* MyEvaluateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEvaluateVC.m; path = "WB_wedding/Class/我的/Controller/Wallet(钱包)/MyEvaluateVC.m"; sourceTree = SOURCE_ROOT; };
 		E9415AD61E2FCC17002325A0 /* MyEvaluateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEvaluateCell.h; sourceTree = "<group>"; };
@@ -979,6 +977,9 @@
 		FCA704E81EBDC95100630129 /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCC547DE1EC1950C00C0F018 /* loginBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBg.jpg; sourceTree = "<group>"; };
 		FCC547E01EC1967100C0F018 /* heartbeat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = heartbeat.gif; sourceTree = "<group>"; };
+		FCC547E21EC19E5500C0F018 /* AppBasicWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicWebViewController.h; sourceTree = "<group>"; };
+		FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicWebViewController.m; sourceTree = "<group>"; };
+		FCC547E51EC1A68400C0F018 /* nav_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_close@2x.png"; sourceTree = "<group>"; };
 		FCD3AA8D1EBC8599005AC352 /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
 		FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+EaseMob.m"; sourceTree = "<group>"; };
 		FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDemoHelper.m; sourceTree = "<group>"; };
@@ -1916,7 +1917,6 @@
 				5D746A621E2E38AC001FE1A1 /* WELoveRecoderController.xib */,
 				5D6F98D01E2F10CC001E5D06 /* WEHelpAndSuportController.h */,
 				5D6F98D11E2F10CC001E5D06 /* WEHelpAndSuportController.m */,
-				5D6F98D21E2F10CC001E5D06 /* WEHelpAndSuportController.xib */,
 				5D6F98D51E2F1304001E5D06 /* WESettingController.h */,
 				5D6F98D61E2F1304001E5D06 /* WESettingController.m */,
 				5DD451DE1E8C0A1B00135479 /* WEChangePhoneController.h */,
@@ -2392,7 +2392,6 @@
 				E9415AC61E2FC6C5002325A0 /* WalletPayVC.xib */,
 				E9415AC71E2FC6C5002325A0 /* WalletRightVC.h */,
 				E9415AC81E2FC6C5002325A0 /* WalletRightVC.m */,
-				E9415AC91E2FC6C5002325A0 /* WalletRightVC.xib */,
 			);
 			path = "Wallet(钱包)";
 			sourceTree = "<group>";
@@ -2504,6 +2503,7 @@
 				FCA704E01EBDC5C200630129 /* download_image_default@2x.png */,
 				FCA704DC1EBDC17F00630129 /* cell_next@2x.png */,
 				FCA704DD1EBDC17F00630129 /* cell_next@3x.png */,
+				FCC547E51EC1A68400C0F018 /* nav_close@2x.png */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -2563,6 +2563,8 @@
 			children = (
 				FCD3AAE11EBCE3B2005AC352 /* AppBasicViewController.h */,
 				FCD3AAE21EBCE3B2005AC352 /* AppBasicViewController.m */,
+				FCC547E21EC19E5500C0F018 /* AppBasicWebViewController.h */,
+				FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2721,10 +2723,10 @@
 				5D793B291E1B429100236506 /* Assets.xcassets in Resources */,
 				E9BF46CC1E44E17A0010BD86 /* postdynamic.php in Resources */,
 				5D39E56D1E35D7BF0093A4A5 /* WESeletedViewCell.xib in Resources */,
-				5D6F98D41E2F10CC001E5D06 /* WEHelpAndSuportController.xib in Resources */,
 				FCC547DF1EC1950C00C0F018 /* loginBg.jpg in Resources */,
 				5D90623E1E641D5C00200C7F /* AlipaySDK.bundle in Resources */,
 				5D746A011E2DACCA001FE1A1 /* WERegisterController.xib in Resources */,
+				FCC547E61EC1A68400C0F018 /* nav_close@2x.png in Resources */,
 				5D9E498C1E2CAF8000B9C88C /* WEMyChatController.xib in Resources */,
 				FCA704E51EBDC90300630129 /* nav_add@2x.png in Resources */,
 				5DBBF9B51E55519900DB716E /* WEPostTimeLineController.xib in Resources */,
@@ -2732,7 +2734,6 @@
 				5DBBF9C21E558A3500DB716E /* WETimeLineDetailCell.xib in Resources */,
 				E9415ABE1E2FC69E002325A0 /* WDMoneyPayView.xib in Resources */,
 				5D3085DA1E2750CF00CA138C /* SomeOneLikeCell.xib in Resources */,
-				E9415AD01E2FC6C5002325A0 /* WalletRightVC.xib in Resources */,
 				5D6F98E91E2F3A78001E5D06 /* WESettingHeadeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2869,6 +2870,7 @@
 				E94025FD1E3A00810038EC7E /* WESomeOneAnswerQuestionVC.m in Sources */,
 				57FEBD091EB8E884008D6AE1 /* EaseEmojiEmoticons.m in Sources */,
 				E9415AD91E2FCC17002325A0 /* MyEvaluateCell.m in Sources */,
+				FCC547E41EC19E5500C0F018 /* AppBasicWebViewController.m in Sources */,
 				5D5F6DAD1E2337D500A0D82A /* XWTabBar.m in Sources */,
 				5D9E5A851E52A135000E9216 /* WELocationViewController.m in Sources */,
 				E9415ABD1E2FC69E002325A0 /* WDMoneyPayView.m in Sources */,

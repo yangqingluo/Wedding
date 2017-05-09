@@ -7,41 +7,88 @@
 //
 
 #import "WEHelpAndSuportController.h"
+#import "UIImage+Color.h"
 
-@interface WEHelpAndSuportController ()<UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface WEHelpAndSuportController ()
 
-@property (nonatomic,strong)NSArray     *data;
+@property (strong, nonatomic) UIButton *closeButton;
 
 @end
 
 @implementation WEHelpAndSuportController
 
 - (void)viewDidLoad {
+    [self setupNav];
+    
     [super viewDidLoad];
-    self.title = @"帮助与支持";
-    self.data = @[@"婉婉怎么玩",@"怎样匹配到最适合自己的人选？",@"怎样开启查看对方位置？"];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    
-    self.tableView.rowHeight = 60;
-    self.tableView.tableFooterView = [UIView new];
-    
+}
+
+- (void)setupNav {
+    [self createNavWithTitle:@"帮助与支持" createMenuItem:^UIView *(int nIndex){
+        if (nIndex == 0) {
+            UIButton *btn = NewBackButton([UIColor whiteColor]);
+            [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+            return btn;
+        }
+        else if (nIndex == 1) {
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            UIImage *i = [UIImage imageNamed:@"nav_close"];
+            [btn setImage:[i imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+            [btn setFrame:CGRectMake(0, 0, 64, 44)];
+            btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+            btn.left = 35;
+            btn.width = 50;
+            
+            btn.imageEdgeInsets = UIEdgeInsetsMake(12, kEdgeMiddle, 12, kEdgeMiddle);
+            [btn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+            
+            btn.hidden = true;
+            self.closeButton = btn;
+            
+            return btn;
+        }
+        
+        return nil;
+    }];
     
 }
 
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+- (void)goBack{
+    if (self.webView.canGoBack) {
+        [self.webView goBack];
+        
+        if (self.closeButton.hidden) {
+            self.closeButton.hidden = false;
+            self.titleLabel.width = screen_width - 2 * self.closeButton.right;
+            self.titleLabel.centerX = 0.5 * screen_width;
+        }
+        
+        return;
+    }
+    
+    [self close];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = self.data[indexPath.row];
-    return cell;
-
+- (void)close{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - UIWebViewDelegate
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    return YES;
+}
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"webViewDidStartLoad");
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"webViewDidFinishLoad");
+//    self.titleLabel.text = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    [self showHint:@"加载失败"];
+}
 
 
 @end

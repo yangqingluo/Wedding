@@ -6,8 +6,8 @@
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "HQBaseViewController.h"
+#import "AppBasicWebViewController.h"
 
-@interface WalletRightVC : HQBaseViewController
+@interface WalletRightVC : AppBasicWebViewController
 
 @end

@@ -6,10 +6,10 @@
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "HQBaseViewController.h"
+#import "AppBasicWebViewController.h"
 /**
  *  帮助与支持
  */
-@interface WEHelpAndSuportController : HQBaseViewController
+@interface WEHelpAndSuportController : AppBasicWebViewController
 
 @end

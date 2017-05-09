@@ -120,7 +120,7 @@
  */
 - (IBAction)moreInfoClick:(id)sender {
     
-    [self.navigationController pushViewController:[WalletRightVC new]
+    [self.navigationController pushViewController:[[WalletRightVC alloc] initWithURLString:@"http://123.207.120.62:8080/wanwanpage/pages/vipright.html"]
                                          animated:YES];
 }
 /**
