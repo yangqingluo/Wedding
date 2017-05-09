@@ -308,6 +308,8 @@
 		FCA704E61EBDC90300630129 /* nav_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E31EBDC90300630129 /* nav_edit@2x.png */; };
 		FCA704E71EBDC90300630129 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E41EBDC90300630129 /* nav_back@2x.png */; };
 		FCA704E91EBDC95100630129 /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA704E81EBDC95100630129 /* bottom_location@2x.png */; };
+		FCC547DF1EC1950C00C0F018 /* loginBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCC547DE1EC1950C00C0F018 /* loginBg.jpg */; };
+		FCC547E11EC1967100C0F018 /* heartbeat.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCC547E01EC1967100C0F018 /* heartbeat.gif */; };
 		FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */; };
 		FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */; };
 		FCD3AAE31EBCE3B2005AC352 /* AppPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AAC51EBCE3B2005AC352 /* AppPublic.m */; };
@@ -975,6 +977,8 @@
 		FCA704E31EBDC90300630129 /* nav_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_edit@2x.png"; sourceTree = "<group>"; };
 		FCA704E41EBDC90300630129 /* nav_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
 		FCA704E81EBDC95100630129 /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
+		FCC547DE1EC1950C00C0F018 /* loginBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBg.jpg; sourceTree = "<group>"; };
+		FCC547E01EC1967100C0F018 /* heartbeat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = heartbeat.gif; sourceTree = "<group>"; };
 		FCD3AA8D1EBC8599005AC352 /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
 		FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+EaseMob.m"; sourceTree = "<group>"; };
 		FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatDemoHelper.m; sourceTree = "<group>"; };
@@ -2491,6 +2495,8 @@
 		FCA704DB1EBDC17F00630129 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				FCC547E01EC1967100C0F018 /* heartbeat.gif */,
+				FCC547DE1EC1950C00C0F018 /* loginBg.jpg */,
 				FCA704E81EBDC95100630129 /* bottom_location@2x.png */,
 				FCA704E21EBDC90300630129 /* nav_add@2x.png */,
 				FCA704E31EBDC90300630129 /* nav_edit@2x.png */,
@@ -2664,6 +2670,7 @@
 				5D5F6DC11E235E5D00A0D82A /* CardCellCollectionViewCell.xib in Resources */,
 				5D7469FC1E2DAA3A001FE1A1 /* WECodeLoginController.xib in Resources */,
 				E93175C21E2E221F00E5FF14 /* WalletVC.xib in Resources */,
+				FCC547E11EC1967100C0F018 /* heartbeat.gif in Resources */,
 				5DD451E71E8C0DB100135479 /* WEChangePwdController.xib in Resources */,
 				5D3085F91E276E6400CA138C /* WECommentCell.xib in Resources */,
 				E9415ACB1E2FC6C5002325A0 /* LoveCoinRechargeVC.xib in Resources */,
@@ -2715,6 +2722,7 @@
 				E9BF46CC1E44E17A0010BD86 /* postdynamic.php in Resources */,
 				5D39E56D1E35D7BF0093A4A5 /* WESeletedViewCell.xib in Resources */,
 				5D6F98D41E2F10CC001E5D06 /* WEHelpAndSuportController.xib in Resources */,
+				FCC547DF1EC1950C00C0F018 /* loginBg.jpg in Resources */,
 				5D90623E1E641D5C00200C7F /* AlipaySDK.bundle in Resources */,
 				5D746A011E2DACCA001FE1A1 /* WERegisterController.xib in Resources */,
 				5D9E498C1E2CAF8000B9C88C /* WEMyChatController.xib in Resources */,

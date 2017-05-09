@@ -9,9 +9,11 @@
 #import "FirstPageController.h"
 #import "WERegisterController.h"
 #import "LoginViewController.h"
-#import "ImagePickerController.h"
-#import "JKAlert.h"
+#import <UIImage+Gif.h>
+
 @interface FirstPageController ()
+
+@property (nonatomic, strong) UIImageView *gifImageView;
 
 @end
 
@@ -21,38 +23,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"loginBg.jpg"].CGImage);
     [self hidenNavigationBar];
-}
-- (IBAction)login:(UIButton *)sender {
-//    JKAlert *aler = [[JKAlert alloc]initWithTitle:@"提示" andMessage:@"选择" style:STYLE_ACTION_SHEET];
-//    [aler addButton:ITEM_OK withTitle:@"相册选择" handler:^(JKAlertItem *item) {
-//        
-//        ImagePickerController *imageVC1 = [[ImagePickerController alloc]init];
-//        imageVC1.allowsEditing = YES;
-//        
-//        [imageVC1 cameraSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum onFinishingBlock:^(UIImagePickerController *picker, NSDictionary *info, UIImage *originalImage, UIImage *editedImage) {
-//            
-//        
-//        } onCancelingBlock:^{
-//            
-//        }];
-//        [self presentViewController:imageVC1 animated:YES completion:nil];
-//    }];
-//    [aler addButton:ITEM_OK withTitle:@"拍照" handler:^(JKAlertItem *item) {
-//        
-//        
-//    }];
-//    [aler show];
-//    
     
-    LoginViewController *vc = [[LoginViewController alloc]init];
+    double radius = MAX(120, 0.375 * screen_width);
+    self.gifImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, radius, radius)];
+    self.gifImageView.center = CGPointMake(0.5 * screen_width, 0.4 * screen_height - 0.5 * self.gifImageView.height);
+    [self.view addSubview:self.gifImageView];
+    
+    self.gifImageView.image = [UIImage sd_animatedGIFNamed:@"heartbeat"];
+}
+
+- (IBAction)login:(UIButton *)sender {
+    LoginViewController *vc = [[LoginViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
     
     
 }
 
 - (IBAction)register:(UIButton *)sender {
-    WERegisterController *vc = [[WERegisterController alloc]init];
+    WERegisterController *vc = [[WERegisterController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

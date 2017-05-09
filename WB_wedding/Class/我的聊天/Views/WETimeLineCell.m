@@ -76,7 +76,7 @@
 }
 
 #pragma private
-//折扣
+//城市 地址富文本拼接
 NSAttributedString *timelineAddressAttributedString(NSString *city, NSString *address){
     NSAttributedString *part1 = [[NSAttributedString alloc]initWithString:city attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:default_labelFontSize + 2],NSForegroundColorAttributeName:navigationBarColor}];
     NSAttributedString *part2 = [[NSAttributedString alloc]initWithString:address attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:default_labelFontSize],NSForegroundColorAttributeName:navigationBarColor}];
