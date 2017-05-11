@@ -48,18 +48,10 @@
     
 }
 - (IBAction)registerBtnClick:(UIButton *)sender {
-    
-#warning 测试
-//    /**
-//     测试
-//     */
-    //    WECompletInfoController *vc = [[WECompletInfoController alloc]init];
-    //    vc.telPhone = _phoneTf.text.length>0?_phoneTf.text:@"18190019728";
-    //    [self.navigationController pushViewController:vc animated:YES];
-    //    return;
-//    /**
-//     测试
-//     */
+//    WECompletInfoController *vc = [[WECompletInfoController alloc]init];
+//    vc.telPhone = _phoneTf.text.length>0?_phoneTf.text:@"18190019728";
+//    [self.navigationController pushViewController:vc animated:YES];
+//    return;
     
     
     // 判断除了验证码的输入框

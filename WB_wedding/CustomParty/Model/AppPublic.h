@@ -65,6 +65,7 @@
 
 @property (nonatomic, strong) AppUserData *userData;
 @property (nonatomic, strong) NSArray *infoItemLists;
+@property (nonatomic, strong) NSDictionary *infoItemDic;
 
 + (AppPublic *)getInstance;
 
