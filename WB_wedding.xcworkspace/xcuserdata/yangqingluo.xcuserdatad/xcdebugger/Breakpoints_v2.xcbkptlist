@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WB_wedding/Class/&#x767b;&#x5f55;&#x6ce8;&#x518c;/service/WELoginTool.m"
-            timestampString = "516269377.877025"
+            filePath = "WB_wedding/CustomParty/Model/QKNetworkSingleton.m"
+            timestampString = "516271300.418421"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "+normalLoginWithNumber:latitude:loginType:longitude:password:success:failed:"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "-loginWithID:Password:LoginType:completion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

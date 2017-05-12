@@ -174,13 +174,16 @@ NSString *httpRespString(NSError *error, NSObject *object){
         longitude = [AppPublic getInstance].location.coordinate.longitude;
     }
     
-    NSMutableDictionary *postDic = [[NSMutableDictionary alloc] initWithDictionary:@{@"telNumber":username, @"password":password, @"loginType":[NSString stringWithFormat:@"%d",loginType], @"latitude": [NSString stringWithFormat:@"%.6f",latitude], @"longitude": [NSString stringWithFormat:@"%.6f",longitude]}];
+    NSMutableDictionary *postDic = [[NSMutableDictionary alloc] initWithDictionary:@{@"telNumber":username, @"password":password, @"loginType":@(loginType), @"latitude": @(latitude), @"longitude": @(longitude)}];
     
     [self Post:postDic HeadParm:nil URLFooter:@"/user/login" completion:^(id responseBody, NSError *error){
         completion(responseBody, error);
         
         if (!error && isHttpSuccess([responseBody[@"success"] intValue])) {
             [[AppPublic getInstance] loginDonewithUserData:responseBody[@"data"] username:username password:password];
+            
+            XWUserModel *model = [XWUserModel mj_objectWithKeyValues:responseBody[@"data"]];
+            [model saveUserInfo];
         }
     }];
 }
