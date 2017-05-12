@@ -19,6 +19,8 @@
 #import "WESomeOneLikeTool.h"
 #import "WECompletInfoController.h"
 #import "WEYourMessageTool.h"
+
+#import "UserInfoEditVC.h"
 @interface WELookDetailViewController ()<UITableViewDelegate,UITableViewDataSource,WELookDetailFooterViewDelegate,WELookDetailHeaderViewDelegate,UIAlertViewDelegate,WELookDetailCellDelegate>
 @property (nonatomic,strong)UITableView         *tableView;
 @property (nonatomic,strong)NSMutableArray      *dataSource;
@@ -589,8 +591,11 @@
         __weak typeof(self)weakSelf = self;
         [self setNavigationRightBtnWithTitle:@"编辑" actionBack:^{
          
-            WECompletInfoController *vc = [[WECompletInfoController alloc] init];
-            vc.isUserSetting = YES;
+//            WECompletInfoController *vc = [[WECompletInfoController alloc] init];
+//            vc.isUserSetting = YES;
+//            [weakSelf.navigationController pushViewController:vc animated:YES];
+            
+            UserInfoEditVC *vc = [UserInfoEditVC new];
             [weakSelf.navigationController pushViewController:vc animated:YES];
             
         }];

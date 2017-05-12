@@ -13,7 +13,6 @@
 #import "UITextField+TFIndexPath.h"
 
 static NSInteger kHeaderHeight = 165;
-static NSInteger kCellHeight = 100;
 static NSInteger kHeaderImgWidth = 60;
 static NSInteger kBtnTag = 1000;
 
@@ -53,7 +52,7 @@ static NSInteger kBtnTag = 1000;
                                                    style:UITableViewStyleGrouped];
     self.mTableView.delegate = self;
     self.mTableView.dataSource = self;
-    self.mTableView.rowHeight = kCellHeight;
+    self.mTableView.rowHeight = 100;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.mTableView registerNib:[UINib nibWithNibName:@"SomeOneAnswerQuestionCell"
                                                 bundle:nil]

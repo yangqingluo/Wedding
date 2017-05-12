@@ -27,6 +27,8 @@
 //图片下载
 #import <SDImageCache.h>
 
+#define screen_width [UIScreen mainScreen].bounds.size.width
+#define screen_height [UIScreen mainScreen].bounds.size.height
 
 #define RGBA(R, G, B, A) [UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:A]
 
@@ -38,20 +40,33 @@
 #define baseBlueColor                RGBA(0x00, 0x84, 0xff, 1)
 #define lightWhiteColor              RGBA(0xf5, 0xf5, 0xf5, 1)
 
-#define STATUS_HEIGHT 20.0
-#define STATUS_BAR_HEIGHT 64.0
-#define TAB_BAR_HEIGHT 49.0
-#define DEFAULT_BAR_HEIGHT 44.0
+#define STATUS_HEIGHT                20.0
+#define STATUS_BAR_HEIGHT            64.0
+#define TAB_BAR_HEIGHT               49.0
+#define DEFAULT_BAR_HEIGHT           44.0
 
-#define screen_width [UIScreen mainScreen].bounds.size.width
-#define screen_height [UIScreen mainScreen].bounds.size.height
-
+#define appRefreshTime               24 * 60 * 60//自动刷新间隔时间
 #define kButtonCornerRadius          4.0
-#define kEdgeSmall   5.0
-#define kEdge   10.0
-#define kEdgeMiddle   15.0
-#define kEdgeBig   20.0
+#define kCellHeight                  44.0
+#define kCellHeightMiddle            60.0
 
+#define imageDataMax                 1 * 1024 * 1024//图像大小上限
+#define headImageSizeMax             96//头像图像 宽/高 大小上限
+
+#define appButtonTitleFontSize       14.0
+#define appLabelFontSize             14.0
+#define appLabelFontSizeMiddle       17.0
+
+#define kEdgeSmall                   5.0
+#define kEdge                        10.0
+#define kEdgeMiddle                  15.0
+#define kEdgeBig                     20.0
+
+#define kPhoneNumberLength           0x0b
+#define kVCodeNumberLength           0x06
+#define kPasswordLengthMin           0x03
+#define kPasswordLengthMax           0x10
+#define kNameLengthMax               0x30
 
 #define kUserName                    @"username_wedding"
 #define kUserData                    @"userdata_wedding"
@@ -64,7 +79,6 @@
 
 @property (nonatomic, strong) AppUserData *userData;
 @property (nonatomic, strong) NSArray *infoItemLists;
-@property (nonatomic, strong) NSDictionary *infoItemDic;
 
 + (AppPublic *)getInstance;
 

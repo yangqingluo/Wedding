@@ -11,44 +11,23 @@
 
 @end
 
-@implementation AppInfo
-
-
-
-@end
-
-
-@implementation UserPInfo
-
-
-
-@end
-
-@implementation UserRInfo
-
-
-
-@end
-
-@implementation UserUInfo
-
-
-
-@end
-
 @implementation AppUserData
+
+
+@end
+
+
+@implementation UserInfoItemData
 
 - (instancetype)init{
     self = [super init];
     if (self) {
-        [AppUserData mj_setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"PInfos" : @"UserPInfo",
-                     //                  @"PInfos" : [UserPInfo class],
-                     };
-        }];
+//        [UserInfoItemData mj_setupObjectClassInArray:^NSDictionary *{
+//            return @{
+//                     @"PInfos" : @"UserPInfo",
+//                     };
+//        }];
     }
-    
     
     return self;
 }

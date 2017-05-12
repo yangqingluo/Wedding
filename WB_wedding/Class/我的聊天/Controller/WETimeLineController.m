@@ -50,7 +50,7 @@
         }
         else if (nIndex == 1) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            UIImage *i = [UIImage imageNamed:@"bottom_location@2x"];
+            UIImage *i = [UIImage imageNamed:@"bottom_location"];
             [btn setImage:[i imageWithColor:navigationBarColor] forState:UIControlStateNormal];
             [btn setFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
             
