@@ -11,9 +11,7 @@
 
 #define appUrlAddress @"http://123.207.120.62:80"
 
-#define APP_HTTP_SUCCESS	             	200	//成功
-
-#define clienttype 1
+#define APP_HTTP_SUCCESS	             	1	//成功
 
 typedef void(^QKNetworkBlock)(id responseBody, NSError *error);
 typedef void(^downloadProgress)(float progress);
@@ -44,6 +42,6 @@ NSString *httpRespString(NSError *error, NSObject *object);
 
 
 //login
-- (void)loginWithID:(NSString *)username Password:(NSString *)password Latitude:(double)latitude Longitude:(double)longitude LoginType:(int)loginType completion:(QKNetworkBlock)completion;
+- (void)loginWithID:(NSString *)username Password:(NSString *)password LoginType:(int)loginType completion:(QKNetworkBlock)completion;
 
 @end

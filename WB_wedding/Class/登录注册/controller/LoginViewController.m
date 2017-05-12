@@ -10,6 +10,8 @@
 #import "WECodeLoginController.h"
 #import "EMClient.h"
 
+#import "WELoginTool.h"
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *logingBtn;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -50,14 +52,7 @@
         [self showHudInView:self.view hint:nil];
         
         QKWEAKSELF;
-        
-        double latitude = 0.0;
-        double longitude = 0.0;
-        if ([AppPublic getInstance].location) {
-            latitude = [AppPublic getInstance].location.coordinate.latitude;
-            longitude = [AppPublic getInstance].location.coordinate.longitude;
-        }
-        [[QKNetworkSingleton sharedManager] loginWithID:self.usernameTextField.text Password:self.passwordTextField.text Latitude:latitude Longitude:longitude LoginType:0 completion:^(id responseBody, NSError *error){
+        [[QKNetworkSingleton sharedManager] loginWithID:self.usernameTextField.text Password:self.passwordTextField.text LoginType:0 completion:^(id responseBody, NSError *error){
             [weakself hideHud];
             
             if (!error) {
@@ -81,36 +76,6 @@
                 [weakself showHint:@"网络出错"];
             }
         }];
-        
-//        [WELoginTool normalLoginWithNumber:self.numberText.text latitude:self.lat ? self.lat : @"0" loginType:@"0" longitude:self.lng ? self.lng : @"0" password:self.passWordText.text success:^(id model) {
-//            
-//            
-//            EMError *error = [[EMClient sharedClient] loginWithUsername:self.numberText.text password:EMPassword];
-//            if (!error || error.code == EMErrorUserAlreadyLogin) {
-//                
-//                // 1.环信自动登录
-//                [[EMClient sharedClient].options setIsAutoLogin:YES];
-//                
-//                // 2.回到主界面
-//                [self cancleActivity];
-//                [self showMessage:@"登录成功" toView:self.navigationController.view];
-//                
-//                [[AppPublic getInstance] goToMainVC];
-//                
-//            } else if (error.code == EMErrorUserNotFound) { //未注册
-//                
-//                EMError *error = [[EMClient sharedClient] registerWithUsername:self.numberText.text password:self.passWordText.text];
-//                if (error==nil) {
-//                    NSLog(@"注册成功");
-//                    SVPSUCCESS(@"环信注册成功");
-//                }
-//            }
-//            
-//            
-//        } failed:^(NSString *error) {
-//            [self cancleActivity];
-//            [self showMessage:error toView:self.view];
-//        }];
     }
 }
 

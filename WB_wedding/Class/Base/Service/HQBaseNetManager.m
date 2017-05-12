@@ -14,7 +14,6 @@ static AFHTTPSessionManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [AFHTTPSessionManager manager];
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",nil];
         manager.requestSerializer.timeoutInterval = 10.0;
         [manager.securityPolicy setAllowInvalidCertificates:YES];
 //        manager.allowsInvalidSSLCertificate = YES;
@@ -27,12 +26,6 @@ static AFHTTPSessionManager *manager = nil;
         [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         
         manager.requestSerializer = requestSerializer;
-        
-        manager.securityPolicy.allowInvalidCertificates=YES;
-        
-        manager.responseSerializer.acceptableContentTypes =
-        
-        [NSSet setWithObjects:@"text/html",@"text/json", nil];
         
         // 设置MIME格式
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",nil];
@@ -53,7 +46,7 @@ static AFHTTPSessionManager *manager = nil;
     
     
     
-    NSString *pathStr = [ self percentPathWithPath:path params:params];
+    NSString *pathStr = [ self percentPathWithPath:path params:nil];
     NSLog(@"请求路径:%@",pathStr);
     
     return [[self sharedAFManager]POST:path parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

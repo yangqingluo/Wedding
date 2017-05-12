@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WB_wedding/Class/&#x767b;&#x5f55;&#x6ce8;&#x518c;/controller/LoginViewController.m"
-            timestampString = "516266840.487002"
+            filePath = "WB_wedding/Class/&#x767b;&#x5f55;&#x6ce8;&#x518c;/service/WELoginTool.m"
+            timestampString = "516269377.877025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-login:"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "+normalLoginWithNumber:latitude:loginType:longitude:password:success:failed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

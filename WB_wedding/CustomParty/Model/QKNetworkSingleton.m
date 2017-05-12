@@ -28,6 +28,9 @@
         }
     }
     
+    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
+//    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    manager.requestSerializer = requestSerializer;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
     return manager;
 }
@@ -163,13 +166,20 @@ NSString *httpRespString(NSError *error, NSObject *object){
 
 
 //login
-- (void)loginWithID:(NSString *)username Password:(NSString *)password Latitude:(double)latitude Longitude:(double)longitude LoginType:(int)loginType completion:(QKNetworkBlock)completion{
-    NSMutableDictionary *postDic = [[NSMutableDictionary alloc] initWithDictionary:@{@"telNumber":username, @"password":password, @"loginType":@(loginType), @"latitude": @(latitude), @"longitude": @(longitude)}];
+- (void)loginWithID:(NSString *)username Password:(NSString *)password LoginType:(int)loginType completion:(QKNetworkBlock)completion{
+    double latitude = 0.0;
+    double longitude = 0.0;
+    if ([AppPublic getInstance].location) {
+        latitude = [AppPublic getInstance].location.coordinate.latitude;
+        longitude = [AppPublic getInstance].location.coordinate.longitude;
+    }
+    
+    NSMutableDictionary *postDic = [[NSMutableDictionary alloc] initWithDictionary:@{@"telNumber":username, @"password":password, @"loginType":[NSString stringWithFormat:@"%d",loginType], @"latitude": [NSString stringWithFormat:@"%.6f",latitude], @"longitude": [NSString stringWithFormat:@"%.6f",longitude]}];
     
     [self Post:postDic HeadParm:nil URLFooter:@"/user/login" completion:^(id responseBody, NSError *error){
         completion(responseBody, error);
         
-        if (!error && isHttpSuccess([responseBody[@"Status"] intValue])) {
+        if (!error && isHttpSuccess([responseBody[@"success"] intValue])) {
             [[AppPublic getInstance] loginDonewithUserData:responseBody[@"data"] username:username password:password];
         }
     }];
