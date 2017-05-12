@@ -111,6 +111,19 @@ __strong static AppPublic  *_singleManger = nil;
     return _infoItemLists;
 }
 
+- (NSDictionary *)infoItemDic{
+    if (!_infoItemDic) {
+        NSMutableDictionary *dic = [NSMutableDictionary new];
+        for (UserInfoItemData *item in self.infoItemLists) {
+            [dic setObject:item.subItems forKey:item.key];
+        }
+        
+        _infoItemDic = [NSDictionary dictionaryWithDictionary:dic];
+    }
+    
+    return _infoItemDic;
+}
+
 - (CLLocationManager *)locationManager{
     if (!_locationManager) {
         _locationManager = [CLLocationManager new];

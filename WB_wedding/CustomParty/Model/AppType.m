@@ -28,6 +28,32 @@
     return NO;
 }
 
+- (instancetype)copyWithZone:(NSZone *)zone{
+    AppUserData *copy = [[[self class] allocWithZone:zone]init];
+    
+    copy = [AppUserData mj_objectWithKeyValues:[self mj_keyValues]];
+    
+    return copy;
+}
+
+- (NSString *)subItemStringWithKey:(NSString *)string{
+    NSString *m_string = @"";
+    NSArray *array = [[self valueForKey:string] componentsSeparatedByString:@","];
+    
+    NSArray *subItemsArray = [AppPublic getInstance].infoItemDic[string];
+    for (NSString *itemIndex in array) {
+        int index = [itemIndex intValue];
+        if (index < subItemsArray.count) {
+            if (m_string.length) {
+                m_string = [m_string stringByAppendingString:@","];
+            }
+            m_string = [m_string stringByAppendingString:subItemsArray[index]];
+        }
+    }
+    
+    return m_string;
+}
+
 @end
 
 

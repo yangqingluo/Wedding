@@ -10,6 +10,8 @@
 
 @interface UserInfoEditVC ()
 
+@property (strong, nonatomic) AppUserData *userData;
+
 @end
 
 @implementation UserInfoEditVC
@@ -34,6 +36,15 @@
 
 - (void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma getter
+- (AppUserData *)userData{
+    if (!_userData) {
+        _userData = [[AppPublic getInstance].userData copy];
+    }
+    
+    return _userData;
 }
 
 #pragma tableview
@@ -74,18 +85,22 @@
     
     switch (indexPath.section) {
         case 0:{
-            cell.textLabel.text = @"昵称";
+            cell.textLabel.text = self.userData.nickname;
+            cell.detailTextLabel.text = @"查看问卷";
         }
             break;
             
         case 1:{
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
             cell.textLabel.text = item.name;
+            
+            cell.detailTextLabel.text = [self.userData subItemStringWithKey:item.key];
         }
             break;
             
         case 2:{
             cell.textLabel.text = @"我的提问";
+            cell.detailTextLabel.text = @"";
         }
             break;
             

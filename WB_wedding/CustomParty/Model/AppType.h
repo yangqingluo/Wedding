@@ -66,7 +66,7 @@
 @property (strong, nonatomic) NSString *myQuestion;
 @property (strong, nonatomic) NSString *mySurvey;
 
-
+- (NSString *)subItemStringWithKey:(NSString *)string;
 
 @end
 
@@ -76,5 +76,6 @@
 @property (strong, nonatomic) NSString *key;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSArray *subItems;
+
 
 @end
