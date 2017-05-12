@@ -1,6 +1,5 @@
 //
 //  AppActivity.h
-//  One2Ten2Hundred
 //
 //  Created by yangqingluo on 16/4/28.
 //  Copyright © 2016年 yangqingluo. All rights reserved.

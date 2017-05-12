@@ -1,6 +1,5 @@
 //
 //  UIButton+Image&Text.m
-//  SmartTeaching
 //
 //  Created by yangqingluo on 16/4/25.
 //  Copyright © 2016年 yangqingluo. All rights reserved.

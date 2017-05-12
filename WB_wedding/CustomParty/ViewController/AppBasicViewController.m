@@ -1,6 +1,5 @@
 //
 //  AppBasicViewController.m
-//  helloworld
 //
 //  Created by chen on 14/6/30.
 //  Copyright (c) 2014年 yangqingluo. All rights reserved.

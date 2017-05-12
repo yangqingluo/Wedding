@@ -310,6 +310,8 @@
 		FCA9C15A1EC4C2730003ECCF /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1501EC4C2730003ECCF /* nav_back@2x.png */; };
 		FCA9C15B1EC4C2730003ECCF /* nav_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1511EC4C2730003ECCF /* nav_close@2x.png */; };
 		FCA9C15C1EC4C2730003ECCF /* nav_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1521EC4C2730003ECCF /* nav_edit@2x.png */; };
+		FCA9C1601EC5564A0003ECCF /* AppBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9C15F1EC5564A0003ECCF /* AppBasicTableViewController.m */; };
+		FCA9C1641EC556DD0003ECCF /* UserInfoEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9C1631EC556DC0003ECCF /* UserInfoEditVC.m */; };
 		FCC547E41EC19E5500C0F018 /* AppBasicWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */; };
 		FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */; };
 		FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */; };
@@ -980,6 +982,10 @@
 		FCA9C1501EC4C2730003ECCF /* nav_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back@2x.png"; sourceTree = "<group>"; };
 		FCA9C1511EC4C2730003ECCF /* nav_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_close@2x.png"; sourceTree = "<group>"; };
 		FCA9C1521EC4C2730003ECCF /* nav_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_edit@2x.png"; sourceTree = "<group>"; };
+		FCA9C15E1EC5564A0003ECCF /* AppBasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicTableViewController.h; sourceTree = "<group>"; };
+		FCA9C15F1EC5564A0003ECCF /* AppBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicTableViewController.m; sourceTree = "<group>"; };
+		FCA9C1621EC556DC0003ECCF /* UserInfoEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoEditVC.h; sourceTree = "<group>"; };
+		FCA9C1631EC556DC0003ECCF /* UserInfoEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoEditVC.m; sourceTree = "<group>"; };
 		FCC547E21EC19E5500C0F018 /* AppBasicWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicWebViewController.h; sourceTree = "<group>"; };
 		FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicWebViewController.m; sourceTree = "<group>"; };
 		FCD3AA8D1EBC8599005AC352 /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
@@ -2511,6 +2517,22 @@
 			path = Pictures;
 			sourceTree = "<group>";
 		};
+		FCA9C15D1EC555F10003ECCF /* LoginRegist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginRegist;
+			sourceTree = "<group>";
+		};
+		FCA9C1611EC556B50003ECCF /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				FCA9C1621EC556DC0003ECCF /* UserInfoEditVC.h */,
+				FCA9C1631EC556DC0003ECCF /* UserInfoEditVC.m */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		FCD3AA8C1EBC8599005AC352 /* AppEaseMob */ = {
 			isa = PBXGroup;
 			children = (
@@ -2568,6 +2590,8 @@
 				FCD3AAE21EBCE3B2005AC352 /* AppBasicViewController.m */,
 				FCC547E21EC19E5500C0F018 /* AppBasicWebViewController.h */,
 				FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */,
+				FCA9C15E1EC5564A0003ECCF /* AppBasicTableViewController.h */,
+				FCA9C15F1EC5564A0003ECCF /* AppBasicTableViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2594,6 +2618,8 @@
 				FCD3AB071EBD72CE005AC352 /* MainTabNavController.m */,
 				FCD3AB041EBD72CE005AC352 /* MainTabBarController.h */,
 				FCD3AB051EBD72CE005AC352 /* MainTabBarController.m */,
+				FCA9C1611EC556B50003ECCF /* Account */,
+				FCA9C15D1EC555F10003ECCF /* LoginRegist */,
 			);
 			path = MainVCs;
 			sourceTree = "<group>";
@@ -2907,6 +2933,7 @@
 				57FEBD151EB8E884008D6AE1 /* EaseCustomMessageCell.m in Sources */,
 				FCD3AAEE1EBCE3B2005AC352 /* UIButton+ImageAndText.m in Sources */,
 				E9BF46CB1E44E17A0010BD86 /* BANetManager.m in Sources */,
+				FCA9C1601EC5564A0003ECCF /* AppBasicTableViewController.m in Sources */,
 				57FEBD031EB8E884008D6AE1 /* UIViewController+DismissKeyboard.m in Sources */,
 				5D5F6DBC1E235E3100A0D82A /* CardSelectedLayout.m in Sources */,
 				5D746A1D1E2E0308001FE1A1 /* PhotoPickerView.m in Sources */,
@@ -3015,6 +3042,7 @@
 				5D746A631E2E38AC001FE1A1 /* WELoveRecoderController.m in Sources */,
 				5742B4D31E9BAF8300E3B178 /* UITextField+TFIndexPath.m in Sources */,
 				5D793B6C1E1B481800236506 /* HQBaseNavigationBar.m in Sources */,
+				FCA9C1641EC556DD0003ECCF /* UserInfoEditVC.m in Sources */,
 				579324FE1E8C03B800A0BC73 /* NSArray+HYBUnicodeReadable.m in Sources */,
 				5D85A0081E45A92A00A5F133 /* WELoginTool.m in Sources */,
 				57FEBCBA1EB8E884008D6AE1 /* EMCDDeviceManagerBase.m in Sources */,
