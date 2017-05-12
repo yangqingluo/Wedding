@@ -60,30 +60,14 @@ static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    XWUserModel *model = [XWUserModel getUserInfoFromlocal];
-    
-    if (model!=nil) {
-        //
-        //        // 刷新个人信息
-        //        [WEMarchTool refreshSelfInfoWithID:model.xw_id success:^(id model) {
-        //
-        //        } failed:^(NSString *error) {
-        //
-        //        }];
-        //
-        //
-        //        // 刷新地理位置
-        //        [self ffff];
-        //
-        //
-        //        // 登录过的
+    [[AppPublic getInstance] updateLocation];
+    if ([AppPublic getInstance].userData) {
         [[AppPublic getInstance] goToMainVC];
-        
-    }else{
-        // 没有登录
-        [[AppPublic getInstance] goToLoginCompletion:nil];
-        
     }
+    else {
+        [[AppPublic getInstance] goToLoginCompletion:nil];
+    }
+    
     [self.window makeKeyAndVisible];
     
     [self easemobApplication:application
@@ -261,14 +245,7 @@ didFinishLaunchingWithOptions:launchOptions
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
         }];
-        
-        
-        
-        
-        
     }
-    
-    
 }
 
 

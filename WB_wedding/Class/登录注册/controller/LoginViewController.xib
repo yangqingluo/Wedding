@@ -12,8 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
                 <outlet property="logingBtn" destination="aqa-KC-bzp" id="5Mz-Kh-3dp"/>
-                <outlet property="numberText" destination="wQi-Pp-6SL" id="J8W-To-Uvd"/>
-                <outlet property="passWordText" destination="WbJ-7s-wcQ" id="7g6-aT-6oc"/>
+                <outlet property="passwordTextField" destination="WbJ-7s-wcQ" id="0Wv-wt-NRo"/>
+                <outlet property="usernameTextField" destination="wQi-Pp-6SL" id="aQ5-JB-aML"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

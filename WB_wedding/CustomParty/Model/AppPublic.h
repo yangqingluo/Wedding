@@ -30,6 +30,8 @@
 #define screen_width [UIScreen mainScreen].bounds.size.width
 #define screen_height [UIScreen mainScreen].bounds.size.height
 
+#define QKWEAKSELF typeof(self) __weak weakself = self;
+
 #define RGBA(R, G, B, A) [UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:A]
 
 #define deepNavigationBarColor       RGBA(0xff, 0x67, 0x6c, 1.0)
@@ -77,8 +79,12 @@
 
 @interface AppPublic : NSObject
 
+//应用名称
+@property (strong, nonatomic) NSString *appName;
+
 @property (nonatomic, strong) AppUserData *userData;
 @property (nonatomic, strong) NSArray *infoItemLists;
+@property (nonatomic, strong) CLLocation *location;
 
 + (AppPublic *)getInstance;
 
@@ -119,8 +125,11 @@ NSString *stringFromDate(NSDate *date, NSString *format);
 /** 将字典转化为json字符串 *///
 + (NSString *)convertDictionaryToJson:(NSDictionary *)dictionary;
 
+- (void)updateLocation;//更新位置
+
 - (void)logOut;
 - (void)loginDonewithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password;
+- (void)saveUserData:(AppUserData *)data;
 
 - (void)goToMainVC;
 - (void)goToLoginCompletion:(void (^)(void))completion;

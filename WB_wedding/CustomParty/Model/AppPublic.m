@@ -12,6 +12,14 @@
 #import "MainTabNavController.h"
 #import "FirstPageController.h"
 #import "HQMainTabBarController.h"
+#import "BlockAlertView.h"
+
+@interface AppPublic()<CLLocationManagerDelegate>
+
+//定位管理器
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+@end
 
 @implementation AppPublic
 
@@ -35,14 +43,50 @@ __strong static AppPublic  *_singleManger = nil;
     
     self = [super init];
     if (self) {
-        self.infoItemLists;
-
+        
     }
     
     return self;
 }
 
+- (void)updateLocation{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined){
+            //ios8+以上要授权
+            if (IOS_VERSION >=8.0) {
+                [self.locationManager requestWhenInUseAuthorization];//使用中授权
+            }
+            
+            [self.locationManager startUpdatingLocation];
+        }
+        else if ([CLLocationManager locationServicesEnabled]//确定用户的位置服务启用
+                 &&   ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)){
+            [self.locationManager startUpdatingLocation];
+        }
+        else{
+            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"请打开系统设置中\"隐私-定位服务\"，允许\"%@\"使用您的位置",self.appName] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                    
+                    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                        [[UIApplication sharedApplication] openURL:url];
+                    }
+                }
+            } otherButtonTitles:@"设置", nil];
+            [alert show];
+        }
+    });
+}
+
 #pragma getter
+- (NSString *)appName{
+    if (!_appName) {
+        _appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+    }
+    
+    return _appName;
+}
+
 - (AppUserData *)userData{
     if (!_userData) {
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -65,6 +109,36 @@ __strong static AppPublic  *_singleManger = nil;
     }
     
     return _infoItemLists;
+}
+
+- (CLLocationManager *)locationManager{
+    if (!_locationManager) {
+        _locationManager = [CLLocationManager new];
+        
+        if ([CLLocationManager locationServicesEnabled]) {
+            _locationManager.delegate = self;
+            _locationManager.distanceFilter = 10000.0;
+            _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        }else{
+            NSLog(@"定位失败，请确定是否开启定位功能");
+        }
+    }
+    
+    return _locationManager;
+}
+
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    CLLocation *cl = [locations lastObject];
+    
+    if (cl) {
+        self.location = cl;
+//        [manager stopUpdatingLocation];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"定位失败");
 }
 
 #pragma public
@@ -257,7 +331,10 @@ NSString *stringFromDate(NSDate *date, NSString *format){
     [ud removeObjectForKey:kUserData];
     _userData = nil;
     
-    [self goToLoginCompletion:nil];
+    [self goToLoginCompletion:^{
+        
+    }];
+    
 }
 
 - (void)loginDonewithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password{
@@ -266,23 +343,34 @@ NSString *stringFromDate(NSDate *date, NSString *format){
     }
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    
     [ud setObject:username forKey:kUserName];
-    _userData = [AppUserData mj_objectWithKeyValues:data[@"Data"]];
-    [ud setObject:[_userData mj_keyValues] forKey:kUserData];
     
+    [self saveUserData:[AppUserData mj_objectWithKeyValues:data]];
     [self goToMainVC];
+}
+
+- (void)saveUserData:(AppUserData *)data{
+    if (!data) {
+        return;
+    }
+    _userData = data;
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:[_userData mj_keyValues] forKey:kUserData];
 }
 
 - (void)goToMainVC{
     MainTabNavController *nav = [MainTabNavController new];
-    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+    [[UIApplication sharedApplication].delegate window].rootViewController = nav;
 }
 
 - (void)goToLoginCompletion:(void (^)(void))completion{
     FirstPageController *vc = [FirstPageController new];
     
     [UIApplication sharedApplication].delegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:vc];
+    if (completion) {
+        completion();
+    }
+    
 }
 
 @end

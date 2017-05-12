@@ -44,6 +44,6 @@ NSString *httpRespString(NSError *error, NSObject *object);
 
 
 //login
-- (void)loginWithID:(NSString *)username Password:(NSString *)password completion:(QKNetworkBlock)completion;
+- (void)loginWithID:(NSString *)username Password:(NSString *)password Latitude:(double)latitude Longitude:(double)longitude LoginType:(int)loginType completion:(QKNetworkBlock)completion;
 
 @end

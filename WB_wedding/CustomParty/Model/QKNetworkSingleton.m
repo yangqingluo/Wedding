@@ -163,13 +163,14 @@ NSString *httpRespString(NSError *error, NSObject *object){
 
 
 //login
-- (void)loginWithID:(NSString *)username Password:(NSString *)password completion:(QKNetworkBlock)completion{
-    NSMutableDictionary *postDic = [[NSMutableDictionary alloc] initWithDictionary:@{@"username":username, @"password":sha1(password), @"clienttype":@clienttype}];
-    [self Get:postDic HeadParm:nil URLFooter:@"user/loginsystem " completion:^(id responseBody, NSError *error){
+- (void)loginWithID:(NSString *)username Password:(NSString *)password Latitude:(double)latitude Longitude:(double)longitude LoginType:(int)loginType completion:(QKNetworkBlock)completion{
+    NSMutableDictionary *postDic = [[NSMutableDictionary alloc] initWithDictionary:@{@"telNumber":username, @"password":password, @"loginType":@(loginType), @"latitude": @(latitude), @"longitude": @(longitude)}];
+    
+    [self Post:postDic HeadParm:nil URLFooter:@"/user/login" completion:^(id responseBody, NSError *error){
         completion(responseBody, error);
         
         if (!error && isHttpSuccess([responseBody[@"Status"] intValue])) {
-            [[AppPublic getInstance] loginDonewithUserData:responseBody username:username password:password];
+            [[AppPublic getInstance] loginDonewithUserData:responseBody[@"data"] username:username password:password];
         }
     }];
 }

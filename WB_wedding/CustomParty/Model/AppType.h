@@ -15,6 +15,58 @@
 @interface AppUserData : NSObject
 
 
+@property (strong, nonatomic) NSString *ID;
+@property (strong, nonatomic) NSString *telNumber;
+@property (strong, nonatomic) NSString *lastLoginTime;
+@property (strong, nonatomic) NSString *userRight;
+@property (strong, nonatomic) NSString *nickname;
+@property (strong, nonatomic) NSString *imgFileNames;
+@property (strong, nonatomic) NSString *realname;
+@property (strong, nonatomic) NSArray *imgArray;
+@property (strong, nonatomic) NSString *money;
+@property (strong, nonatomic) NSString *ip;
+@property (strong, nonatomic) NSString *isFirstToday;
+@property (strong, nonatomic) NSString *status;
+@property (strong, nonatomic) NSString *sendMatchTime;
+@property (strong, nonatomic) NSString *vipEndTime;
+@property (strong, nonatomic) NSString *isLocationOpen;
+@property (assign, nonatomic) int age;//年龄
+@property (strong, nonatomic) NSString *height;//身高
+@property (strong, nonatomic) NSString *birthday;//生日
+@property (strong, nonatomic) NSString *sex;//性别
+@property (strong, nonatomic) NSString *xingZuo;//星座
+@property (strong, nonatomic) NSString *city;//城市
+@property (strong, nonatomic) NSString *ageRange;
+@property (strong, nonatomic) NSString *distance;
+@property (strong, nonatomic) NSString *latitude;
+@property (strong, nonatomic) NSString *longitude;
+
+@property (strong, nonatomic) NSString *relationBeginTime;
+@property (strong, nonatomic) NSString *exsRelationTime;
+@property (strong, nonatomic) NSString *exloverIds;//前朋友Ids
+@property (strong, nonatomic) NSString *matcherIds;
+@property (strong, nonatomic) NSString *loverId;
+
+@property (strong, nonatomic) NSString *salary;
+@property (strong, nonatomic) NSString *parentSituation;
+@property (strong, nonatomic) NSString *liveWithParent;
+@property (strong, nonatomic) NSString *educationBackground;
+@property (strong, nonatomic) NSString *visitedPlace;
+@property (strong, nonatomic) NSString *profession;
+@property (strong, nonatomic) NSString *entertainment;
+@property (strong, nonatomic) NSString *fBookCartoon;
+@property (strong, nonatomic) NSString *hobby;
+@property (strong, nonatomic) NSString *fSport;
+@property (strong, nonatomic) NSString *job;
+@property (strong, nonatomic) NSString *regularPlace;
+@property (strong, nonatomic) NSString *fFood;
+@property (strong, nonatomic) NSString *selfEvaluation;
+@property (strong, nonatomic) NSString *fMovie;
+
+@property (strong, nonatomic) NSString *myQuestion;
+@property (strong, nonatomic) NSString *mySurvey;
+
+
 
 @end
 

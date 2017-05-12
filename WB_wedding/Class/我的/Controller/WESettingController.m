@@ -91,17 +91,9 @@
             
         }else{
             
-         BOOL flag =   [XWUserModel removeUserInfoFromlocal];
-            if (flag) {
-                [[AppPublic getInstance] goToLoginCompletion:nil];
-                
-            }else{
-                [self showMessage:@"退出登录失败" toView:self.view];
-                
-            }
+            [[AppPublic getInstance] logOut];
+        
         }
-        
-        
     }
 
     
