@@ -7,6 +7,7 @@
 //
 
 #import "UserInfoEditVC.h"
+#import "PublicSelectionVC.h"
 
 @interface UserInfoEditVC ()
 
@@ -28,14 +29,23 @@
             [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }
+        else if (nIndex == 1){
+            UIButton *btn = NewTextButton(@"保存", [UIColor whiteColor]);
+            [btn addTarget:self action:@selector(editAction) forControlEvents:UIControlEventTouchUpInside];
+            return btn;
+        }
         
         return nil;
     }];
-    
 }
 
 - (void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)editAction{
+    
+    
 }
 
 #pragma getter
@@ -109,6 +119,25 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case 1:{
+            UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
+            
+            PublicSelectionVC *vc = [[PublicSelectionVC alloc] initWithDataSource:item.subItems selectedArray:[self.userData subItemsIndexWithKey:item.key] maxSelectCount:item.subItemMaxNumber back:^(NSString *selectedString){
+                NSLog(@"%@",selectedString);
+            }];
+            
+            vc.title = [NSString stringWithFormat:@"选择%@", item.name];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

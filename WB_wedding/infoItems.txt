@@ -107,6 +107,7 @@
  {
      "key" : "educationBackground",
      "name" : "学历",
+     "subItemMaxNumber" : 1,
      "subItems" : [
                    "初中",
                    "高中",
@@ -121,6 +122,7 @@
  {
      "key" : "salary",
      "name" : "收入",
+     "subItemMaxNumber" : 1,
      "subItems" : [
                    "0-4999",
                    "5000-9999",

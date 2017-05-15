@@ -199,13 +199,6 @@ STPickerAreaDelegate>
                             if ([response[@"success"] intValue] == 1) {
                                 SVPSUCCESS(@"上传成功");
                                 if (_isUserSetting) {
-                                    
-                                    
-                                    
-#warning 可以请求数据刷新好一些
-                                    
-                                    
-                                    
                                     // 刷新下本地缓存
                                     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
                                     model.telNumber = _telPhone;

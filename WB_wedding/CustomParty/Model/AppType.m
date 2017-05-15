@@ -54,6 +54,12 @@
     return m_string;
 }
 
+- (NSArray *)subItemsIndexWithKey:(NSString *)string{
+    NSArray *array = [[self valueForKey:string] componentsSeparatedByString:@","];
+    
+    return array;
+}
+
 @end
 
 

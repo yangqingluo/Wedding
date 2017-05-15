@@ -299,6 +299,7 @@
 		E9D582441E4D9A190071E88F /* STUI.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5823A1E4D9A190071E88F /* STUI.m */; };
 		E9D582451E4D9A190071E88F /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5823C1E4D9A190071E88F /* UIView+ST.m */; };
 		E9D582561E4E07800071E88F /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9D582551E4E07800071E88F /* area.plist */; };
+		FCA11FD41EC98B7D005C5305 /* PublicSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */; };
 		FCA9C1471EC4C1FA0003ECCF /* infoItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */; };
 		FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */; };
 		FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */; };
@@ -972,6 +973,8 @@
 		E9D5823C1E4D9A190071E88F /* UIView+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ST.m"; sourceTree = "<group>"; };
 		E9D582551E4E07800071E88F /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		EC7DCA563DE1AD2614468DAF /* libPods-WB_wedding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WB_wedding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicSelectionVC.h; sourceTree = "<group>"; };
+		FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicSelectionVC.m; sourceTree = "<group>"; };
 		FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = infoItems.txt; sourceTree = "<group>"; };
 		FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
@@ -2639,6 +2642,8 @@
 				FCD3AB071EBD72CE005AC352 /* MainTabNavController.m */,
 				FCD3AB041EBD72CE005AC352 /* MainTabBarController.h */,
 				FCD3AB051EBD72CE005AC352 /* MainTabBarController.m */,
+				FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */,
+				FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */,
 				FCA9C1611EC556B50003ECCF /* Account */,
 				FCA9C15D1EC555F10003ECCF /* LoginRegist */,
 			);
@@ -3058,6 +3063,7 @@
 				57FEBD1E1EB8E884008D6AE1 /* EaseBubbleView+Voice.m in Sources */,
 				5D746A001E2DACCA001FE1A1 /* WERegisterController.m in Sources */,
 				5D9E499A1E2CB8A300B9C88C /* WETimeLineHeaderView.m in Sources */,
+				FCA11FD41EC98B7D005C5305 /* PublicSelectionVC.m in Sources */,
 				5D793B9A1E1B49E700236506 /* NSString+XW.m in Sources */,
 				E9D582441E4D9A190071E88F /* STUI.m in Sources */,
 				57FEBD001EB8E884008D6AE1 /* NSDate+Category.m in Sources */,

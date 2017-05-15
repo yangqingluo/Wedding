@@ -67,6 +67,7 @@
 @property (strong, nonatomic) NSString *mySurvey;
 
 - (NSString *)subItemStringWithKey:(NSString *)string;
+- (NSArray *)subItemsIndexWithKey:(NSString *)string;
 
 @end
 
@@ -76,6 +77,6 @@
 @property (strong, nonatomic) NSString *key;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSArray *subItems;
-
+@property (assign, nonatomic) NSUInteger subItemMaxNumber;//子项的最大数目
 
 @end

@@ -130,22 +130,21 @@ didFinishLaunchingWithOptions:launchOptions
 
 #pragma mark -- 配置定位
 - (void)configLocation{
-    locationManager=[[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;//设置定位精度
-    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
-        [locationManager requestWhenInUseAuthorization];
-    }
-    
-    if(![CLLocationManager locationServicesEnabled]){
-        NSLog(@"请开启定位:设置 > 隐私 > 位置 > 定位服务");
-    }
-    if([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-        [locationManager requestAlwaysAuthorization]; // 永久授权
-        [locationManager requestWhenInUseAuthorization]; //使用中授权
-    }
-    locationManager.pausesLocationUpdatesAutomatically = NO;
-    [locationManager startUpdatingLocation];
+//    locationManager=[[CLLocationManager alloc] init];
+//    locationManager.delegate = self;
+//    locationManager.desiredAccuracy = kCLLocationAccuracyBest;//设置定位精度
+//    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
+//        [locationManager requestWhenInUseAuthorization];
+//    }
+//    
+//    if(![CLLocationManager locationServicesEnabled]){
+//        NSLog(@"请开启定位:设置 > 隐私 > 位置 > 定位服务");
+//    }
+//    if([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+//        [locationManager requestWhenInUseAuthorization]; //使用中授权
+//    }
+//    locationManager.pausesLocationUpdatesAutomatically = NO;
+//    [locationManager startUpdatingLocation];
     
 }
 
