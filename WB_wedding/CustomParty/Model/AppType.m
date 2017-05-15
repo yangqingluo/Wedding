@@ -42,8 +42,8 @@
     
     NSArray *subItemsArray = [AppPublic getInstance].infoItemDic[string];
     for (NSString *itemIndex in array) {
-        int index = [itemIndex intValue];
-        if (index < subItemsArray.count) {
+        int index = [itemIndex intValue] - 1;
+        if (index < subItemsArray.count && index >= 0) {
             if (m_string.length) {
                 m_string = [m_string stringByAppendingString:@","];
             }

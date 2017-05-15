@@ -32,8 +32,8 @@
         }
         
         for (NSString *object in selectdArray) {
-            int index = [object intValue];
-            if (index < self.selectedArray.count) {
+            int index = [object intValue] - 1;
+            if (index < self.selectedArray.count && index >= 0) {
                 self.selectedArray[index] = @YES;
             }
         }
@@ -72,7 +72,7 @@
         for (int i = 0; i < self.selectedArray.count; i++) {
             NSNumber *object = self.selectedArray[i];
             if ([object boolValue]) {
-                string = [string stringByAppendingString:[NSString stringWithFormat:@"%@%d", string.length ? @"," : @"", i]];
+                string = [string stringByAppendingString:[NSString stringWithFormat:@"%@%d", string.length ? @"," : @"", i + 1]];
             }
         }
         

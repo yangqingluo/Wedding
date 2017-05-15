@@ -126,8 +126,12 @@
         case 1:{
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
             
+            QKWEAKSELF;
             PublicSelectionVC *vc = [[PublicSelectionVC alloc] initWithDataSource:item.subItems selectedArray:[self.userData subItemsIndexWithKey:item.key] maxSelectCount:item.subItemMaxNumber back:^(NSString *selectedString){
-                NSLog(@"%@",selectedString);
+                if (selectedString.length) {
+                    [weakself.userData setValue:selectedString forKey:item.key];
+                    [weakself.tableView reloadData];
+                }
             }];
             
             vc.title = [NSString stringWithFormat:@"选择%@", item.name];
