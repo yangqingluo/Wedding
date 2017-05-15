@@ -44,8 +44,35 @@
 }
 
 - (void)editAction{
+    NSMutableDictionary *dic = [NSMutableDictionary new];
+    for (UserInfoItemData *item in [AppPublic getInstance].infoItemLists) {
+        if (![[[AppPublic getInstance].userData valueForKey:item.key] isEqualToString:[self.userData valueForKey:item.key]]) {
+            [dic setObject:[self.userData valueForKey:item.key] forKey:item.key];
+        }
+    }
     
-    
+    if (dic.count) {
+        [dic setObject:self.userData.telNumber forKey:@"telNumber"];
+        
+        QKWEAKSELF;
+        [[QKNetworkSingleton sharedManager] Post:dic HeadParm:nil URLFooter:@"/user/updatedoc" completion:^(id responseBody, NSError *error){
+            [weakself hideHud];
+            
+            if (!error) {
+                if (isHttpSuccess([responseBody[@"success"] intValue])) {
+                    [[AppPublic getInstance] saveUserData:self.userData];
+                    [weakself goBack];
+                }
+                else {
+                    [weakself showHint:responseBody[@"msg"]];
+                }
+            }
+            else{
+                [weakself showHint:@"网络出错"];
+            }
+        }];
+            
+    }
 }
 
 #pragma getter

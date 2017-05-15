@@ -366,7 +366,7 @@ NSString *stringFromDate(NSDate *date, NSString *format){
     if (!data) {
         return;
     }
-    _userData = data;
+    _userData = [data copy];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setObject:[_userData mj_keyValues] forKey:kUserData];
 }
