@@ -21,8 +21,8 @@
 #import "WEYourMessageTool.h"
 
 #import "UserInfoEditVC.h"
-@interface WELookDetailViewController ()<UITableViewDelegate,UITableViewDataSource,WELookDetailFooterViewDelegate,WELookDetailHeaderViewDelegate,UIAlertViewDelegate,WELookDetailCellDelegate>
-@property (nonatomic,strong)UITableView         *tableView;
+@interface WELookDetailViewController ()<WELookDetailFooterViewDelegate,WELookDetailHeaderViewDelegate,UIAlertViewDelegate,WELookDetailCellDelegate>
+
 @property (nonatomic,strong)NSMutableArray      *dataSource;
 @property (nonatomic,strong) WELookDetailFooterView *footer;
 @property (nonatomic,strong)UIButton  *seleteBtn;
@@ -393,22 +393,10 @@
 
 - (void)configUserInterface{
     self.title = @"查看资料";
-    // table
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.tableFooterView = [UIView new];
-    
+
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"WELookDetailCell" bundle:nil] forCellReuseIdentifier:WELookDetailCellID];
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(self.view);
-        make.top.mas_equalTo(self.baseNavigationBar.mas_bottom).offset(0);
-        make.height.mas_equalTo(KScreenHeight-64-44);
-    }];
-    
+
     
     WELookDetailHeaderView *headeView = [WELookDetailHeaderView xw_loadFromNib];
     headeView.frame = CGRectMake(0, 0,KScreenWidth, 320);
@@ -543,11 +531,14 @@
 
         }
         
-        [self setNavigationRightBtnWithTitle:@"查看对我的回答" actionBack:^{
-           
+        [self createNavWithTitle:@"查看对我的回答" createMenuItem:^UIView *(int nIndex){
+            if (nIndex == 0){
+                UIButton *btn = NewBackButton(nil);
+                [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+                return btn;
+            }
             
-            
-            
+            return nil;
         }];
         
         
@@ -585,28 +576,45 @@
             
         }
         
+        [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex){
+            if (nIndex == 0){
+                UIButton *btn = NewBackButton(nil);
+                [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+                return btn;
+            }
+            
+            return nil;
+        }];
+        
         
     }else{// 个人中心进来的
-        
-        __weak typeof(self)weakSelf = self;
-        [self setNavigationRightBtnWithTitle:@"编辑" actionBack:^{
-         
-//            WECompletInfoController *vc = [[WECompletInfoController alloc] init];
-//            vc.isUserSetting = YES;
-//            [weakSelf.navigationController pushViewController:vc animated:YES];
-            
-            UserInfoEditVC *vc = [UserInfoEditVC new];
-            [weakSelf.navigationController pushViewController:vc animated:YES];
-            
-        }];
 
-        
-        
+        [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex){
+            if (nIndex == 0){
+                UIButton *btn = NewBackButton(nil);
+                [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+                return btn;
+            }
+            else if (nIndex == 1){
+                UIButton *btn = NewTextButton(@"编辑", [UIColor whiteColor]);
+                [btn addTarget:self action:@selector(editAction) forControlEvents:UIControlEventTouchUpInside];
+                return btn;
+            }
+            
+            return nil;
+        }];
     }
     
 }
 
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
+- (void)editAction{
+    UserInfoEditVC *vc = [UserInfoEditVC new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma mark-- 选他或者提醒
 - (void)btnClick:(UIButton *)sender{
@@ -634,13 +642,13 @@
         
     }else{
         // 提醒
-        [self showActivity];
+        [self showHudInView:self.view hint:nil];
         [WESomeOneLikeTool remindYourLikeWithID:self.dic[@"id"] success:^(id model) {
-            [self cancleActivity];
-            [self showMessage:@"提醒成功" toView:self.view];
+            [self hideHud];
+            [self showHint:@"提醒成功"];
         } failed:^(NSString *error) {
-            [self cancleActivity];
-            [self showMessage:error toView:self.view];
+            [self hideHud];
+            [self showHint:error];
             
         }];
         
@@ -659,10 +667,10 @@
         
       //
         XWUserModel *models = [XWUserModel getUserInfoFromlocal];
-        [self showActivity];
+        [self showHudInView:self.view hint:nil];
         [WEYourMessageTool buildRelationShipWithUserID:models.xw_id hisOrHerId:self.ID success:^(id model) {
-            [self cancleActivity];
-            [self showMessage:@"建立关系成功" toView:self.navigationController.view];
+            [self hideHud];
+            [self showHint:@"建立关系成功"];
             
             [KUserDefaults setObject:self.ID forKey:KHisHerID];
             
@@ -677,8 +685,8 @@
             [KNotiCenter postNotificationName:KMarchSuccess object:nil];
             
         } failed:^(NSString *error) {
-            [self cancleActivity];
-            [self showMessage:error toView:self.view];
+            [self hideHud];
+            [self showHint:error];
         }];
         
         

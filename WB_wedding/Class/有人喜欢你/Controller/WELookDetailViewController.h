@@ -6,7 +6,7 @@
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "HQBaseViewController.h"
+#import "AppBasicTableViewController.h"
 
 typedef enum {
   vcTypeYourMsg,
@@ -19,7 +19,7 @@ typedef enum {
 /**
  *  查看资料控制器
  */
-@interface WELookDetailViewController : HQBaseViewController
+@interface WELookDetailViewController : AppBasicTableViewController
 
 - (instancetype)initWithType:(vcType)type;
 
