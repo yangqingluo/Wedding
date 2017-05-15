@@ -8,6 +8,7 @@
 
 #import "UserInfoEditVC.h"
 #import "PublicSelectionVC.h"
+#import "TitleAndDetailTextCell.h"
 
 @interface UserInfoEditVC ()
 
@@ -98,6 +99,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section == 2) {
+        return kEdgeMiddle;
+    }
+    
     return 0.01;
 }
 
@@ -106,38 +111,56 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return kCellHeightMiddle;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"userinfo_cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.detailTextLabel.textColor = [UIColor lightGrayColor];
-    }
-    
     switch (indexPath.section) {
         case 0:{
-            cell.textLabel.text = self.userData.nickname;
-            cell.detailTextLabel.text = @"查看问卷";
+            
         }
             break;
             
         case 1:{
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
-            cell.textLabel.text = item.name;
             
-            cell.detailTextLabel.text = [self.userData subItemStringWithKey:item.key];
+            return [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:item.name andDetail:[self.userData subItemStringWithKey:item.key]];
         }
             break;
             
         case 2:{
-            cell.textLabel.text = @"我的提问";
-            cell.detailTextLabel.text = @"";
+            return [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:@"我的提问" andDetail:[self.userData showStringOfMyQuestion]];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return kCellHeightMiddle;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"userinfo_cell";
+    TitleAndDetailTextCell *cell = (TitleAndDetailTextCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[TitleAndDetailTextCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    switch (indexPath.section) {
+        case 0:{
+            [cell setTitle:self.userData.nickname andDetail:@"查看问卷"];
+        }
+            break;
+            
+        case 1:{
+            UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
+            
+            [cell setTitle:item.name andDetail:[self.userData subItemStringWithKey:item.key]];
+        }
+            break;
+            
+        case 2:{            
+            [cell setTitle:@"我的提问" andDetail:[self.userData showStringOfMyQuestion]];
         }
             break;
             

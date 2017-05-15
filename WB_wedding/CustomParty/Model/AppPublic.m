@@ -257,7 +257,7 @@ NSString *stringFromDate(NSDate *date, NSString *format){
     paragraphStyle.alignment = 0;
     
     NSStringDrawingOptions drawOptions = NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
-    NSDictionary *attibutes = @{NSFontAttributeName:font,NSParagraphStyleAttributeName:paragraphStyle};
+    NSDictionary *attibutes = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle};
     
     return [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:drawOptions attributes:attibutes context:nil].size;
 }
@@ -269,7 +269,7 @@ NSString *stringFromDate(NSDate *date, NSString *format){
     
     
     NSStringDrawingOptions drawOptions = NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
-    NSDictionary *attibutes = @{NSFontAttributeName:font,NSParagraphStyleAttributeName:paragraphStyle};
+    NSDictionary *attibutes = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle};
     
     return [text boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:drawOptions attributes:attibutes context:nil].size;
 }

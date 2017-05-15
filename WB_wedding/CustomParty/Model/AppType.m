@@ -60,6 +60,16 @@
     return array;
 }
 
+- (NSString *)showStringOfMyQuestion{
+    NSString *m_string = @"";
+    NSArray *array = [self.myQuestion componentsSeparatedByString:@"&"];
+    for (int i = 0; i < array.count; i++) {
+        m_string = [m_string stringByAppendingFormat:@"%@%d.%@", m_string.length ? @"\n" : @"", i + 1, array[i]];
+    }
+    
+    return m_string;
+}
+
 @end
 
 

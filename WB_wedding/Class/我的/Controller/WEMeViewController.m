@@ -32,6 +32,7 @@
     [super viewWillAppear:animated];
     [self configUserInterface];
     
+    self.nameLab.text = [AppPublic getInstance].userData.nickname;
 }
 
 

@@ -408,7 +408,7 @@
     
     
     WELookDetailFooterView *footer = [WELookDetailFooterView xw_loadFromNib];
-    footer.frame = CGRectMake(0, 0,KScreenWidth,125);
+    footer.frame = CGRectMake(0, 0, KScreenWidth, 200);
     footer.delegate = self;
     self.tableView.tableFooterView = footer;
     self.footer = footer;

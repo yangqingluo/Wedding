@@ -300,6 +300,8 @@
 		E9D582451E4D9A190071E88F /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5823C1E4D9A190071E88F /* UIView+ST.m */; };
 		E9D582561E4E07800071E88F /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9D582551E4E07800071E88F /* area.plist */; };
 		FCA11FD41EC98B7D005C5305 /* PublicSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */; };
+		FCA11FD91EC9AE09005C5305 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */; };
+		FCA11FDC1EC9F3CD005C5305 /* TitleAndDetailTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */; };
 		FCA9C1471EC4C1FA0003ECCF /* infoItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */; };
 		FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */; };
 		FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */; };
@@ -975,6 +977,10 @@
 		EC7DCA563DE1AD2614468DAF /* libPods-WB_wedding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WB_wedding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicSelectionVC.h; sourceTree = "<group>"; };
 		FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicSelectionVC.m; sourceTree = "<group>"; };
+		FCA11FD71EC9AE09005C5305 /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
+		FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoVC.m; sourceTree = "<group>"; };
+		FCA11FDA1EC9F3CD005C5305 /* TitleAndDetailTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleAndDetailTextCell.h; sourceTree = "<group>"; };
+		FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleAndDetailTextCell.m; sourceTree = "<group>"; };
 		FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = infoItems.txt; sourceTree = "<group>"; };
 		FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
@@ -2534,6 +2540,8 @@
 		FCA9C1611EC556B50003ECCF /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				FCA11FD71EC9AE09005C5305 /* UserInfoVC.h */,
+				FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */,
 				FCA9C1621EC556DC0003ECCF /* UserInfoEditVC.h */,
 				FCA9C1631EC556DC0003ECCF /* UserInfoEditVC.m */,
 			);
@@ -2603,6 +2611,8 @@
 				FCD3AADD1EBCE3B2005AC352 /* UIButton+ImageAndText.m */,
 				FCD3AADE1EBCE3B2005AC352 /* UIView+KGViewExtend.h */,
 				FCD3AADF1EBCE3B2005AC352 /* UIView+KGViewExtend.m */,
+				FCA11FDA1EC9F3CD005C5305 /* TitleAndDetailTextCell.h */,
+				FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2936,6 +2946,7 @@
 				5D9E49921E2CB48600B9C88C /* WETimeLineController.m in Sources */,
 				57FEBCBC1EB8E884008D6AE1 /* wav.mm in Sources */,
 				5DBBF9C51E558B2D00DB716E /* WETimeLineDetailHeaderView.m in Sources */,
+				FCA11FDC1EC9F3CD005C5305 /* TitleAndDetailTextCell.m in Sources */,
 				FCD3AAFB1EBCE4DC005AC352 /* UIImage+Gif.m in Sources */,
 				57FEBCFC1EB8E884008D6AE1 /* EaseSDKHelper.m in Sources */,
 				5D3085E11E2755D500CA138C /* WELookDetailCell.m in Sources */,
@@ -3026,6 +3037,7 @@
 				57FEBD011EB8E884008D6AE1 /* NSDateFormatter+Category.m in Sources */,
 				E9415ACD1E2FC6C5002325A0 /* WalletPayVC.m in Sources */,
 				57FEBCB61EB8E884008D6AE1 /* EMCDDeviceManager+Media.m in Sources */,
+				FCA11FD91EC9AE09005C5305 /* UserInfoVC.m in Sources */,
 				57FEBD271EB8E884008D6AE1 /* EaseRecordView.m in Sources */,
 				5D6417F01E4B0F5C00844027 /* WEMyChatTool.m in Sources */,
 				5709C1851EA66CAA00C5C987 /* NSDate+WEHelper.m in Sources */,
