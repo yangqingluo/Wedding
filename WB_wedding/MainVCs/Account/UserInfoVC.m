@@ -11,10 +11,9 @@
 #import "UserInfoHeaderView.h"
 #import "TitleAndDetailTextCell.h"
 
-
 @interface UserInfoVC ()
 
-@property (nonatomic,strong) UserInfoHeaderView *headeView;
+@property (nonatomic,strong) UserInfoHeaderView *headerView;
 
 @end
 
@@ -23,7 +22,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self.tableView reloadData];
+    if (self.infoType == UserInfoTypeSelf) {
+        _userData = nil;
+        [self.tableView reloadData];
+    }
 }
 
 - (void)viewDidLoad {
@@ -33,8 +35,9 @@
     UserInfoHeaderView *headeView = [UserInfoHeaderView appLoadFromNib];
     self.tableView.tableHeaderView = headeView;
     headeView.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
-    headeView.cycleScrollView.imageURLStringsGroup = [[AppPublic getInstance].userData showImageArray];
-    self.headeView = headeView;
+    self.headerView = headeView;
+    
+    [self updateSubviews];
 }
 
 - (void)setupNav {
@@ -45,9 +48,11 @@
             return btn;
         }
         else if (nIndex == 1){
-            UIButton *btn = NewTextButton(@"编辑", [UIColor whiteColor]);
-            [btn addTarget:self action:@selector(editAction) forControlEvents:UIControlEventTouchUpInside];
-            return btn;
+            if (self.infoType == UserInfoTypeSelf) {
+                UIButton *btn = NewTextButton(@"编辑", [UIColor whiteColor]);
+                [btn addTarget:self action:@selector(editAction) forControlEvents:UIControlEventTouchUpInside];
+                return btn;
+            }
         }
         
         return nil;
@@ -63,6 +68,35 @@
 - (void)editAction{
     UserInfoEditVC *vc = [UserInfoEditVC new];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)updateSubviews{
+    self.headerView.cycleScrollView.imageURLStringsGroup = [self.userData showImageArray];
+    
+    self.headerView.nameLabel.text = self.userData.nickname;
+    self.headerView.addressLabel.text = self.userData.city;
+    self.headerView.sexAndAgeLabel.text = [NSString stringWithFormat:@"%@ %d", self.userData.sex ? @"女" : @"男", self.userData.age];
+    self.headerView.constellationLabel.text = self.userData.xingZuo;
+    
+    self.headerView.matchView.hidden = (self.infoType != UserInfoTypeStart);
+    if (self.infoType == UserInfoTypeSelf || self.infoType == UserInfoTypeStart) {
+        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%d cm", self.userData.height];
+        self.headerView.matchLabel.text = self.userData.matchDegree;
+    }
+    else {
+        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"匹配度%@%%", self.userData.matchDegree];
+    }
+    
+    [self.headerView adjustSubviews];
+}
+
+#pragma getter
+- (AppUserData *)userData{
+    if (!_userData) {
+        _userData = [[AppPublic getInstance].userData copy];
+    }
+    
+    return _userData;
 }
 
 #pragma tableview
@@ -100,12 +134,12 @@
         case 1:{
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
             
-            return [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:item.name andDetail:[[AppPublic getInstance].userData subItemStringWithKey:item.key]];
+            return [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:item.name andDetail:[self.userData subItemStringWithKey:item.key]];
         }
             break;
             
         case 2:{
-            return [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:@"我的提问" andDetail:[[AppPublic getInstance].userData showStringOfMyQuestion]];
+            return [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:@"    " andDetail:[self.userData showStringOfMyQuestion]];
         }
             break;
             
@@ -127,19 +161,19 @@
     
     switch (indexPath.section) {
         case 0:{
-            [cell setTitle:[NSString stringWithFormat:@"真实姓名\n%@", [AppPublic getInstance].userData.realname] andDetail:@"查看问卷"];
+            [cell setTitle:[NSString stringWithFormat:@"真实姓名\n%@", self.userData.realname] andDetail:@"查看问卷"];
         }
             break;
             
         case 1:{
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
             
-            [cell setTitle:item.name andDetail:[[AppPublic getInstance].userData subItemStringWithKey:item.key]];
+            [cell setTitle:item.name andDetail:[self.userData subItemStringWithKey:item.key]];
         }
             break;
             
         case 2:{
-            [cell setTitle:@"我的提问" andDetail:[[AppPublic getInstance].userData showStringOfMyQuestion]];
+            [cell setTitle:(self.infoType == UserInfoTypeSelf) ? @"我的提问" : @"ta的提问" andDetail:[self.userData showStringOfMyQuestion]];
         }
             break;
             

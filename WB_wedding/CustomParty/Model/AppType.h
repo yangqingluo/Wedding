@@ -31,9 +31,9 @@
 @property (strong, nonatomic) NSString *vipEndTime;
 @property (strong, nonatomic) NSString *isLocationOpen;
 @property (assign, nonatomic) int age;//年龄
-@property (strong, nonatomic) NSString *height;//身高
+@property (assign, nonatomic) int height;//身高
 @property (strong, nonatomic) NSString *birthday;//生日
-@property (strong, nonatomic) NSString *sex;//性别
+@property (assign, nonatomic) BOOL sex;//性别
 @property (strong, nonatomic) NSString *xingZuo;//星座
 @property (strong, nonatomic) NSString *city;//城市
 @property (strong, nonatomic) NSString *ageRange;
@@ -46,6 +46,7 @@
 @property (strong, nonatomic) NSString *exloverIds;//前朋友Ids
 @property (strong, nonatomic) NSString *matcherIds;
 @property (strong, nonatomic) NSString *loverId;
+@property (strong, nonatomic) NSString *matchDegree;//匹配度
 
 @property (strong, nonatomic) NSString *salary;
 @property (strong, nonatomic) NSString *parentSituation;

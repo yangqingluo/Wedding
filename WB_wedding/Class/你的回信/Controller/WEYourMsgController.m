@@ -10,6 +10,8 @@
 #import "WEYourMessageCollectionCell.h"
 #import "WELookDetailViewController.h"
 #import "WEYourMessageTool.h"
+#import "UserInfoVC.h"
+
 @interface WEYourMsgController ()<UICollectionViewDelegate,UICollectionViewDataSource,WEYourMessageCollectionCellDelegate>
 
 @property (nonatomic,strong) UICollectionView  *collectionView;
@@ -200,10 +202,14 @@
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeYourMsg];
-    vc.dic = self.dataSource[indexPath.row];
+//    WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeYourMsg];
+//    vc.dic = self.dataSource[indexPath.row];
     NSDictionary *dic = self.dataSource[indexPath.row];
-    vc.ID =dic[@"recieverId"];
+//    vc.ID =dic[@"recieverId"];
+    
+    UserInfoVC *vc = [UserInfoVC new];
+    vc.infoType = UserInfoTypeMsg;
+    vc.userData = [AppUserData mj_objectWithKeyValues:dic];
     [self.navigationController pushViewController:vc animated:YES];
     
     

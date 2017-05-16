@@ -15,7 +15,7 @@
 #import "WESomeOneAnswerQuestionVC.h"
 #import "WELookDetailViewController.h"
 #import "OpenLikeAnswerVC.h"
-
+#import "UserInfoVC.h"
 #import "WEMarchTool.h"
 
 #define RGBAColor(r,g,b,a)  [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
@@ -629,9 +629,13 @@ CGFloat yFromCenter;
     
     NSDictionary *dic = self.items[index];
     
-    WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeHome];
-    vc.dic = dic;
-    vc.ID = dic[@"id"];
+//    WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeHome];
+//    vc.dic = dic;
+//    vc.ID = dic[@"id"];
+    UserInfoVC *vc = [UserInfoVC new];
+    vc.infoType = UserInfoTypeStart;
+    vc.userData = [AppUserData mj_objectWithKeyValues:dic];
+    
     [self.navigationController pushViewController:vc animated:YES];
     
 }

@@ -65,6 +65,7 @@
             //个人资料
             UserInfoVC *vc = [UserInfoVC new];
             vc.title = @"我的资料";
+            vc.infoType = UserInfoTypeSelf;
             
             [self.navigationController pushViewController:vc animated:YES];
         }

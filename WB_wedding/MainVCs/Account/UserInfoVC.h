@@ -8,6 +8,16 @@
 
 #import "AppBasicTableViewController.h"
 
+typedef enum {
+    UserInfoTypeSelf = 0,
+    UserInfoTypeMsg,
+    UserInfoTypeLike,
+    UserInfoTypeStart,
+}UserInfoType;
+
 @interface UserInfoVC : AppBasicTableViewController
+
+@property (nonatomic) UserInfoType infoType;
+@property (strong, nonatomic) AppUserData *userData;
 
 @end

@@ -10,6 +10,8 @@
 #import "SomeOneLikeCell.h"
 #import "WELookDetailViewController.h"
 #import "WESomeOneLikeTool.h"
+#import "UserInfoVC.h"
+
 @interface WESomeOneLikeController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView         *tableView;
 
@@ -148,10 +150,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeYourLike];
+//    WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeYourLike];
       NSDictionary *dic = self.dataSource[indexPath.row];
-    vc.ID = dic[@"senderId"];
-    vc.dic = dic;
+//    vc.ID = dic[@"senderId"];
+//    vc.dic = dic;
+    
+    UserInfoVC *vc = [UserInfoVC new];
+    vc.infoType = UserInfoTypeLike;
+    vc.userData = [AppUserData mj_objectWithKeyValues:dic];
     [self.navigationController pushViewController:vc animated:YES];
     
     

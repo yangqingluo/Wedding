@@ -187,10 +187,6 @@ static NSMutableArray *tasks;
             break;
     }
 
-    NSLog(@"******************** 请求参数 ***************************");
-    NSLog(@"请求头: %@\n请求方式: %@\n请求URL: %@\n请求param: %@\n\n",[self sharedAFManager].requestSerializer.HTTPRequestHeaders, requestType, URLString, parameters);
-    NSLog(@"********************************************************");
-
     /**
      *  设置下请求的解析器
      */

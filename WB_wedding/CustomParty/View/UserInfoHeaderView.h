@@ -12,13 +12,15 @@
 @interface UserInfoHeaderView : UIView
 
 @property (strong, nonatomic) IBOutlet SDCycleScrollView *cycleScrollView;
-@property (strong, nonatomic) IBOutlet UILabel *ageLable;
-@property (strong, nonatomic) IBOutlet UILabel *constellationLable;
+@property (strong, nonatomic) IBOutlet UILabel *sexAndAgeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *constellationLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *adressLabel;
-@property (strong, nonatomic) IBOutlet UILabel *thirdLable;
+@property (strong, nonatomic) IBOutlet UILabel *addressLabel;
+@property (strong, nonatomic) IBOutlet UILabel *thirdLabel;
 
 @property (strong, nonatomic) IBOutlet UIView *matchView;
-@property (strong, nonatomic) IBOutlet UILabel *matchLable;
+@property (strong, nonatomic) IBOutlet UILabel *matchLabel;
+
+- (void)adjustSubviews;
 
 @end
