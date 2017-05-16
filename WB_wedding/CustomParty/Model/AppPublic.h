@@ -102,6 +102,9 @@ BOOL isFirstUsing();
  */
 NSString *sha1(NSString *string);
 
+//图像压缩
+NSData *dataOfImageCompression(UIImage *image, BOOL isHead);
+
 //new button
 UIButton *NewTextButton(NSString *title, UIColor *textColor);
 UIButton *NewBackButton(UIColor *color);

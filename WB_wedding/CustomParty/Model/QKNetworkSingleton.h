@@ -15,12 +15,14 @@
 #define APP_HTTP_SUCCESS	             	1	//成功
 
 typedef void(^QKNetworkBlock)(id responseBody, NSError *error);
-typedef void(^downloadProgress)(float progress);
+typedef void(^Progress)(float progress);
 
 @interface QKNetworkSingleton : NSObject
 
 BOOL isHttpSuccess(int state);
 NSString *httpRespString(NSError *error, NSObject *object);
+NSString *urlStringWithService(NSString *service);
+NSString *imageUrlStringWithImagePath(NSString *path);
 
 + (QKNetworkSingleton *)sharedManager;
 
@@ -39,8 +41,10 @@ NSString *httpRespString(NSError *error, NSObject *object);
 - (void)Delete:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlString completion:(QKNetworkBlock)completion;
 
 //download
-- (BOOL)downLoadFileWithOperations:(NSDictionary *)operations withSavaPath:(NSString *)savePath withUrlString:(NSString *)urlString completion:(QKNetworkBlock)completion withDownLoadProgress:(downloadProgress)progress;
+- (BOOL)downLoadFileWithOperations:(NSDictionary *)operations withSavaPath:(NSString *)savePath withUrlString:(NSString *)urlString completion:(QKNetworkBlock)completion withDownLoadProgress:(Progress)progress;
 
+//上传一组图片
+- (void)pushImages:(NSArray *)imageDataArray Parameters:(NSDictionary *)parameters completion:(QKNetworkBlock)completion withUpLoadProgress:(Progress)progress;
 
 //login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password LoginType:(int)loginType completion:(QKNetworkBlock)completion;

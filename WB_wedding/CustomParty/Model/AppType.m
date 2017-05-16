@@ -82,7 +82,7 @@
 - (NSArray *)showImageArray{
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.imgArray.count];
     for (NSString *imgUrlString in self.imgArray) {
-        [array addObject:[NSString stringWithFormat:@"%@%@", appImageUrlAddress, imgUrlString]];
+        [array addObject:imageUrlStringWithImagePath(imgUrlString)];
     }
     
     return array;

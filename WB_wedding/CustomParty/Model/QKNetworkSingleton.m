@@ -6,6 +6,7 @@
 //
 
 #import "QKNetworkSingleton.h"
+#import "NSData+HTTPRequest.h"
 
 @implementation QKNetworkSingleton
 
@@ -18,7 +19,7 @@
     return sharedQKNetworkSingleton;
 }
 
-- (AFHTTPSessionManager *)baseHttpRequestWithParm:(NSDictionary *)parm{
+- (AFHTTPSessionManager *)baseHttpRequestWithParm:(NSDictionary *)parm andSuffix:(NSString *)suffix{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setTimeoutInterval:30];
     
@@ -28,15 +29,46 @@
         }
     }
     
-    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
-//    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    manager.requestSerializer = requestSerializer;
+    if ([suffix isEqualToString:@"/likeu/chooseanswer"] ||
+        [suffix isEqualToString:@"/user/updatesurvey"] ||
+        [suffix isEqualToString:@"/chat/breakup"] ||
+        [suffix isEqualToString:@"/comment/delete"] ||
+        [suffix isEqualToString:@"/user/changetelnumber"] ||
+        [suffix isEqualToString:@"/alipay/pay"] ||
+        [suffix isEqualToString:@"/match/send"] ||
+        [suffix isEqualToString:@"/user/deleteimg"]) {
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    }
+    else {
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    }
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
+    
     return manager;
 }
 
 NSString *urlStringWithService(NSString *service){
-    return [NSString stringWithFormat:@"%@%@",appUrlAddress,service];
+    return [NSString stringWithFormat:@"%@%@", appUrlAddress, service];
+}
+
+NSString *imageUrlStringWithImagePath(NSString *path){
+    return [NSString stringWithFormat:@"%@%@", appImageUrlAddress, path];
+}
+
+
+NSString *generateUuidString(){
+    // create a new UUID which you own
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    
+    // create a new CFStringRef (toll-free bridged to NSString)
+    // that you own
+    NSString *uuidString = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
+    
+    
+    // release the UUID
+    CFRelease(uuid);
+    
+    return uuidString;
 }
 
 #pragma public
@@ -73,10 +105,10 @@ NSString *httpRespString(NSError *error, NSObject *object){
 
 //Get
 - (void)Get:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlString completion:(QKNetworkBlock)completion{
-    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm];
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlString];
     NSString *urlStr = [urlStringWithService(urlString) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    [manager GET:urlStr parameters:userInfo progress:^(NSProgress * _Nonnull downloadProgress){
+    [manager GET:urlStr parameters:userInfo progress:^(NSProgress * _Nonnull Progress){
         
     } success:^(NSURLSessionDataTask *task, id responseObject){
         completion(responseObject, nil);
@@ -87,10 +119,10 @@ NSString *httpRespString(NSError *error, NSObject *object){
 }
 //Post
 - (void)Post:(id)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlString completion:(QKNetworkBlock)completion{
-    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm];
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlString];
     NSString *urlStr = [urlStringWithService(urlString) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    [manager POST:urlStr parameters:userInfo progress:^(NSProgress * _Nonnull downloadProgress){
+    [manager POST:urlStr parameters:userInfo progress:^(NSProgress * _Nonnull progress){
         
     } success:^(NSURLSessionDataTask *task, id responseObject){
         completion(responseObject, nil);
@@ -106,9 +138,9 @@ NSString *httpRespString(NSError *error, NSObject *object){
 }
 
 - (void)Post:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlString constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block completion:(QKNetworkBlock)completion{
-    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm];
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlString];
     NSString *urlStr = [urlStringWithService(urlString) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [manager POST:urlStr parameters:userInfo constructingBodyWithBlock:block progress:^(NSProgress * _Nonnull downloadProgress){
+    [manager POST:urlStr parameters:userInfo constructingBodyWithBlock:block progress:^(NSProgress * _Nonnull Progress){
         
     } success:^(NSURLSessionDataTask *task, id responseObject){
         completion(responseObject, nil);
@@ -120,7 +152,7 @@ NSString *httpRespString(NSError *error, NSObject *object){
 
 //Put
 - (void)Put:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlString completion:(QKNetworkBlock)completion{
-    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm];
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlString];
     NSString *urlStr = [urlStringWithService(urlString) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [manager PUT:urlStr parameters:userInfo success:^(NSURLSessionDataTask *task, id responseObject){
@@ -133,7 +165,7 @@ NSString *httpRespString(NSError *error, NSObject *object){
 
 //Delete
 - (void)Delete:(NSDictionary *)userInfo HeadParm:(NSDictionary *)parm URLFooter:(NSString *)urlString completion:(QKNetworkBlock)completion{
-    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm];
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:parm andSuffix:urlString];
     NSString *urlStr = [urlStringWithService(urlString) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [manager DELETE:urlStr parameters:userInfo success:^(NSURLSessionDataTask *task, id responseObject){
         completion(responseObject, nil);
@@ -144,7 +176,7 @@ NSString *httpRespString(NSError *error, NSObject *object){
 }
 
 //download
-- (BOOL)downLoadFileWithOperations:(NSDictionary *)operations withSavaPath:(NSString *)savePath withUrlString:(NSString *)urlString completion:(QKNetworkBlock)completion withDownLoadProgress:(downloadProgress)progress{
+- (BOOL)downLoadFileWithOperations:(NSDictionary *)operations withSavaPath:(NSString *)savePath withUrlString:(NSString *)urlString completion:(QKNetworkBlock)completion withDownLoadProgress:(Progress)progress{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]] progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -164,6 +196,38 @@ NSString *httpRespString(NSError *error, NSObject *object){
     }
 }
 
+//上传一组图片
+- (void)pushImages:(NSArray *)imageDataArray Parameters:(NSDictionary *)parameters completion:(QKNetworkBlock)completion withUpLoadProgress:(Progress)progress;{
+    if (imageDataArray.count == 0) {
+        return;
+    }
+    
+    NSString *urlString = @"/user/uploadimg";
+    AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:nil andSuffix:urlString];
+    NSString *urlStr = [urlStringWithService(urlString) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [manager POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        for (NSData *imageData in imageDataArray) {
+            NSString *imageExtension = [imageData getImageType];
+            NSString *fileName = [NSString stringWithFormat:@"%@.%@",generateUuidString(),imageExtension];
+            
+            /*
+             此方法参数
+             1. 要上传的[二进制数据]
+             2. 对应网站上[upload.php中]处理文件的[字段"file"]
+             3. 要保存在服务器上的[文件名]
+             4. 上传文件的[mimeType]
+             */
+            [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:[NSString stringWithFormat:@"image/%@",imageExtension]];
+        }
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress){
+        progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+    } success:^(NSURLSessionDataTask *task, id responseObject){
+        completion(responseObject, nil);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error){
+        completion(nil, error);
+    }];
+}
 
 //login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password LoginType:(int)loginType completion:(QKNetworkBlock)completion{

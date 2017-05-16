@@ -13,6 +13,8 @@
 #import "FirstPageController.h"
 #import "WEChangePhoneController.h"
 #import "WEChangePwdController.h"
+#import "BlockAlertView.h"
+
 @interface WESettingController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong)UITableView  *tableView;
 
@@ -90,8 +92,12 @@
         }else if(indexPath.row == 1){
             
         }else{
-            
-            [[AppPublic getInstance] logOut];
+            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:@"确定要退出账号？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    [[AppPublic getInstance] logOut];
+                }
+            }otherButtonTitles:@"确定", nil];
+            [alert show];
         
         }
     }

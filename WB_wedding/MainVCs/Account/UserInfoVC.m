@@ -10,7 +10,7 @@
 #import "UserInfoEditVC.h"
 #import "UserInfoHeaderView.h"
 #import "TitleAndDetailTextCell.h"
-
+#import "WECompletInfoController.h"
 @interface UserInfoVC ()
 
 @property (nonatomic,strong) UserInfoHeaderView *headerView;
@@ -24,7 +24,7 @@
     
     if (self.infoType == UserInfoTypeSelf) {
         _userData = nil;
-        [self.tableView reloadData];
+        [self updateSubviews];
     }
 }
 
@@ -66,6 +66,10 @@
 }
 
 - (void)editAction{
+//    WECompletInfoController *vc = [WECompletInfoController new];
+//    vc.isUserSetting = YES;
+//    vc.telPhone = self.userData.telNumber;
+//    vc.userId = self.userData.ID;
     UserInfoEditVC *vc = [UserInfoEditVC new];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -80,7 +84,7 @@
     
     self.headerView.matchView.hidden = (self.infoType != UserInfoTypeStart);
     if (self.infoType == UserInfoTypeSelf || self.infoType == UserInfoTypeStart) {
-        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%d cm", self.userData.height];
+        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%dcm", self.userData.height];
         self.headerView.matchLabel.text = self.userData.matchDegree;
     }
     else {
@@ -88,6 +92,8 @@
     }
     
     [self.headerView adjustSubviews];
+    
+    [self.tableView reloadData];
 }
 
 #pragma getter

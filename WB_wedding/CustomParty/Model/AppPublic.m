@@ -200,6 +200,48 @@ NSString *sha1(NSString *string){
     return outputStr;
 }
 
+//图像压缩
+NSData *dataOfImageCompression(UIImage *image, BOOL isHead){
+    //头像图片
+    if (isHead) {
+        //调整分辨率
+        if (image.size.width > headImageSizeMax || image.size.height > headImageSizeMax) {
+            //压缩图片
+            CGSize newSize = CGSizeMake(image.size.width, image.size.height);
+            
+            CGFloat tempHeight = newSize.height / headImageSizeMax;
+            CGFloat tempWidth = newSize.width / headImageSizeMax;
+            
+            if (tempWidth > 1.0 && tempWidth > tempHeight) {
+                newSize = CGSizeMake(image.size.width / tempWidth, image.size.height / tempWidth);
+            }
+            else if (tempHeight > 1.0 && tempWidth < tempHeight){
+                newSize = CGSizeMake(image.size.width / tempHeight, image.size.height / tempHeight);
+            }
+            
+            UIGraphicsBeginImageContext(newSize);
+            [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+            image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+        }
+        
+        
+    }
+    
+    //调整大小
+    CGFloat scale = 1.0;
+    NSData *imageData;
+    
+    do {
+        if (imageData) {
+            scale *= (imageDataMax / imageData.length);
+        }
+        imageData = UIImageJPEGRepresentation(image, scale);
+    } while (imageData.length > imageDataMax);
+    
+    return imageData;
+}
+
 UIButton *NewTextButton(NSString *title, UIColor *textColor){
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
     [button setTitle:title forState:UIControlStateNormal];

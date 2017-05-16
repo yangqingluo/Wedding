@@ -306,6 +306,9 @@
 		FCA11FE31ECA9A1A005C5305 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */; };
 		FCA11FE61ECAD116005C5305 /* UserInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FE51ECAD116005C5305 /* UserInfoHeaderView.m */; };
 		FCA11FE81ECAD364005C5305 /* UserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA11FE71ECAD364005C5305 /* UserInfoHeaderView.xib */; };
+		FCA11FEB1ECB02AF005C5305 /* QKBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FE91ECB02AF005C5305 /* QKBaseCollectionViewCell.m */; };
+		FCA11FED1ECB02FD005C5305 /* cell_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA11FEC1ECB02FD005C5305 /* cell_delete@2x.png */; };
+		FCA11FF01ECB35B1005C5305 /* NSData+HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FEF1ECB35B1005C5305 /* NSData+HTTPRequest.m */; };
 		FCA9C1471EC4C1FA0003ECCF /* infoItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */; };
 		FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */; };
 		FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */; };
@@ -992,6 +995,11 @@
 		FCA11FE41ECAD116005C5305 /* UserInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoHeaderView.h; sourceTree = "<group>"; };
 		FCA11FE51ECAD116005C5305 /* UserInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoHeaderView.m; sourceTree = "<group>"; };
 		FCA11FE71ECAD364005C5305 /* UserInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoHeaderView.xib; sourceTree = "<group>"; };
+		FCA11FE91ECB02AF005C5305 /* QKBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		FCA11FEA1ECB02AF005C5305 /* QKBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		FCA11FEC1ECB02FD005C5305 /* cell_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_delete@2x.png"; sourceTree = "<group>"; };
+		FCA11FEE1ECB35B1005C5305 /* NSData+HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+HTTPRequest.h"; sourceTree = "<group>"; };
+		FCA11FEF1ECB35B1005C5305 /* NSData+HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HTTPRequest.m"; sourceTree = "<group>"; };
 		FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = infoItems.txt; sourceTree = "<group>"; };
 		FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
@@ -2527,6 +2535,7 @@
 		FCA9C1481EC4C2730003ECCF /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				FCA11FEC1ECB02FD005C5305 /* cell_delete@2x.png */,
 				FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */,
 				FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */,
 				FCA9C14B1EC4C2730003ECCF /* cell_next@3x.png */,
@@ -2608,6 +2617,8 @@
 				FCD3AAC71EBCE3B2005AC352 /* AppType.m */,
 				FCD3AAC81EBCE3B2005AC352 /* QKNetworkSingleton.h */,
 				FCD3AAC91EBCE3B2005AC352 /* QKNetworkSingleton.m */,
+				FCA11FEE1ECB35B1005C5305 /* NSData+HTTPRequest.h */,
+				FCA11FEF1ECB35B1005C5305 /* NSData+HTTPRequest.m */,
 				FCD3AAF11EBCE4DC005AC352 /* UIImage+Categories */,
 			);
 			path = Model;
@@ -2628,6 +2639,8 @@
 				FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */,
 				FCA11FE11ECA9A1A005C5305 /* TextFieldCell.h */,
 				FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */,
+				FCA11FEA1ECB02AF005C5305 /* QKBaseCollectionViewCell.h */,
+				FCA11FE91ECB02AF005C5305 /* QKBaseCollectionViewCell.m */,
 				FCA11FE41ECAD116005C5305 /* UserInfoHeaderView.h */,
 				FCA11FE51ECAD116005C5305 /* UserInfoHeaderView.m */,
 				FCA11FE71ECAD364005C5305 /* UserInfoHeaderView.xib */,
@@ -2765,6 +2778,7 @@
 				E9415ACE1E2FC6C5002325A0 /* WalletPayVC.xib in Resources */,
 				5D39E5681E35D65C0093A4A5 /* WESeletedController.xib in Resources */,
 				FCA9C1551EC4C2730003ECCF /* cell_next@3x.png in Resources */,
+				FCA11FED1ECB02FD005C5305 /* cell_delete@2x.png in Resources */,
 				5DBBF9CC1E558C6000DB716E /* WETimeLineFooterView.xib in Resources */,
 				5D3085E21E2755D500CA138C /* WELookDetailCell.xib in Resources */,
 				FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */,
@@ -3014,6 +3028,7 @@
 				5D6F98E51E2F3A63001E5D06 /* WESettingHeadeView.m in Sources */,
 				57FEBD1B1EB8E884008D6AE1 /* EaseBubbleView+Location.m in Sources */,
 				5D746A3C1E2E0343001FE1A1 /* TZPhotoPickerController.m in Sources */,
+				FCA11FEB1ECB02AF005C5305 /* QKBaseCollectionViewCell.m in Sources */,
 				5D746A3B1E2E0343001FE1A1 /* TZImagePickerController.m in Sources */,
 				5D9E5A911E52E841000E9216 /* WELocationCell.m in Sources */,
 				5D793B5A1E1B47BB00236506 /* HQBaseViewController.m in Sources */,
@@ -3075,6 +3090,7 @@
 				57FEBD211EB8E884008D6AE1 /* EaseChatToolbarItem.m in Sources */,
 				5D9062431E641D5C00200C7F /* base64.m in Sources */,
 				FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */,
+				FCA11FF01ECB35B1005C5305 /* NSData+HTTPRequest.m in Sources */,
 				57FEBCB81EB8E884008D6AE1 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				5D746A3D1E2E0343001FE1A1 /* TZPhotoPreviewCell.m in Sources */,
 				57FEBD061EB8E884008D6AE1 /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
