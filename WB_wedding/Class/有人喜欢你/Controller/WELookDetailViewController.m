@@ -612,6 +612,8 @@
 }
 
 - (void)editAction{
+//    WECompletInfoController *vc = [WECompletInfoController new];
+//    vc.isUserSetting = YES;
     UserInfoEditVC *vc = [UserInfoEditVC new];
     [self.navigationController pushViewController:vc animated:YES];
 }

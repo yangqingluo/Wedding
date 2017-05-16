@@ -8,10 +8,8 @@
 
 #import "AppBasicTableViewController.h"
 
-typedef void(^SelectDoneBlock)(NSString *selectedString);
-
 @interface PublicSelectionVC : AppBasicTableViewController
 
-- (instancetype)initWithDataSource:(NSArray *)data selectedArray:(NSArray *)selectdArray maxSelectCount:(NSUInteger)count back:(SelectDoneBlock)block;
+- (instancetype)initWithDataSource:(NSArray *)data selectedArray:(NSArray *)selectdArray maxSelectCount:(NSUInteger)count back:(PopDoneBlock)block;
 
 @end

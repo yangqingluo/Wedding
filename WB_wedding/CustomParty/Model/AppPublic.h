@@ -77,6 +77,9 @@
 #define EMPassword          @"123456"
 #define downloadImagePlace  @"download_image_default"
 
+
+typedef void(^PopDoneBlock)(NSObject *object);
+
 @interface AppPublic : NSObject
 
 //应用名称

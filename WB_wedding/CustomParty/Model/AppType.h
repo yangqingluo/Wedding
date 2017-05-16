@@ -69,6 +69,7 @@
 - (NSString *)subItemStringWithKey:(NSString *)string;
 - (NSArray *)subItemsIndexWithKey:(NSString *)string;
 - (NSString *)showStringOfMyQuestion;
+- (NSArray *)showArrayOfMyQuestion;
 
 @end
 

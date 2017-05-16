@@ -9,6 +9,7 @@
 #import "UserInfoEditVC.h"
 #import "PublicSelectionVC.h"
 #import "TitleAndDetailTextCell.h"
+#import "UserQuestionEditVC.h"
 
 @interface UserInfoEditVC ()
 
@@ -177,14 +178,34 @@
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
             
             QKWEAKSELF;
-            PublicSelectionVC *vc = [[PublicSelectionVC alloc] initWithDataSource:item.subItems selectedArray:[self.userData subItemsIndexWithKey:item.key] maxSelectCount:item.subItemMaxNumber back:^(NSString *selectedString){
-                if (selectedString.length) {
-                    [weakself.userData setValue:selectedString forKey:item.key];
-                    [weakself.tableView reloadData];
+            PublicSelectionVC *vc = [[PublicSelectionVC alloc] initWithDataSource:item.subItems selectedArray:[self.userData subItemsIndexWithKey:item.key] maxSelectCount:item.subItemMaxNumber back:^(NSObject *object){
+                if ([object isKindOfClass:[NSString class]]) {
+                    NSString *selectedString = (NSString *)object;
+                    if (selectedString.length) {
+                        [weakself.userData setValue:selectedString forKey:item.key];
+                        [weakself.tableView reloadData];
+                    }
                 }
             }];
             
             vc.title = [NSString stringWithFormat:@"选择%@", item.name];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+            
+        case 2:{
+            UserQuestionEditVC *vc = [UserQuestionEditVC new];
+            
+            QKWEAKSELF;
+            vc.doneBlock = ^(NSObject *object){
+                if ([object isKindOfClass:[NSString class]]) {
+                    NSString *selectedString = (NSString *)object;
+                    if (selectedString.length) {
+                        weakself.userData.myQuestion = selectedString;
+                        [weakself.tableView reloadData];
+                    }
+                }
+            };
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

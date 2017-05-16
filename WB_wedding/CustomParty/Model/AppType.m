@@ -63,11 +63,20 @@
 - (NSString *)showStringOfMyQuestion{
     NSString *m_string = @"";
     NSArray *array = [self.myQuestion componentsSeparatedByString:@"&"];
+    
+    int index = 0;
     for (int i = 0; i < array.count; i++) {
-        m_string = [m_string stringByAppendingFormat:@"%@%d.%@", m_string.length ? @"\n" : @"", i + 1, array[i]];
+        NSString *question = array[i];
+        if (question.length) {
+            m_string = [m_string stringByAppendingFormat:@"%@%d.%@", m_string.length ? @"\n" : @"", ++index, question];
+        }
     }
     
     return m_string;
+}
+
+- (NSArray *)showArrayOfMyQuestion{
+    return [self.myQuestion componentsSeparatedByString:@"&"];
 }
 
 @end

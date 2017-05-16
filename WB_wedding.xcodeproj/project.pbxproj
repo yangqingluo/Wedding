@@ -302,6 +302,8 @@
 		FCA11FD41EC98B7D005C5305 /* PublicSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */; };
 		FCA11FD91EC9AE09005C5305 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */; };
 		FCA11FDC1EC9F3CD005C5305 /* TitleAndDetailTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */; };
+		FCA11FE01ECA973F005C5305 /* UserQuestionEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDF1ECA973F005C5305 /* UserQuestionEditVC.m */; };
+		FCA11FE31ECA9A1A005C5305 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */; };
 		FCA9C1471EC4C1FA0003ECCF /* infoItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */; };
 		FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */; };
 		FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */; };
@@ -981,6 +983,10 @@
 		FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoVC.m; sourceTree = "<group>"; };
 		FCA11FDA1EC9F3CD005C5305 /* TitleAndDetailTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleAndDetailTextCell.h; sourceTree = "<group>"; };
 		FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleAndDetailTextCell.m; sourceTree = "<group>"; };
+		FCA11FDE1ECA973F005C5305 /* UserQuestionEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserQuestionEditVC.h; sourceTree = "<group>"; };
+		FCA11FDF1ECA973F005C5305 /* UserQuestionEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQuestionEditVC.m; sourceTree = "<group>"; };
+		FCA11FE11ECA9A1A005C5305 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
+		FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
 		FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = infoItems.txt; sourceTree = "<group>"; };
 		FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
@@ -2544,6 +2550,8 @@
 				FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */,
 				FCA9C1621EC556DC0003ECCF /* UserInfoEditVC.h */,
 				FCA9C1631EC556DC0003ECCF /* UserInfoEditVC.m */,
+				FCA11FDE1ECA973F005C5305 /* UserQuestionEditVC.h */,
+				FCA11FDF1ECA973F005C5305 /* UserQuestionEditVC.m */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2613,6 +2621,8 @@
 				FCD3AADF1EBCE3B2005AC352 /* UIView+KGViewExtend.m */,
 				FCA11FDA1EC9F3CD005C5305 /* TitleAndDetailTextCell.h */,
 				FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */,
+				FCA11FE11ECA9A1A005C5305 /* TextFieldCell.h */,
+				FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2919,6 +2929,7 @@
 				5DD451E11E8C0A1B00135479 /* WEChangePhoneController.m in Sources */,
 				5DD451E61E8C0DB100135479 /* WEChangePwdController.m in Sources */,
 				E9D582411E4D9A190071E88F /* STPickerDate.m in Sources */,
+				FCA11FE31ECA9A1A005C5305 /* TextFieldCell.m in Sources */,
 				57FEBD1C1EB8E884008D6AE1 /* EaseBubbleView+Text.m in Sources */,
 				5D793B9D1E1B49E700236506 /* UILabel+XW.m in Sources */,
 				5D746A501E2E09D7001FE1A1 /* XWPickerView.m in Sources */,
@@ -2960,6 +2971,7 @@
 				FCD3AAED1EBCE3B2005AC352 /* UDImageLabelButton.m in Sources */,
 				E9415AD51E2FCB78002325A0 /* MyEvaluateVC.m in Sources */,
 				57FEBD1D1EB8E884008D6AE1 /* EaseBubbleView+Video.m in Sources */,
+				FCA11FE01ECA973F005C5305 /* UserQuestionEditVC.m in Sources */,
 				E9D582451E4D9A190071E88F /* UIView+ST.m in Sources */,
 				5D746A451E2E058A001FE1A1 /* WEWriteInfoViewController.m in Sources */,
 				5D5F6DBB1E235E3100A0D82A /* CardLayout.m in Sources */,

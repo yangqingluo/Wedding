@@ -13,7 +13,6 @@
 
 @property (nonatomic, copy) NSArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *selectedArray;
-@property (nonatomic, copy) SelectDoneBlock doneBlock;
 
 @property (nonatomic, assign) NSUInteger maxSelectCount;
 
@@ -21,7 +20,7 @@
 
 @implementation PublicSelectionVC
 
-- (instancetype)initWithDataSource:(NSArray *)data selectedArray:(NSArray *)selectdArray maxSelectCount:(NSUInteger)count back:(SelectDoneBlock)block{
+- (instancetype)initWithDataSource:(NSArray *)data selectedArray:(NSArray *)selectdArray maxSelectCount:(NSUInteger)count back:(PopDoneBlock)block{
     self = [super init];
     if (self) {
         self.dataSource = [data copy];

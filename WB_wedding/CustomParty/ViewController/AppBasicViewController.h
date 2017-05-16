@@ -23,7 +23,9 @@
 
 @property (nonatomic, strong) UIView *navBottomLine;
 
-- (void)createNavWithTitle:(NSString *)szTitle createMenuItem:(UIView *(^)(int nIndex))menuItem;
+@property (nonatomic, copy) PopDoneBlock doneBlock;
 
+- (void)createNavWithTitle:(NSString *)szTitle createMenuItem:(UIView *(^)(int nIndex))menuItem;
+- (void)dismissKeyboard;
 
 @end

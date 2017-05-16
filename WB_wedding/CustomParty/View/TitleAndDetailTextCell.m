@@ -10,9 +10,6 @@
 
 @interface TitleAndDetailTextCell()
 
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *subTitleLabel;
-
 @end
 
 @implementation TitleAndDetailTextCell
@@ -37,8 +34,12 @@
 }
 
 + (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withTitle:(NSString *)title andDetail:(NSString *)detail{
+    return [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:title titleFont:[UIFont systemFontOfSize:appLabelFontSize] andDetail:detail detailFont:[UIFont systemFontOfSize:appLabelFontSize]];
+}
+
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withTitle:(NSString *)title titleFont:(UIFont *)titleFont andDetail:(NSString *)detail detailFont:(UIFont *)detailFont{
     CGFloat width = screen_width - kEdgeMiddle - kEdgeBig;
-    CGFloat height = kEdge + [AppPublic textSizeWithString:title font:[UIFont systemFontOfSize:appLabelFontSize] constantWidth:width].height + kEdge + [AppPublic textSizeWithString:detail font:[UIFont systemFontOfSize:appLabelFontSize] constantWidth:width].height + kEdge;
+    CGFloat height = kEdge + [AppPublic textSizeWithString:title font:titleFont constantWidth:width].height + kEdge + [AppPublic textSizeWithString:detail font:detailFont constantWidth:width].height + kEdge;
     
     return MAX(kCellHeightMiddle, height);
 }

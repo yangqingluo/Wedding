@@ -10,7 +10,12 @@
 
 @interface TitleAndDetailTextCell : UITableViewCell
 
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *subTitleLabel;
+
+
 + (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withTitle:(NSString *)title andDetail:(NSString *)detail;
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withTitle:(NSString *)title titleFont:(UIFont *)titleFont andDetail:(NSString *)detail detailFont:(UIFont *)detailFont;
 
 - (void)setTitle:(NSString *)title andDetail:(NSString *)detail;
 

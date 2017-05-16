@@ -71,6 +71,9 @@
     }
 }
 
+- (void)dismissKeyboard{
+    [self.view endEditing:YES];
+}
 
 #pragma setter
 - (void)setTitle:(NSString *)title{
