@@ -36,7 +36,8 @@
         [suffix isEqualToString:@"/user/changetelnumber"] ||
         [suffix isEqualToString:@"/alipay/pay"] ||
         [suffix isEqualToString:@"/match/send"] ||
-        [suffix isEqualToString:@"/user/deleteimg"]) {
+        [suffix isEqualToString:@"/user/deleteimg"]
+        ) {
         manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     }
     else {

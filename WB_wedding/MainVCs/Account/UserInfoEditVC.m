@@ -117,6 +117,8 @@ static NSString *identify = @"assetSelectedCell";
         return;
     }
     
+    [self showHudInView:self.view hint:nil];
+    
     QKWEAKSELF;
     [[QKNetworkSingleton sharedManager] Post:@{@"userId":self.userData.ID, @"oldFileName":pathArray[pathArray.count - 1]} HeadParm:nil URLFooter:@"/user/deleteimg" completion:^(id responseBody, NSError *error){
         [weakself hideHud];
@@ -377,7 +379,7 @@ static NSString *identify = @"assetSelectedCell";
 
 #pragma mark - collection view
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row + 1 >= self.imageArray.count) {
+    if (indexPath.row >= self.imageArray.count) {
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"添加图片"
                                                            delegate:self
                                                   cancelButtonTitle:@"取消"
@@ -388,10 +390,6 @@ static NSString *identify = @"assetSelectedCell";
         
         [sheet showInView:self.view];
     }
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

@@ -13,7 +13,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        double radius = 10;
+        double radius = 14;
         double aveWH = CGRectGetWidth( self.frame ) - 5;
         
         self.imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, radius, aveWH - radius, aveWH - radius)];
