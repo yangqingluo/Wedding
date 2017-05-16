@@ -9,7 +9,8 @@
 //网络
 #import <AFNetworking.h>
 
-#define appUrlAddress @"http://123.207.120.62:80"
+#define appUrlAddress      @"http://123.207.120.62:80"
+#define appImageUrlAddress @"http://olea6cyar.bkt.clouddn.com/img/"
 
 #define APP_HTTP_SUCCESS	             	1	//成功
 

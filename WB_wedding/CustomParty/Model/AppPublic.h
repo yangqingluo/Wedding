@@ -9,7 +9,7 @@
 #import "AppType.h"
 #import "QKNetworkSingleton.h"
 #import "UIView+KGViewExtend.h"
-
+#import "MainTabNavController.h"
 #import "EaseUI.h"
 
 //键盘
@@ -22,8 +22,6 @@
 #import <MJExtension.h>
 //下拉刷新
 #import <MJRefresh.h>
-//轮播
-#import <SDCycleScrollView.h>
 //图片下载
 #import <SDImageCache.h>
 
@@ -90,6 +88,8 @@ typedef void(^PopDoneBlock)(NSObject *object);
 @property (nonatomic, strong) NSDictionary *infoItemDic;
 @property (nonatomic, strong) CLLocation *location;
 
+@property (nonatomic, strong) MainTabNavController *mainTabNav;
+
 + (AppPublic *)getInstance;
 
 /*!
@@ -121,6 +121,8 @@ NSString *stringFromDate(NSDate *date, NSString *format);
 
 //切圆角
 + (void)roundCornerRadius:(UIView *)view;
++ (void)roundCornerRadius:(UIView *)view cornerRadius:(CGFloat)radius;
+
 
 
 /** 将数组转化为json字符串 */
@@ -132,7 +134,7 @@ NSString *stringFromDate(NSDate *date, NSString *format);
 - (void)updateLocation;//更新位置
 
 - (void)logOut;
-- (void)loginDonewithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password;
+- (void)loginDoneWithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password;
 - (void)saveUserData:(AppUserData *)data;
 
 - (void)goToMainVC;

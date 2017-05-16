@@ -19,6 +19,8 @@
 */
 
 - (void)awakeFromNib{
+    [super awakeFromNib];
+    
     self.xinzuoLable.layer.cornerRadius = 5;
     self.xinzuoLable.layer.masksToBounds = YES;
     self.pipeLable.layer.cornerRadius = 3;

@@ -21,16 +21,6 @@
 
 @implementation MainTabBarController
 
-+ (MainTabBarController *)defaultMainTab{
-    static dispatch_once_t pred = 0;
-    __strong static MainTabBarController *_singleManger = nil;
-    
-    dispatch_once(&pred, ^{
-        _singleManger = [[MainTabBarController alloc]init];
-    });
-    return _singleManger;
-}
-
 - (instancetype)init{
     self = [super init];
     

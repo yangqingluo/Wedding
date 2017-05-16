@@ -180,10 +180,10 @@ NSString *httpRespString(NSError *error, NSObject *object){
         completion(responseBody, error);
         
         if (!error && isHttpSuccess([responseBody[@"success"] intValue])) {
-            [[AppPublic getInstance] loginDonewithUserData:responseBody[@"data"] username:username password:password];
-            
             XWUserModel *model = [XWUserModel mj_objectWithKeyValues:responseBody[@"data"]];
             [model saveUserInfo];
+            
+            [[AppPublic getInstance] loginDoneWithUserData:responseBody[@"data"] username:username password:password];
         }
     }];
 }

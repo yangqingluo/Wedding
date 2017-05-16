@@ -70,4 +70,6 @@
  */
 @property (nonatomic) CGFloat centerY;
 
++ (instancetype)appLoadFromNib;
+
 @end

@@ -9,6 +9,4 @@
 
 @interface MainTabBarController : UITabBarController
 
-+ (MainTabBarController *)defaultMainTab;
-
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//轮播
+#import <SDCycleScrollView.h>
 
 @protocol WELookDetailHeaderViewDelegate <NSObject>
 /**

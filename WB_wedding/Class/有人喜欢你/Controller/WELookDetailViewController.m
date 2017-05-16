@@ -20,7 +20,6 @@
 #import "WECompletInfoController.h"
 #import "WEYourMessageTool.h"
 
-#import "UserInfoEditVC.h"
 @interface WELookDetailViewController ()<WELookDetailFooterViewDelegate,WELookDetailHeaderViewDelegate,UIAlertViewDelegate,WELookDetailCellDelegate>
 
 @property (nonatomic,strong)NSMutableArray      *dataSource;
@@ -612,9 +611,8 @@
 }
 
 - (void)editAction{
-//    WECompletInfoController *vc = [WECompletInfoController new];
-//    vc.isUserSetting = YES;
-    UserInfoEditVC *vc = [UserInfoEditVC new];
+    WECompletInfoController *vc = [WECompletInfoController new];
+    vc.isUserSetting = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

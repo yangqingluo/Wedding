@@ -9,9 +9,7 @@
 #import <CommonCrypto/CommonDigest.h>
 
 #import "UIImage+Color.h"
-#import "MainTabNavController.h"
 #import "FirstPageController.h"
-#import "HQMainTabBarController.h"
 #import "BlockAlertView.h"
 
 @interface AppPublic()<CLLocationManagerDelegate>
@@ -335,7 +333,11 @@ NSString *stringFromDate(NSDate *date, NSString *format){
 
 //切圆角
 + (void)roundCornerRadius:(UIView *)view{
-    view.layer.cornerRadius = 0.5 * MAX(view.width, view.height);
+    [AppPublic roundCornerRadius:view cornerRadius:0.5 * MAX(view.width, view.height)];
+}
+
++ (void)roundCornerRadius:(UIView *)view cornerRadius:(CGFloat)radius{
+    view.layer.cornerRadius = radius;
     view.layer.masksToBounds = YES;
 }
 
@@ -344,13 +346,14 @@ NSString *stringFromDate(NSDate *date, NSString *format){
     [ud removeObjectForKey:kUserData];
     _userData = nil;
     
+    self.mainTabNav = nil;
     [self goToLoginCompletion:^{
         
     }];
     
 }
 
-- (void)loginDonewithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password{
+- (void)loginDoneWithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password{
     if (!data || !username) {
         return;
     }
@@ -367,13 +370,15 @@ NSString *stringFromDate(NSDate *date, NSString *format){
         return;
     }
     _userData = [data copy];
+    NSDictionary *dic = [_userData mj_keyValues];
+    
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:[_userData mj_keyValues] forKey:kUserData];
+    [ud setObject:dic forKey:kUserData];
 }
 
 - (void)goToMainVC{
-    MainTabNavController *nav = [MainTabNavController new];
-    [[UIApplication sharedApplication].delegate window].rootViewController = nav;
+    self.mainTabNav = [MainTabNavController new];
+    [[UIApplication sharedApplication].delegate window].rootViewController = self.mainTabNav;
 }
 
 - (void)goToLoginCompletion:(void (^)(void))completion{

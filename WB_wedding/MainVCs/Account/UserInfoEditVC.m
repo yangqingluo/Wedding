@@ -75,6 +75,9 @@
         }];
             
     }
+    else {
+        [self showHint:@"没有改动"];
+    }
 }
 
 #pragma getter

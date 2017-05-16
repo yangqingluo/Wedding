@@ -79,6 +79,15 @@
     return [self.myQuestion componentsSeparatedByString:@"&"];
 }
 
+- (NSArray *)showImageArray{
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.imgArray.count];
+    for (NSString *imgUrlString in self.imgArray) {
+        [array addObject:[NSString stringWithFormat:@"%@%@", appImageUrlAddress, imgUrlString]];
+    }
+    
+    return array;
+}
+
 @end
 
 

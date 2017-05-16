@@ -16,6 +16,9 @@
 #import "WESettingController.h"
 #import "WEMyMessgaeController.h"
 #import "NSString+WETime.h"
+
+#import "UserInfoVC.h"
+
 @interface WEMeViewController ()
 
 @property (nonatomic, strong) SDCycleScrollView *cycleScrollview;
@@ -58,30 +61,12 @@
 - (IBAction)btnClick:(UIButton *)sender {
     
     switch (sender.tag - 800) {
-        case 0://个人资料
-        {
-//            SVPSTATUS(@"跳转中...");
-//            [BANetManager ba_requestWithType:BAHttpRequestTypeGet
-//                                   urlString:BASEURL(@"/user/findonebyid")
-//                                  parameters:@{@"userId":[XWUserModel getUserInfoFromlocal].xw_id}
-//                                successBlock:^(id response) {
-//                                    [SVProgressHUD dismiss];
-//                                    if ([response[@"success"] boolValue]) {
-                                        WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeSelfInfo];
+        case 0:{
+            //个人资料
+            UserInfoVC *vc = [UserInfoVC new];
+            vc.title = @"我的资料";
             
-//                                        vc.dic = response[@"data"];
-                                         
-                                        [self.navigationController pushViewController:vc animated:YES];
-//                                    } else{
-//                                        SVPERROR(response[@"msg"]);
-//                                    }
-//                                }
-//                                failureBlock:^(NSError *error) {
-//                                    SVPERROR(@"网络错误");
-//                                }
-//                                    progress:nil];
-//            
-//            
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 1://我的钱吧

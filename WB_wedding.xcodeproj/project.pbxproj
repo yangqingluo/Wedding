@@ -304,6 +304,8 @@
 		FCA11FDC1EC9F3CD005C5305 /* TitleAndDetailTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */; };
 		FCA11FE01ECA973F005C5305 /* UserQuestionEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDF1ECA973F005C5305 /* UserQuestionEditVC.m */; };
 		FCA11FE31ECA9A1A005C5305 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */; };
+		FCA11FE61ECAD116005C5305 /* UserInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FE51ECAD116005C5305 /* UserInfoHeaderView.m */; };
+		FCA11FE81ECAD364005C5305 /* UserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA11FE71ECAD364005C5305 /* UserInfoHeaderView.xib */; };
 		FCA9C1471EC4C1FA0003ECCF /* infoItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */; };
 		FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */; };
 		FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */; };
@@ -987,6 +989,9 @@
 		FCA11FDF1ECA973F005C5305 /* UserQuestionEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQuestionEditVC.m; sourceTree = "<group>"; };
 		FCA11FE11ECA9A1A005C5305 /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
+		FCA11FE41ECAD116005C5305 /* UserInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoHeaderView.h; sourceTree = "<group>"; };
+		FCA11FE51ECAD116005C5305 /* UserInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoHeaderView.m; sourceTree = "<group>"; };
+		FCA11FE71ECAD364005C5305 /* UserInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoHeaderView.xib; sourceTree = "<group>"; };
 		FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = infoItems.txt; sourceTree = "<group>"; };
 		FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
@@ -2623,6 +2628,9 @@
 				FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */,
 				FCA11FE11ECA9A1A005C5305 /* TextFieldCell.h */,
 				FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */,
+				FCA11FE41ECAD116005C5305 /* UserInfoHeaderView.h */,
+				FCA11FE51ECAD116005C5305 /* UserInfoHeaderView.m */,
+				FCA11FE71ECAD364005C5305 /* UserInfoHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2806,6 +2814,7 @@
 				5D9E498C1E2CAF8000B9C88C /* WEMyChatController.xib in Resources */,
 				5DBBF9B51E55519900DB716E /* WEPostTimeLineController.xib in Resources */,
 				5D9E498A1E2CAD9300B9C88C /* XWPopViewCell.xib in Resources */,
+				FCA11FE81ECAD364005C5305 /* UserInfoHeaderView.xib in Resources */,
 				5DBBF9C21E558A3500DB716E /* WETimeLineDetailCell.xib in Resources */,
 				FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */,
 				E9415ABE1E2FC69E002325A0 /* WDMoneyPayView.xib in Resources */,
@@ -2889,6 +2898,7 @@
 				5D746A391E2E0343001FE1A1 /* TZImageManager.m in Sources */,
 				57C99A0B1E8D633300E3E90D /* WalletDetailUseModel.m in Sources */,
 				57FEBD261EB8E884008D6AE1 /* EaseChatBarMoreView.m in Sources */,
+				FCA11FE61ECAD116005C5305 /* UserInfoHeaderView.m in Sources */,
 				5D6F98F01E2F6436001E5D06 /* ImagePickerController.m in Sources */,
 				5D9E49891E2CAD9300B9C88C /* XWPopViewCell.m in Sources */,
 				5D5F6DCF1E237A1800A0D82A /* LoginViewController.m in Sources */,

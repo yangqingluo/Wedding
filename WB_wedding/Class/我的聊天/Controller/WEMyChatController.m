@@ -11,6 +11,8 @@
 #import "XWTitleBottomBtn.h"
 #import "WEMyChatTool.h"
 #import "EaseMessageViewController.h"
+//轮播
+#import <SDCycleScrollView.h>
 
 @interface WEMyChatController ()<UIAlertViewDelegate>
 {

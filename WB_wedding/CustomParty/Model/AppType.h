@@ -70,6 +70,7 @@
 - (NSArray *)subItemsIndexWithKey:(NSString *)string;
 - (NSString *)showStringOfMyQuestion;
 - (NSArray *)showArrayOfMyQuestion;
+- (NSArray *)showImageArray;
 
 @end
 
