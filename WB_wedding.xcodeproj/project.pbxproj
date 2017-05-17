@@ -188,7 +188,6 @@
 		5D793B291E1B429100236506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D793B281E1B429100236506 /* Assets.xcassets */; };
 		5D793B2C1E1B429100236506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D793B2A1E1B429100236506 /* LaunchScreen.storyboard */; };
 		5D793B5A1E1B47BB00236506 /* HQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B571E1B47BB00236506 /* HQBaseViewController.m */; };
-		5D793B5B1E1B47BB00236506 /* HQMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B591E1B47BB00236506 /* HQMainTabBarController.m */; };
 		5D793B6C1E1B481800236506 /* HQBaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B671E1B481800236506 /* HQBaseNavigationBar.m */; };
 		5D793B6E1E1B481800236506 /* XWContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B6B1E1B481800236506 /* XWContentView.m */; };
 		5D793B711E1B488000236506 /* WEYourMsgController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B701E1B488000236506 /* WEYourMsgController.m */; };
@@ -197,7 +196,6 @@
 		5D793B7A1E1B48D400236506 /* WESomeOneLikeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B791E1B48D400236506 /* WESomeOneLikeController.m */; };
 		5D793B9A1E1B49E700236506 /* NSString+XW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B8F1E1B49E700236506 /* NSString+XW.m */; };
 		5D793B9B1E1B49E700236506 /* UIButton+XW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B911E1B49E700236506 /* UIButton+XW.m */; };
-		5D793B9C1E1B49E700236506 /* UIImage+XW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B931E1B49E700236506 /* UIImage+XW.m */; };
 		5D793B9D1E1B49E700236506 /* UILabel+XW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B951E1B49E700236506 /* UILabel+XW.m */; };
 		5D793B9E1E1B49E700236506 /* UITableView+XW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B971E1B49E700236506 /* UITableView+XW.m */; };
 		5D793B9F1E1B49E700236506 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B991E1B49E700236506 /* UIView+Extension.m */; };
@@ -323,6 +321,8 @@
 		FCA9C1601EC5564A0003ECCF /* AppBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9C15F1EC5564A0003ECCF /* AppBasicTableViewController.m */; };
 		FCA9C1641EC556DD0003ECCF /* UserInfoEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9C1631EC556DC0003ECCF /* UserInfoEditVC.m */; };
 		FCA9C1691EC594A20003ECCF /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9C1681EC594A20003ECCF /* BlockAlertView.m */; };
+		FCB7EBFE1ECC2D3A0059D409 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EBFD1ECC2D3A0059D409 /* AccountViewController.m */; };
+		FCB7EC011ECC30680059D409 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EC001ECC30680059D409 /* ImageViewCell.m */; };
 		FCC547E41EC19E5500C0F018 /* AppBasicWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */; };
 		FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */; };
 		FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */; };
@@ -718,8 +718,6 @@
 		5D793B541E1B454400236506 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		5D793B561E1B47BB00236506 /* HQBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQBaseViewController.h; sourceTree = "<group>"; };
 		5D793B571E1B47BB00236506 /* HQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQBaseViewController.m; sourceTree = "<group>"; };
-		5D793B581E1B47BB00236506 /* HQMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQMainTabBarController.h; sourceTree = "<group>"; };
-		5D793B591E1B47BB00236506 /* HQMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQMainTabBarController.m; sourceTree = "<group>"; };
 		5D793B661E1B481800236506 /* HQBaseNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQBaseNavigationBar.h; sourceTree = "<group>"; };
 		5D793B671E1B481800236506 /* HQBaseNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQBaseNavigationBar.m; sourceTree = "<group>"; };
 		5D793B6A1E1B481800236506 /* XWContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWContentView.h; sourceTree = "<group>"; };
@@ -736,8 +734,6 @@
 		5D793B8F1E1B49E700236506 /* NSString+XW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XW.m"; sourceTree = "<group>"; };
 		5D793B901E1B49E700236506 /* UIButton+XW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XW.h"; sourceTree = "<group>"; };
 		5D793B911E1B49E700236506 /* UIButton+XW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XW.m"; sourceTree = "<group>"; };
-		5D793B921E1B49E700236506 /* UIImage+XW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XW.h"; sourceTree = "<group>"; };
-		5D793B931E1B49E700236506 /* UIImage+XW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XW.m"; sourceTree = "<group>"; };
 		5D793B941E1B49E700236506 /* UILabel+XW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+XW.h"; sourceTree = "<group>"; };
 		5D793B951E1B49E700236506 /* UILabel+XW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+XW.m"; sourceTree = "<group>"; };
 		5D793B961E1B49E700236506 /* UITableView+XW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XW.h"; sourceTree = "<group>"; };
@@ -1017,6 +1013,10 @@
 		FCA9C1631EC556DC0003ECCF /* UserInfoEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoEditVC.m; sourceTree = "<group>"; };
 		FCA9C1671EC594A20003ECCF /* BlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockAlertView.h; sourceTree = "<group>"; };
 		FCA9C1681EC594A20003ECCF /* BlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockAlertView.m; sourceTree = "<group>"; };
+		FCB7EBFC1ECC2D3A0059D409 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		FCB7EBFD1ECC2D3A0059D409 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		FCB7EBFF1ECC30680059D409 /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
+		FCB7EC001ECC30680059D409 /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
 		FCC547E21EC19E5500C0F018 /* AppBasicWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicWebViewController.h; sourceTree = "<group>"; };
 		FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicWebViewController.m; sourceTree = "<group>"; };
 		FCD3AA8D1EBC8599005AC352 /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
@@ -2187,8 +2187,6 @@
 			children = (
 				5D793B561E1B47BB00236506 /* HQBaseViewController.h */,
 				5D793B571E1B47BB00236506 /* HQBaseViewController.m */,
-				5D793B581E1B47BB00236506 /* HQMainTabBarController.h */,
-				5D793B591E1B47BB00236506 /* HQMainTabBarController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2248,8 +2246,6 @@
 				5D793B8F1E1B49E700236506 /* NSString+XW.m */,
 				5D793B901E1B49E700236506 /* UIButton+XW.h */,
 				5D793B911E1B49E700236506 /* UIButton+XW.m */,
-				5D793B921E1B49E700236506 /* UIImage+XW.h */,
-				5D793B931E1B49E700236506 /* UIImage+XW.m */,
 				5D793B941E1B49E700236506 /* UILabel+XW.h */,
 				5D793B951E1B49E700236506 /* UILabel+XW.m */,
 				5D793B961E1B49E700236506 /* UITableView+XW.h */,
@@ -2560,6 +2556,8 @@
 		FCA9C1611EC556B50003ECCF /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				FCB7EBFC1ECC2D3A0059D409 /* AccountViewController.h */,
+				FCB7EBFD1ECC2D3A0059D409 /* AccountViewController.m */,
 				FCA11FD71EC9AE09005C5305 /* UserInfoVC.h */,
 				FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */,
 				FCA9C1621EC556DC0003ECCF /* UserInfoEditVC.h */,
@@ -2639,6 +2637,8 @@
 				FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */,
 				FCA11FE11ECA9A1A005C5305 /* TextFieldCell.h */,
 				FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */,
+				FCB7EBFF1ECC30680059D409 /* ImageViewCell.h */,
+				FCB7EC001ECC30680059D409 /* ImageViewCell.m */,
 				FCA11FEA1ECB02AF005C5305 /* QKBaseCollectionViewCell.h */,
 				FCA11FE91ECB02AF005C5305 /* QKBaseCollectionViewCell.m */,
 				FCA11FE41ECAD116005C5305 /* UserInfoHeaderView.h */,
@@ -2947,7 +2947,6 @@
 				57FEBCFD1EB8E884008D6AE1 /* EaseConversationModel.m in Sources */,
 				5D6F98E21E2F38FB001E5D06 /* TTRangeSlider.m in Sources */,
 				57FEBD021EB8E884008D6AE1 /* NSString+Valid.m in Sources */,
-				5D793B5B1E1B47BB00236506 /* HQMainTabBarController.m in Sources */,
 				57FE2E291E97EDDC003AE287 /* OpenLikeAnswerVC.m in Sources */,
 				57FEBCB71EB8E884008D6AE1 /* EMCDDeviceManager+Microphone.m in Sources */,
 				5DD451E11E8C0A1B00135479 /* WEChangePhoneController.m in Sources */,
@@ -3024,6 +3023,7 @@
 				57FEBCBB1EB8E884008D6AE1 /* amrFileCodec.mm in Sources */,
 				57FEBD241EB8E884008D6AE1 /* EaseFaceView.m in Sources */,
 				5D7469FB1E2DAA3A001FE1A1 /* WECodeLoginController.m in Sources */,
+				FCB7EC011ECC30680059D409 /* ImageViewCell.m in Sources */,
 				FCD3AB081EBD72CE005AC352 /* MainTabBarController.m in Sources */,
 				5D6F98E51E2F3A63001E5D06 /* WESettingHeadeView.m in Sources */,
 				57FEBD1B1EB8E884008D6AE1 /* EaseBubbleView+Location.m in Sources */,
@@ -3065,12 +3065,12 @@
 				FCD3AAEA1EBCE3B2005AC352 /* AppActivity.m in Sources */,
 				5D9E49881E2CAD9300B9C88C /* XWPopView.m in Sources */,
 				FCD3AAEF1EBCE3B2005AC352 /* UIView+KGViewExtend.m in Sources */,
+				FCB7EBFE1ECC2D3A0059D409 /* AccountViewController.m in Sources */,
 				57FEBD251EB8E884008D6AE1 /* EaseFacialView.m in Sources */,
 				E94025F91E39F9D80038EC7E /* DHSeparateTitleImgButton.m in Sources */,
 				5D9062471E641D5C00200C7F /* NSDataEx.m in Sources */,
 				5D9E498F1E2CB3AF00B9C88C /* WETestChatViewController.m in Sources */,
 				57FEBD0F1EB8E884008D6AE1 /* EaseMessageViewController.m in Sources */,
-				5D793B9C1E1B49E700236506 /* UIImage+XW.m in Sources */,
 				57FEBD011EB8E884008D6AE1 /* NSDateFormatter+Category.m in Sources */,
 				E9415ACD1E2FC6C5002325A0 /* WalletPayVC.m in Sources */,
 				57FEBCB61EB8E884008D6AE1 /* EMCDDeviceManager+Media.m in Sources */,
@@ -3179,7 +3179,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "ddb9f479-a6e4-4022-b9bc-919d46cfd7d6";
@@ -3220,7 +3220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "ddb9f479-a6e4-4022-b9bc-919d46cfd7d6";
 				SDKROOT = iphoneos;
@@ -3265,7 +3265,7 @@
 					"\"$(PRODUCT_NAME)/支付宝\"",
 				);
 				INFOPLIST_FILE = WB_wedding/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3280,10 +3280,11 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.7kers.LS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WBWedding.LS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Vendor/JPush";
 			};
 			name = Debug;
@@ -3324,7 +3325,7 @@
 					"\"$(PRODUCT_NAME)/支付宝\"",
 				);
 				INFOPLIST_FILE = WB_wedding/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3339,10 +3340,11 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.7kers.LS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WBWedding.LS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Vendor/JPush";
 			};
 			name = Release;

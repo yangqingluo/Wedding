@@ -18,6 +18,7 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
         _style = UITableViewStyleGrouped;
     }
     
@@ -35,7 +36,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self.view addSubview:self.tableView];
 }
 
@@ -47,7 +47,7 @@
 #pragma getter
 - (UITableView *)tableView{
     if (_tableView == nil){
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, DEFAULT_BAR_HEIGHT, self.view.width, self.view.height - DEFAULT_BAR_HEIGHT) style:_style];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT, self.view.width, self.view.height - STATUS_BAR_HEIGHT) style:_style];
         _tableView.separatorColor = separaterColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight |  UIViewAutoresizingFlexibleBottomMargin;

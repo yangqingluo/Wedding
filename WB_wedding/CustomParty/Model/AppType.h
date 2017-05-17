@@ -23,7 +23,7 @@
 @property (strong, nonatomic) NSString *imgFileNames;
 @property (strong, nonatomic) NSString *realname;
 @property (strong, nonatomic) NSArray *imgArray;
-@property (strong, nonatomic) NSString *money;
+@property (assign, nonatomic) int money;//喜币
 @property (strong, nonatomic) NSString *ip;
 @property (strong, nonatomic) NSString *isFirstToday;
 @property (strong, nonatomic) NSString *status;

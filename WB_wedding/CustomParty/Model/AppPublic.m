@@ -420,7 +420,7 @@ NSString *stringFromDate(NSDate *date, NSString *format){
 
 - (void)goToMainVC{
     self.mainTabNav = [MainTabNavController new];
-    [[UIApplication sharedApplication].delegate window].rootViewController = self.mainTabNav;
+    [UIApplication sharedApplication].delegate.window.rootViewController = self.mainTabNav;
 }
 
 - (void)goToLoginCompletion:(void (^)(void))completion{

@@ -12,8 +12,6 @@
 #import "MainTabNavController.h"
 #import "EaseUI.h"
 
-//键盘
-#import <IQKeyboardManager.h>
 //布局
 #import <Masonry.h>
 //弹出视图
@@ -27,6 +25,9 @@
 
 #define screen_width [UIScreen mainScreen].bounds.size.width
 #define screen_height [UIScreen mainScreen].bounds.size.height
+
+#define iPhone5AndEarlyDevice (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width <= 320*568)?YES:NO)
+#define Iphone6 (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width <= 375*667)?YES:NO)
 
 #define QKWEAKSELF typeof(self) __weak weakself = self;
 

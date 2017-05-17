@@ -16,7 +16,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "HQBaseNetManager.h"
 #import <AlipaySDK/AlipaySDK.h>
-
+#import <IQKeyboardManager.h>
 #import "AppDelegate+EaseMob.h"
 #import "EaseSDKHelper.h"
 
@@ -45,7 +45,7 @@ static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [self configKeyBorad];
+//    [self configKeyBorad];
     [self configMOB];
     [self configBaiduMap];
     [self configLocation];
@@ -108,9 +108,10 @@ didFinishLaunchingWithOptions:launchOptions
                  apsForProduction:YES
             advertisingIdentifier:nil];
     
-    //注册远端消息通知获取device token
-    [application registerForRemoteNotifications];
-    
+    if (IOS_VERSION >= 8.0) {
+        //注册远端消息通知获取device token
+        [application registerForRemoteNotifications];
+    }
     
     return YES;
 }
