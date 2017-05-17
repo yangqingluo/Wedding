@@ -321,6 +321,9 @@
 		FCB7EC231ECC7FDC0059D409 /* TZTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EC151ECC7FDC0059D409 /* TZTestCell.m */; };
 		FCB7EC241ECC7FDC0059D409 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EC171ECC7FDC0059D409 /* TZVideoPlayerController.m */; };
 		FCB7EC251ECC7FDC0059D409 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EC191ECC7FDC0059D409 /* UIView+Layout.m */; };
+		FCB7EC281ECC8E4D0059D409 /* CheckQuestionnaireCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EC271ECC8E4D0059D409 /* CheckQuestionnaireCell.m */; };
+		FCB7EC2B1ECC99640059D409 /* UserQuestionnaireVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EC2A1ECC99640059D409 /* UserQuestionnaireVC.m */; };
+		FCB7EC2D1ECC9FAC0059D409 /* questionnaireItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCB7EC2C1ECC9FAC0059D409 /* questionnaireItems.txt */; };
 		FCC547E41EC19E5500C0F018 /* AppBasicWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */; };
 		FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */; };
 		FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */; };
@@ -1012,6 +1015,11 @@
 		FCB7EC171ECC7FDC0059D409 /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
 		FCB7EC181ECC7FDC0059D409 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		FCB7EC191ECC7FDC0059D409 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		FCB7EC261ECC8E4D0059D409 /* CheckQuestionnaireCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckQuestionnaireCell.h; sourceTree = "<group>"; };
+		FCB7EC271ECC8E4D0059D409 /* CheckQuestionnaireCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckQuestionnaireCell.m; sourceTree = "<group>"; };
+		FCB7EC291ECC99640059D409 /* UserQuestionnaireVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserQuestionnaireVC.h; sourceTree = "<group>"; };
+		FCB7EC2A1ECC99640059D409 /* UserQuestionnaireVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQuestionnaireVC.m; sourceTree = "<group>"; };
+		FCB7EC2C1ECC9FAC0059D409 /* questionnaireItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = questionnaireItems.txt; sourceTree = "<group>"; };
 		FCC547E21EC19E5500C0F018 /* AppBasicWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicWebViewController.h; sourceTree = "<group>"; };
 		FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicWebViewController.m; sourceTree = "<group>"; };
 		FCD3AA8D1EBC8599005AC352 /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
@@ -1762,8 +1770,9 @@
 		5D793B1C1E1B429100236506 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FCA9C1481EC4C2730003ECCF /* Pictures */,
 				FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */,
+				FCB7EC2C1ECC9FAC0059D409 /* questionnaireItems.txt */,
+				FCA9C1481EC4C2730003ECCF /* Pictures */,
 				5D793B281E1B429100236506 /* Assets.xcassets */,
 				5D793B2D1E1B429100236506 /* Info.plist */,
 				5D793B2A1E1B429100236506 /* LaunchScreen.storyboard */,
@@ -2526,6 +2535,8 @@
 				FCA9C1631EC556DC0003ECCF /* UserInfoEditVC.m */,
 				FCA11FDE1ECA973F005C5305 /* UserQuestionEditVC.h */,
 				FCA11FDF1ECA973F005C5305 /* UserQuestionEditVC.m */,
+				FCB7EC291ECC99640059D409 /* UserQuestionnaireVC.h */,
+				FCB7EC2A1ECC99640059D409 /* UserQuestionnaireVC.m */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2627,6 +2638,8 @@
 				FCD3AADF1EBCE3B2005AC352 /* UIView+KGViewExtend.m */,
 				FCA11FDA1EC9F3CD005C5305 /* TitleAndDetailTextCell.h */,
 				FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */,
+				FCB7EC261ECC8E4D0059D409 /* CheckQuestionnaireCell.h */,
+				FCB7EC271ECC8E4D0059D409 /* CheckQuestionnaireCell.m */,
 				FCA11FE11ECA9A1A005C5305 /* TextFieldCell.h */,
 				FCA11FE21ECA9A1A005C5305 /* TextFieldCell.m */,
 				FCB7EBFF1ECC30680059D409 /* ImageViewCell.h */,
@@ -2769,6 +2782,7 @@
 				5D9E5A921E52E841000E9216 /* WELocationCell.xib in Resources */,
 				E9415ACE1E2FC6C5002325A0 /* WalletPayVC.xib in Resources */,
 				5D39E5681E35D65C0093A4A5 /* WESeletedController.xib in Resources */,
+				FCB7EC2D1ECC9FAC0059D409 /* questionnaireItems.txt in Resources */,
 				FCA9C1551EC4C2730003ECCF /* cell_next@3x.png in Resources */,
 				FCA11FED1ECB02FD005C5305 /* cell_delete@2x.png in Resources */,
 				5DBBF9CC1E558C6000DB716E /* WETimeLineFooterView.xib in Resources */,
@@ -3083,6 +3097,7 @@
 				FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */,
 				FCA11FF01ECB35B1005C5305 /* NSData+HTTPRequest.m in Sources */,
 				57FEBCB81EB8E884008D6AE1 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
+				FCB7EC281ECC8E4D0059D409 /* CheckQuestionnaireCell.m in Sources */,
 				57FEBD061EB8E884008D6AE1 /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				5D85A0051E45A8B700A5F133 /* HQBaseNetManager.m in Sources */,
 				57FEBD121EB8E884008D6AE1 /* EaseViewController.m in Sources */,
@@ -3094,6 +3109,7 @@
 				5D5F6DB21E233D4600A0D82A /* XWImageBtn.m in Sources */,
 				E950D85C1E45F8F500149037 /* WEAnswerFanseHeader.m in Sources */,
 				5D746A4F1E2E09D7001FE1A1 /* XWDatePickerView.m in Sources */,
+				FCB7EC2B1ECC99640059D409 /* UserQuestionnaireVC.m in Sources */,
 				5D6F98DA1E2F1417001E5D06 /* YHSlider.m in Sources */,
 				57FEBD131EB8E884008D6AE1 /* EaseUserCell.m in Sources */,
 				5D6F98F11E2F6436001E5D06 /* JKAlert.m in Sources */,

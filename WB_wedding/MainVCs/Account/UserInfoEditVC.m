@@ -340,7 +340,7 @@ static NSString *identify = @"assetSelectedCell";
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
             
             QKWEAKSELF;
-            PublicSelectionVC *vc = [[PublicSelectionVC alloc] initWithDataSource:item.subItems selectedArray:[self.userData subItemsIndexWithKey:item.key] maxSelectCount:item.subItemMaxNumber back:^(NSObject *object){
+            PublicSelectionVC *vc = [[PublicSelectionVC alloc] initWithDataSource:item.subItems selectedArray:[self.userData subItemsIndexWithKey:item.key andSeparatedByString:@","] maxSelectCount:item.subItemMaxNumber back:^(NSObject *object){
                 if ([object isKindOfClass:[NSString class]]) {
                     NSString *selectedString = (NSString *)object;
                     if (selectedString.length) {

@@ -54,8 +54,8 @@
     return m_string;
 }
 
-- (NSArray *)subItemsIndexWithKey:(NSString *)string{
-    NSArray *array = [[self valueForKey:string] componentsSeparatedByString:@","];
+- (NSArray *)subItemsIndexWithKey:(NSString *)string andSeparatedByString:(NSString *)separatedByString{
+    NSArray *array = [[self valueForKey:string] componentsSeparatedByString:separatedByString];
     
     return array;
 }
@@ -90,6 +90,25 @@
 
 - (NSString *)showStringOfSex{
     return self.sex ? @"男" : @"女";
+}
+
+- (NSString *)showStringOfMySurveyForIndex:(NSUInteger)index andLists:(NSString *)listsString{
+    NSString *m_string = @"";
+    if (index < [AppPublic getInstance].questionnaireLists.count) {
+        UserInfoItemData *item = [AppPublic getInstance].questionnaireLists[index];
+        NSArray *array = [listsString componentsSeparatedByString:@","];
+        for (NSString *itemIndex in array) {
+            int subIndex = [itemIndex intValue] - 1;
+            if (subIndex < item.subItems.count && subIndex >= 0) {
+                if (m_string.length) {
+                    m_string = [m_string stringByAppendingString:@";\n"];
+                }
+                m_string = [m_string stringByAppendingString:item.subItems[subIndex]];
+            }
+        }
+    }
+    
+    return m_string;
 }
 
 @end

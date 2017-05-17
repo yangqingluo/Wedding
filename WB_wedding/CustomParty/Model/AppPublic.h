@@ -85,7 +85,8 @@ typedef void(^PopDoneBlock)(NSObject *object);
 @property (strong, nonatomic) NSString *appName;
 
 @property (nonatomic, strong) AppUserData *userData;
-@property (nonatomic, strong) NSArray *infoItemLists;
+@property (nonatomic, strong) NSArray *infoItemLists;//个人资料列表
+@property (nonatomic, strong) NSArray *questionnaireLists;//问卷列表
 @property (nonatomic, strong) NSDictionary *infoItemDic;
 @property (nonatomic, strong) CLLocation *location;
 

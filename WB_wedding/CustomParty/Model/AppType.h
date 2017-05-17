@@ -71,12 +71,11 @@
 
 - (NSString *)showStringOfSex;
 - (NSString *)subItemStringWithKey:(NSString *)string;
-- (NSArray *)subItemsIndexWithKey:(NSString *)string;
+- (NSArray *)subItemsIndexWithKey:(NSString *)string andSeparatedByString:(NSString *)separatedByString;
 - (NSString *)showStringOfMyQuestion;
 - (NSArray *)showArrayOfMyQuestion;
 - (NSArray *)showImageArray;
-
-
+- (NSString *)showStringOfMySurveyForIndex:(NSUInteger)index andLists:(NSString *)listsString;
 @end
 
 

@@ -108,6 +108,18 @@ __strong static AppPublic  *_singleManger = nil;
     return _infoItemLists;
 }
 
+- (NSArray *)questionnaireLists{
+    if (!_questionnaireLists) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"questionnaireItems" ofType:@"txt"];
+        if (path) {
+            NSArray *keyValuesArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:kNilOptions error:nil];
+            _questionnaireLists = [UserInfoItemData mj_objectArrayWithKeyValuesArray:keyValuesArray];
+        }
+    }
+    
+    return _questionnaireLists;
+}
+
 - (NSDictionary *)infoItemDic{
     if (!_infoItemDic) {
         NSMutableDictionary *dic = [NSMutableDictionary new];

@@ -7,10 +7,15 @@
 //
 
 #import "UserInfoVC.h"
-#import "UserInfoEditVC.h"
 #import "UserInfoHeaderView.h"
 #import "TitleAndDetailTextCell.h"
+#import "CheckQuestionnaireCell.h"
+
+#import "UserInfoEditVC.h"
+#import "UserQuestionnaireVC.h"
+
 #import "WECompletInfoController.h"
+
 @interface UserInfoVC ()
 
 @property (nonatomic,strong) UserInfoHeaderView *headerView;
@@ -71,6 +76,25 @@
 //    vc.telPhone = self.userData.telNumber;
 //    vc.userId = self.userData.ID;
     UserInfoEditVC *vc = [UserInfoEditVC new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)checkAction{
+    if (self.userData.mySurvey) {
+        if ([self.userData subItemsIndexWithKey:@"mySurvey" andSeparatedByString:@"&"].count != [AppPublic getInstance].questionnaireLists.count) {
+            [self showHint:@"问卷数据出错"];
+            return;
+        }
+    }
+    
+    UserQuestionnaireVC *vc = [UserQuestionnaireVC new];
+    vc.userData = [self.userData copy];
+    if (self.infoType == UserInfoTypeSelf) {
+        vc.questionnaireType = UserQuestionnaireTypeSelf;
+    }
+    else {
+        vc.questionnaireType = UserQuestionnaireTypeOthers;
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -140,7 +164,7 @@
         case 1:{
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
             
-            return [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:item.name andDetail:[self.userData subItemStringWithKey:item.key]];
+            return indexPath.row == 0 ? [CheckQuestionnaireCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:item.name andDetail:[self.userData subItemStringWithKey:item.key]] : [TitleAndDetailTextCell tableView:tableView heightForRowAtIndexPath:indexPath withTitle:item.name andDetail:[self.userData subItemStringWithKey:item.key]];
         }
             break;
             
@@ -157,17 +181,23 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"userinfo_cell";
+    NSString *CellIdentifier = (indexPath.section == 0 && indexPath.row == 0) ? @"userinfo_check_cell" : @"userinfo_cell";
     TitleAndDetailTextCell *cell = (TitleAndDetailTextCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
-        cell = [[TitleAndDetailTextCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];;
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            cell = [[CheckQuestionnaireCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            [((CheckQuestionnaireCell *)cell).checkButton addTarget:self action:@selector(checkAction) forControlEvents:UIControlEventTouchUpInside];
+        }
+        else {
+            cell = [[TitleAndDetailTextCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     switch (indexPath.section) {
         case 0:{
-            [cell setTitle:[NSString stringWithFormat:@"真实姓名\n%@", self.userData.realname] andDetail:@"查看问卷"];
+            [cell setTitle:@"真实姓名" andDetail:self.userData.realname];
         }
             break;
             

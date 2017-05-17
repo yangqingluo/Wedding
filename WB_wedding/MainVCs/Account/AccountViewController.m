@@ -157,6 +157,7 @@
         cell.subTitleLabel.frame = CGRectMake(kEdgeMiddle, 0, screen_width - 4 * kEdgeMiddle, 20);
         cell.subTitleLabel.centerY = cell.showImageView.centerY;
         cell.subTitleLabel.textAlignment = NSTextAlignmentRight;
+        cell.subTitleLabel.font = [UIFont systemFontOfSize:appLabelFontSize];
     }
     
     NSArray *array = self.showArray[indexPath.section];

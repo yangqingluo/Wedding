@@ -118,33 +118,6 @@
     return 60;
 }
 
-//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//    return UITableViewCellEditingStyleDelete;
-//    
-//    
-//}
-
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    if (editingStyle == UITableViewCellEditingStyleDelete){
-//        
-//        
-//        [self.dataSouce removeObjectAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//        [self.tabelView reloadData];
-////
-//    }
-//    
-//    
-//}
-//
-//
-//- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return @"删除";
-//}
 - (void)didDeleteIndex:(NSIndexPath *)indexPath{
     
     if (indexPath.row>=3) {
