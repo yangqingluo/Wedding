@@ -29,7 +29,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self configDataSource];
+    
 }
 
 - (void)viewDidLoad {
@@ -70,7 +70,7 @@
     }];
         [popView showInView:weakSefl.view];
     }];
-    self.topScrollView.localizationImageNamesGroup = @[@"baby",@"3",@"4"];
+    self.topScrollView.localizationImageNamesGroup = @[@"baby", downloadImagePlace, downloadImagePlace];
     
     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
 //    
@@ -93,32 +93,6 @@
 
 - (void)configDataSource {
     
-    NSLog(@"存储的模型--->%@",[XWUserModel getUserInfoFromlocal]);
-    NSString *userId = [XWUserModel getUserInfoFromlocal].xw_id;
-    NSString *loverId = [XWUserModel getUserInfoFromlocal].loverId;
-    
-    // 获取爱人的id，和名字
-    
-    if (loverId.length == 0) {
-        SVPERROR(@"你还没得爱人");
-    }
-    
-    [BANetManager ba_requestWithType:BAHttpRequestTypeGet
-                           urlString:BASEURL(@"/chat/breakup")
-                          parameters:@{@"myId":userId,
-                                       @"hisOrHerId":loverId}
-                        successBlock:^(id response) {
-                            if ([response[@"success"] boolValue]) {
-                                loverPhone = response[@"data"][@"hisOrHerTelNumber"];
-                                loverName = response[@"data"][@"hisOrHerNickName"];
-                            } else{
-                                SVPERROR(response[@"msg"]);
-                            }
-                        }
-                        failureBlock:^(NSError *error) {
-                            SVPERROR(@"网络错误");
-                        }
-                            progress:nil];
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {

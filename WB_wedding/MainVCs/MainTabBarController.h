@@ -9,4 +9,6 @@
 
 @interface MainTabBarController : UITabBarController
 
+- (void)updateTabBarItemEnabled;
+
 @end

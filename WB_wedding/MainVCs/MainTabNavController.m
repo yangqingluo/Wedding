@@ -14,7 +14,8 @@
 @implementation MainTabNavController
 
 - (instancetype)init{
-    self = [super initWithRootViewController:[MainTabBarController new]];
+    self.mainTabBarVC = [MainTabBarController new];
+    self = [super initWithRootViewController:self.mainTabBarVC];
     if (self) {
         self.interactivePopGestureRecognizer.delegate = self;
         self.navigationBarHidden = true;

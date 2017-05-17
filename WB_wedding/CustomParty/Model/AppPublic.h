@@ -98,11 +98,6 @@ typedef void(^PopDoneBlock)(NSObject *object);
  */
 BOOL isFirstUsing();
 
-/*!
- @brief sha1加密
- */
-NSString *sha1(NSString *string);
-
 //图像压缩
 NSData *dataOfImageCompression(UIImage *image, BOOL isHead);
 

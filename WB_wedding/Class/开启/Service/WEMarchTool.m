@@ -22,7 +22,7 @@
     
     [HQBaseNetManager GET:BASEURL(@"/match/find") parameters:dic completionHandler:^(id  responseObj, NSError *error) {
         
-        if ([responseObj[@"msg"]isEqualToString:@"请求成功"]) {
+        if (!error && isHttpSuccess([responseObj[@"success"] intValue])) {
             NSArray *array = responseObj[@"data"][@"content"];
             
             // 存入数据库
@@ -39,10 +39,6 @@
             
         }else{
             failed(responseObj[@"msg"]);
-            
-            
-            
-            
         }
         
     }];
@@ -53,10 +49,7 @@
 
 #pragma mark ---- 刷新个人信息
 + (void)refreshSelfInfoWithID:(NSString *)ID success:(void (^)(id))success failed:(void (^)(NSString *))failed{
-    
-    
     NSDictionary *dic = @{
-                         
                           @"userId":ID
                           };
     

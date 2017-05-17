@@ -37,6 +37,9 @@
     [self.baseNavigationBar.backBtn setImage:[UIImage imageNamed:@"return48"] forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.baseNavigationBar];
     [self.view bringSubviewToFront:self.statusView];
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    self.usernameTextField.text = [ud objectForKey:kUserName];
 }
 
 - (IBAction)login:(UIButton *)sender {

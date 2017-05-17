@@ -6,7 +6,6 @@
 //
 
 #import "AppPublic.h"
-#import <CommonCrypto/CommonDigest.h>
 
 #import "UIImage+Color.h"
 #import "FirstPageController.h"
@@ -172,32 +171,6 @@ BOOL isFirstUsing(){
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     return ![version isEqualToString:saveVersion];
-}
-
-NSString *sha1(NSString *string){
-    const char *cstr = [string cStringUsingEncoding:NSUTF8StringEncoding];
-    
-    NSData *data = [NSData dataWithBytes:cstr length:string.length];
-    
-    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
-    
-    
-    
-    CC_SHA1(data.bytes, (unsigned int)data.length, digest);
-    
-    
-    
-    NSMutableString *outputStr = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
-    
-    
-    
-    for(int i=0; i < CC_SHA1_DIGEST_LENGTH; i++) {
-        
-        [outputStr appendFormat:@"%02x", digest[i]];
-        
-    }
-    
-    return outputStr;
 }
 
 //图像压缩
@@ -421,6 +394,8 @@ NSString *stringFromDate(NSDate *date, NSString *format){
 - (void)goToMainVC{
     self.mainTabNav = [MainTabNavController new];
     [UIApplication sharedApplication].delegate.window.rootViewController = self.mainTabNav;
+    
+    [self.mainTabNav.mainTabBarVC updateTabBarItemEnabled];
 }
 
 - (void)goToLoginCompletion:(void (^)(void))completion{

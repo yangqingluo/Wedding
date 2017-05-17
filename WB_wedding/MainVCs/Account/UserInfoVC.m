@@ -79,7 +79,7 @@
     
     self.headerView.nameLabel.text = self.userData.nickname;
     self.headerView.addressLabel.text = self.userData.city;
-    self.headerView.sexAndAgeLabel.text = [NSString stringWithFormat:@"%@ %d", self.userData.sex ? @"女" : @"男", self.userData.age];
+    self.headerView.sexAndAgeLabel.text = [NSString stringWithFormat:@"%@ %d", [self.userData showStringOfSex], self.userData.age];
     self.headerView.constellationLabel.text = self.userData.xingZuo;
     
     self.headerView.matchView.hidden = (self.infoType != UserInfoTypeStart);

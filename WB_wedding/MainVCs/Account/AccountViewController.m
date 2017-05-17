@@ -100,11 +100,12 @@
         _headerImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
         [AppPublic roundCornerRadius:_headerImage];
         _headerImage.centerY = 0.5 * _headerView.height;
-        _headerImage.right = _headerView.width - kEdgeMiddle;
+        _headerImage.right = _headerView.width - 2 * kEdgeMiddle;
         [_headerView addSubview:_headerImage];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(_headerLabel.left, _headerLabel.bottom + kEdgeSmall, _headerLabel.width, 16)];
         label.font = [UIFont systemFontOfSize:appLabelFontSize];
+        label.textColor = [UIColor grayColor];
         [_headerView addSubview:label];
         label.text = @"查看并编辑个人资料";
         
@@ -150,10 +151,10 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         cell.showImageView.frame = CGRectMake(0, 0, 28.0, 28.0);
-        cell.showImageView.right = screen_width - kEdgeMiddle;
+        cell.showImageView.right = screen_width - 3 * kEdgeMiddle;
         cell.showImageView.centerY = 0.5 * (iPhone5AndEarlyDevice ? kCellHeight : kCellHeightMiddle);
         
-        cell.subTitleLabel.frame = CGRectMake(kEdgeMiddle, 0, screen_width - 2 * kEdgeMiddle, 20);
+        cell.subTitleLabel.frame = CGRectMake(kEdgeMiddle, 0, screen_width - 4 * kEdgeMiddle, 20);
         cell.subTitleLabel.centerY = cell.showImageView.centerY;
         cell.subTitleLabel.textAlignment = NSTextAlignmentRight;
     }

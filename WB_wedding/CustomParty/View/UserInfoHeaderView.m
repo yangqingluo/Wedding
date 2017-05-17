@@ -34,21 +34,14 @@
     [self adjustWidthForLabel:self.constellationLabel];
     [self adjustWidthForLabel:self.thirdLabel];
     
-//    self.constellationLabel.left = self.sexAndAgeLabel.right + kEdge;
-//    if (self.constellationLabel.text.length) {
-//        self.thirdLabel.left = self.constellationLabel.right + kEdge;
-//    }
-//    else {
-//        self.thirdLabel.left = self.sexAndAgeLabel.right + kEdge;
-//    }
     NSArray *labelArray = @[self.sexAndAgeLabel, self.constellationLabel, self.thirdLabel];
     CGFloat left = self.sexAndAgeLabel.left;
     for (UILabel *label in labelArray) {
-        if (label.text.length) {
+        label.hidden = (label.text.length == 0);
+        if (!label.hidden) {
             label.left = left;
             left += label.width + kEdge;
         }
-        
     }
 }
 

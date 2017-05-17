@@ -67,11 +67,15 @@
 @property (strong, nonatomic) NSString *myQuestion;
 @property (strong, nonatomic) NSString *mySurvey;
 
+- (BOOL)isVip;
+
+- (NSString *)showStringOfSex;
 - (NSString *)subItemStringWithKey:(NSString *)string;
 - (NSArray *)subItemsIndexWithKey:(NSString *)string;
 - (NSString *)showStringOfMyQuestion;
 - (NSArray *)showArrayOfMyQuestion;
 - (NSArray *)showImageArray;
+
 
 @end
 

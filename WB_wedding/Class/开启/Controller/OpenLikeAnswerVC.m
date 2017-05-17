@@ -146,7 +146,7 @@ static NSInteger kBtnTag = 1000;
     NSArray *array = [imageSrtring componentsSeparatedByString:@","];
     NSURL *imagURL =[NSURL URLWithString: [NSString stringWithFormat:@"%@/%@/%@",ImageURL,self.modelsAr[section][@"id"],array[0]]];
     NSLog(@"====！===%@",array);
-    [headerImageView sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:@"3"]];
+    [headerImageView sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:downloadImagePlace]];
     
     // 名字
     UILabel *lab = [[UILabel alloc] init];

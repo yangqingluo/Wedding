@@ -88,6 +88,10 @@
     return array;
 }
 
+- (NSString *)showStringOfSex{
+    return self.sex ? @"男" : @"女";
+}
+
 @end
 
 

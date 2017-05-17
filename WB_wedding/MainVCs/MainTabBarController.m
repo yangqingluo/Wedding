@@ -53,8 +53,6 @@
             
             
         }
-        
-        [self setSelectedIndex:2];
         self.centralButton.selected = YES;
     }
     
@@ -73,12 +71,12 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
     
-    //  设定button大小为适应图片
+    //设定button大小为适应图片
     button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
     [button setImage:buttonImage forState:UIControlStateNormal];
     [button setImage:selectedImage forState:UIControlStateSelected];
     
-    //  这个比较恶心  去掉选中button时候的阴影
+    //去掉选中button时候的阴影
     button.adjustsImageWhenHighlighted = NO;
     
     /*
@@ -139,6 +137,44 @@
     }
     
     return _tabItemArray;
+}
+
+#pragma public
+- (void)updateTabBarItemEnabled{
+    BOOL hasLover = ([AppPublic getInstance].userData.loverId.length > 0);
+    
+    int i = 0;
+    for (UITabBarItem *item in self.tabBar.items) {
+        switch (i) {
+            case 0:{
+                item.enabled = hasLover;
+            }
+                break;
+                
+            case 1:
+            case 2:
+            case 3:{
+                item.enabled = !hasLover;
+            }
+                break;
+                
+            default:
+                break;
+        }
+        i++;
+    }
+    
+    if (hasLover) {
+        if (self.selectedIndex != 0 || self.selectedIndex != 4) {
+            self.selectedIndex = 0;
+        }
+    }
+    else {
+        if (self.selectedIndex == 0) {
+            self.selectedIndex = 2;
+        }
+    }
+    self.centralButton.selected = (self.selectedIndex == 2);
 }
 
 @end

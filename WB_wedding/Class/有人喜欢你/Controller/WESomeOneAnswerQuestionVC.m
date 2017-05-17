@@ -75,7 +75,7 @@
         //
         NSURL *imagURL =[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@/%@",ImageURL,dic[@"senderId"],array[0]]];
         NSLog(@"====！===%@",array);
-        [header.headerImgView sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:@"3"]];
+        [header.headerImgView sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:downloadImagePlace]];
     }
     
     // 名称

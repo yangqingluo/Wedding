@@ -67,8 +67,6 @@ static FMDatabase   *_db;
 
 
 + (NSArray *)readAllInfo{
-    
-    
     NSString *sql1 = [NSString stringWithFormat:@"select * from t_homePageInfo"];
     FMResultSet *set = [_db executeQuery:sql1];
     
@@ -88,9 +86,7 @@ static FMDatabase   *_db;
 }
 
 
-+(void)deleteInfoWithID:(NSString *)ID{
-    
-
++ (void)deleteInfoWithID:(NSString *)ID{
     BOOL flag =  [_db executeUpdate:@"delete from t_homePageInfo where xw_id = ?;",ID];
     
     if (flag) {

@@ -18,46 +18,23 @@
 #import "UserInfoVC.h"
 #import "WEMarchTool.h"
 
-#define RGBAColor(r,g,b,a)  [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
-#define RGBColor(r,g,b)     RGBAColor(r,g,b,1.0)
-#define RGBColorC(c)        RGBColor((((int)c) >> 16),((((int)c) >> 8) & 0xff),(((int)c) & 0xff))
-
-
-
-
-#define ACTION_MARGIN_RIGHT lengthFit(150)
-#define ACTION_MARGIN_LEFT lengthFit(150)
-#define ACTION_VELOCITY 400
-#define SCALE_STRENGTH 4
-#define SCALE_MAX .93
-#define ROTATION_MAX 1
-#define ROTATION_STRENGTH lengthFit(414)
-
-#define BUTTON_WIDTH lengthFit(40)
 @interface OpenViewController ()<CardLayoutDelegate,iCarouselDataSource, iCarouselDelegate>{
-CGFloat xFromCenter;
-CGFloat yFromCenter;
+    CGFloat xFromCenter;
+    CGFloat yFromCenter;
 }
 
-//@property(nonatomic, strong)UICollectionView* cardCollectionView;
-//@property(nonatomic, strong)UICollectionViewLayout* cardLayout;
-//@property(nonatomic, strong)UICollectionViewLayout* cardLayoutStyle1;
-//@property(nonatomic, strong)UICollectionViewLayout* cardLayoutStyle2;
-//@property(nonatomic, strong)UITapGestureRecognizer* tapGesCollectionView;
+@property (nonatomic, strong) UIButton  *likeBtn;
+@property (nonatomic, strong) UIButton  *moreBtn;
+@property (nonatomic, assign) BOOL      isAnimation;
 
-@property (nonatomic,strong)UIButton  *likeBtn;
-@property (nonatomic,strong)UIButton  *moreBtn;
-@property (nonatomic,assign)BOOL        isAnimation;
-
-@property (nonatomic,strong)NSMutableArray  *dataSource;
-
+@property (nonatomic, strong) NSMutableArray  *dataSource;
 
 @property (nonatomic, strong) iCarousel *carousel;
 
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) NSMutableArray *cellArray;
-@property (nonatomic,assign)CGRect      oringFrame;
-@property (nonatomic,assign)CGFloat     origX;
+@property (nonatomic, assign) CGRect      oringFrame;
+@property (nonatomic, assign) CGFloat     origX;
 
 @property (nonatomic,assign)BOOL        isNO;
 /**
@@ -86,17 +63,15 @@ CGFloat yFromCenter;
     self.items = [NSMutableArray array];
     self.cellArray = [NSMutableArray array];
     self.allPicArray = [NSMutableArray array];
-     self.page = 1;
+    self.page = 1;
     
     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
-    
-  
-    
     
     NSArray *array = [WEHomeCacheTool readAllInfo];
       NSLog(@"===========总共 %ld 张",array.count);
     
     if (array.count == 0 ) {
+        QKWEAKSELF;
         [WEMarchTool marchPersonWithID:[XWUserModel getUserInfoFromlocal].xw_id  page:@"1" size:@"15" success:^(NSArray *modelss) {
             @try {
                 
@@ -136,8 +111,7 @@ CGFloat yFromCenter;
             
             
         } failed:^(NSString *error) {
-            
-            
+            [weakself showHint:error];
         }];
         
     }else{
@@ -183,7 +157,7 @@ CGFloat yFromCenter;
         
     }
 
-      UIPanGestureRecognizer *pans = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panges:)];
+    UIPanGestureRecognizer *pans = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panges:)];
     [self.view addGestureRecognizer:pans];
     
 }
@@ -500,12 +474,10 @@ CGFloat yFromCenter;
 }
 
 
--(void)configCarousel{
-    
-    //create carousel
+- (void)configCarousel{
     _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0,64,KScreenWidth,KScreenHeight-64-44)];
     _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
+    _carousel.backgroundColor = [UIColor clearColor];
     _carousel.type = iCarouselTypeCoverFlow;
     _carousel.delegate = self;
     _carousel.dataSource = self;
@@ -515,52 +487,45 @@ CGFloat yFromCenter;
     [self.view addSubview:_carousel];
     [self.view addSubview:self.likeBtn];
     [self.view addSubview:self.moreBtn];
-
-    
-    
 }
 #pragma mark -
 #pragma mark iCarousel methods
-- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
-{
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
     return  self.items.count;
 }
 
-
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
-{
-    
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
     CardCellCollectionViewCell *cell = [CardCellCollectionViewCell xw_loadFromNib];
     cell.frame = CGRectMake(0, 0, 240*self.scaleX, 240*self.scaleX);
     cell.tag = index;
     NSDictionary *dic = self.items[index];
-    NSString *imageSrtring = dic[@"imgFileNames"];
     
-    NSArray *array = [imageSrtring componentsSeparatedByString:@","];
-    NSURL *imagURL =[NSURL URLWithString: [NSString stringWithFormat:@"%@/%@/%@",ImageURL,dic[@"id"],array[0]]];
-    NSLog(@"====！===%@",array);
-    [cell.imagView sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:@"3"]];
-    cell.ids = dic[@"id"];
+    AppUserData *userData = [AppUserData mj_objectWithKeyValues:dic];
     
-    cell.name = dic[@"nickname"];
-    cell.xinzuoLable.text = dic[@"xingZuo"];
-    cell.ardess.text = dic[@"city"];
-    if ([dic[@"sex"] integerValue] == 0) {
-        cell.ageLable.text = [NSString stringWithFormat:@"女 %@",dic[@"age"]];
-    }else{
-           cell.ageLable.text = [NSString stringWithFormat:@"男 %@",dic[@"age"]];
+    if (userData.imgArray.count) {
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStringWithImagePath(userData.imgArray[0])] placeholderImage:[UIImage imageNamed:downloadImagePlace]];
     }
-    cell.pipeLable.text = [NSString stringWithFormat:@"匹配度%@%@",dic[@"matchDegree"],@"%"];
+    else {
+        cell.imageView.image = [UIImage imageNamed:downloadImagePlace];
+    }
+    
+    cell.nameLabel.text = userData.nickname;
+    cell.addressLabel.text = userData.city;
+    cell.sexAndAgeLabel.text = [NSString stringWithFormat:@"%@ %d", [userData showStringOfSex], userData.age];
+    cell.constellationLabel.text = userData.xingZuo;
+    
+    cell.thirdLabel.text = [NSString stringWithFormat:@"%dcm", userData.height];
+    cell.matchLabel.text = userData.matchDegree;
+    
+    [cell adjustSubviews];
+    
+    
     [self.cellArray  addObject:cell];
     [self.dataSource addObject:cell];
     return cell;
 }
 
-
-- (CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
-{
-    
-    
+- (CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform{
     transform = CATransform3DRotate(transform, M_PI / 8.0, 0.0, 1.0, 0.0);
     return CATransform3DTranslate(transform, 0.0, 0.0, offset * self.carousel.itemWidth);
 }
@@ -580,10 +545,7 @@ CGFloat yFromCenter;
 }
 
 
-- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
-{
-    
-       
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value{
     if (self.isNO == NO) {
         for (CardCellCollectionViewCell *cell in self.dataSource) {
             if (cell == carousel.currentItemView) {
@@ -592,33 +554,24 @@ CGFloat yFromCenter;
                 cell.transform = CGAffineTransformMakeScale(1., 1.);
             }
         }
-        
-        
     }
     
-    switch (option)
-    {
-        case iCarouselOptionWrap:
-        {
+    switch (option){
+        case iCarouselOptionWrap:{
             //normally you would hard-code this to YES or NO
             return YES;
         }
-        case iCarouselOptionSpacing:
-        {
+        case iCarouselOptionSpacing:{
             // 控制器滚动的范围
             return value * 0.70;
         }
-        case iCarouselOptionFadeMax:
-        {
-            if (carousel.type == iCarouselTypeCustom)
-            {
-                
+        case iCarouselOptionFadeMax:{
+            if (carousel.type == iCarouselTypeCustom){
                 return 0.8f;
             }
             return value;
         }
-        default:
-        {
+        default:{
             return value;
         }
     }
@@ -637,9 +590,7 @@ CGFloat yFromCenter;
     vc.userData = [AppUserData mj_objectWithKeyValues:dic];
     
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
-
 
 #pragma mark -- 右滑
 - (void)swichController:(UISwipeGestureRecognizer *)pan{
@@ -691,16 +642,8 @@ CGFloat yFromCenter;
                 NSInteger index2 = _carousel.currentItemIndex;
                 [_items insertObject:@"4" atIndex:index2];
                 [_carousel insertItemAtIndex:index2 animated:YES];
-
-                
             }];
-            
-            
         }
-        
-
-        
-        
     }
     
 }
@@ -708,13 +651,11 @@ CGFloat yFromCenter;
 
 #pragma mark -- 喜欢
 - (void)likeBtnClick:(UIButton *)sender{
-
     OpenLikeAnswerVC *vc = [OpenLikeAnswerVC new];
     
     vc.modelsAr = [self.items copy];
     
-    [self.navigationController pushViewController:vc
-                                         animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -810,16 +751,8 @@ CGFloat yFromCenter;
             
         }
     }
-    
-
-    
 //    [self.carousel reloadData];
     self.isNO = NO;
-
-
-    
-    
-    
 
 }
 

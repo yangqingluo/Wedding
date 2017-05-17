@@ -6,7 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainTabBarController.h"
 
 @interface MainTabNavController : UINavigationController
+
+@property (nonatomic, strong) MainTabBarController *mainTabBarVC;
 
 @end
