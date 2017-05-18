@@ -89,7 +89,7 @@
 }
 
 - (NSString *)showStringOfSex{
-    return self.sex ? @"男" : @"女";
+    return [self.sex isEqualToString:@"0"] ? @"男" : @"女";
 }
 
 - (NSString *)showStringOfMySurveyForIndex:(NSUInteger)index andLists:(NSString *)listsString{
@@ -107,6 +107,17 @@
             }
         }
     }
+    
+    return m_string;
+}
+
+- (NSString *)showStringOfBirthday{
+    NSString *m_string = @"";
+    if (self.birthday) {
+        NSTimeInterval timeInterval = 0.001 * [self.birthday doubleValue];
+        m_string = stringFromDate([NSDate dateWithTimeIntervalSince1970:timeInterval], @"yyyy/MM/dd");
+    }
+    
     
     return m_string;
 }

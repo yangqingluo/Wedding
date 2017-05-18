@@ -283,6 +283,8 @@
 		E9D582441E4D9A190071E88F /* STUI.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5823A1E4D9A190071E88F /* STUI.m */; };
 		E9D582451E4D9A190071E88F /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5823C1E4D9A190071E88F /* UIView+ST.m */; };
 		E9D582561E4E07800071E88F /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9D582551E4E07800071E88F /* area.plist */; };
+		FC875F9D1ECD438600158552 /* AppPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875F9C1ECD438600158552 /* AppPickerView.m */; };
+		FC875FA01ECD48B500158552 /* AppDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875F9E1ECD48B500158552 /* AppDatePickerView.m */; };
 		FCA11FD41EC98B7D005C5305 /* PublicSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */; };
 		FCA11FD91EC9AE09005C5305 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */; };
 		FCA11FDC1EC9F3CD005C5305 /* TitleAndDetailTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */; };
@@ -953,6 +955,10 @@
 		E9D5823C1E4D9A190071E88F /* UIView+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ST.m"; sourceTree = "<group>"; };
 		E9D582551E4E07800071E88F /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		EC7DCA563DE1AD2614468DAF /* libPods-WB_wedding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WB_wedding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC875F9B1ECD438600158552 /* AppPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPickerView.h; sourceTree = "<group>"; };
+		FC875F9C1ECD438600158552 /* AppPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPickerView.m; sourceTree = "<group>"; };
+		FC875F9E1ECD48B500158552 /* AppDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDatePickerView.m; sourceTree = "<group>"; };
+		FC875F9F1ECD48B500158552 /* AppDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDatePickerView.h; sourceTree = "<group>"; };
 		FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicSelectionVC.h; sourceTree = "<group>"; };
 		FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicSelectionVC.m; sourceTree = "<group>"; };
 		FCA11FD71EC9AE09005C5305 /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
@@ -2646,6 +2652,10 @@
 				FCB7EC001ECC30680059D409 /* ImageViewCell.m */,
 				FCA11FEA1ECB02AF005C5305 /* QKBaseCollectionViewCell.h */,
 				FCA11FE91ECB02AF005C5305 /* QKBaseCollectionViewCell.m */,
+				FC875F9B1ECD438600158552 /* AppPickerView.h */,
+				FC875F9C1ECD438600158552 /* AppPickerView.m */,
+				FC875F9F1ECD48B500158552 /* AppDatePickerView.h */,
+				FC875F9E1ECD48B500158552 /* AppDatePickerView.m */,
 				FCA11FE41ECAD116005C5305 /* UserInfoHeaderView.h */,
 				FCA11FE51ECAD116005C5305 /* UserInfoHeaderView.m */,
 				FCA11FE71ECAD364005C5305 /* UserInfoHeaderView.xib */,
@@ -2911,6 +2921,7 @@
 				57FEBD0C1EB8E884008D6AE1 /* FixFopen.c in Sources */,
 				5D9E49801E2C99F700B9C88C /* WEYourMessageCollectionCell.m in Sources */,
 				5D3085ED1E27638900CA138C /* WELookDetailFooterView.m in Sources */,
+				FC875FA01ECD48B500158552 /* AppDatePickerView.m in Sources */,
 				57FEBD191EB8E884008D6AE1 /* EaseBubbleView+Gif.m in Sources */,
 				57FEBD171EB8E884008D6AE1 /* EaseMessageTimeCell.m in Sources */,
 				5D793B211E1B429100236506 /* AppDelegate.m in Sources */,
@@ -3085,6 +3096,7 @@
 				5709C1851EA66CAA00C5C987 /* NSDate+WEHelper.m in Sources */,
 				57FEBD071EB8E884008D6AE1 /* EaseMessageReadManager.m in Sources */,
 				FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */,
+				FC875F9D1ECD438600158552 /* AppPickerView.m in Sources */,
 				5D793B711E1B488000236506 /* WEYourMsgController.m in Sources */,
 				E9415ACC1E2FC6C5002325A0 /* WalletDetailUseVC.m in Sources */,
 				FCB7EC1D1ECC7FDC0059D409 /* TZImageManager.m in Sources */,

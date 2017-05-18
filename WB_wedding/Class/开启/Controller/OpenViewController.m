@@ -514,7 +514,7 @@
     cell.sexAndAgeLabel.text = [NSString stringWithFormat:@"%@ %d", [userData showStringOfSex], userData.age];
     cell.constellationLabel.text = userData.xingZuo;
     
-    cell.thirdLabel.text = [NSString stringWithFormat:@"%dcm", userData.height];
+    cell.thirdLabel.text = [NSString stringWithFormat:@"%@cm", userData.height];
     cell.matchLabel.text = userData.matchDegree;
     
     [cell adjustSubviews];

@@ -81,6 +81,8 @@
         NSMutableDictionary *dic = [NSMutableDictionary new];
         [dic setObject:[AppPublic getInstance].userData.telNumber forKey:@"telNumber"];
         [dic setObject:questionString forKey:@"myQuestion"];
+        
+        [self showHudInView:self.view hint:nil];
         QKWEAKSELF;
         [[QKNetworkSingleton sharedManager] Post:dic HeadParm:nil URLFooter:@"/user/updatedoc" completion:^(id responseBody, NSError *error){
             [weakself hideHud];

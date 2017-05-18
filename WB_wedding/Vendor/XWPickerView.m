@@ -36,7 +36,6 @@
         self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.1];
         self.back = callBack;
         self.selete = dataSource[0];
-        self.
         self.dataSource = dataSource;
         [self config];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissAnimation)];

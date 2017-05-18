@@ -13,16 +13,20 @@
 #import "TitleAndDetailTextCell.h"
 #import "QKBaseCollectionViewCell.h"
 #import "BlockAlertView.h"
+#import "AppPickerView.h"
+#import "AppDatePickerView.h"
 
 static NSString *identify = @"assetSelectedCell";
 
-@interface UserInfoEditVC ()<UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface UserInfoEditVC ()<UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) AppUserData *userData;
 @property (strong, nonatomic) NSMutableArray *imageArray;
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) UICollectionView *photoCollectionView;
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
+
+@property (strong, nonatomic) NSArray *baseShowArray;
 
 @end
 
@@ -62,23 +66,33 @@ static NSString *identify = @"assetSelectedCell";
 }
 
 - (void)editAction{
-    NSMutableDictionary *dic = [NSMutableDictionary new];
+    NSMutableDictionary *m_dic = [NSMutableDictionary new];
     for (UserInfoItemData *item in [AppPublic getInstance].infoItemLists) {
         if (![[[AppPublic getInstance].userData valueForKey:item.key] isEqualToString:[self.userData valueForKey:item.key]]) {
-            [dic setObject:[self.userData valueForKey:item.key] forKey:item.key];
+            [m_dic setObject:[self.userData valueForKey:item.key] forKey:item.key];
         }
     }
     
-    if (dic.count) {
-        [dic setObject:self.userData.telNumber forKey:@"telNumber"];
+    for (NSDictionary *dic in self.baseShowArray) {
+        if (![[[AppPublic getInstance].userData valueForKey:dic[@"key"]] isEqualToString:[self.userData valueForKey:dic[@"key"]]]) {
+            [m_dic setObject:[self.userData valueForKey:dic[@"key"]] forKey:dic[@"key"]];
+        }
+    }
+    
+    if (m_dic.count) {
+        [m_dic setObject:self.userData.telNumber forKey:@"telNumber"];
         
+        [self showHudInView:self.view hint:nil];
         QKWEAKSELF;
-        [[QKNetworkSingleton sharedManager] Post:dic HeadParm:nil URLFooter:@"/user/updatedoc" completion:^(id responseBody, NSError *error){
+        [[QKNetworkSingleton sharedManager] Post:m_dic HeadParm:nil URLFooter:@"/user/updatedoc" completion:^(id responseBody, NSError *error){
             [weakself hideHud];
             
             if (!error) {
                 if (isHttpSuccess([responseBody[@"success"] intValue])) {
                     [[AppPublic getInstance] saveUserData:self.userData];
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_Update_UserData object:nil];
+                    
                     [weakself goBack];
                 }
                 else {
@@ -207,6 +221,19 @@ static NSString *identify = @"assetSelectedCell";
     return _userData;
 }
 
+- (NSArray *)baseShowArray{
+    if (!_baseShowArray) {
+        _baseShowArray = @[@{@"key":@"nickname", @"name":@"昵称"},
+                           @{@"key":@"realname", @"name":@"真实姓名"},
+                           @{@"key":@"sex", @"name":@"性别"},
+                           @{@"key":@"birthday", @"name":@"生日"},
+                           @{@"key":@"height", @"name":@"身高"},
+                           ];
+    }
+    
+    return _baseShowArray;
+}
+
 - (UICollectionView *)photoCollectionView{
     if (!_photoCollectionView) {
         CGFloat width = screen_width - 2 * kEdgeMiddle;
@@ -254,7 +281,10 @@ static NSString *identify = @"assetSelectedCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 1) {
+    if (section == 0) {
+        return self.baseShowArray.count;
+    }
+    else if (section == 1) {
         return [AppPublic getInstance].infoItemLists.count;
     }
     
@@ -311,7 +341,40 @@ static NSString *identify = @"assetSelectedCell";
     
     switch (indexPath.section) {
         case 0:{
-            [cell setTitle:self.userData.nickname andDetail:@"查看问卷"];
+            NSDictionary *dic = self.baseShowArray[indexPath.row];
+            NSString *detail = @"";
+            switch (indexPath.row) {
+                case 0:
+                case 1:{
+                    detail = [self.userData valueForKey:dic[@"key"]];
+                }
+                    break;
+                    
+                case 2:{
+                    //性别
+                    detail = [self.userData showStringOfSex];
+                }
+                    break;
+                    
+                case 3:{
+                    //生日
+                    detail = [self.userData showStringOfBirthday];
+                }
+                    break;
+                    
+                case 4:{
+                    //身高
+                    if (self.userData.height) {
+                        detail = [self.userData.height copy];
+                    }
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            [cell setTitle:dic[@"name"] andDetail:detail];
         }
             break;
             
@@ -336,6 +399,83 @@ static NSString *identify = @"assetSelectedCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
+        case 0:{
+            switch (indexPath.row) {
+                case 0:{
+                    //昵称
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"设置昵称" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                    UITextField *alertTextField = [alert textFieldAtIndex:0];
+                    alertTextField.clearButtonMode = UITextFieldViewModeAlways;
+                    alertTextField.returnKeyType = UIReturnKeyDone;
+                    alertTextField.delegate = self;
+                    alertTextField.placeholder = @"请输入昵称";
+                    alert.tag = indexPath.row;
+                    [alert show];
+
+                }
+                    break;
+                    
+                case 1:{
+                    //真实姓名
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"设置真实姓名" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+                    UITextField *alertTextField = [alert textFieldAtIndex:0];
+                    alertTextField.clearButtonMode = UITextFieldViewModeAlways;
+                    alertTextField.returnKeyType = UIReturnKeyDone;
+                    alertTextField.delegate = self;
+                    alertTextField.placeholder = @"请输入真实姓名";
+                    alert.tag = indexPath.row;
+                    [alert show];
+                }
+                    break;
+                    
+                case 2:{
+                    //性别
+                    QKWEAKSELF;
+                    NSArray *sexShowArray = @[@"男", @"女"];
+                    AppPickerView *view = [[AppPickerView alloc] initWithCallBack:^(NSObject *object) {
+                        weakself.userData.sex = [NSString stringWithFormat:@"%@", object];
+                        [weakself.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+                    } WithDataSource:sexShowArray];
+                    [view show];
+                }
+                    break;
+                    
+                case 3:{
+                    //生日
+                    QKWEAKSELF;
+                    AppDatePickerView *picker = [[AppDatePickerView alloc] initWithCallBack:^(NSObject *object) {
+                        weakself.userData.birthday = (NSString *)object;
+                        [weakself.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+                    }];
+                    [picker show];
+                }
+                    break;
+                    
+                case 4:{
+                    //身高
+                    QKWEAKSELF;
+                    NSMutableArray *heightArray = [NSMutableArray array];
+                    for (int i = 220; i > 120; i --) {
+                        [heightArray addObject:[NSString stringWithFormat:@"%d",i]];
+                    }
+                    
+                    AppPickerView *view = [[AppPickerView alloc] initWithCallBack:^(NSObject *object) {
+                        NSNumber *indexNumber = (NSNumber *)object;
+                        weakself.userData.height = heightArray[[indexNumber integerValue]];
+                        [weakself.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+                    } WithDataSource:heightArray];
+                    [view show];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+            
         case 1:{
             UserInfoItemData *item = [AppPublic getInstance].infoItemLists[indexPath.row];
             
@@ -464,8 +604,6 @@ static NSString *identify = @"assetSelectedCell";
         else{
             [self chooseHeadImage:buttonIndex];
         }
-        
-        
     }
 }
 
@@ -487,6 +625,35 @@ static NSString *identify = @"assetSelectedCell";
         [picker dismissViewControllerAnimated:YES completion:^{
             [self updateMemberAvatar:imageData];
         }];
+    }
+}
+
+#pragma UIAlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //设置手机号
+    if (buttonIndex == 1) {
+        UITextField *alertTextField = [alertView textFieldAtIndex:0];
+        if (alertTextField.text.length) {
+            switch (alertView.tag) {
+                case 0:{
+                    //昵称
+                    self.userData.nickname = alertTextField.text;
+                }
+                    break;
+                    
+                case 1:{
+                    //真实姓名
+                    self.userData.realname = alertTextField.text;
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        
     }
 }
 

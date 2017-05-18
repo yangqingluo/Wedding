@@ -14,7 +14,6 @@
 #import "UserInfoEditVC.h"
 #import "UserQuestionnaireVC.h"
 
-#import "WECompletInfoController.h"
 
 @interface UserInfoVC ()
 
@@ -24,18 +23,15 @@
 
 @implementation UserInfoVC
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    if (self.infoType == UserInfoTypeSelf) {
-        _userData = nil;
-        [self updateSubviews];
-    }
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDataChange:) name:kNotification_Update_UserData object:nil];
     
     UserInfoHeaderView *headeView = [UserInfoHeaderView appLoadFromNib];
     self.tableView.tableHeaderView = headeView;
@@ -43,6 +39,13 @@
     self.headerView = headeView;
     
     [self updateSubviews];
+    
+    if (self.infoType == UserInfoTypeSelf) {
+        QKWEAKSELF;
+        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [weakself pullUserData];
+        }];
+    }
 }
 
 - (void)setupNav {
@@ -70,11 +73,30 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)pullUserData{
+    QKWEAKSELF;
+    
+    [[QKNetworkSingleton sharedManager] Get:@{@"userId":self.userData.ID} HeadParm:nil URLFooter:@"/user/findonebyid" completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        
+        if (!error) {
+            if (isHttpSuccess([responseBody[@"success"] intValue])) {
+                [[AppPublic getInstance] saveUserData:[AppUserData mj_objectWithKeyValues:responseBody[@"data"]]];
+                _userData = nil;
+            }
+            else {
+                [weakself showHint:responseBody[@"msg"]];
+            }
+        }
+        else{
+            [weakself showHint:@"网络出错"];
+        }
+        
+        [weakself updateSubviews];
+    }];
+}
+
 - (void)editAction{
-//    WECompletInfoController *vc = [WECompletInfoController new];
-//    vc.isUserSetting = YES;
-//    vc.telPhone = self.userData.telNumber;
-//    vc.userId = self.userData.ID;
     UserInfoEditVC *vc = [UserInfoEditVC new];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -108,7 +130,7 @@
     
     self.headerView.matchView.hidden = (self.infoType != UserInfoTypeStart);
     if (self.infoType == UserInfoTypeSelf || self.infoType == UserInfoTypeStart) {
-        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%dcm", self.userData.height];
+        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%@cm", self.userData.height];
         self.headerView.matchLabel.text = self.userData.matchDegree;
     }
     else {
@@ -118,6 +140,12 @@
     [self.headerView adjustSubviews];
     
     [self.tableView reloadData];
+}
+
+- (void)endRefreshing{
+    //记录刷新时间
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma getter
@@ -218,6 +246,11 @@
     }
     
     return cell;
+}
+
+#pragma notification
+- (void)userDataChange:(NSNotification *)notification{
+    [self.tableView.mj_header beginRefreshing];
 }
 
 @end

@@ -88,6 +88,7 @@
  {
      "key" : "8",
      "name" : "最在意对方家的哪个方面？",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "经济是否宽裕",
                    "城市还是农村",
@@ -102,6 +103,7 @@
  {
      "key" : "9",
      "name" : "您认为什么是结婚的必要条件？",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "有车有房",
                    "工作稳定",
@@ -116,6 +118,7 @@
  {
      "key" : "10",
      "name" : "您认为在人的一生中，以下哪几项对您来说最重要",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "金钱",
                    "权力地位",
@@ -130,6 +133,7 @@
  {
      "key" : "11",
      "name" : "你的业余时间一般是如何安排的",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "读书看报学习",
                    "运动健身或户外活动",
@@ -143,6 +147,7 @@
  {
      "key" : "12",
      "name" : "您认为维持爱情的因素是",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "忠诚坦诚",
                    "信任",
@@ -155,6 +160,7 @@
  {
      "key" : "13",
      "name" : "您找对象的主要标准是",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "兴趣爱好相同",
                    "能力和文化水平",
@@ -169,6 +175,7 @@
  {
      "key" : "14",
      "name" : "您认为维系婚姻的关键？",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "物质基础",
                    "感情共鸣",
@@ -194,6 +201,7 @@
  {
      "key" : "16",
      "name" : "如果您去旅游您会更喜欢哪种风格的景色？",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "奢华城市游",
                    "舒适度假海岛游",
@@ -207,6 +215,7 @@
  {
      "key" : "17",
      "name" : "影响您购买决策的主要是",
+     "subItemMaxNumber" : 3,
      "subItems" : [
                    "外观",
                    "质量",
