@@ -167,7 +167,6 @@
 		5D746A5E1E2E238F001FE1A1 /* WEBianjiSelfInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D746A5C1E2E238F001FE1A1 /* WEBianjiSelfInfoController.m */; };
 		5D746A5F1E2E238F001FE1A1 /* WEBianjiSelfInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D746A5D1E2E238F001FE1A1 /* WEBianjiSelfInfoController.xib */; };
 		5D746A631E2E38AC001FE1A1 /* WELoveRecoderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D746A611E2E38AC001FE1A1 /* WELoveRecoderController.m */; };
-		5D746A641E2E38AC001FE1A1 /* WELoveRecoderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D746A621E2E38AC001FE1A1 /* WELoveRecoderController.xib */; };
 		5D746A681E2E392B001FE1A1 /* WELoveReocdeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D746A661E2E392B001FE1A1 /* WELoveReocdeCell.m */; };
 		5D746A691E2E392B001FE1A1 /* WELoveReocdeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D746A671E2E392B001FE1A1 /* WELoveReocdeCell.xib */; };
 		5D793B1E1E1B429100236506 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B1D1E1B429100236506 /* main.m */; };
@@ -333,6 +332,7 @@
 		FCC2C10D1ECDDA47001265F1 /* PublicWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC2C10C1ECDDA47001265F1 /* PublicWebViewController.m */; };
 		FCC2C1131ECDE0E7001265F1 /* UserWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC2C1111ECDE0E7001265F1 /* UserWalletViewController.m */; };
 		FCC2C1141ECDE0E7001265F1 /* UserWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC2C1121ECDE0E7001265F1 /* UserWalletViewController.xib */; };
+		FCC2C1171ECDE31B001265F1 /* UserLoveRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC2C1161ECDE31B001265F1 /* UserLoveRecordVC.m */; };
 		FCC547E41EC19E5500C0F018 /* AppBasicWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */; };
 		FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA8E1EBC8599005AC352 /* AppDelegate+EaseMob.m */; };
 		FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD3AA901EBC875A005AC352 /* ChatDemoHelper.m */; };
@@ -689,7 +689,6 @@
 		5D746A5D1E2E238F001FE1A1 /* WEBianjiSelfInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WEBianjiSelfInfoController.xib; sourceTree = "<group>"; };
 		5D746A601E2E38AC001FE1A1 /* WELoveRecoderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WELoveRecoderController.h; sourceTree = "<group>"; };
 		5D746A611E2E38AC001FE1A1 /* WELoveRecoderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WELoveRecoderController.m; sourceTree = "<group>"; };
-		5D746A621E2E38AC001FE1A1 /* WELoveRecoderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WELoveRecoderController.xib; sourceTree = "<group>"; };
 		5D746A651E2E392B001FE1A1 /* WELoveReocdeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WELoveReocdeCell.h; sourceTree = "<group>"; };
 		5D746A661E2E392B001FE1A1 /* WELoveReocdeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WELoveReocdeCell.m; sourceTree = "<group>"; };
 		5D746A671E2E392B001FE1A1 /* WELoveReocdeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WELoveReocdeCell.xib; sourceTree = "<group>"; };
@@ -1049,6 +1048,8 @@
 		FCC2C1101ECDE0E7001265F1 /* UserWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserWalletViewController.h; sourceTree = "<group>"; };
 		FCC2C1111ECDE0E7001265F1 /* UserWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserWalletViewController.m; sourceTree = "<group>"; };
 		FCC2C1121ECDE0E7001265F1 /* UserWalletViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserWalletViewController.xib; sourceTree = "<group>"; };
+		FCC2C1151ECDE31B001265F1 /* UserLoveRecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoveRecordVC.h; sourceTree = "<group>"; };
+		FCC2C1161ECDE31B001265F1 /* UserLoveRecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoveRecordVC.m; sourceTree = "<group>"; };
 		FCC547E21EC19E5500C0F018 /* AppBasicWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicWebViewController.h; sourceTree = "<group>"; };
 		FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicWebViewController.m; sourceTree = "<group>"; };
 		FCD3AA8D1EBC8599005AC352 /* AppDelegate+EaseMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+EaseMob.h"; sourceTree = "<group>"; };
@@ -1953,7 +1954,6 @@
 				5D746A5D1E2E238F001FE1A1 /* WEBianjiSelfInfoController.xib */,
 				5D746A601E2E38AC001FE1A1 /* WELoveRecoderController.h */,
 				5D746A611E2E38AC001FE1A1 /* WELoveRecoderController.m */,
-				5D746A621E2E38AC001FE1A1 /* WELoveRecoderController.xib */,
 				5D6F98D51E2F1304001E5D06 /* WESettingController.h */,
 				5D6F98D61E2F1304001E5D06 /* WESettingController.m */,
 				5DD451DE1E8C0A1B00135479 /* WEChangePhoneController.h */,
@@ -2576,6 +2576,8 @@
 				FC875FC91ECD9EE800158552 /* UserMessageVC.m */,
 				FCC2C1081ECDD595001265F1 /* MessageDetailVC.h */,
 				FCC2C1091ECDD595001265F1 /* MessageDetailVC.m */,
+				FCC2C1151ECDE31B001265F1 /* UserLoveRecordVC.h */,
+				FCC2C1161ECDE31B001265F1 /* UserLoveRecordVC.m */,
 				FCC2C1101ECDE0E7001265F1 /* UserWalletViewController.h */,
 				FCC2C1111ECDE0E7001265F1 /* UserWalletViewController.m */,
 				FCC2C1121ECDE0E7001265F1 /* UserWalletViewController.xib */,
@@ -2864,7 +2866,6 @@
 				5D793B2C1E1B429100236506 /* LaunchScreen.storyboard in Resources */,
 				57FEBD291EB8E884008D6AE1 /* EaseUIResource.bundle in Resources */,
 				5D746A551E2E0CE6001FE1A1 /* WEMYAskViewController.xib in Resources */,
-				5D746A641E2E38AC001FE1A1 /* WELoveRecoderController.xib in Resources */,
 				579325071E8C05A200A0BC73 /* WECompletInfoController.xib in Resources */,
 				5D6F98F61E2F69AD001E5D06 /* WEChooseCell.xib in Resources */,
 				5D746A5F1E2E238F001FE1A1 /* WEBianjiSelfInfoController.xib in Resources */,
@@ -3168,6 +3169,7 @@
 				57FEBD121EB8E884008D6AE1 /* EaseViewController.m in Sources */,
 				5D5F6DCA1E2377BD00A0D82A /* FirstPageController.m in Sources */,
 				57FEBCB41EB8E884008D6AE1 /* EMAudioPlayerUtil.m in Sources */,
+				FCC2C1171ECDE31B001265F1 /* UserLoveRecordVC.m in Sources */,
 				E950D8621E4600B000149037 /* WEAnswerFansSureBtnCell.m in Sources */,
 				FC875FC21ECD8E4100158552 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				57FEBD281EB8E884008D6AE1 /* EaseConversationCell.m in Sources */,

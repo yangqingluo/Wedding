@@ -37,7 +37,9 @@
         [suffix isEqualToString:@"/alipay/pay"] ||
         [suffix isEqualToString:@"/match/send"] ||
         [suffix isEqualToString:@"/user/deleteimg"]||
-        [suffix isEqualToString:@"/urreply/delete"]
+        [suffix isEqualToString:@"/urreply/delete"]||
+        [suffix isEqualToString:@"/loverecord/findexlovers"] ||
+        [suffix isEqualToString:@"/loverecord/relove"]
         ) {
         manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     }

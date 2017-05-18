@@ -70,8 +70,11 @@
 @property (strong, nonatomic) NSString *matchDegree;//匹配度
 @property (strong, nonatomic) NSString *isRecieverRead;//已读
 
-- (BOOL)isVip;
 
++ (NSString *)showRelationTimeWithTimeString:(NSString *)string;
+
+
+- (BOOL)isVip;
 - (NSString *)showStringOfSex;
 - (NSString *)subItemStringWithKey:(NSString *)string;
 - (NSArray *)subItemsIndexWithKey:(NSString *)string andSeparatedByString:(NSString *)separatedByString;
@@ -81,6 +84,7 @@
 - (NSString *)showStringOfMySurveyForIndex:(NSUInteger)index andLists:(NSString *)listsString;
 - (NSString *)showStringOfBirthday;
 - (NSDate *)dateOfBirthday;
+
 
 @end
 

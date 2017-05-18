@@ -13,6 +13,7 @@
 
 #import "UserInfoVC.h"
 #import "UserWalletViewController.h"
+#import "UserLoveRecordVC.h"
 #import "UserJudgementVC.h"
 #import "UserMessageVC.h"
 #import "PublicWebViewController.h"
@@ -192,7 +193,7 @@
                 break;
             case 1:{
                 //恋爱记录
-                WELoveRecoderController *vc = [[WELoveRecoderController alloc]init];
+                UserLoveRecordVC *vc = [UserLoveRecordVC new];
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }

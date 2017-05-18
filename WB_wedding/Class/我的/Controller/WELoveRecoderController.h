@@ -6,10 +6,10 @@
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "HQBaseViewController.h"
+#import "AppBasicTableViewController.h"
 /**
  *  恋爱记录控制器
  */
-@interface WELoveRecoderController : HQBaseViewController
+@interface WELoveRecoderController : AppBasicTableViewController
 
 @end

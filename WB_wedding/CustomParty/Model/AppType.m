@@ -20,6 +20,47 @@
 
 @implementation AppUserData
 
++ (NSString *)showRelationTimeWithTimeString:(NSString *)string{
+    NSArray *array = [string componentsSeparatedByString:@"-"];
+    if (array.count >= 3) {
+        NSString *m_string = @"";
+        for (NSUInteger i = 0; i < 3; i++) {
+            int time = [array[i] intValue];
+            if (time > 0) {
+                m_string = [NSString stringWithFormat:@"%@%d",m_string, time];
+                switch (i) {
+                    case 0:{
+                        m_string = [NSString stringWithFormat:@"%@年",m_string];
+                    }
+                        break;
+                        
+                    case 1:{
+                        m_string = [NSString stringWithFormat:@"%@个月",m_string];
+                    }
+                        break;
+                        
+                    case 2:{
+                        m_string = [NSString stringWithFormat:@"%@天",m_string];
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+        }
+        
+        if (m_string.length) {
+            return m_string;
+        }
+        else {
+            return @"1天不到";
+        }
+    }
+    
+    return nil;
+}
+
 - (BOOL)isVip{
     if (self.vipEndTime) {
         return [self.vipEndTime longLongValue] > 1000 * [[NSDate date] timeIntervalSince1970];

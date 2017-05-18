@@ -9,8 +9,7 @@
 #import "WELoveRecoderController.h"
 #import "WELoveReocdeCell.h"
 #import "WEMeTool.h"
-@interface WELoveRecoderController ()<UITableViewDelegate,UITableViewDataSource,WELoveReocdeCellDelegate,UIAlertViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface WELoveRecoderController ()<WELoveReocdeCellDelegate, UIAlertViewDelegate>
 @property (nonatomic,strong)NSMutableArray      *dataSource;
 @property (nonatomic,assign)NSInteger       page;
 @property (nonatomic,strong)NSIndexPath     *currentIndex;
@@ -22,11 +21,6 @@
 @implementation WELoveRecoderController
 
 - (void)viewDidLoad {
-    
-    
-    /**
-     *  
-     */
     [super viewDidLoad];
     self.title = @"恋爱记录";
     self.page = 1;
@@ -57,7 +51,6 @@
   
   } failed:^(NSString *error) {
       [self.tableView.mj_header endRefreshing];
-      [self showMessage:error toView:self.view];
       
       
   }];
@@ -81,7 +74,7 @@
         
     } failed:^(NSString *error) {
         [self.tableView.mj_header endRefreshing];
-        [self showMessage:error toView:self.view];
+//        [self showMessage:error toView:self.view];
          [self.tableView.mj_footer endRefreshing];
         
         
@@ -123,81 +116,81 @@
     XWUserModel *model = [XWUserModel getUserInfoFromlocal];
     NSDictionary *dic = self.dataSource[index.row];
     
-    [self showActivity];
-    [WEMeTool queryOppositeWithMyId:model.xw_id hisOrHerId:dic[@"id"] success:^(NSString *modelss) {
-        if ([modelss isEqualToString:@"2"]) {
-            [self cancleActivity];
-             // 直接建立关系
-            [self showMessage:@"直接建立关系" toView:self.view];
-            
-        }else{
-            
-            
-        if ([model.userRight isEqualToString:@"1"]){
-            
-             [self cancleActivity];
-           // vip
-            UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入理由" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"发送" , nil];
-            view.alertViewStyle = UIAlertViewStylePlainTextInput;
-            UITextField *txtName = [view textFieldAtIndex:0];
-            txtName.placeholder = @"请输入理由";
-            self.Vipview = view;
-            [view show];
+//    [self showActivity];
+//    [WEMeTool queryOppositeWithMyId:model.xw_id hisOrHerId:dic[@"id"] success:^(NSString *modelss) {
+//        if ([modelss isEqualToString:@"2"]) {
+//            [self cancleActivity];
+//             // 直接建立关系
+//            [self showMessage:@"直接建立关系" toView:self.view];
+//            
+//        }else{
+//            
+//            
+//        if ([model.userRight isEqualToString:@"1"]){
+//            
+//             [self cancleActivity];
+//           // vip
+//            UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请输入理由" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"发送" , nil];
+//            view.alertViewStyle = UIAlertViewStylePlainTextInput;
+//            UITextField *txtName = [view textFieldAtIndex:0];
+//            txtName.placeholder = @"请输入理由";
+//            self.Vipview = view;
+//            [view show];
+//    
+//        }else{
+//             [self cancleActivity];
+//            UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"你不是vip，不能发送复合消息" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil , nil];
+//            self.normalVIew = view;
+//            [view show];
+//    
+//            
+//        }
+//
+//            
+//            
+//            
+//        }
+//        
+//        
+//    } failed:^(NSString *error) {
+//        [self cancleActivity];
+//
+//        
+//        
+//    }];
     
-        }else{
-             [self cancleActivity];
-            UIAlertView *view = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"你不是vip，不能发送复合消息" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil , nil];
-            self.normalVIew = view;
-            [view show];
-    
-            
-        }
-
-            
-            
-            
-        }
-        
-        
-    } failed:^(NSString *error) {
-        [self cancleActivity];
-
-        
-        
-    }];
-        
     
     
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    if (alertView == self.Vipview) {
-        if (buttonIndex == 1) {
-            UITextField *txt = [alertView textFieldAtIndex:0];
-            NSDictionary *dic = self.dataSource[self.currentIndex.row];
-            XWUserModel *mdoel = [XWUserModel getUserInfoFromlocal];
-            
-            NSString *imageSrtring = dic[@"imgFileNames"];
-            
-            if (![imageSrtring isEqualToString:@""]){
-                
-                NSArray *array = [imageSrtring componentsSeparatedByString:@","];
-                [self showActivity];
-                
-                [WEMeTool postFuheMessageWithContent:txt.text imgName:array[0] myId:dic[@"id"] otherId:mdoel.xw_id otherNickName:mdoel.nickname success:^(id model) {
-                    [self cancleActivity];
-                    [self showMessage:@"发送成功" toView:self.view];
-                    
-                } failed:^(NSString *error) {
-                    [self cancleActivity];
-                    [self showMessage:error toView:self.view];
-                }];
-                
-            }
-            
-        }
-        
-    }
+//    if (alertView == self.Vipview) {
+//        if (buttonIndex == 1) {
+//            UITextField *txt = [alertView textFieldAtIndex:0];
+//            NSDictionary *dic = self.dataSource[self.currentIndex.row];
+//            XWUserModel *mdoel = [XWUserModel getUserInfoFromlocal];
+//            
+//            NSString *imageSrtring = dic[@"imgFileNames"];
+//            
+//            if (![imageSrtring isEqualToString:@""]){
+//                
+//                NSArray *array = [imageSrtring componentsSeparatedByString:@","];
+//                [self showActivity];
+//                
+//                [WEMeTool postFuheMessageWithContent:txt.text imgName:array[0] myId:dic[@"id"] otherId:mdoel.xw_id otherNickName:mdoel.nickname success:^(id model) {
+//                    [self cancleActivity];
+//                    [self showMessage:@"发送成功" toView:self.view];
+//                    
+//                } failed:^(NSString *error) {
+//                    [self cancleActivity];
+//                    [self showMessage:error toView:self.view];
+//                }];
+//                
+//            }
+//            
+//        }
+//        
+//    }
     
     
 }
