@@ -6,10 +6,10 @@
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "HQBaseViewController.h"
+#import "AppBasicViewController.h"
 
-@interface WEMessageReslutController : HQBaseViewController
+@interface WEMessageReslutController : AppBasicViewController
 
-@property (nonatomic,strong)NSDictionary        *dic;
+@property (strong, nonatomic) UserMessageData *messageData;
 
 @end

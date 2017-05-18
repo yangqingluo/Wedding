@@ -224,8 +224,6 @@
 		5D9E5A851E52A135000E9216 /* WELocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E5A841E52A135000E9216 /* WELocationViewController.m */; };
 		5D9E5A911E52E841000E9216 /* WELocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E5A8F1E52E841000E9216 /* WELocationCell.m */; };
 		5D9E5A921E52E841000E9216 /* WELocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9E5A901E52E841000E9216 /* WELocationCell.xib */; };
-		5DBA2BCC1E348BE1005B414A /* WEMyMessgaeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBA2BCA1E348BE1005B414A /* WEMyMessgaeController.m */; };
-		5DBA2BCD1E348BE1005B414A /* WEMyMessgaeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DBA2BCB1E348BE1005B414A /* WEMyMessgaeController.xib */; };
 		5DBA2BD11E348C5E005B414A /* WEMyMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBA2BCF1E348C5E005B414A /* WEMyMessageCell.m */; };
 		5DBA2BD21E348C5E005B414A /* WEMyMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DBA2BD01E348C5E005B414A /* WEMyMessageCell.xib */; };
 		5DBA2BD61E348F76005B414A /* WEMessageReslutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBA2BD41E348F76005B414A /* WEMessageReslutController.m */; };
@@ -867,9 +865,6 @@
 		5D9E5A8E1E52E841000E9216 /* WELocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WELocationCell.h; sourceTree = "<group>"; };
 		5D9E5A8F1E52E841000E9216 /* WELocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WELocationCell.m; sourceTree = "<group>"; };
 		5D9E5A901E52E841000E9216 /* WELocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WELocationCell.xib; sourceTree = "<group>"; };
-		5DBA2BC91E348BE1005B414A /* WEMyMessgaeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEMyMessgaeController.h; sourceTree = "<group>"; };
-		5DBA2BCA1E348BE1005B414A /* WEMyMessgaeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEMyMessgaeController.m; sourceTree = "<group>"; };
-		5DBA2BCB1E348BE1005B414A /* WEMyMessgaeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WEMyMessgaeController.xib; sourceTree = "<group>"; };
 		5DBA2BCE1E348C5E005B414A /* WEMyMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEMyMessageCell.h; sourceTree = "<group>"; };
 		5DBA2BCF1E348C5E005B414A /* WEMyMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEMyMessageCell.m; sourceTree = "<group>"; };
 		5DBA2BD01E348C5E005B414A /* WEMyMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WEMyMessageCell.xib; sourceTree = "<group>"; };
@@ -2406,9 +2401,6 @@
 		5DBA2BC81E348BC4005B414A /* 我的消息 */ = {
 			isa = PBXGroup;
 			children = (
-				5DBA2BC91E348BE1005B414A /* WEMyMessgaeController.h */,
-				5DBA2BCA1E348BE1005B414A /* WEMyMessgaeController.m */,
-				5DBA2BCB1E348BE1005B414A /* WEMyMessgaeController.xib */,
 				5DBA2BD31E348F76005B414A /* WEMessageReslutController.h */,
 				5DBA2BD41E348F76005B414A /* WEMessageReslutController.m */,
 				5DBA2BD51E348F76005B414A /* WEMessageReslutController.xib */,
@@ -2863,7 +2855,6 @@
 				FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */,
 				5D3085E71E275BC500CA138C /* WELookDetailHeaderView.xib in Resources */,
 				5DBBF9BD1E55899900DB716E /* WETimeLineDetailController.xib in Resources */,
-				5DBA2BCD1E348BE1005B414A /* WEMyMessgaeController.xib in Resources */,
 				5D5F6DCB1E2377BD00A0D82A /* FirstPageController.xib in Resources */,
 				57FE2E2A1E97EDDC003AE287 /* OpenLikeAnswerVC.xib in Resources */,
 				FCA9C15A1EC4C2730003ECCF /* nav_back@2x.png in Resources */,
@@ -3186,7 +3177,6 @@
 				5D85A0051E45A8B700A5F133 /* HQBaseNetManager.m in Sources */,
 				57FEBD121EB8E884008D6AE1 /* EaseViewController.m in Sources */,
 				5D5F6DCA1E2377BD00A0D82A /* FirstPageController.m in Sources */,
-				5DBA2BCC1E348BE1005B414A /* WEMyMessgaeController.m in Sources */,
 				57FEBCB41EB8E884008D6AE1 /* EMAudioPlayerUtil.m in Sources */,
 				E950D8621E4600B000149037 /* WEAnswerFansSureBtnCell.m in Sources */,
 				FC875FC21ECD8E4100158552 /* NSMutableArray+SWUtilityButtons.m in Sources */,

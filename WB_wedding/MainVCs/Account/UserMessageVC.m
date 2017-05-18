@@ -25,6 +25,12 @@
 
 @implementation UserMessageVC
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
@@ -190,6 +196,12 @@
         cell.showImageView.frame = CGRectMake(kEdgeMiddle, 10, 60.0, 60.0);
         [AppPublic roundCornerRadius:cell.showImageView];
         
+        cell.tagImageView = [[UIImageView alloc] initWithFrame:CGRectMake(3, 0, 10, 10)];
+        cell.tagImageView.centerY = cell.showImageView.centerY;
+        cell.tagImageView.backgroundColor = deepNavigationBarColor;
+        [AppPublic roundCornerRadius:cell.tagImageView];
+        [cell.contentView addSubview:cell.tagImageView];
+        
         cell.titleLabel.textAlignment = NSTextAlignmentCenter;
         cell.titleLabel.frame = CGRectMake(0, cell.showImageView.bottom, cell.showImageView.width + 2 * kEdgeMiddle, 20);
         
@@ -209,6 +221,7 @@
     cell.titleLabel.text = data.otherNickName;
     cell.subTitleLabel.text = data.content;
     cell.timeLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [data.msgTime doubleValue]], @"yyyy/MM/dd HH:mm:ss");
+    cell.tagImageView.hidden = [data.isMessageRead boolValue];
     
     return cell;
 }
@@ -219,7 +232,7 @@
     WEMessageReslutController *vc = [[WEMessageReslutController alloc]init];
     
     UserMessageData *data = self.dataSource[indexPath.row];
-    vc.dic = [data mj_keyValues];
+    vc.messageData = data;
     
     [self.navigationController pushViewController:vc animated:YES];
 }

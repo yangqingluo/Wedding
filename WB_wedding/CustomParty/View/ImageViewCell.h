@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subTitleLabel;
 @property (strong, nonatomic) UILabel *timeLabel;//未实例化，使用时实例化
+@property (strong, nonatomic) UIImageView *tagImageView;//未实例化，使用时实例化
 @property (strong, nonatomic) UIImageView *showImageView;
 
 @end

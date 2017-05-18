@@ -11,6 +11,7 @@
 @interface WEMessageReslutController ()
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UIButton *receiveButton;
 
 @end
 
@@ -18,29 +19,61 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.baseNavigationBar.backgroundColor = [[UIColor colorWithRed:251.0/255 green:114.0/255.0 blue:114/255.0 alpha:1.0]colorWithAlphaComponent:0];
-    self.statusView.backgroundColor = [[UIColor colorWithRed:251.0/255 green:114.0/255.0 blue:114/255.0 alpha:1.0]colorWithAlphaComponent:0];
+    [self setupNav];
     
-    [self.baseNavigationBar.backBtn setImage:[UIImage imageNamed:@"return48"] forState:UIControlStateNormal];
-    
-    [self.view bringSubviewToFront:self.baseNavigationBar];
-    [self.view bringSubviewToFront:self.statusView];
-    
-    
-    if ([[NSString stringWithFormat:@"%@",self.dic[@"msgType"]]isEqualToString:@"2"]) {
-        // 复合
-         self.name.text = [NSString stringWithFormat:@"%@的心里话",self.dic[@"otherNickName"]];
-        
-    }else{
-        // 定位
-          self.name.text = [NSString stringWithFormat:@"%@想和你开启定位",self.dic[@"otherNickName"]];
-          self.content.text = [NSString stringWithFormat:@"%@",self.dic[@"content"]];
-        
+    switch (self.messageData.msgType) {
+        case UserMessageTypeNormal:{
+            self.name.text = @"";
+            self.receiveButton.hidden = YES;
+        }
+            break;
+            
+        case UserMessageTypeLove:
+        case UserMessageTypeReLove:
+        case UserMessageTypeLocate:{
+            self.name.text = [NSString stringWithFormat:@"%@的心里话", self.messageData.otherNickName];
+            self.receiveButton.hidden = NO;
+        }
+            break;
+            
+        default:
+            break;
     }
+    
+    self.content.text = self.messageData.content;
+    
+    [self sendMessageReaded];
+}
 
+- (void)setupNav {
+    [self createNavWithTitle:@"消息" createMenuItem:^UIView *(int nIndex){
+        if (nIndex == 0){
+            UIButton *btn = NewBackButton(nil);
+            [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+            return btn;
+        }
+        
+        return nil;
+    }];
+}
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)sendMessageReaded{
+    [[QKNetworkSingleton sharedManager] Get:@{@"messageId":self.messageData.ID} HeadParm:nil URLFooter:@"/mymessage/readmessage" completion:^(id responseBody, NSError *error){
+        
+        if (!error) {
+            if (isHttpSuccess([responseBody[@"success"] intValue])) {
+                self.messageData.isMessageRead = @"1";
+            }
+        }
+    }];
 }
 
 - (IBAction)recivieBtnClick:(id)sender {
+    
 }
 
 
