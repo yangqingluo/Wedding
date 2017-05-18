@@ -130,7 +130,7 @@
     
     self.headerView.matchView.hidden = (self.infoType != UserInfoTypeStart);
     if (self.infoType == UserInfoTypeSelf || self.infoType == UserInfoTypeStart) {
-        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%@cm", self.userData.height];
+        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%dcm", [self.userData.height intValue]];
         self.headerView.matchLabel.text = self.userData.matchDegree;
     }
     else {

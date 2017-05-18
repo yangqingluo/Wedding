@@ -445,7 +445,7 @@ static NSString *identify = @"assetSelectedCell";
                 case 3:{
                     //生日
                     QKWEAKSELF;
-                    AppDatePickerView *picker = [[AppDatePickerView alloc] initWithCallBack:^(NSObject *object) {
+                    AppDatePickerView *picker = [[AppDatePickerView alloc] initWithDate:[self.userData dateOfBirthday] andCallBack:^(NSObject *object) {
                         weakself.userData.birthday = (NSString *)object;
                         [weakself.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
                     }];
@@ -457,7 +457,7 @@ static NSString *identify = @"assetSelectedCell";
                     //身高
                     QKWEAKSELF;
                     NSMutableArray *heightArray = [NSMutableArray array];
-                    for (int i = 220; i > 120; i --) {
+                    for (int i = 220; i > 120; i--) {
                         [heightArray addObject:[NSString stringWithFormat:@"%d",i]];
                     }
                     

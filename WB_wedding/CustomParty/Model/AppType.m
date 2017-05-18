@@ -122,6 +122,10 @@
     return m_string;
 }
 
+- (NSDate *)dateOfBirthday{
+    return [NSDate dateWithTimeIntervalSince1970:(0.001 * [self.birthday doubleValue])];
+}
+
 @end
 
 

@@ -17,11 +17,12 @@
 @end
 @implementation AppDatePickerView
 
-- (instancetype)initWithCallBack:(PopDoneBlock)callBack{
+- (instancetype)initWithDate:(NSDate *)date andCallBack:(PopDoneBlock)callBack{
     if (self = [super init]) {
         self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.1];
         self.back = callBack;
-        [self config];
+        [self configWithDate:date];
+        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissAnimation)];
         [self addGestureRecognizer:tap];
         
@@ -29,7 +30,7 @@
     return self;
 }
 #pragma mark -- 配置
-- (void)config{
+- (void)configWithDate:(NSDate *)date{
       // contenView
     self.contentView = [UIView new];
     self.contentView.backgroundColor = [UIColor whiteColor];
@@ -71,9 +72,10 @@
     }];
     
     
-    self.piker=[[UIDatePicker alloc] init];
+    self.piker = [[UIDatePicker alloc] init];
     self.piker.datePickerMode = UIDatePickerModeDate;
     self.piker.maximumDate = [NSDate date];
+    self.piker.date = date;
 
     self.piker.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:self.piker];

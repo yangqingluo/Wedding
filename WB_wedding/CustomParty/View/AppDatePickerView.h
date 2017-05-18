@@ -6,7 +6,7 @@
 
 @interface AppDatePickerView : UIView
 
-- (instancetype)initWithCallBack:(PopDoneBlock)callBack;
+- (instancetype)initWithDate:(NSDate *)date andCallBack:(PopDoneBlock)callBack;
 - (void)show;
 
 @end

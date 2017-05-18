@@ -9,12 +9,11 @@
 
 @implementation QKBaseCollectionViewCell
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
         double radius = 14;
-        double aveWH = CGRectGetWidth( self.frame ) - 5;
+        double aveWH = CGRectGetWidth( self.frame ) - 7;
         
         self.imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, radius, aveWH - radius, aveWH - radius)];
         self.imgView.backgroundColor = [UIColor groupTableViewBackgroundColor];

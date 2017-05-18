@@ -80,6 +80,8 @@
 - (NSArray *)showImageArray;
 - (NSString *)showStringOfMySurveyForIndex:(NSUInteger)index andLists:(NSString *)listsString;
 - (NSString *)showStringOfBirthday;
+- (NSDate *)dateOfBirthday;
+
 @end
 
 

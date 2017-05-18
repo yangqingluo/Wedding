@@ -285,6 +285,10 @@
 		FC875F9D1ECD438600158552 /* AppPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875F9C1ECD438600158552 /* AppPickerView.m */; };
 		FC875FA01ECD48B500158552 /* AppDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875F9E1ECD48B500158552 /* AppDatePickerView.m */; };
 		FC875FA41ECD5C3000158552 /* SomeOneLikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FA31ECD5C3000158552 /* SomeOneLikeViewController.m */; };
+		FC875FA81ECD6D7D00158552 /* LettersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FA71ECD6D7D00158552 /* LettersViewController.m */; };
+		FC875FAB1ECD6DC500158552 /* AppBasicCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FAA1ECD6DC500158552 /* AppBasicCollectionViewController.m */; };
+		FC875FAE1ECD6E2600158552 /* LongPressFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FAC1ECD6E2600158552 /* LongPressFlowLayout.m */; };
+		FC875FB11ECD706B00158552 /* LettersCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FB01ECD706B00158552 /* LettersCollectionViewCell.m */; };
 		FCA11FD41EC98B7D005C5305 /* PublicSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */; };
 		FCA11FD91EC9AE09005C5305 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */; };
 		FCA11FDC1EC9F3CD005C5305 /* TitleAndDetailTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */; };
@@ -959,6 +963,14 @@
 		FC875F9F1ECD48B500158552 /* AppDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDatePickerView.h; sourceTree = "<group>"; };
 		FC875FA21ECD5C3000158552 /* SomeOneLikeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeOneLikeViewController.h; sourceTree = "<group>"; };
 		FC875FA31ECD5C3000158552 /* SomeOneLikeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SomeOneLikeViewController.m; sourceTree = "<group>"; };
+		FC875FA61ECD6D7D00158552 /* LettersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LettersViewController.h; sourceTree = "<group>"; };
+		FC875FA71ECD6D7D00158552 /* LettersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LettersViewController.m; sourceTree = "<group>"; };
+		FC875FA91ECD6DC500158552 /* AppBasicCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBasicCollectionViewController.h; sourceTree = "<group>"; };
+		FC875FAA1ECD6DC500158552 /* AppBasicCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicCollectionViewController.m; sourceTree = "<group>"; };
+		FC875FAC1ECD6E2600158552 /* LongPressFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongPressFlowLayout.m; sourceTree = "<group>"; };
+		FC875FAD1ECD6E2600158552 /* LongPressFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongPressFlowLayout.h; sourceTree = "<group>"; };
+		FC875FAF1ECD706B00158552 /* LettersCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LettersCollectionViewCell.h; sourceTree = "<group>"; };
+		FC875FB01ECD706B00158552 /* LettersCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LettersCollectionViewCell.m; sourceTree = "<group>"; };
 		FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicSelectionVC.h; sourceTree = "<group>"; };
 		FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicSelectionVC.m; sourceTree = "<group>"; };
 		FCA11FD71EC9AE09005C5305 /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
@@ -2512,6 +2524,15 @@
 			path = SomeOneLike;
 			sourceTree = "<group>";
 		};
+		FC875FA51ECD6D5900158552 /* Letters */ = {
+			isa = PBXGroup;
+			children = (
+				FC875FA61ECD6D7D00158552 /* LettersViewController.h */,
+				FC875FA71ECD6D7D00158552 /* LettersViewController.m */,
+			);
+			path = Letters;
+			sourceTree = "<group>";
+		};
 		FCA9C1481EC4C2730003ECCF /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
@@ -2659,10 +2680,14 @@
 				FCB7EC001ECC30680059D409 /* ImageViewCell.m */,
 				FCA11FEA1ECB02AF005C5305 /* QKBaseCollectionViewCell.h */,
 				FCA11FE91ECB02AF005C5305 /* QKBaseCollectionViewCell.m */,
+				FC875FAF1ECD706B00158552 /* LettersCollectionViewCell.h */,
+				FC875FB01ECD706B00158552 /* LettersCollectionViewCell.m */,
 				FC875F9B1ECD438600158552 /* AppPickerView.h */,
 				FC875F9C1ECD438600158552 /* AppPickerView.m */,
 				FC875F9F1ECD48B500158552 /* AppDatePickerView.h */,
 				FC875F9E1ECD48B500158552 /* AppDatePickerView.m */,
+				FC875FAD1ECD6E2600158552 /* LongPressFlowLayout.h */,
+				FC875FAC1ECD6E2600158552 /* LongPressFlowLayout.m */,
 				FCA11FE41ECAD116005C5305 /* UserInfoHeaderView.h */,
 				FCA11FE51ECAD116005C5305 /* UserInfoHeaderView.m */,
 				FCA11FE71ECAD364005C5305 /* UserInfoHeaderView.xib */,
@@ -2679,6 +2704,8 @@
 				FCC547E31EC19E5500C0F018 /* AppBasicWebViewController.m */,
 				FCA9C15E1EC5564A0003ECCF /* AppBasicTableViewController.h */,
 				FCA9C15F1EC5564A0003ECCF /* AppBasicTableViewController.m */,
+				FC875FA91ECD6DC500158552 /* AppBasicCollectionViewController.h */,
+				FC875FAA1ECD6DC500158552 /* AppBasicCollectionViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2707,6 +2734,7 @@
 				FCD3AB051EBD72CE005AC352 /* MainTabBarController.m */,
 				FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */,
 				FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */,
+				FC875FA51ECD6D5900158552 /* Letters */,
 				FC875FA11ECD5C1E00158552 /* SomeOneLike */,
 				FCA9C1611EC556B50003ECCF /* Account */,
 				FCA9C15D1EC555F10003ECCF /* LoginRegist */,
@@ -2947,6 +2975,7 @@
 				5D6417F31E4B1A5400844027 /* WEMarchTool.m in Sources */,
 				57FEBD111EB8E884008D6AE1 /* EaseUsersListViewController.m in Sources */,
 				5D85A0111E45C25E00A5F133 /* WESomeOneLikeTool.m in Sources */,
+				FC875FAB1ECD6DC500158552 /* AppBasicCollectionViewController.m in Sources */,
 				5D746A041E2DB075001FE1A1 /* WECompletInfoController.m in Sources */,
 				57FEBD0A1EB8E884008D6AE1 /* EaseEmotionEscape.m in Sources */,
 				E9A63E3D1E50392D00C7F4B7 /* SomeOneAnswerQuestionCell.m in Sources */,
@@ -3017,6 +3046,7 @@
 				FCD3AAED1EBCE3B2005AC352 /* UDImageLabelButton.m in Sources */,
 				E9415AD51E2FCB78002325A0 /* MyEvaluateVC.m in Sources */,
 				57FEBD1D1EB8E884008D6AE1 /* EaseBubbleView+Video.m in Sources */,
+				FC875FAE1ECD6E2600158552 /* LongPressFlowLayout.m in Sources */,
 				FCA11FE01ECA973F005C5305 /* UserQuestionEditVC.m in Sources */,
 				E9D582451E4D9A190071E88F /* UIView+ST.m in Sources */,
 				5D746A451E2E058A001FE1A1 /* WEWriteInfoViewController.m in Sources */,
@@ -3025,6 +3055,7 @@
 				5D746A681E2E392B001FE1A1 /* WELoveReocdeCell.m in Sources */,
 				57FEBD201EB8E884008D6AE1 /* EaseChatToolbar.m in Sources */,
 				5D9062441E641D5C00200C7F /* DataSigner.m in Sources */,
+				FC875FB11ECD706B00158552 /* LettersCollectionViewCell.m in Sources */,
 				57FEBD151EB8E884008D6AE1 /* EaseCustomMessageCell.m in Sources */,
 				FCD3AAEE1EBCE3B2005AC352 /* UIButton+ImageAndText.m in Sources */,
 				E9BF46CB1E44E17A0010BD86 /* BANetManager.m in Sources */,
@@ -3075,6 +3106,7 @@
 				5D3085DD1E27556100CA138C /* WELookDetailViewController.m in Sources */,
 				5D793B9E1E1B49E700236506 /* UITableView+XW.m in Sources */,
 				5D9062491E641D5C00200C7F /* RSADataSigner.m in Sources */,
+				FC875FA81ECD6D7D00158552 /* LettersViewController.m in Sources */,
 				5D793B1E1E1B429100236506 /* main.m in Sources */,
 				5D793BA21E1B4D7100236506 /* XWTitleBottomBtn.m in Sources */,
 				E93175C11E2E221F00E5FF14 /* WalletVC.m in Sources */,

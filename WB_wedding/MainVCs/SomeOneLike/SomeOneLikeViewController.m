@@ -111,7 +111,7 @@
                 [weakself.tableView reloadData];
             }
             else {
-                [weakself showHint:responseBody[@"Msg"]];
+                [weakself showHint:responseBody[@"msg"]];
             }
         }
         else{
@@ -143,7 +143,7 @@
                     [weakself.tableView reloadData];
                 }
                 else {
-                    [weakself showHint:responseBody[@"Msg"]];
+                    [weakself showHint:responseBody[@"msg"]];
                 }
             }
             else{
