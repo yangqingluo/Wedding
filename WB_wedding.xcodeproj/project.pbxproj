@@ -261,7 +261,6 @@
 		E9415ACD1E2FC6C5002325A0 /* WalletPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AC51E2FC6C5002325A0 /* WalletPayVC.m */; };
 		E9415ACE1E2FC6C5002325A0 /* WalletPayVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9415AC61E2FC6C5002325A0 /* WalletPayVC.xib */; };
 		E9415ACF1E2FC6C5002325A0 /* WalletRightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AC81E2FC6C5002325A0 /* WalletRightVC.m */; };
-		E9415AD51E2FCB78002325A0 /* MyEvaluateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AD41E2FCB78002325A0 /* MyEvaluateVC.m */; };
 		E9415AD91E2FCC17002325A0 /* MyEvaluateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AD71E2FCC17002325A0 /* MyEvaluateCell.m */; };
 		E950D85C1E45F8F500149037 /* WEAnswerFanseHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E950D85B1E45F8F500149037 /* WEAnswerFanseHeader.m */; };
 		E950D85E1E45F90900149037 /* WEAnswerFanseHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E950D85D1E45F90900149037 /* WEAnswerFanseHeader.xib */; };
@@ -296,6 +295,7 @@
 		FC875FC51ECD8E4100158552 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FBD1ECD8E4100158552 /* SWTableViewCell.m */; };
 		FC875FC61ECD8E4100158552 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FBF1ECD8E4100158552 /* SWUtilityButtonTapGestureRecognizer.m */; };
 		FC875FC71ECD8E4100158552 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FC11ECD8E4100158552 /* SWUtilityButtonView.m */; };
+		FC875FCA1ECD9EE800158552 /* UserMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FC91ECD9EE800158552 /* UserMessageVC.m */; };
 		FCA11FD41EC98B7D005C5305 /* PublicSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */; };
 		FCA11FD91EC9AE09005C5305 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */; };
 		FCA11FDC1EC9F3CD005C5305 /* TitleAndDetailTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */; };
@@ -925,8 +925,6 @@
 		E9415AC61E2FC6C5002325A0 /* WalletPayVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletPayVC.xib; sourceTree = "<group>"; };
 		E9415AC71E2FC6C5002325A0 /* WalletRightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletRightVC.h; sourceTree = "<group>"; };
 		E9415AC81E2FC6C5002325A0 /* WalletRightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletRightVC.m; sourceTree = "<group>"; };
-		E9415AD31E2FCB78002325A0 /* MyEvaluateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEvaluateVC.h; path = "WB_wedding/Class/我的/Controller/Wallet(钱包)/MyEvaluateVC.h"; sourceTree = SOURCE_ROOT; };
-		E9415AD41E2FCB78002325A0 /* MyEvaluateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEvaluateVC.m; path = "WB_wedding/Class/我的/Controller/Wallet(钱包)/MyEvaluateVC.m"; sourceTree = SOURCE_ROOT; };
 		E9415AD61E2FCC17002325A0 /* MyEvaluateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEvaluateCell.h; sourceTree = "<group>"; };
 		E9415AD71E2FCC17002325A0 /* MyEvaluateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEvaluateCell.m; sourceTree = "<group>"; };
 		E950D85A1E45F8F500149037 /* WEAnswerFanseHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEAnswerFanseHeader.h; sourceTree = "<group>"; };
@@ -992,6 +990,8 @@
 		FC875FBF1ECD8E4100158552 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
 		FC875FC01ECD8E4100158552 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
 		FC875FC11ECD8E4100158552 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		FC875FC81ECD9EE800158552 /* UserMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMessageVC.h; sourceTree = "<group>"; };
+		FC875FC91ECD9EE800158552 /* UserMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMessageVC.m; sourceTree = "<group>"; };
 		FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicSelectionVC.h; sourceTree = "<group>"; };
 		FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicSelectionVC.m; sourceTree = "<group>"; };
 		FCA11FD71EC9AE09005C5305 /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
@@ -1957,8 +1957,6 @@
 			isa = PBXGroup;
 			children = (
 				5DBA2BC81E348BC4005B414A /* 我的消息 */,
-				E9415AD11E2FC75E002325A0 /* MyEvaluate(我的评价) */,
-				E9415AD21E2FC75E002325A0 /* MyMessage(我的消息) */,
 				E93175BD1E2E21E400E5FF14 /* Wallet(钱包) */,
 				5D746A5B1E2E238F001FE1A1 /* WEBianjiSelfInfoController.h */,
 				5D746A5C1E2E238F001FE1A1 /* WEBianjiSelfInfoController.m */,
@@ -2451,22 +2449,6 @@
 			path = "PayAlertView(支付弹出框)";
 			sourceTree = "<group>";
 		};
-		E9415AD11E2FC75E002325A0 /* MyEvaluate(我的评价) */ = {
-			isa = PBXGroup;
-			children = (
-				E9415AD31E2FCB78002325A0 /* MyEvaluateVC.h */,
-				E9415AD41E2FCB78002325A0 /* MyEvaluateVC.m */,
-			);
-			path = "MyEvaluate(我的评价)";
-			sourceTree = "<group>";
-		};
-		E9415AD21E2FC75E002325A0 /* MyMessage(我的消息) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "MyMessage(我的消息)";
-			sourceTree = "<group>";
-		};
 		E9BF46C51E44E17A0010BD86 /* BANetManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2613,6 +2595,8 @@
 				FCB7EC2A1ECC99640059D409 /* UserQuestionnaireVC.m */,
 				FC875FB21ECD83D100158552 /* UserJudgementVC.h */,
 				FC875FB31ECD83D100158552 /* UserJudgementVC.m */,
+				FC875FC81ECD9EE800158552 /* UserMessageVC.h */,
+				FC875FC91ECD9EE800158552 /* UserMessageVC.m */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -3091,7 +3075,6 @@
 				5DBA2BD61E348F76005B414A /* WEMessageReslutController.m in Sources */,
 				5DBBF9C11E558A3500DB716E /* WETimeLineDetailCell.m in Sources */,
 				FCD3AAED1EBCE3B2005AC352 /* UDImageLabelButton.m in Sources */,
-				E9415AD51E2FCB78002325A0 /* MyEvaluateVC.m in Sources */,
 				57FEBD1D1EB8E884008D6AE1 /* EaseBubbleView+Video.m in Sources */,
 				FC875FAE1ECD6E2600158552 /* LongPressFlowLayout.m in Sources */,
 				FCA11FE01ECA973F005C5305 /* UserQuestionEditVC.m in Sources */,
@@ -3194,6 +3177,7 @@
 				57FEBD211EB8E884008D6AE1 /* EaseChatToolbarItem.m in Sources */,
 				5D9062431E641D5C00200C7F /* base64.m in Sources */,
 				FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */,
+				FC875FCA1ECD9EE800158552 /* UserMessageVC.m in Sources */,
 				FCA11FF01ECB35B1005C5305 /* NSData+HTTPRequest.m in Sources */,
 				57FEBCB81EB8E884008D6AE1 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				FCB7EC281ECC8E4D0059D409 /* CheckQuestionnaireCell.m in Sources */,

@@ -37,13 +37,6 @@
           self.content.text = [NSString stringWithFormat:@"%@",self.dic[@"content"]];
         
     }
-   
-    
-    
-    
-    
-    
-    
 
 }
 

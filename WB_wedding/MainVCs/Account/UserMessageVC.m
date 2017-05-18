@@ -1,17 +1,18 @@
 //
-//  UserJudgementVC.m
+//  UserMessageVC.m
 //  WB_wedding
 //
 //  Created by yangqingluo on 2017/5/18.
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "UserJudgementVC.h"
+#import "UserMessageVC.h"
+#import "WEMessageReslutController.h"
 
 #import "ImageViewCell.h"
 #import "BlockAlertView.h"
 
-@interface UserJudgementVC ()<UITextFieldDelegate, SWTableViewCellDelegate>{
+@interface UserMessageVC ()<SWTableViewCellDelegate>{
     NSUInteger currentPage;
     NSUInteger m_total;
 }
@@ -22,7 +23,7 @@
 
 @end
 
-@implementation UserJudgementVC
+@implementation UserMessageVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +43,7 @@
 }
 
 - (void)setupNav {
-    [self createNavWithTitle:@"我的评价" createMenuItem:^UIView *(int nIndex){
+    [self createNavWithTitle:@"我的消息" createMenuItem:^UIView *(int nIndex){
         if (nIndex == 0){
             UIButton *btn = NewBackButton(nil);
             [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -78,7 +79,7 @@
 
 - (void)loadInfoData:(NSUInteger)page{
     QKWEAKSELF;
-    [[QKNetworkSingleton sharedManager] Get:@{@"myId":[AppPublic getInstance].userData.ID, @"page":@(page), @"size":@20} HeadParm:nil URLFooter:@"/comment/find" completion:^(id responseBody, NSError *error){
+    [[QKNetworkSingleton sharedManager] Get:@{@"myId":[AppPublic getInstance].userData.ID, @"page":@(page), @"size":@20} HeadParm:nil URLFooter:@"/mymessage/find" completion:^(id responseBody, NSError *error){
         [weakself endRefreshing];
         
         if (!error) {
@@ -90,7 +91,7 @@
                 
                 NSDictionary *data = responseBody[@"data"];
                 if (data.count) {
-                    [weakself.dataSource addObjectsFromArray:[UserJudgementDate mj_objectArrayWithKeyValuesArray:data[@"content"]]];
+                    [weakself.dataSource addObjectsFromArray:[UserMessageData mj_objectArrayWithKeyValuesArray:data[@"content"]]];
                     
                     m_total = [data[@"totalElements"] integerValue];
                     if (weakself.dataSource.count >= m_total) {
@@ -117,47 +118,19 @@
     [self.tableView.mj_footer endRefreshing];
 }
 
-- (void)removeJudgementAtIndex:(NSUInteger)index{
+- (void)removeMessageAtIndex:(NSUInteger)index{
     if (index < self.dataSource.count) {
         UserJudgementDate *userData = self.dataSource[index];
         
         [self showHudInView:self.view hint:nil];
         QKWEAKSELF;
-        [[QKNetworkSingleton sharedManager] Post:@{@"myId":[AppPublic getInstance].userData.ID, @"id":userData.ID, @"cost":@500} HeadParm:nil URLFooter:@"/comment/delete" completion:^(id responseBody, NSError *error){
+        [[QKNetworkSingleton sharedManager] Get:@{@"myId":[AppPublic getInstance].userData.ID, @"id":userData.ID} HeadParm:nil URLFooter:@"/mymessage/delete" completion:^(id responseBody, NSError *error){
             [weakself hideHud];
             
             if (!error) {
                 if (isHttpSuccess([responseBody[@"success"] intValue])) {
-                    [AppPublic getInstance].userData.money -= 500;
-                    [[AppPublic getInstance] saveUserData:nil];
-                    
                     [self.dataSource removeObjectAtIndex:index];
                     [weakself.tableView reloadData];
-                }
-                else {
-                    [weakself showHint:responseBody[@"msg"]];
-                }
-            }
-            else{
-                [weakself showHint:@"网络出错"];
-            }
-            
-        }];
-    }
-}
-
-- (void)complainJudgementAtIndex:(NSUInteger)index andContent:(NSString *)content{
-    if (index < self.dataSource.count && content.length) {
-        UserJudgementDate *userData = self.dataSource[index];
-        
-        [self showHudInView:self.view hint:nil];
-        QKWEAKSELF;
-        [[QKNetworkSingleton sharedManager] Post:@{@"telNumber":[AppPublic getInstance].userData.telNumber, @"reportedItemId":userData.ID, @"reportContent":content} HeadParm:nil URLFooter:@"/comment/report" completion:^(id responseBody, NSError *error){
-            [weakself hideHud];
-            
-            if (!error) {
-                if (isHttpSuccess([responseBody[@"success"] intValue])) {
-                    [weakself showHint:@"投诉成功"];
                 }
                 else {
                     [weakself showHint:responseBody[@"msg"]];
@@ -183,7 +156,6 @@
 - (NSArray *)rightButtons{
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor redColor] title:@"删除"];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:darkOrangeColor title:@"投诉"];
     
     return [NSArray arrayWithArray:rightUtilityButtons];
 }
@@ -206,7 +178,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"judgement_cell";
+    static NSString *CellIdentifier = @"message_cell";
     ImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell) {
@@ -221,15 +193,22 @@
         cell.titleLabel.textAlignment = NSTextAlignmentCenter;
         cell.titleLabel.frame = CGRectMake(0, cell.showImageView.bottom, cell.showImageView.width + 2 * kEdgeMiddle, 20);
         
+        cell.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(screen_width - kEdgeMiddle - 120, kEdgeSmall, 120, 15)];
+        cell.timeLabel.font = [UIFont systemFontOfSize:12.0];
+        cell.timeLabel.textColor = [UIColor grayColor];
+        cell.timeLabel.textAlignment = NSTextAlignmentRight;
+        [cell.contentView addSubview:cell.timeLabel];
+        
         cell.subTitleLabel.frame = CGRectMake(cell.titleLabel.right + kEdge, 0, screen_width -  kEdgeMiddle - (cell.titleLabel.right + kEdge), 100);
         cell.subTitleLabel.font = [UIFont systemFontOfSize:appLabelFontSize];
     }
     
-    UserJudgementDate *data = self.dataSource[indexPath.row];
+    UserMessageData *data = self.dataSource[indexPath.row];
     
-    [cell.showImageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStringWithImagePath([NSString stringWithFormat:@"%@/%@", data.otherId, data.otherTouxiangUrl])] placeholderImage:[UIImage imageNamed:downloadImagePlace]];
-    cell.titleLabel.text = data.otherNickname;
+    [cell.showImageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStringWithImagePath([NSString stringWithFormat:@"%@/%@", data.otherId, data.imgName])] placeholderImage:[UIImage imageNamed:downloadImagePlace]];
+    cell.titleLabel.text = data.otherNickName;
     cell.subTitleLabel.text = data.content;
+    cell.timeLabel.text = stringFromDate([NSDate dateWithTimeIntervalSince1970:0.001 * [data.msgTime doubleValue]], @"yyyy/MM/dd HH:mm:ss");
     
     return cell;
 }
@@ -237,6 +216,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    WEMessageReslutController *vc = [[WEMessageReslutController alloc]init];
+    
+    UserMessageData *data = self.dataSource[indexPath.row];
+    vc.dic = [data mj_keyValues];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - SWTableViewDelegate
@@ -247,31 +232,11 @@
         case 0:{
             //删除
             QKWEAKSELF;
-            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:@"删除一条评论需要花费500喜币，确定删除么？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:@"确定删除？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
                 if (buttonIndex == 1) {
-                    [weakself removeJudgementAtIndex:indexPath.row];
+                    [weakself removeMessageAtIndex:indexPath.row];
                 }
             }otherButtonTitles:@"确定", nil];
-            [alert show];
-        }
-            break;
-        case 1:{
-            //投诉
-            QKWEAKSELF;
-            BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:@"确定投诉？" cancelButtonTitle:@"取消" callBlock:^(UIAlertView *view, NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    [weakself complainJudgementAtIndex:indexPath.row andContent:[view textFieldAtIndex:0].text];
-                }
-            }otherButtonTitles:@"确定", nil];
-            
-            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-            UITextField *alertTextField = [alert textFieldAtIndex:0];
-            alertTextField.clearButtonMode = UITextFieldViewModeAlways;
-            alertTextField.returnKeyType = UIReturnKeyDone;
-            alertTextField.delegate = self;
-            alertTextField.placeholder = @"请输入投诉内容";
-            alert.tag = indexPath.row;
-            
             [alert show];
         }
             break;
@@ -287,11 +252,6 @@
 
 - (BOOL)swipeableTableViewCell:(SWTableViewCell *)cell canSwipeToState:(SWCellState)state{
     return state == 2;
-}
-
-#pragma  mark - TextField
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    return (range.location < kInputLengthMax);
 }
 
 @end

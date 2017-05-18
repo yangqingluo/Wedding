@@ -11,11 +11,11 @@
 #import "WELookDetailViewController.h"
 #import "WELoveRecoderController.h"
 #import "WEHelpAndSuportController.h"
-#import "MyEvaluateVC.h"
 #import "WESettingController.h"
-#import "WEMyMessgaeController.h"
+
 #import "UserInfoVC.h"
 #import "UserJudgementVC.h"
+#import "UserMessageVC.h"
 
 #import "ImageViewCell.h"
 
@@ -205,7 +205,7 @@
                 break;
             case 3:{
                 //我的消息
-                WEMyMessgaeController *vc = [[WEMyMessgaeController alloc]init];
+                UserMessageVC *vc = [UserMessageVC new];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;

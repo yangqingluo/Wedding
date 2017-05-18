@@ -153,3 +153,9 @@
 
 
 @end
+
+@implementation UserMessageData
+
+
+
+@end

@@ -104,3 +104,23 @@
 @property (strong, nonatomic) NSString *otherId;
 
 @end
+
+typedef enum {
+    UserMessageTypeNormal = 0,//普通
+    UserMessageTypeLove,//表白
+    UserMessageTypeReLove,//复合
+    UserMessageTypeLocate,//定位
+}UserMessageType;
+
+@interface UserMessageData : AppType
+
+@property (assign, nonatomic) int msgType;
+@property (strong, nonatomic) NSString *content;
+@property (strong, nonatomic) NSString *msgTime;
+@property (strong, nonatomic) NSString *myId;
+@property (strong, nonatomic) NSString *imgName;
+@property (strong, nonatomic) NSString *otherId;
+@property (strong, nonatomic) NSString *otherNickName;
+@property (strong, nonatomic) NSString *isMessageRead;
+
+@end
