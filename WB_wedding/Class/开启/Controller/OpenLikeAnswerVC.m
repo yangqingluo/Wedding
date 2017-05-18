@@ -145,7 +145,6 @@ static NSInteger kBtnTag = 1000;
     NSString *imageSrtring = self.modelsAr[section][@"imgFileNames"];
     NSArray *array = [imageSrtring componentsSeparatedByString:@","];
     NSURL *imagURL =[NSURL URLWithString: [NSString stringWithFormat:@"%@/%@/%@",ImageURL,self.modelsAr[section][@"id"],array[0]]];
-    NSLog(@"====！===%@",array);
     [headerImageView sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:downloadImagePlace]];
     
     // 名字

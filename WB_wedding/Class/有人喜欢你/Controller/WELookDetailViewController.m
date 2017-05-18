@@ -12,7 +12,6 @@
 #import "WELookDetailHeaderView.h"
 #import "WECommetViewController.h"
 #import "WEAskInfoController.h"
-#import "WESomeOneLikeController.h"
 #import "WESomeOneAnswerQuestionVC.h"
 #import "WELookDetailFooterView.h"
 #import "WEBianjiSelfInfoController.h"

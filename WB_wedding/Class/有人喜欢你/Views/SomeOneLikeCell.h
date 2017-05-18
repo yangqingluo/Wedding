@@ -10,16 +10,18 @@
 
 static NSString *SomeOneLikeCellID = @"SomeOneLikeCellID";
 @interface SomeOneLikeCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
-@property (weak, nonatomic) IBOutlet UILabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *sexage;
 
-@property (weak, nonatomic) IBOutlet UILabel *march;
-@property (weak, nonatomic) IBOutlet UILabel *xinzuo;
+@property (strong, nonatomic) IBOutlet UIView *redPiont;
 
-@property (weak, nonatomic) IBOutlet UILabel *adress;
 
-@property (weak, nonatomic) IBOutlet UILabel *fazhang;
-@property (weak, nonatomic) IBOutlet UIView *redPiont;
+@property (strong, nonatomic) IBOutlet UILabel *sexAndAgeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *constellationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *addressLabel;
+@property (strong, nonatomic) IBOutlet UILabel *matchLabel;
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *headImageView;
+
+- (void)adjustSubviews;
 
 @end

@@ -24,7 +24,7 @@
 
 - (void)adjustSubviews{
     if (!self.nameLabel.text.length) {
-        self.nameLabel.text = @"还没有昵称";
+        self.nameLabel.text = @"没有昵称";
     }
     
     self.nameLabel.width = [AppPublic textSizeWithString:self.nameLabel.text font:self.nameLabel.font constantHeight:self.nameLabel.height].width;

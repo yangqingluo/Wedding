@@ -46,7 +46,6 @@
 @property (strong, nonatomic) NSString *exloverIds;//前朋友Ids
 @property (strong, nonatomic) NSString *matcherIds;
 @property (strong, nonatomic) NSString *loverId;
-@property (strong, nonatomic) NSString *matchDegree;//匹配度
 
 @property (strong, nonatomic) NSString *salary;
 @property (strong, nonatomic) NSString *parentSituation;
@@ -66,6 +65,10 @@
 
 @property (strong, nonatomic) NSString *myQuestion;
 @property (strong, nonatomic) NSString *mySurvey;
+
+//他人资料特有
+@property (strong, nonatomic) NSString *matchDegree;//匹配度
+@property (strong, nonatomic) NSString *isRecieverRead;//已读
 
 - (BOOL)isVip;
 

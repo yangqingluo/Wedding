@@ -7,10 +7,10 @@
 
 #import "MainTabBarController.h"
 #import "OpenViewController.h"
+#import "SomeOneLikeViewController.h"
 #import "AccountViewController.h"
 #import "WEMyChatController.h"
 #import "WEYourMsgController.h"
-#import "WESomeOneLikeController.h"
 
 #import "UIImage+Color.h"
 
@@ -28,7 +28,7 @@
 
     if (self) {
         self.automaticallyAdjustsScrollViewInsets = NO;
-        self.viewControllers = @[[WEMyChatController new], [WEYourMsgController new],[OpenViewController new], [WESomeOneLikeController new], [[AccountViewController alloc] initWithStyle:UITableViewStyleGrouped]];
+        self.viewControllers = @[[WEMyChatController new], [WEYourMsgController new],[OpenViewController new], [SomeOneLikeViewController new], [AccountViewController new]];
         self.tabBar.backgroundImage = [[UIImage imageWithColor:[UIColor whiteColor]] stretchableImageWithLeftCapWidth:25 topCapHeight:25];
         self.tabBar.tintColor = navigationBarColor;
         

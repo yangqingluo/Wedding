@@ -180,7 +180,6 @@
 		5D793B6E1E1B481800236506 /* XWContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B6B1E1B481800236506 /* XWContentView.m */; };
 		5D793B711E1B488000236506 /* WEYourMsgController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B701E1B488000236506 /* WEYourMsgController.m */; };
 		5D793B771E1B48BA00236506 /* WEMyChatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B761E1B48BA00236506 /* WEMyChatController.m */; };
-		5D793B7A1E1B48D400236506 /* WESomeOneLikeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B791E1B48D400236506 /* WESomeOneLikeController.m */; };
 		5D793B9A1E1B49E700236506 /* NSString+XW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B8F1E1B49E700236506 /* NSString+XW.m */; };
 		5D793B9B1E1B49E700236506 /* UIButton+XW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B911E1B49E700236506 /* UIButton+XW.m */; };
 		5D793B9D1E1B49E700236506 /* UILabel+XW.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D793B951E1B49E700236506 /* UILabel+XW.m */; };
@@ -285,6 +284,7 @@
 		E9D582561E4E07800071E88F /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9D582551E4E07800071E88F /* area.plist */; };
 		FC875F9D1ECD438600158552 /* AppPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875F9C1ECD438600158552 /* AppPickerView.m */; };
 		FC875FA01ECD48B500158552 /* AppDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875F9E1ECD48B500158552 /* AppDatePickerView.m */; };
+		FC875FA41ECD5C3000158552 /* SomeOneLikeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC875FA31ECD5C3000158552 /* SomeOneLikeViewController.m */; };
 		FCA11FD41EC98B7D005C5305 /* PublicSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */; };
 		FCA11FD91EC9AE09005C5305 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FD81EC9AE09005C5305 /* UserInfoVC.m */; };
 		FCA11FDC1EC9F3CD005C5305 /* TitleAndDetailTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FDB1EC9F3CD005C5305 /* TitleAndDetailTextCell.m */; };
@@ -706,8 +706,6 @@
 		5D793B701E1B488000236506 /* WEYourMsgController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEYourMsgController.m; sourceTree = "<group>"; };
 		5D793B751E1B48BA00236506 /* WEMyChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEMyChatController.h; sourceTree = "<group>"; };
 		5D793B761E1B48BA00236506 /* WEMyChatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEMyChatController.m; sourceTree = "<group>"; };
-		5D793B781E1B48D400236506 /* WESomeOneLikeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WESomeOneLikeController.h; sourceTree = "<group>"; };
-		5D793B791E1B48D400236506 /* WESomeOneLikeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WESomeOneLikeController.m; sourceTree = "<group>"; };
 		5D793B8E1E1B49E700236506 /* NSString+XW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XW.h"; sourceTree = "<group>"; };
 		5D793B8F1E1B49E700236506 /* NSString+XW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XW.m"; sourceTree = "<group>"; };
 		5D793B901E1B49E700236506 /* UIButton+XW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XW.h"; sourceTree = "<group>"; };
@@ -959,6 +957,8 @@
 		FC875F9C1ECD438600158552 /* AppPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPickerView.m; sourceTree = "<group>"; };
 		FC875F9E1ECD48B500158552 /* AppDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDatePickerView.m; sourceTree = "<group>"; };
 		FC875F9F1ECD48B500158552 /* AppDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDatePickerView.h; sourceTree = "<group>"; };
+		FC875FA21ECD5C3000158552 /* SomeOneLikeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SomeOneLikeViewController.h; sourceTree = "<group>"; };
+		FC875FA31ECD5C3000158552 /* SomeOneLikeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SomeOneLikeViewController.m; sourceTree = "<group>"; };
 		FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicSelectionVC.h; sourceTree = "<group>"; };
 		FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicSelectionVC.m; sourceTree = "<group>"; };
 		FCA11FD71EC9AE09005C5305 /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
@@ -2064,8 +2064,6 @@
 		5D793B491E1B447E00236506 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5D793B781E1B48D400236506 /* WESomeOneLikeController.h */,
-				5D793B791E1B48D400236506 /* WESomeOneLikeController.m */,
 				5D3085DB1E27556100CA138C /* WELookDetailViewController.h */,
 				5D3085DC1E27556100CA138C /* WELookDetailViewController.m */,
 				5D3085F01E276D5D00CA138C /* WECommetViewController.h */,
@@ -2505,6 +2503,15 @@
 			path = STConfig;
 			sourceTree = "<group>";
 		};
+		FC875FA11ECD5C1E00158552 /* SomeOneLike */ = {
+			isa = PBXGroup;
+			children = (
+				FC875FA21ECD5C3000158552 /* SomeOneLikeViewController.h */,
+				FC875FA31ECD5C3000158552 /* SomeOneLikeViewController.m */,
+			);
+			path = SomeOneLike;
+			sourceTree = "<group>";
+		};
 		FCA9C1481EC4C2730003ECCF /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
@@ -2700,6 +2707,7 @@
 				FCD3AB051EBD72CE005AC352 /* MainTabBarController.m */,
 				FCA11FD21EC98B7D005C5305 /* PublicSelectionVC.h */,
 				FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */,
+				FC875FA11ECD5C1E00158552 /* SomeOneLike */,
 				FCA9C1611EC556B50003ECCF /* Account */,
 				FCA9C15D1EC555F10003ECCF /* LoginRegist */,
 			);
@@ -3070,7 +3078,6 @@
 				5D793B1E1E1B429100236506 /* main.m in Sources */,
 				5D793BA21E1B4D7100236506 /* XWTitleBottomBtn.m in Sources */,
 				E93175C11E2E221F00E5FF14 /* WalletVC.m in Sources */,
-				5D793B7A1E1B48D400236506 /* WESomeOneLikeController.m in Sources */,
 				E9076C131E4DB1FA00230981 /* NSMutableDictionary+IsNullObj.m in Sources */,
 				E9D582421E4D9A190071E88F /* STPickerSingle.m in Sources */,
 				57FEBD161EB8E884008D6AE1 /* EaseMessageCell.m in Sources */,
@@ -3111,6 +3118,7 @@
 				57FEBCB81EB8E884008D6AE1 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				FCB7EC281ECC8E4D0059D409 /* CheckQuestionnaireCell.m in Sources */,
 				57FEBD061EB8E884008D6AE1 /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
+				FC875FA41ECD5C3000158552 /* SomeOneLikeViewController.m in Sources */,
 				5D85A0051E45A8B700A5F133 /* HQBaseNetManager.m in Sources */,
 				57FEBD121EB8E884008D6AE1 /* EaseViewController.m in Sources */,
 				5D5F6DCA1E2377BD00A0D82A /* FirstPageController.m in Sources */,
