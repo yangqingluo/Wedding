@@ -7,13 +7,15 @@
 //
 
 #import "UserInfoVC.h"
-#import "UserInfoHeaderView.h"
-#import "TitleAndDetailTextCell.h"
-#import "CheckQuestionnaireCell.h"
-
 #import "UserInfoEditVC.h"
 #import "UserQuestionnaireVC.h"
 
+#import "UserInfoHeaderView.h"
+#import "TitleAndDetailTextCell.h"
+#import "CheckQuestionnaireCell.h"
+#import "BlockAlertView.h"
+
+#import "WECommetViewController.h"
 
 @interface UserInfoVC ()
 
@@ -33,10 +35,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDataChange:) name:kNotification_Update_UserData object:nil];
     
-    UserInfoHeaderView *headeView = [UserInfoHeaderView appLoadFromNib];
-    self.tableView.tableHeaderView = headeView;
-    headeView.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
-    self.headerView = headeView;
+    UserInfoHeaderView *headerView = [UserInfoHeaderView appLoadFromNib];
+    self.tableView.tableHeaderView = headerView;
+    headerView.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
+    [headerView.checkJudgeButton addTarget:self action:@selector(checkJudgeButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    self.headerView = headerView;
     
     [self updateSubviews];
     
@@ -49,7 +52,7 @@
 }
 
 - (void)setupNav {
-    [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex){
+    [self createNavWithTitle:self.title ? self.title : @"查看资料" createMenuItem:^UIView *(int nIndex){
         if (nIndex == 0){
             UIButton *btn = NewBackButton(nil);
             [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -101,7 +104,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)checkAction{
+- (void)checkQuestionnaireAction{
     if (self.userData.mySurvey) {
         if ([self.userData subItemsIndexWithKey:@"mySurvey" andSeparatedByString:@"&"].count != [AppPublic getInstance].questionnaireLists.count) {
             [self showHint:@"问卷数据出错"];
@@ -128,10 +131,9 @@
     self.headerView.sexAndAgeLabel.text = [NSString stringWithFormat:@"%@ %d", [self.userData showStringOfSex], self.userData.age];
     self.headerView.constellationLabel.text = self.userData.xingZuo;
     
-    self.headerView.matchView.hidden = (self.infoType != UserInfoTypeStart);
-    if (self.infoType == UserInfoTypeSelf || self.infoType == UserInfoTypeStart) {
+    self.headerView.checkJudgeButton.hidden = (self.infoType == UserInfoTypeSelf);
+    if (self.infoType == UserInfoTypeSelf) {
         self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%dcm", [self.userData.height intValue]];
-        self.headerView.matchLabel.text = self.userData.matchDegree;
     }
     else {
         self.headerView.thirdLabel.text = [NSString stringWithFormat:@"匹配度%@%%", self.userData.matchDegree];
@@ -146,6 +148,18 @@
     //记录刷新时间
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
+}
+
+- (void)checkJudgeButtonAction{
+    QKWEAKSELF;
+    BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:nil message:@"查看评价需要花费50喜币，确认查看么？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+        if (buttonIndex == 1) {
+            WECommetViewController *vc = [WECommetViewController new];
+            vc.ID = weakself.userData.ID;
+            [weakself.navigationController pushViewController:vc animated:YES];
+        }
+    }otherButtonTitles:@"确定", nil];
+    [alert show];
 }
 
 #pragma getter
@@ -215,7 +229,7 @@
     if (!cell) {
         if (indexPath.section == 0 && indexPath.row == 0) {
             cell = [[CheckQuestionnaireCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-            [((CheckQuestionnaireCell *)cell).checkButton addTarget:self action:@selector(checkAction) forControlEvents:UIControlEventTouchUpInside];
+            [((CheckQuestionnaireCell *)cell).checkButton addTarget:self action:@selector(checkQuestionnaireAction) forControlEvents:UIControlEventTouchUpInside];
         }
         else {
             cell = [[TitleAndDetailTextCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];

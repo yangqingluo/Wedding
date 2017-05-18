@@ -42,6 +42,7 @@
 
 #define baseBlueColor                RGBA(0x00, 0x84, 0xff, 1)
 #define lightWhiteColor              RGBA(0xf5, 0xf5, 0xf5, 1)
+#define darkOrangeColor              RGBA(0xff, 0x8c, 0x00, 1.0)
 
 #define STATUS_HEIGHT                20.0
 #define STATUS_BAR_HEIGHT            64.0
@@ -70,6 +71,7 @@
 #define kPasswordLengthMin           0x03
 #define kPasswordLengthMax           0x10
 #define kNameLengthMax               0x30
+#define kInputLengthMax              0x60
 
 #define kUserName                    @"username_wedding"
 #define kUserData                    @"userdata_wedding"

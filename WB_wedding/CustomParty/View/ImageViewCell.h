@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
 
-@interface ImageViewCell : UITableViewCell
+@interface ImageViewCell : SWTableViewCell
 
-//@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *subTitleLabel;
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *subTitleLabel;
 @property (strong, nonatomic) UIImageView *showImageView;
 
 @end

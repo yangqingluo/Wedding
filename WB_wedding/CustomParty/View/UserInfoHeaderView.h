@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *matchView;
 @property (strong, nonatomic) IBOutlet UILabel *matchLabel;
+@property (strong, nonatomic) IBOutlet UIButton *checkJudgeButton;
 
 - (void)adjustSubviews;
 

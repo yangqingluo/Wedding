@@ -9,16 +9,16 @@
 
 @implementation AppType
 
-@end
-
-@implementation AppUserData
-
 + (NSDictionary *)mj_replacedKeyFromPropertyName{
     
     return @{
              @"ID":@"id"
              };
 }
+
+@end
+
+@implementation AppUserData
 
 - (BOOL)isVip{
     if (self.vipEndTime) {
@@ -143,5 +143,13 @@
     
     return self;
 }
+
+@end
+
+
+
+@implementation UserJudgementDate
+
+
 
 @end

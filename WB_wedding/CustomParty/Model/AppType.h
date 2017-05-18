@@ -9,13 +9,13 @@
 
 @interface AppType : NSObject
 
+@property (strong, nonatomic) NSString *ID;
+
 @end
 
 
-@interface AppUserData : NSObject
+@interface AppUserData : AppType
 
-
-@property (strong, nonatomic) NSString *ID;
 @property (strong, nonatomic) NSString *telNumber;
 @property (strong, nonatomic) NSString *lastLoginTime;
 @property (strong, nonatomic) NSString *userRight;
@@ -91,5 +91,16 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSArray *subItems;
 @property (assign, nonatomic) NSUInteger subItemMaxNumber;//子项的最大数目
+
+@end
+
+@interface UserJudgementDate : AppType
+
+@property (strong, nonatomic) NSString *content;
+@property (strong, nonatomic) NSString *commentTime;
+@property (strong, nonatomic) NSString *otherNickname;
+@property (strong, nonatomic) NSString *otherTouxiangUrl;
+@property (strong, nonatomic) NSString *myId;
+@property (strong, nonatomic) NSString *otherId;
 
 @end

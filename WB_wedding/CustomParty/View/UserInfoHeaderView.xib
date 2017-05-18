@@ -59,7 +59,7 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WfW-N0-F0D">
+                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WfW-N0-F0D">
                             <rect key="frame" x="300" y="0.0" width="75" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -86,6 +86,14 @@
                                 </label>
                             </subviews>
                         </view>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiV-ts-HOb">
+                            <rect key="frame" x="300" y="35" width="75" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="查看评价">
+                                <color key="titleColor" red="1" green="0.4039215686" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -107,6 +115,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="addressLabel" destination="yNv-ck-rIw" id="u66-Mn-Kaa"/>
+                <outlet property="checkJudgeButton" destination="yiV-ts-HOb" id="fvP-U9-Rbf"/>
                 <outlet property="constellationLabel" destination="gJy-FI-hUG" id="8Zx-qB-T56"/>
                 <outlet property="cycleScrollView" destination="SVh-tm-Sko" id="CHK-wI-Xk0"/>
                 <outlet property="matchLabel" destination="fex-vc-x9M" id="wlp-DR-gP7"/>

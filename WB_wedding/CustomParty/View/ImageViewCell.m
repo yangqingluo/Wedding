@@ -21,6 +21,12 @@
         self.subTitleLabel.textColor = [UIColor blackColor];
         self.subTitleLabel.numberOfLines = 0;
         [self.contentView addSubview:self.subTitleLabel];
+        
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.titleLabel.font = [UIFont systemFontOfSize:appLabelFontSize];
+        self.titleLabel.textColor = [UIColor blackColor];
+        self.titleLabel.numberOfLines = 0;
+        [self.contentView addSubview:self.titleLabel];
     }
     
     return self;

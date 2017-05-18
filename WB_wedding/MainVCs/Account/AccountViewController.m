@@ -15,6 +15,7 @@
 #import "WESettingController.h"
 #import "WEMyMessgaeController.h"
 #import "UserInfoVC.h"
+#import "UserJudgementVC.h"
 
 #import "ImageViewCell.h"
 
@@ -198,7 +199,7 @@
                 break;
             case 2:{
                 //我的评价
-                MyEvaluateVC *vc = [[MyEvaluateVC alloc] init];
+                UserJudgementVC *vc = [UserJudgementVC new];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;

@@ -630,7 +630,6 @@ static NSString *identify = @"assetSelectedCell";
 
 #pragma UIAlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    //设置手机号
     if (buttonIndex == 1) {
         UITextField *alertTextField = [alertView textFieldAtIndex:0];
         if (alertTextField.text.length) {
@@ -655,6 +654,11 @@ static NSString *identify = @"assetSelectedCell";
         }
         
     }
+}
+
+#pragma  mark - TextField
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    return (range.location < kNameLengthMax);
 }
 
 @end

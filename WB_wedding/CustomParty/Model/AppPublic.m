@@ -393,14 +393,17 @@ NSString *stringFromDate(NSDate *date, NSString *format){
 }
 
 - (void)saveUserData:(AppUserData *)data{
-    if (!data) {
-        return;
+    if (data) {
+        _userData = [data copy];
+        
     }
-    _userData = [data copy];
-    NSDictionary *dic = [_userData mj_keyValues];
-    
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:dic forKey:kUserData];
+
+    if (_userData) {
+        NSDictionary *dic = [_userData mj_keyValues];
+        
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:dic forKey:kUserData];
+    }
 }
 
 - (void)goToMainVC{
