@@ -207,7 +207,7 @@
     cell.nameLabel.text = userData.nickname;
     cell.addressLabel.text = userData.city;
     cell.sexAndAgeLabel.text = [NSString stringWithFormat:@"%@ %d", [userData showStringOfSex], userData.age];
-    cell.matchLabel.text = [NSString stringWithFormat:@"匹配度%@%%", userData.matchDegree];
+    cell.matchLabel.text = [NSString stringWithFormat:@"琴瑟度%@%%", userData.matchDegree];
     cell.constellationLabel.text = userData.xingZuo;
     
     cell.statusLabel.text = [userData.status boolValue] ? @"名花有主" : @"可发展";

@@ -19,6 +19,7 @@
 - (instancetype)initWithURLString:(NSString *)string{
     self = [super init];
     if (self) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
         _urlString = string;
     }
     

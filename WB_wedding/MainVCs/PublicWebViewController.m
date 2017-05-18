@@ -1,30 +1,31 @@
 //
-//  WEHelpAndSuportController.m
+//  PublicWebViewController.m
 //  WB_wedding
 //
-//  Created by 谢威 on 17/1/18.
+//  Created by yangqingluo on 2017/5/18.
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "WEHelpAndSuportController.h"
+#import "PublicWebViewController.h"
 #import "UIImage+Color.h"
 
-@interface WEHelpAndSuportController ()
+@interface PublicWebViewController ()
 
 @property (strong, nonatomic) UIButton *closeButton;
 
 @end
 
-@implementation WEHelpAndSuportController
+@implementation PublicWebViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     [self setupNav];
     
-    [super viewDidLoad];
 }
 
 - (void)setupNav {
-    [self createNavWithTitle:@"帮助与支持" createMenuItem:^UIView *(int nIndex){
+    [self createNavWithTitle:self.title createMenuItem:^UIView *(int nIndex){
         if (nIndex == 0) {
             UIButton *btn = NewBackButton([UIColor whiteColor]);
             [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -83,12 +84,11 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"webViewDidFinishLoad");
-//    self.titleLabel.text = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    //    self.titleLabel.text = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     [self showHint:@"加载失败"];
 }
-
 
 @end

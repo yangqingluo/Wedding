@@ -7,7 +7,7 @@
 //
 
 #import "UserMessageVC.h"
-#import "WEMessageReslutController.h"
+#import "MessageDetailVC.h"
 
 #import "ImageViewCell.h"
 #import "BlockAlertView.h"
@@ -229,10 +229,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    WEMessageReslutController *vc = [[WEMessageReslutController alloc]init];
-    
-    UserMessageData *data = self.dataSource[indexPath.row];
-    vc.messageData = data;
+    MessageDetailVC *vc = [MessageDetailVC new];
+    vc.messageData = self.dataSource[indexPath.row];
     
     [self.navigationController pushViewController:vc animated:YES];
 }

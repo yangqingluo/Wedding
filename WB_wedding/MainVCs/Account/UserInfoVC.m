@@ -136,7 +136,7 @@
         self.headerView.thirdLabel.text = [NSString stringWithFormat:@"%dcm", [self.userData.height intValue]];
     }
     else {
-        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"匹配度%@%%", self.userData.matchDegree];
+        self.headerView.thirdLabel.text = [NSString stringWithFormat:@"琴瑟度%@%%", self.userData.matchDegree];
     }
     
     [self.headerView adjustSubviews];

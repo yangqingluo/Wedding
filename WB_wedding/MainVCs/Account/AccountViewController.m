@@ -7,15 +7,15 @@
 //
 
 #import "AccountViewController.h"
-#import "WalletVC.h"
 #import "WELookDetailViewController.h"
 #import "WELoveRecoderController.h"
-#import "WEHelpAndSuportController.h"
 #import "WESettingController.h"
 
 #import "UserInfoVC.h"
+#import "UserWalletViewController.h"
 #import "UserJudgementVC.h"
 #import "UserMessageVC.h"
+#import "PublicWebViewController.h"
 
 #import "ImageViewCell.h"
 
@@ -186,7 +186,7 @@
         switch (indexPath.row) {
             case 0:{
                 //我的钱包
-                WalletVC *vc = [[WalletVC alloc] init];
+                UserWalletViewController *vc = [UserWalletViewController new];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
@@ -221,7 +221,8 @@
                 break;
             case 6:{
                 //帮组和设置
-                WEHelpAndSuportController *vc = [[WEHelpAndSuportController alloc] initWithURLString:@"http://123.207.120.62:8080/wanwanpage/pages/help.html"];
+                PublicWebViewController *vc = [[PublicWebViewController alloc] initWithURLString:@"http://123.207.120.62:8080/wanwanpage/pages/help.html"];
+                vc.title = @"帮助与支持";
                 
                 [self.navigationController pushViewController:vc animated:YES];
             }

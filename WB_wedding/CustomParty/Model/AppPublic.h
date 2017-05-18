@@ -41,7 +41,7 @@
 #define separaterAlphaColor          RGBA(0xe5, 0xe5, 0xe5, 0.6)
 
 #define baseBlueColor                RGBA(0x00, 0x84, 0xff, 1)
-#define lightWhiteColor              RGBA(0xf5, 0xf5, 0xf5, 1)
+#define lightWhiteColor              RGBA(0xef, 0xef, 0xef, 1)
 #define darkOrangeColor              RGBA(0xff, 0x8c, 0x00, 1.0)
 
 #define STATUS_HEIGHT                20.0
