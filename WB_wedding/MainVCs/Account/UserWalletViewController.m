@@ -84,6 +84,7 @@
 
 - (void)updateSubviews{
     self.moneyLab.text = [NSString stringWithFormat:@"%d", [AppPublic getInstance].userData.money];
+    self.moneyLab.width = [AppPublic textSizeWithString:self.moneyLab.text font:self.moneyLab.font constantHeight:self.moneyLab.height].width;
 }
 
 /**
