@@ -19,23 +19,25 @@
     [super viewDidLoad];
     self.title = @"修改手机号";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    QKWEAKSELF;
     [self setNavigationRightBtnWithTitle:@"保存" actionBack:^{
         
         if ([self.pwdTextFild.text isEqualToString:@""]||self.pwdTextFild.text == nil) {
             
-            [self showMessage:@"请输入密码" toView:self.view];
+            [weakself showMessage:@"请输入密码" toView:weakself.view];
             return ;
         }
         
         if ([self.numTextFiled.text isEqualToString:@""]||self.numTextFiled.text == nil) {
             
-            [self showMessage:@"请输入手机号" toView:self.view];
+            [weakself showMessage:@"请输入手机号" toView:weakself.view];
             return ;
         }
         
         if ([self.codeTextf.text isEqualToString:@""]||self.codeTextf.text == nil) {
             
-            [self showMessage:@"请输入验证码" toView:self.view];
+            [weakself showMessage:@"请输入验证码" toView:weakself.view];
             return ;
         }
         

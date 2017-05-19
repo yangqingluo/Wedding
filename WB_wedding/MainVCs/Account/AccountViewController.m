@@ -7,9 +7,7 @@
 //
 
 #import "AccountViewController.h"
-#import "WELookDetailViewController.h"
 #import "WELoveRecoderController.h"
-#import "WESettingController.h"
 
 #import "UserInfoVC.h"
 #import "UserWalletViewController.h"
@@ -17,6 +15,7 @@
 #import "UserJudgementVC.h"
 #import "UserMessageVC.h"
 #import "PublicWebViewController.h"
+#import "UserSettingVC.h"
 
 #import "ImageViewCell.h"
 
@@ -216,7 +215,7 @@
                 break;
             case 5:{
                 //设置
-                WESettingController *vc = [[WESettingController alloc]init];
+                UserSettingVC *vc = [UserSettingVC new];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;

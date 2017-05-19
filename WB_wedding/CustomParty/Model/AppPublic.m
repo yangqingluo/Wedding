@@ -185,6 +185,22 @@ BOOL isFirstUsing(){
     return ![version isEqualToString:saveVersion];
 }
 
+//检查字符串是否是手机号码
+BOOL isMobilePhone(NSString *string){
+    if (!string || string.length == 0) {
+        return NO;
+    }
+    
+    NSMutableAttributedString *parsedOutput = [[NSMutableAttributedString alloc]initWithString:string attributes:nil];
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^1\\d{10}$" options:0 error:nil];
+    NSArray* matches = [regex matchesInString:[parsedOutput string]
+                                      options:NSMatchingWithoutAnchoringBounds
+                                        range:NSMakeRange(0, parsedOutput.length)];
+    
+    return matches.count > 0;
+}
+
 //图像压缩
 NSData *dataOfImageCompression(UIImage *image, BOOL isHead){
     //头像图片

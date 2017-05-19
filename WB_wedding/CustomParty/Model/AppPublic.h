@@ -103,6 +103,11 @@ typedef void(^PopDoneBlock)(NSObject *object);
  */
 BOOL isFirstUsing();
 
+/*!
+ @brief 检查字符串是否是手机号码
+ */
+BOOL isMobilePhone(NSString *string);
+
 //图像压缩
 NSData *dataOfImageCompression(UIImage *image, BOOL isHead);
 

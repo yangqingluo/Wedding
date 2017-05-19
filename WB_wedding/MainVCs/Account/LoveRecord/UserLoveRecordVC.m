@@ -192,11 +192,12 @@
                               @"imgName" : array.count ? array[0] : @"",
                               @"otherId" : [AppPublic getInstance].userData.ID,
                               @"otherNickName" : [AppPublic getInstance].userData.nickname,
-                              @"myId" : userData.ID};
+                              @"myId" : userData.ID,
+                              @"telNumber":[AppPublic getInstance].userData.telNumber};
         
         
         QKWEAKSELF;
-        [[QKNetworkSingleton sharedManager] Post:@{@"telNumber":[AppPublic getInstance].userData.telNumber, @"dto" : dic} HeadParm:nil URLFooter:@"/loverecord/sendrelovemsg" completion:^(id responseBody, NSError *error){
+        [[QKNetworkSingleton sharedManager] Post:dic HeadParm:nil URLFooter:@"/loverecord/sendrelovemsg" completion:^(id responseBody, NSError *error){
             [weakself hideHud];
             
             if (!error) {

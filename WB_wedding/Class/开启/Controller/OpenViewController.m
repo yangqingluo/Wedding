@@ -13,7 +13,6 @@
 #import "WESomeOneAnswerQuestionVC.h"
 #import "CardCellCollectionViewCell.h"
 #import "WESomeOneAnswerQuestionVC.h"
-#import "WELookDetailViewController.h"
 #import "OpenLikeAnswerVC.h"
 #import "UserInfoVC.h"
 #import "WEMarchTool.h"
@@ -579,12 +578,8 @@
 
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
-    
     NSDictionary *dic = self.items[index];
     
-//    WELookDetailViewController *vc = [[WELookDetailViewController alloc]initWithType:vcTypeHome];
-//    vc.dic = dic;
-//    vc.ID = dic[@"id"];
     UserInfoVC *vc = [UserInfoVC new];
     vc.infoType = UserInfoTypeStart;
     vc.userData = [AppUserData mj_objectWithKeyValues:dic];
