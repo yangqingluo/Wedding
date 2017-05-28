@@ -557,8 +557,7 @@
     
     switch (option){
         case iCarouselOptionWrap:{
-            //normally you would hard-code this to YES or NO
-            return YES;
+            return NO;
         }
         case iCarouselOptionSpacing:{
             // 控制器滚动的范围

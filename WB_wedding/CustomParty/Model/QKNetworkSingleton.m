@@ -21,13 +21,6 @@
 
 - (AFHTTPSessionManager *)baseHttpRequestWithParm:(NSDictionary *)parm andSuffix:(NSString *)suffix{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager.requestSerializer setTimeoutInterval:30];
-    
-    for (NSString *key in parm.allKeys) {
-        if (parm[key]) {
-            [manager.requestSerializer setValue:parm[key] forHTTPHeaderField:key];
-        }
-    }
     
     if ([suffix isEqualToString:@"/likeu/chooseanswer"] ||
         [suffix isEqualToString:@"/user/updatesurvey"] ||
@@ -46,6 +39,14 @@
     else {
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
     }
+    [manager.requestSerializer setTimeoutInterval:30];
+    
+    for (NSString *key in parm.allKeys) {
+        if (parm[key]) {
+            [manager.requestSerializer setValue:parm[key] forHTTPHeaderField:key];
+        }
+    }
+    
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
     
     return manager;
