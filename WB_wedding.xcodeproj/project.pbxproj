@@ -15,7 +15,6 @@
 		579325001E8C03B800A0BC73 /* NSObject+propertyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 579324FA1E8C03B800A0BC73 /* NSObject+propertyCode.m */; };
 		579325011E8C03B800A0BC73 /* NSSet+HYBUnicodeReadable.m in Sources */ = {isa = PBXBuildFile; fileRef = 579324FC1E8C03B800A0BC73 /* NSSet+HYBUnicodeReadable.m */; };
 		579325071E8C05A200A0BC73 /* WECompletInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 579325061E8C05A200A0BC73 /* WECompletInfoController.xib */; };
-		57C99A0B1E8D633300E3E90D /* WalletDetailUseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C99A0A1E8D633300E3E90D /* WalletDetailUseModel.m */; };
 		57C99A0E1E8D686A00E3E90D /* NSString+WETime.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C99A0D1E8D686A00E3E90D /* NSString+WETime.m */; };
 		57FE2E141E97E49D003AE287 /* jcore-ios-1.1.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FE2E111E97E49D003AE287 /* jcore-ios-1.1.2.a */; };
 		57FE2E151E97E49D003AE287 /* jpush-ios-3.0.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FE2E121E97E49D003AE287 /* jpush-ios-3.0.3.a */; };
@@ -232,8 +231,6 @@
 		5DBBF9CC1E558C6000DB716E /* WETimeLineFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DBBF9CB1E558C6000DB716E /* WETimeLineFooterView.xib */; };
 		E2EF7F5BFF10C8B39989F2CD /* libPods-WB_wedding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7DCA563DE1AD2614468DAF /* libPods-WB_wedding.a */; };
 		E9076C131E4DB1FA00230981 /* NSMutableDictionary+IsNullObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E9076C121E4DB1FA00230981 /* NSMutableDictionary+IsNullObj.m */; };
-		E93175C91E2E2AC400E5FF14 /* WalletDetailInfoTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E93175C71E2E2AC400E5FF14 /* WalletDetailInfoTVCell.m */; };
-		E93175CA1E2E2AC400E5FF14 /* WalletDetailInfoTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93175C81E2E2AC400E5FF14 /* WalletDetailInfoTVCell.xib */; };
 		E94025F91E39F9D80038EC7E /* DHSeparateTitleImgButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E94025F81E39F9D80038EC7E /* DHSeparateTitleImgButton.m */; };
 		E94025FD1E3A00810038EC7E /* WESomeOneAnswerQuestionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E94025FB1E3A00810038EC7E /* WESomeOneAnswerQuestionVC.m */; };
 		E94025FE1E3A00810038EC7E /* WESomeOneAnswerQuestionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94025FC1E3A00810038EC7E /* WESomeOneAnswerQuestionVC.xib */; };
@@ -241,7 +238,6 @@
 		E9415ABE1E2FC69E002325A0 /* WDMoneyPayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9415ABC1E2FC69E002325A0 /* WDMoneyPayView.xib */; };
 		E9415ACA1E2FC6C5002325A0 /* LoveCoinRechargeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AC01E2FC6C5002325A0 /* LoveCoinRechargeVC.m */; };
 		E9415ACB1E2FC6C5002325A0 /* LoveCoinRechargeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9415AC11E2FC6C5002325A0 /* LoveCoinRechargeVC.xib */; };
-		E9415ACC1E2FC6C5002325A0 /* WalletDetailUseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AC31E2FC6C5002325A0 /* WalletDetailUseVC.m */; };
 		E9415ACD1E2FC6C5002325A0 /* WalletPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AC51E2FC6C5002325A0 /* WalletPayVC.m */; };
 		E9415ACE1E2FC6C5002325A0 /* WalletPayVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9415AC61E2FC6C5002325A0 /* WalletPayVC.xib */; };
 		E9415AD91E2FCC17002325A0 /* MyEvaluateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9415AD71E2FCC17002325A0 /* MyEvaluateCell.m */; };
@@ -315,6 +311,8 @@
 		FCA9C15C1EC4C2730003ECCF /* nav_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1521EC4C2730003ECCF /* nav_edit@2x.png */; };
 		FCA9C1601EC5564A0003ECCF /* AppBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9C15F1EC5564A0003ECCF /* AppBasicTableViewController.m */; };
 		FCA9C1691EC594A20003ECCF /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9C1681EC594A20003ECCF /* BlockAlertView.m */; };
+		FCB669BA1EDC633F00EA5822 /* WalletDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB669B91EDC633F00EA5822 /* WalletDetailVC.m */; };
+		FCB669BD1EDC666000EA5822 /* TwiceDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB669BC1EDC666000EA5822 /* TwiceDetailCell.m */; };
 		FCB7EBFE1ECC2D3A0059D409 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EBFD1ECC2D3A0059D409 /* AccountViewController.m */; };
 		FCB7EC011ECC30680059D409 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EC001ECC30680059D409 /* ImageViewCell.m */; };
 		FCB7EC1A1ECC7FDC0059D409 /* LxGridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7EC041ECC7FDC0059D409 /* LxGridViewFlowLayout.m */; };
@@ -381,8 +379,6 @@
 		579324FB1E8C03B800A0BC73 /* NSSet+HYBUnicodeReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+HYBUnicodeReadable.h"; sourceTree = "<group>"; };
 		579324FC1E8C03B800A0BC73 /* NSSet+HYBUnicodeReadable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+HYBUnicodeReadable.m"; sourceTree = "<group>"; };
 		579325061E8C05A200A0BC73 /* WECompletInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WECompletInfoController.xib; sourceTree = "<group>"; };
-		57C99A091E8D633300E3E90D /* WalletDetailUseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailUseModel.h; sourceTree = "<group>"; };
-		57C99A0A1E8D633300E3E90D /* WalletDetailUseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailUseModel.m; sourceTree = "<group>"; };
 		57C99A0C1E8D686A00E3E90D /* NSString+WETime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WETime.h"; sourceTree = "<group>"; };
 		57C99A0D1E8D686A00E3E90D /* NSString+WETime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WETime.m"; sourceTree = "<group>"; };
 		57FE2E111E97E49D003AE287 /* jcore-ios-1.1.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.2.a"; sourceTree = "<group>"; };
@@ -874,9 +870,6 @@
 		E9076C111E4DB1FA00230981 /* NSMutableDictionary+IsNullObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+IsNullObj.h"; sourceTree = "<group>"; };
 		E9076C121E4DB1FA00230981 /* NSMutableDictionary+IsNullObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+IsNullObj.m"; sourceTree = "<group>"; };
 		E93175B41E2E09C900E5FF14 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		E93175C61E2E2AC400E5FF14 /* WalletDetailInfoTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WalletDetailInfoTVCell.h; path = "WB_wedding/Class/我的/Controller/Wallet(钱包)/WalletDetailInfoTVCell.h"; sourceTree = SOURCE_ROOT; };
-		E93175C71E2E2AC400E5FF14 /* WalletDetailInfoTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WalletDetailInfoTVCell.m; path = "WB_wedding/Class/我的/Controller/Wallet(钱包)/WalletDetailInfoTVCell.m"; sourceTree = SOURCE_ROOT; };
-		E93175C81E2E2AC400E5FF14 /* WalletDetailInfoTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WalletDetailInfoTVCell.xib; path = "WB_wedding/Class/我的/Controller/Wallet(钱包)/WalletDetailInfoTVCell.xib"; sourceTree = SOURCE_ROOT; };
 		E94025F71E39F9D80038EC7E /* DHSeparateTitleImgButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSeparateTitleImgButton.h; sourceTree = "<group>"; };
 		E94025F81E39F9D80038EC7E /* DHSeparateTitleImgButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSeparateTitleImgButton.m; sourceTree = "<group>"; };
 		E94025FA1E3A00810038EC7E /* WESomeOneAnswerQuestionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WESomeOneAnswerQuestionVC.h; sourceTree = "<group>"; };
@@ -888,8 +881,6 @@
 		E9415ABF1E2FC6C5002325A0 /* LoveCoinRechargeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveCoinRechargeVC.h; sourceTree = "<group>"; };
 		E9415AC01E2FC6C5002325A0 /* LoveCoinRechargeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveCoinRechargeVC.m; sourceTree = "<group>"; };
 		E9415AC11E2FC6C5002325A0 /* LoveCoinRechargeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoveCoinRechargeVC.xib; sourceTree = "<group>"; };
-		E9415AC21E2FC6C5002325A0 /* WalletDetailUseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailUseVC.h; sourceTree = "<group>"; };
-		E9415AC31E2FC6C5002325A0 /* WalletDetailUseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailUseVC.m; sourceTree = "<group>"; };
 		E9415AC41E2FC6C5002325A0 /* WalletPayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletPayVC.h; sourceTree = "<group>"; };
 		E9415AC51E2FC6C5002325A0 /* WalletPayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletPayVC.m; sourceTree = "<group>"; };
 		E9415AC61E2FC6C5002325A0 /* WalletPayVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletPayVC.xib; sourceTree = "<group>"; };
@@ -1015,6 +1006,10 @@
 		FCA9C15F1EC5564A0003ECCF /* AppBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBasicTableViewController.m; sourceTree = "<group>"; };
 		FCA9C1671EC594A20003ECCF /* BlockAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockAlertView.h; sourceTree = "<group>"; };
 		FCA9C1681EC594A20003ECCF /* BlockAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockAlertView.m; sourceTree = "<group>"; };
+		FCB669B81EDC633F00EA5822 /* WalletDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailVC.h; sourceTree = "<group>"; };
+		FCB669B91EDC633F00EA5822 /* WalletDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailVC.m; sourceTree = "<group>"; };
+		FCB669BB1EDC666000EA5822 /* TwiceDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwiceDetailCell.h; sourceTree = "<group>"; };
+		FCB669BC1EDC666000EA5822 /* TwiceDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwiceDetailCell.m; sourceTree = "<group>"; };
 		FCB7EBFC1ECC2D3A0059D409 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		FCB7EBFD1ECC2D3A0059D409 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		FCB7EBFF1ECC30680059D409 /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
@@ -1160,15 +1155,6 @@
 				EC7DCA563DE1AD2614468DAF /* libPods-WB_wedding.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		572B2C681E80121400AC1E35 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				57C99A091E8D633300E3E90D /* WalletDetailUseModel.h */,
-				57C99A0A1E8D633300E3E90D /* WalletDetailUseModel.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		579324F11E8C03B800A0BC73 /* Tool */ = {
@@ -1931,7 +1917,6 @@
 		5D793B3E1E1B447E00236506 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				572B2C681E80121400AC1E35 /* Model */,
 				5D793B3F1E1B447E00236506 /* Controller */,
 				5D793B411E1B447E00236506 /* Service */,
 				5D793B421E1B447E00236506 /* Views */,
@@ -1964,9 +1949,6 @@
 		5D793B421E1B447E00236506 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E93175C61E2E2AC400E5FF14 /* WalletDetailInfoTVCell.h */,
-				E93175C71E2E2AC400E5FF14 /* WalletDetailInfoTVCell.m */,
-				E93175C81E2E2AC400E5FF14 /* WalletDetailInfoTVCell.xib */,
 				5D746A651E2E392B001FE1A1 /* WELoveReocdeCell.h */,
 				5D746A661E2E392B001FE1A1 /* WELoveReocdeCell.m */,
 				5D746A671E2E392B001FE1A1 /* WELoveReocdeCell.xib */,
@@ -2383,8 +2365,6 @@
 				E9415ABF1E2FC6C5002325A0 /* LoveCoinRechargeVC.h */,
 				E9415AC01E2FC6C5002325A0 /* LoveCoinRechargeVC.m */,
 				E9415AC11E2FC6C5002325A0 /* LoveCoinRechargeVC.xib */,
-				E9415AC21E2FC6C5002325A0 /* WalletDetailUseVC.h */,
-				E9415AC31E2FC6C5002325A0 /* WalletDetailUseVC.m */,
 				E9415AC41E2FC6C5002325A0 /* WalletPayVC.h */,
 				E9415AC51E2FC6C5002325A0 /* WalletPayVC.m */,
 				E9415AC61E2FC6C5002325A0 /* WalletPayVC.xib */,
@@ -2492,6 +2472,8 @@
 				FC3F10811ECE92D2002E2806 /* UserWalletViewController.h */,
 				FC3F10821ECE92D2002E2806 /* UserWalletViewController.m */,
 				FC3F10831ECE92D2002E2806 /* UserWalletViewController.xib */,
+				FCB669B81EDC633F00EA5822 /* WalletDetailVC.h */,
+				FCB669B91EDC633F00EA5822 /* WalletDetailVC.m */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -2739,6 +2721,8 @@
 				FC875F9E1ECD48B500158552 /* AppDatePickerView.m */,
 				FC875FAD1ECD6E2600158552 /* LongPressFlowLayout.h */,
 				FC875FAC1ECD6E2600158552 /* LongPressFlowLayout.m */,
+				FCB669BB1EDC666000EA5822 /* TwiceDetailCell.h */,
+				FCB669BC1EDC666000EA5822 /* TwiceDetailCell.m */,
 				FC3F10A61ECE9421002E2806 /* SomeOneLikeCell.h */,
 				FC3F10A51ECE9421002E2806 /* SomeOneLikeCell.m */,
 				FC3F10A41ECE9421002E2806 /* SomeOneLikeCell.xib */,
@@ -2915,7 +2899,6 @@
 				5DBBF9C71E558B4000DB716E /* WETimeLineDetailHeaderView.xib in Resources */,
 				5D746A5A1E2E0DCD001FE1A1 /* WEMyAskCell.xib in Resources */,
 				E94025FE1E3A00810038EC7E /* WESomeOneAnswerQuestionVC.xib in Resources */,
-				E93175CA1E2E2AC400E5FF14 /* WalletDetailInfoTVCell.xib in Resources */,
 				E9D582561E4E07800071E88F /* area.plist in Resources */,
 				5D746A461E2E058A001FE1A1 /* WEWriteInfoViewController.xib in Resources */,
 				5D3085F41E276D5D00CA138C /* WECommetViewController.xib in Resources */,
@@ -3015,13 +2998,12 @@
 				57FEBD171EB8E884008D6AE1 /* EaseMessageTimeCell.m in Sources */,
 				5D793B211E1B429100236506 /* AppDelegate.m in Sources */,
 				57FEBD101EB8E884008D6AE1 /* EaseRefreshTableViewController.m in Sources */,
-				57C99A0B1E8D633300E3E90D /* WalletDetailUseModel.m in Sources */,
+				FCB669BA1EDC633F00EA5822 /* WalletDetailVC.m in Sources */,
 				57FEBD261EB8E884008D6AE1 /* EaseChatBarMoreView.m in Sources */,
 				FCA11FE61ECAD116005C5305 /* UserInfoHeaderView.m in Sources */,
 				5D6F98F01E2F6436001E5D06 /* ImagePickerController.m in Sources */,
 				5D9E49891E2CAD9300B9C88C /* XWPopViewCell.m in Sources */,
 				5D5F6DCF1E237A1800A0D82A /* LoginViewController.m in Sources */,
-				E93175C91E2E2AC400E5FF14 /* WalletDetailInfoTVCell.m in Sources */,
 				E9D5823F1E4D9A190071E88F /* STToolbar.m in Sources */,
 				FCD3AAE31EBCE3B2005AC352 /* AppPublic.m in Sources */,
 				5D6F98F51E2F69AD001E5D06 /* WEChooseCell.m in Sources */,
@@ -3195,11 +3177,11 @@
 				FCD3AA8F1EBC8599005AC352 /* AppDelegate+EaseMob.m in Sources */,
 				FC875F9D1ECD438600158552 /* AppPickerView.m in Sources */,
 				5D793B711E1B488000236506 /* WEYourMsgController.m in Sources */,
-				E9415ACC1E2FC6C5002325A0 /* WalletDetailUseVC.m in Sources */,
 				FCB7EC1D1ECC7FDC0059D409 /* TZImageManager.m in Sources */,
 				57FEBCB91EB8E884008D6AE1 /* EMCDDeviceManager+Remind.m in Sources */,
 				579324FF1E8C03B800A0BC73 /* NSDictionary+HYBUnicodeReadable.m in Sources */,
 				5D9E499F1E2CBDBC00B9C88C /* WERecoderView.m in Sources */,
+				FCB669BD1EDC666000EA5822 /* TwiceDetailCell.m in Sources */,
 				57FEBD211EB8E884008D6AE1 /* EaseChatToolbarItem.m in Sources */,
 				5D9062431E641D5C00200C7F /* base64.m in Sources */,
 				FCD3AA921EBC875A005AC352 /* ChatDemoHelper.m in Sources */,

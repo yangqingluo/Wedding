@@ -128,3 +128,14 @@ typedef enum {
 @property (strong, nonatomic) NSString *isMessageRead;
 
 @end
+
+@interface UserWalletDetailData : AppType
+
+@property (strong, nonatomic) NSString *balance;
+@property (strong, nonatomic) NSString *consumeAmount;
+@property (strong, nonatomic) NSString *consumeContent;
+@property (strong, nonatomic) NSString *time;
+@property (strong, nonatomic) NSString *userId;
+@property (strong, nonatomic) NSString *vipEndTime;
+
+@end

@@ -138,8 +138,7 @@
 #define TOKEN                   @"token"
 #define USERID                  @"userId"
 
-#define IMGURL(__x__) [@"http://pandaouba.oss-cn-shanghai.aliyuncs.com/image/" stringByAppendingString:__x__]
-#define HTTP_BASE_URL @"http://123.207.120.62:80"
+#define HTTP_BASE_URL @"https://qqyzww.cn"
 #define BASEURL(__xx__) [HTTP_BASE_URL stringByAppendingString:__xx__]
 #define QJRefreshToken @"QJRefreshToken"
 

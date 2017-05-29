@@ -200,3 +200,8 @@
 
 
 @end
+
+@implementation UserWalletDetailData
+
+
+@end

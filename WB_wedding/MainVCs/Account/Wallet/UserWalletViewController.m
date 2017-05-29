@@ -7,7 +7,7 @@
 //
 
 #import "UserWalletViewController.h"
-#import "WalletDetailUseVC.h"
+#import "WalletDetailVC.h"
 #import "WalletPayVC.h"
 
 #import "LoveCoinRechargeVC.h"
@@ -58,7 +58,8 @@
 }
 
 - (void)detailAction{
-    [self.navigationController pushViewController:[WalletDetailUseVC new] animated:YES];
+    WalletDetailVC *vc = [WalletDetailVC new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)pullUserData{
