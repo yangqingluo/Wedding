@@ -36,24 +36,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.view addSubview:self.headView];
     [self setupNav];
     
     [self pullTimeEvent];
 }
 
 - (void)setupNav {
-    [self createNavWithTitle:nil createMenuItem:^UIView *(int nIndex){
+    [self createNavWithTitle:@"时间轴" createMenuItem:^UIView *(int nIndex){
         if (nIndex == 0){
-            UIButton *btn = NewBackButton(navigationBarColor);
+            UIButton *btn = NewBackButton(nil);
             [btn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
             return btn;
         }
         else if (nIndex == 1) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             UIImage *i = [UIImage imageNamed:@"bottom_location"];
-            [btn setImage:[i imageWithColor:navigationBarColor] forState:UIControlStateNormal];
+            [btn setImage:[i imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
             [btn setFrame:CGRectMake(screen_width - 64, 0, 64, 44)];
             [btn addTarget:self action:@selector(locateButtonAction) forControlEvents:UIControlEventTouchUpInside];
             
@@ -62,8 +60,6 @@
         
         return nil;
     }];
-    
-    self.navigationBarView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)goBack{
@@ -185,7 +181,8 @@
 
 
 - (void)refreshSubviews{
-    self.tableView.frame = CGRectMake(0, self.headView.bottom, screen_width, screen_height - self.headView.bottom);
+    self.tableView.tableHeaderView = self.headView;
+    
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //设置下拉刷新回调
@@ -198,11 +195,11 @@
     [btn setTitle:@"记录" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:14.0];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.frame = CGRectMake(KScreenWidth - 45, self.headView.bottom - 20, 40, 40);
+    btn.frame = CGRectMake(self.headView.width - 45, self.headView.height - 20, 40, 40);
     btn.backgroundColor = KNaviBarTintColor;
     [AppPublic roundCornerRadius:btn];
     [btn addTarget:self action:@selector(recordButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    [self.headView addSubview:btn];
     
     [self refreshHeaderView];
 }
