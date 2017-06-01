@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *picContentView;
 @property (weak, nonatomic) IBOutlet UITextField *adressTextFile;
 
-@property (nonatomic,strong)PhotoPickerView   *piView;
+@property (strong, nonatomic) PhotoPickerView   *piView;
 
 
 @end
@@ -29,18 +29,16 @@
 }
 - (void)configUserInterface{
     self.title = @"记录时间轴";
-    WS;
+    QKWEAKSELF;
     [self setNavigationRightBtnWithTitle:@"确定" actionBack:^{
         if (_titleLable.text.length&&self.textView.text.length&&self.adressTextFile.text.length) {
-            [weakSelf postTimeLine:weakSelf.adressTextFile.text tile:weakSelf.titleLable.text note:weakSelf.textView.text];
+            [weakself postTimeLine:weakself.adressTextFile.text tile:weakself.titleLable.text note:weakself.textView.text];
                      
         }else{
-            [weakSelf showMessage:@"请填写完所有的信息" toView:weakSelf.view];
+            [weakself showMessage:@"请填写完所有的信息" toView:weakself.view];
             return;
             
         }
-        
-        
         
     }];
     self.piView = [[PhotoPickerView alloc]initWithFrame:CGRectMake(15, 0, KScreenWidth-30,90) itemMargin:15 viewController:self maxChoose:9 holderImageName:@"xw_post"];
@@ -56,99 +54,41 @@
 }
 #pragma mark -- 发布
 - (void)postTimeLine:(NSString *)location tile:(NSString *)title note:(NSString *)note{
+    [self showHudInView:self.view hint:nil];
     
-    [self showActivity];
-    
-    NSString *lo = [KUserDefaults objectForKey:@"locationCity"];
-    if ([lo isEqualToString:@""]||lo == nil) {
-        lo =@"";
-    }
-  
-    NSDictionary *dic = @{
-                          @"timeEventId":self.infoDic[@"id"],
+    NSDictionary *m_dic = @{@"timeEventId":self.data.ID,
                           @"location":location,
                           @"title":title,
-                          @"city":lo,
+                          @"city":[AppPublic getInstance].locationCity,
                           @"note":note,
-                          @"sex":[XWUserModel getUserInfoFromlocal].sex,
+                          @"sex":[AppPublic getInstance].userData.sex,
                           };
+    
+    NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:self.piView.selectedPhotos.count];
+    for (UIImage *image in self.piView.selectedPhotos) {
+        [imageArray addObject:dataOfImageCompression(image, NO)];
+    }
+    
+    QKWEAKSELF;
+    [[QKNetworkSingleton sharedManager] pushImages:imageArray Parameters:m_dic URLFooter:@"/timeevent/createcontent" completion:^(id responseBody, NSError *error){
+        [weakself hideHud];
         
-    AFHTTPSessionManager  * manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",nil];
-    manager.requestSerializer.timeoutInterval = 10.0;
-    [manager.securityPolicy setAllowInvalidCertificates:YES];
-    //        manager.allowsInvalidSSLCertificate = YES;
-    
-    //    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
-    AFHTTPRequestSerializer  *requestSerializer = [AFHTTPRequestSerializer serializer];
-    
-    //    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    //
-    //    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    manager.requestSerializer = requestSerializer;
-    
-    manager.securityPolicy.allowInvalidCertificates=YES;
-    
-    manager.responseSerializer.acceptableContentTypes =
-    
-    [NSSet setWithObjects:@"text/html",@"text/json", nil];
-    
-    // 设置MIME格式
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",nil];
-    
-    
-    [manager POST:BASEURL(@"/timeevent/createcontent") parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        int idx = 0;
-        for (UIImage *image in self.piView.selectedPhotos) {
-            idx ++;
-            NSData *data= UIImageJPEGRepresentation(image, 0.3);
-            [formData appendPartWithFileData:data name:@"file" fileName:[NSString stringWithFormat:@"picflie%ld.jpg",(long)idx] mimeType:@"image/jpeg"];
-            
-            
+        if (!error) {
+            if (isHttpSuccess([responseBody[@"success"] intValue])) {
+                [KNotiCenter postNotificationName:kNotification_PushTimeLine object:nil];
+                [weakself.navigationController popViewControllerAnimated:YES];
+            }
+            else {
+                [weakself showHint:responseBody[@"msg"]];
+            }
+        }
+        else{
+            [weakself showHint:@"网络出错"];
         }
         
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
+    } withUpLoadProgress:^(float progress){
         
-        
-        
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
-        [self cancleActivity];
-        [self showMessage:@"发布成功" toView:self.view];
-        [KNotiCenter postNotificationName:@"PostSuccess" object:nil];
-        
-        
-        [self.navigationController popViewControllerAnimated:YES];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self cancleActivity];
-        [self showMessage:error.description toView:self.view];
-
     }];
-    
-   
-
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

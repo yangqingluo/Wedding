@@ -49,7 +49,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = kRGBColor(238, 238, 238);
     /**
-     *  房子自定义转场动画导致右滑失效
+     *  防止自定义转场动画导致右滑失效
      */
 //    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     [self setUpNavigationBar];
@@ -185,31 +185,29 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:13];
+    btn.titleLabel.font = [UIFont systemFontOfSize:appButtonTitleFontSize];
     [btn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.baseNavigationBar addSubview:btn];
-    CGSize size = [title boundingRectWithSize:CGSizeMake(KScreenWidth, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size;
+    CGSize size = [title boundingRectWithSize:CGSizeMake(KScreenWidth, 44) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:btn.titleLabel.font} context:nil].size;
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.baseNavigationBar);
         make.height.width.mas_equalTo(size.width);
-        make.right.mas_equalTo(self.baseNavigationBar.mas_right).offset(-20);
+        make.right.mas_equalTo(self.baseNavigationBar.mas_right).offset(-kEdge);
     }];
 }
 
 - (void)setNavigationRightBtnWithTitle:(NSString *)title selecterBack:(SEL)sel {
-    
-    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    btn.titleLabel.font = [UIFont systemFontOfSize:appButtonTitleFontSize];
     [btn addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
     [self.baseNavigationBar addSubview:btn];
-    CGSize size = [title boundingRectWithSize:CGSizeMake(KScreenWidth, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil].size;
+    CGSize size = [title boundingRectWithSize:CGSizeMake(KScreenWidth, 44) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:btn.titleLabel.font} context:nil].size;
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.baseNavigationBar);
         make.height.width.mas_equalTo(size.width);
-        make.right.mas_equalTo(self.baseNavigationBar.mas_right).offset(-20);
+        make.right.mas_equalTo(self.baseNavigationBar.mas_right).offset(-kEdge);
     }];
 }
 

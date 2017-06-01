@@ -42,12 +42,12 @@
     self.tabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tabelView.rowHeight = 60;
     
-    WS;
+    QKWEAKSELF;
     [self setNavigationRightBtnWithTitle:@"保存" actionBack:^{
         NSMutableString *resultStr = [NSMutableString string];
         for (int i = 0; i < self.dataSouce.count ; i ++) {
             NSIndexPath *path = [NSIndexPath indexPathForRow:i inSection:0];
-            WEMyAskCell *cell = [weakSelf.tabelView cellForRowAtIndexPath:path];
+            WEMyAskCell *cell = [weakself.tabelView cellForRowAtIndexPath:path];
             if (cell.textFiled.text.length < 1 && i < 3) {
                 SVPERROR(@"至少输入三项");
                 return ;
@@ -59,7 +59,7 @@
             [resultStr deleteCharactersInRange:NSMakeRange(resultStr.length - 1, 1)];
             if (self.blockAskBlock) {
                 self.blockAskBlock(resultStr);
-                [weakSelf.navigationController popViewControllerAnimated:YES];
+                [weakself.navigationController popViewControllerAnimated:YES];
             }
         }
         

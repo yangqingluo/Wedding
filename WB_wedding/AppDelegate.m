@@ -20,6 +20,9 @@
 #import "AppDelegate+EaseMob.h"
 #import "EaseSDKHelper.h"
 
+
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
+
 #import "WEMarchTool.h"
 // 引入JPush功能所需头文件
 #import "JPUSHService.h"
@@ -32,11 +35,13 @@
 static NSString *const MOB_AppKey = @"1b12a4df0aba0";
 static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
 
-@interface AppDelegate ()<JPUSHRegisterDelegate,CLLocationManagerDelegate,BMKGeoCodeSearchDelegate>{
-    CLLocationManager *locationManager;
-    CLLocation        *newLocation;
-    CLLocationCoordinate2D coordinate;
-}
+@interface AppDelegate ()<JPUSHRegisterDelegate>
+
+/**
+ *  百度地图管理者
+ */
+@property (nonatomic,strong)BMKMapManager       *mapManager;
+
 
 @end
 
@@ -48,7 +53,6 @@ static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
 //    [self configKeyBorad];
     [self configMOB];
     [self configBaiduMap];
-    [self configLocation];
     
     NSString *apnsCertName = nil;
 #if DEBUG
@@ -59,7 +63,6 @@ static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    [[AppPublic getInstance] updateLocation];
     if ([AppPublic getInstance].userData) {
         [[AppPublic getInstance] goToMainVC];
     }
@@ -74,10 +77,6 @@ didFinishLaunchingWithOptions:launchOptions
                       appkey:@"1187170107178654#qqyzww"
                 apnsCertName:apnsCertName
                  otherConfig:@{kSDKConfigEnableConsoleLogger:@NO,@"easeSandBox":@NO}];
-    
-    NSTimer *time = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(ffff) userInfo:nil repeats:YES];
-    [[NSRunLoop  currentRunLoop] addTimer:time  forMode:NSDefaultRunLoopMode];
-    
     
     //Required
     //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
@@ -143,126 +142,7 @@ didFinishLaunchingWithOptions:launchOptions
     NSLog(@"iiiiiiiiiiiiiiiiiiii收到自定义通知(非APNS):%@",noti.userInfo);
 }
 
-#pragma mark -- 配置定位
-- (void)configLocation{
-//    locationManager=[[CLLocationManager alloc] init];
-//    locationManager.delegate = self;
-//    locationManager.desiredAccuracy = kCLLocationAccuracyBest;//设置定位精度
-//    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
-//        [locationManager requestWhenInUseAuthorization];
-//    }
-//    
-//    if(![CLLocationManager locationServicesEnabled]){
-//        NSLog(@"请开启定位:设置 > 隐私 > 位置 > 定位服务");
-//    }
-//    if([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-//        [locationManager requestWhenInUseAuthorization]; //使用中授权
-//    }
-//    locationManager.pausesLocationUpdatesAutomatically = NO;
-//    [locationManager startUpdatingLocation];
-    
-}
-
-#pragma mark 定位成功
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    newLocation = [locations lastObject];
-    double lat = newLocation.coordinate.latitude;
-    double lon = newLocation.coordinate.longitude;
-    NSLog(@"lat:%f,lon:%f",lat,lon);
-    
-    [KUserDefaults setObject:[NSString stringWithFormat:@"%f",lat] forKey:KLat];
-    [KUserDefaults setObject:[NSString stringWithFormat:@"%f",lon] forKey:KLng];
-    
-    
-    ///反geo检索信息类
-    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
-    // 定位到用户位置后才去 地理编码啊
-    self.geocodesearch = [[BMKGeoCodeSearch alloc]init];
-    self.geocodesearch.delegate = self;
-    
-    reverseGeocodeSearchOption.reverseGeoPoint = newLocation.coordinate;
-    BOOL flag = [self.geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
-    if (flag) {
-        NSLog(@"反geo检索发送成功");
-    }
-    else{
-        NSLog(@"反geo检索发送失败");
-    }
-    
-}
-
-
-#pragma mark -- 百度地图代理
-/**
- *返回反地理编码搜索结果
- *@param searcher 搜索对象
- *@param result 搜索结果
- *@param error 错误号，@see BMKSearchErrorCode
- */
-- (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
-    if (error == BMK_SEARCH_NO_ERROR) {
-        NSLog(@"当前定位城市是：%@",result.addressDetail.city);
-        [KUserDefaults setObject:result.addressDetail.city forKey:@"locationCity"];
-        [locationManager stopUpdatingLocation];
-    }
-}
-
-
-#pragma mark 定位失败
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    NSLog(@"error:%@",error);
-}
-
-- (void)ffff{
-    //    // 上传位置
-    
-    XWUserModel *model = [XWUserModel getUserInfoFromlocal];
-    
-    double lat = newLocation.coordinate.latitude;
-    double lon = newLocation.coordinate.longitude;
-    
-    if (model != nil) {
-        NSDictionary *dic = @{
-                              @"userId":model.xw_id,
-                              @"longitude":[NSString stringWithFormat:@"%f",lon],
-                              @"latitude":[NSString stringWithFormat:@"%f",lat]
-                              };
-        
-        
-        AFHTTPSessionManager  * manager = [AFHTTPSessionManager manager];
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",nil];
-        manager.requestSerializer.timeoutInterval = 10.0;
-        [manager.securityPolicy setAllowInvalidCertificates:YES];
-        
-        AFHTTPRequestSerializer  *requestSerializer = [AFHTTPRequestSerializer serializer];
-        
-        
-        manager.requestSerializer = requestSerializer;
-        
-        manager.securityPolicy.allowInvalidCertificates=YES;
-        
-        manager.responseSerializer.acceptableContentTypes =
-        
-        [NSSet setWithObjects:@"text/html",@"text/json", nil];
-        
-        // 设置MIME格式
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",nil];
-        
-        
-        [manager POST:BASEURL(@"/user/updatejingwei") parameters:dic progress:^(NSProgress * _Nonnull uploadProgress) {
-            
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObj) {
-            NSLog(@"刷新地理位置成功 === %@",responseObj);
-            
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
-        }];
-    }
-}
-
-
+#pragma mark 配置百度地图
 - (void)configBaiduMap{
     _mapManager = [[BMKMapManager alloc]init];
     BOOL isSuccess = [_mapManager start:BaiduMapKey generalDelegate:nil];
@@ -270,12 +150,6 @@ didFinishLaunchingWithOptions:launchOptions
         NSLog(@"百度地图管理者初始化失败");
     }
 }
-
-
-- (void)requireLocationRight {
-    [[QJCLLocationTool locationTool] getUserLocation];
-}
-
 
 #pragma mark -- 配置键盘
 - (void)configKeyBorad{

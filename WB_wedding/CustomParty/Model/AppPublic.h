@@ -56,7 +56,7 @@
 #define kCellHeight                  44.0
 #define kCellHeightMiddle            60.0
 
-#define imageDataMax                 1 * 1024 * 1024//图像大小上限
+#define imageDataMax                 300 * 1024//图像大小上限300k
 #define headImageSizeMax             96//头像图像 宽/高 大小上限
 
 #define appButtonTitleFontSize       14.0
@@ -95,6 +95,7 @@ typedef void(^PopDoneBlock)(NSObject *object);
 @property (nonatomic, strong) NSArray *questionnaireLists;//问卷列表
 @property (nonatomic, strong) NSDictionary *infoItemDic;
 @property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, strong) NSString *locationCity;
 
 @property (nonatomic, strong) MainTabNavController *mainTabNav;
 

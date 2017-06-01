@@ -60,17 +60,17 @@ static NSString *const SeperatorCharacter = @"|";
     self.title = self.titless;
  
     if ([self.type isEqualToString:@"all"]) {
-        WS;
+        QKWEAKSELF;
         [self setNavigationRightBtnWithTitle:@"保存" actionBack:^{
-            if (weakSelf.seletStringArray.count != 0) {
+            if (weakself.seletStringArray.count != 0) {
                 NSMutableString *name = [NSMutableString string];
-                for (NSString *ss in weakSelf.seletStringArray) {
+                for (NSString *ss in weakself.seletStringArray) {
                     [name appendString:[NSString stringWithFormat:@"%@%@",ss,SeperatorCharacter]];
                 }
                 [name deleteCharactersInRange:NSMakeRange(name.length - 1, 1)];
-                if (weakSelf.back) {
-                    weakSelf.back(name);
-                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                if (weakself.back) {
+                    weakself.back(name);
+                    [weakself.navigationController popViewControllerAnimated:YES];
                 }
 
             } else {

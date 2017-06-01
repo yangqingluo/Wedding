@@ -10,10 +10,16 @@
 #import "UIImage+Color.h"
 #import "FirstPageController.h"
 
-@interface AppPublic()<CLLocationManagerDelegate>
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
+
+@interface AppPublic()<CLLocationManagerDelegate, BMKGeoCodeSearchDelegate>
 
 //定位管理器
 @property (strong, nonatomic) CLLocationManager *locationManager;
+
+//geo搜索服务
+@property (strong, nonatomic) BMKGeoCodeSearch *geoCodeSearch;
 
 @end
 
@@ -39,7 +45,7 @@ __strong static AppPublic  *_singleManger = nil;
     
     self = [super init];
     if (self) {
-        
+        [self updateLocation];
     }
     
     return self;
@@ -138,7 +144,7 @@ __strong static AppPublic  *_singleManger = nil;
         
         if ([CLLocationManager locationServicesEnabled]) {
             _locationManager.delegate = self;
-            _locationManager.distanceFilter = 10000.0;
+            _locationManager.distanceFilter = 500.0;
             _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         }else{
             NSLog(@"定位失败，请确定是否开启定位功能");
@@ -148,6 +154,23 @@ __strong static AppPublic  *_singleManger = nil;
     return _locationManager;
 }
 
+- (BMKGeoCodeSearch *)geoCodeSearch{
+    if (!_geoCodeSearch) {
+        _geoCodeSearch = [BMKGeoCodeSearch new];
+        _geoCodeSearch.delegate = self;
+    }
+    
+    return _geoCodeSearch;
+}
+
+- (NSString *)locationCity{
+    if (!_locationCity) {
+        _locationCity = @"";
+    }
+    
+    return _locationCity;
+}
+
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     CLLocation *cl = [locations lastObject];
@@ -155,11 +178,28 @@ __strong static AppPublic  *_singleManger = nil;
     if (cl) {
         self.location = cl;
 //        [manager stopUpdatingLocation];
+        BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [BMKReverseGeoCodeOption new];
+        reverseGeocodeSearchOption.reverseGeoPoint = cl.coordinate;
+        [self.geoCodeSearch reverseGeoCode:reverseGeocodeSearchOption];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     NSLog(@"定位失败");
+}
+
+#pragma mark -- 百度地图代理
+/**
+ *返回反地理编码搜索结果
+ *@param searcher 搜索对象
+ *@param result 搜索结果
+ *@param error 错误号，@see BMKSearchErrorCode
+ */
+- (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
+    if (error == BMK_SEARCH_NO_ERROR) {
+        NSLog(@"当前定位城市是：%@",result.addressDetail.city);
+        self.locationCity = result.addressDetail.city;
+    }
 }
 
 #pragma public

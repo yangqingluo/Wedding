@@ -32,8 +32,8 @@
         //设置返回Button
         self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.backBtn setImage:[UIImage imageNamed:@"return48_white"] forState:UIControlStateNormal];
-        self.backBtn.frame = CGRectMake(0, 0, 60, 44);
-//         self.backBtn.contentEdgeInsets = UIEdgeInsetsMake(12, 15, 14, 45);
+        self.backBtn.frame = CGRectMake(0, 0, 64, 44);
+        self.backBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -4, 0, 24);
         [self addSubview:self.backBtn];
         [self.backBtn addTarget:self action:@selector(leftBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 

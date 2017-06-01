@@ -34,9 +34,16 @@
 
 @implementation UserTimeLineVC
 
+- (void)dealloc{
+    [KNotiCenter removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
+    
+    // 发布成功 刷新数据
+    [KNotiCenter addObserver:self selector:@selector(refreshData) name:kNotification_PushTimeLine object:nil];
     
     [self pullTimeEvent];
 }
@@ -72,7 +79,7 @@
 
 - (void)recordButtonAction{
     WEPostTimeLineController  *vc = [[WEPostTimeLineController alloc]init];
-    vc.infoDic = [self.data mj_keyValues];
+    vc.data = self.data;
     
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -191,16 +198,6 @@
         [weakself loadFirstPageData];
     }];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"记录" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.frame = CGRectMake(self.headView.width - 45, self.headView.height - 20, 40, 40);
-    btn.backgroundColor = KNaviBarTintColor;
-    [AppPublic roundCornerRadius:btn];
-    [btn addTarget:self action:@selector(recordButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.headView addSubview:btn];
-    
     [self refreshHeaderView];
 }
 
@@ -282,6 +279,16 @@
         _headView.upImageView.frame = _headView.bounds;
         
         [_headView addTarget:self action:@selector(headButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setTitle:@"记录" forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        btn.frame = CGRectMake(_headView.width - 45, _headView.height - 20, 40, 40);
+        btn.backgroundColor = KNaviBarTintColor;
+        [AppPublic roundCornerRadius:btn];
+        [btn addTarget:self action:@selector(recordButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        [_headView addSubview:btn];
     }
     
     return _headView;
@@ -361,7 +368,7 @@
         //编辑后的图片
         UIImage* image = [info objectForKey:UIImagePickerControllerEditedImage];
         //压缩图片
-        NSData *imageData = dataOfImageCompression(image, YES);
+        NSData *imageData = dataOfImageCompression(image, NO);
         
         //如果想之后立刻调用UIVideoEditor,animated不能是YES。最好的还是dismiss结束后再调用editor。
         [picker dismissViewControllerAnimated:YES completion:^{

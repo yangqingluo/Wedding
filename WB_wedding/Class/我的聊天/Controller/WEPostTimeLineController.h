@@ -8,16 +8,15 @@
 
 #import "HQBaseViewController.h"
 
+#define kNotification_PushTimeLine  @"Notification_PushTimeLine"
+
 /**
  *  发布时间轴
  */
 @interface WEPostTimeLineController : HQBaseViewController
-/**
- *  数据 里面有时间轴id
- */
-@property (nonatomic,strong)NSDictionary        *infoDic;
 
 
+@property (strong, nonatomic) UserTimeLineData *data;
 
 
 @end

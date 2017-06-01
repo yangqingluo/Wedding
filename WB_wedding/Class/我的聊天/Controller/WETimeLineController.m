@@ -209,7 +209,7 @@
 #pragma mark -- 记录时间轴
 - (void)btnClick:(UIButton *)sender{
     WEPostTimeLineController  *vc = [[WEPostTimeLineController alloc]init];
-    vc.infoDic = [self.data mj_keyValues];
+    vc.data = self.data;
     
     [self.navigationController pushViewController:vc animated:YES];
     
