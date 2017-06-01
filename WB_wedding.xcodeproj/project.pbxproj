@@ -1725,6 +1725,7 @@
 				FC4663741EDF237C005C4C04 /* WB_wedding.entitlements */,
 				5D793B1F1E1B429100236506 /* AppDelegate.h */,
 				5D793B201E1B429100236506 /* AppDelegate.m */,
+				FCD3AA8C1EBC8599005AC352 /* AppEaseMob */,
 				FCD3AB031EBD72CE005AC352 /* MainVCs */,
 				FCD3AAC21EBCE3B2005AC352 /* CustomParty */,
 				FCA9C1651EC594A20003ECCF /* ThirdParty */,
@@ -1733,7 +1734,6 @@
 				5D793B551E1B47A100236506 /* customView */,
 				5D793B4E1E1B44DE00236506 /* Vendor */,
 				5D793B331E1B447E00236506 /* Class */,
-				FCD3AA8C1EBC8599005AC352 /* AppEaseMob */,
 				5D793B1C1E1B429100236506 /* Supporting Files */,
 			);
 			path = WB_wedding;
@@ -2791,7 +2791,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;

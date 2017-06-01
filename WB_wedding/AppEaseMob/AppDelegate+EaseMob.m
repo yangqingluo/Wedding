@@ -36,10 +36,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     [ChatDemoHelper shareHelper];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(loginStateChange:)
-//                                                 name:kLoginStatus
-//                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginStateChange:)
+                                                 name:kNotification_Login
+                                               object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(EaseMobLoginStateChange:)
                                                  name:KNOTIFICATION_LOGINCHANGE
@@ -90,7 +90,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         return;
     }
     
-//    [self EMloginWithUsername:newChatMemberIDWithID([AppPublic shareInstanceApp].UserInfo.ID) password:[AppPublic shareInstanceApp].UserInfo.ChatId];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [self EMloginWithUsername:[ud objectForKey:kUserName] password:EMPassword];
 }
 
 - (void)EaseMobLoginStateChange:(NSNotification *)notification{
@@ -99,10 +100,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
     }
     else{
-//        [[AppPublic shareInstanceApp]logOut];
-//        [[AppPublic shareInstanceApp]goToLoginCompletion:^{
-//            
-//        }];
+        [[AppPublic getInstance] logOut];
     }
 }
 
@@ -117,7 +115,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 [[EMClient sharedClient].options setIsAutoLogin:YES];
                 
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    [[EMClient sharedClient] dataMigrationTo3];
+//                    [[EMClient sharedClient] migrateDatabaseToLatestSDK];//直接使用3.0，不需要迁移
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [[ChatDemoHelper shareHelper] asyncGroupFromServer];
                         [[ChatDemoHelper shareHelper] asyncConversationFromDB];
@@ -129,7 +127,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                         [self saveLastLoginUsername];
                     });
                 });
-            } else {
+            }
+            else {
                 NSLog(@"环信登录出错:%d...",error.code);
                 switch (error.code){
                         //                    case EMErrorNotFound:
@@ -147,6 +146,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                     case EMErrorServerTimeout:
                         //                        TTAlertNoTitle(NSLocalizedString(@"error.connectServerTimeout", @"Connect to the server timed out!"));
                         break;
+                    case EMErrorUserNotFound:{
+                        //未注册
+                        EMError *error = [[EMClient sharedClient] registerWithUsername:username password:password];
+                        if (!error) {
+                            NSLog(@"环信注册成功");
+                        }
+
+                    }
+                        break;
+                        
                     default:
                         //                        TTAlertNoTitle(NSLocalizedString(@"login.fail", @"Login failure"));
                         break;
@@ -157,8 +166,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 #pragma  mark - private
-- (void)saveLastLoginUsername
-{
+- (void)saveLastLoginUsername{
     NSString *username = [[EMClient sharedClient] currentUsername];
     if (username && username.length > 0) {
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -167,8 +175,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     }
 }
 
-- (NSString*)lastLoginUsername
-{
+- (NSString*)lastLoginUsername{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *username = [ud objectForKey:[NSString stringWithFormat:@"em_lastLogin_username"]];
     if (username && username.length > 0) {

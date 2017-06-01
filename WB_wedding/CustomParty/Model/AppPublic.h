@@ -25,6 +25,7 @@
 //图片下载
 #import <SDImageCache.h>
 
+#define kNotification_Login  @"Notification_Login"
 #define kNotification_Update_UserData  @"Notification_Update_UserData"
 
 #define screen_width [UIScreen mainScreen].bounds.size.width

@@ -76,7 +76,7 @@ static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
 didFinishLaunchingWithOptions:launchOptions
                       appkey:@"1187170107178654#qqyzww"
                 apnsCertName:apnsCertName
-                 otherConfig:@{kSDKConfigEnableConsoleLogger:@NO,@"easeSandBox":@NO}];
+                 otherConfig:@{kSDKConfigEnableConsoleLogger:@YES}];
     
     //Required
     //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
@@ -119,11 +119,6 @@ didFinishLaunchingWithOptions:launchOptions
                                                           UIRemoteNotificationTypeSound |
                                                           UIRemoteNotificationTypeAlert)
                                               categories:nil];
-    }
-    
-    if (IOS_VERSION >= 8.0) {
-        //注册远端消息通知获取device token
-        [application registerForRemoteNotifications];
     }
     
     return YES;

@@ -424,15 +424,23 @@ NSString *stringFromDate(NSDate *date, NSString *format){
 }
 
 - (void)logOut{
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud removeObjectForKey:kUserData];
-    _userData = nil;
-    
-    self.mainTabNav = nil;
-    [self goToLoginCompletion:^{
-        
-    }];
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        EMError *error = [[EMClient sharedClient] logout:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                NSLog(@"环信登出出错:%u",error.code);
+            }
+            [[EMClient sharedClient].options setIsAutoLogin:NO];
+            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+            [ud removeObjectForKey:kUserData];
+            _userData = nil;
+            
+            self.mainTabNav = nil;
+            [self goToLoginCompletion:^{
+                
+            }];
+        });
+    });
 }
 
 - (void)loginDoneWithUserData:(NSDictionary *)data username:(NSString *)username password:(NSString *)password{

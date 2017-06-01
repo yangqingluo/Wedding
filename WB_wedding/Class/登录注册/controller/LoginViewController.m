@@ -8,9 +8,6 @@
 
 #import "LoginViewController.h"
 #import "WECodeLoginController.h"
-#import "EMClient.h"
-
-#import "WELoginTool.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *logingBtn;
@@ -61,16 +58,7 @@
             
             if (!error) {
                 if (isHttpSuccess([responseBody[@"success"] intValue])) {
-                    EMError *error = [[EMClient sharedClient] loginWithUsername:self.usernameTextField.text password:EMPassword];
-                    if (!error || error.code == EMErrorUserAlreadyLogin) {
-                        [[EMClient sharedClient].options setIsAutoLogin:YES];
-                    } else if (error.code == EMErrorUserNotFound) {
-                        //未注册
-                        EMError *error = [[EMClient sharedClient] registerWithUsername:self.usernameTextField.text password:EMPassword];
-                        if (!error) {
-                            NSLog(@"环信注册成功");
-                        }
-                    }
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_Login object:nil];
                 }
                 else {
                     [weakself showHint:responseBody[@"msg"]];

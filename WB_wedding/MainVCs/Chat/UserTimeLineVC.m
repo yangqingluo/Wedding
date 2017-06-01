@@ -277,7 +277,6 @@
         _headView = [[UDImageLabelButton alloc]initWithFrame:CGRectMake(0, 0, screen_width, screen_width * 210.0 / 375.0)];
         _headView.upImageView.image = [UIImage imageNamed:downloadImagePlace];
         _headView.upImageView.frame = _headView.bounds;
-        
         [_headView addTarget:self action:@selector(headButtonAction) forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
