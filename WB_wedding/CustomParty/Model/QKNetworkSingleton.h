@@ -46,7 +46,7 @@ NSURL *imageURLWithPath(NSString *path);
 - (BOOL)downLoadFileWithOperations:(NSDictionary *)operations withSavaPath:(NSString *)savePath withUrlString:(NSString *)urlString completion:(QKNetworkBlock)completion withDownLoadProgress:(Progress)progress;
 
 //上传一组图片
-- (void)pushImages:(NSArray *)imageDataArray Parameters:(NSDictionary *)parameters completion:(QKNetworkBlock)completion withUpLoadProgress:(Progress)progress;
+- (void)pushImages:(NSArray *)imageDataArray Parameters:(NSDictionary *)parameters URLFooter:(NSString *)urlString completion:(QKNetworkBlock)completion withUpLoadProgress:(Progress)progress;
 
 //login
 - (void)loginWithID:(NSString *)username Password:(NSString *)password LoginType:(int)loginType completion:(QKNetworkBlock)completion;

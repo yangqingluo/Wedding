@@ -9,7 +9,6 @@
 #import "SomeOneLikeViewController.h"
 #import "UserInfoVC.h"
 
-#import "BlockAlertView.h"
 #import "SomeOneLikeCell.h"
 
 @interface SomeOneLikeViewController (){

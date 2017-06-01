@@ -11,7 +11,6 @@
 #import "WEChangePwdController.h"
 
 #import "WESettingHeadeView.h"
-#import "BlockAlertView.h"
 
 @interface UserSettingVC ()
 

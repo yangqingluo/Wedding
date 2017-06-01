@@ -9,7 +9,6 @@
 
 #import "UIImage+Color.h"
 #import "FirstPageController.h"
-#import "BlockAlertView.h"
 
 @interface AppPublic()<CLLocationManagerDelegate>
 

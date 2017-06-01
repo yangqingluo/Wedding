@@ -292,6 +292,7 @@
 		FCA11FF01ECB35B1005C5305 /* NSData+HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FEF1ECB35B1005C5305 /* NSData+HTTPRequest.m */; };
 		FCA3BB731EDFBB5E0005EC5E /* UserTimeLineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3BB721EDFBB5E0005EC5E /* UserTimeLineVC.m */; };
 		FCA3BB761EDFC3600005EC5E /* TimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3BB751EDFC3600005EC5E /* TimeLineCell.m */; };
+		FCA3BB791EDFDEA30005EC5E /* BlockActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3BB781EDFDEA30005EC5E /* BlockActionSheet.m */; };
 		FCA9C1471EC4C1FA0003ECCF /* infoItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */; };
 		FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */; };
 		FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */; };
@@ -974,6 +975,8 @@
 		FCA3BB721EDFBB5E0005EC5E /* UserTimeLineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTimeLineVC.m; sourceTree = "<group>"; };
 		FCA3BB741EDFC3600005EC5E /* TimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineCell.h; sourceTree = "<group>"; };
 		FCA3BB751EDFC3600005EC5E /* TimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineCell.m; sourceTree = "<group>"; };
+		FCA3BB771EDFDEA30005EC5E /* BlockActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockActionSheet.h; sourceTree = "<group>"; };
+		FCA3BB781EDFDEA30005EC5E /* BlockActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockActionSheet.m; sourceTree = "<group>"; };
 		FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = infoItems.txt; sourceTree = "<group>"; };
 		FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
@@ -2658,6 +2661,8 @@
 			children = (
 				FCD3AAD41EBCE3B2005AC352 /* AppActivity.h */,
 				FCD3AAD51EBCE3B2005AC352 /* AppActivity.m */,
+				FCA3BB771EDFDEA30005EC5E /* BlockActionSheet.h */,
+				FCA3BB781EDFDEA30005EC5E /* BlockActionSheet.m */,
 				FCD3AADA1EBCE3B2005AC352 /* UDImageLabelButton.h */,
 				FCD3AADB1EBCE3B2005AC352 /* UDImageLabelButton.m */,
 				FCD3AADC1EBCE3B2005AC352 /* UIButton+ImageAndText.h */,
@@ -3066,6 +3071,7 @@
 				57FEBD081EB8E884008D6AE1 /* EaseEmoji.m in Sources */,
 				5D746A591E2E0DCD001FE1A1 /* WEMyAskCell.m in Sources */,
 				57C99A0E1E8D686A00E3E90D /* NSString+WETime.m in Sources */,
+				FCA3BB791EDFDEA30005EC5E /* BlockActionSheet.m in Sources */,
 				57FEBD221EB8E884008D6AE1 /* EaseImageView.m in Sources */,
 				57FEBD051EB8E884008D6AE1 /* EaseChineseToPinyin.m in Sources */,
 				5DBBF9B41E55519900DB716E /* WEPostTimeLineController.m in Sources */,

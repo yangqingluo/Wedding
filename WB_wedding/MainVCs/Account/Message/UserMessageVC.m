@@ -10,7 +10,6 @@
 #import "MessageDetailVC.h"
 
 #import "ImageViewCell.h"
-#import "BlockAlertView.h"
 
 @interface UserMessageVC ()<SWTableViewCellDelegate>{
     NSUInteger currentPage;

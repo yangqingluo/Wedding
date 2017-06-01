@@ -12,7 +12,6 @@
 
 #import "TitleAndDetailTextCell.h"
 #import "QKBaseCollectionViewCell.h"
-#import "BlockAlertView.h"
 #import "AppPickerView.h"
 #import "AppDatePickerView.h"
 
@@ -159,7 +158,7 @@ static NSString *identify = @"assetSelectedCell";
     [self showHudInView:self.view hint:nil];
     
     QKWEAKSELF
-    [[QKNetworkSingleton sharedManager] pushImages:@[data] Parameters:@{@"userId":self.userData.ID, @"oldFileName":@"0"} completion:^(id responseBody, NSError *error){
+    [[QKNetworkSingleton sharedManager] pushImages:@[data] Parameters:@{@"userId":self.userData.ID, @"oldFileName":@"0"} URLFooter:@"/user/uploadimg" completion:^(id responseBody, NSError *error){
         [weakself hideHud];
         
         if (!error) {

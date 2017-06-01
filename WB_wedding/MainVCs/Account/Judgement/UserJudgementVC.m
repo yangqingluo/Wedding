@@ -9,7 +9,6 @@
 #import "UserJudgementVC.h"
 
 #import "ImageViewCell.h"
-#import "BlockAlertView.h"
 
 @interface UserJudgementVC ()<UITextFieldDelegate, SWTableViewCellDelegate>{
     NSUInteger currentPage;

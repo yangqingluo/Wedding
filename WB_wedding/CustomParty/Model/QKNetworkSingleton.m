@@ -206,12 +206,11 @@ NSString *httpRespString(NSError *error, NSObject *object){
 }
 
 //上传一组图片
-- (void)pushImages:(NSArray *)imageDataArray Parameters:(NSDictionary *)parameters completion:(QKNetworkBlock)completion withUpLoadProgress:(Progress)progress;{
+- (void)pushImages:(NSArray *)imageDataArray Parameters:(NSDictionary *)parameters URLFooter:(NSString *)urlString completion:(QKNetworkBlock)completion withUpLoadProgress:(Progress)progress{
     if (imageDataArray.count == 0) {
         return;
     }
     
-    NSString *urlString = @"/user/uploadimg";
     AFHTTPSessionManager *manager = [self baseHttpRequestWithParm:nil andSuffix:urlString];
     NSString *urlStr = [urlStringWithService(urlString) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [manager POST:urlStr parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {

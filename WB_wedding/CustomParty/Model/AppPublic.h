@@ -11,6 +11,8 @@
 #import "UIView+KGViewExtend.h"
 #import "MainTabNavController.h"
 #import "EaseUI.h"
+#import "BlockAlertView.h"
+#import "BlockActionSheet.h"
 
 //布局
 #import <Masonry.h>

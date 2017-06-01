@@ -10,7 +10,6 @@
 #import "UserInfoVC.h"
 
 #import "LettersCollectionViewCell.h"
-#import "BlockAlertView.h"
 
 static NSString *identify_letters = @"lettersCell";
 

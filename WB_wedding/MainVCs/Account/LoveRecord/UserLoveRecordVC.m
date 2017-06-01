@@ -9,7 +9,6 @@
 #import "UserLoveRecordVC.h"
 
 #import "ImageViewCell.h"
-#import "BlockAlertView.h"
 
 @interface UserLoveRecordVC()<UITextFieldDelegate>{
     NSUInteger currentPage;

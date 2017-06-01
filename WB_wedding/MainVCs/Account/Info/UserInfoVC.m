@@ -13,7 +13,6 @@
 #import "UserInfoHeaderView.h"
 #import "TitleAndDetailTextCell.h"
 #import "CheckQuestionnaireCell.h"
-#import "BlockAlertView.h"
 
 #import "WECommetViewController.h"
 
