@@ -41,6 +41,9 @@
     [self.view bringSubviewToFront:self.baseNavigationBar];
     [self.view bringSubviewToFront:self.statusView];
 
+    self.phoneTf.keyboardType = UIKeyboardTypeNumberPad;
+    self.verifyTf.keyboardType = UIKeyboardTypeNumberPad;
+    
     _tfAr = @[_phoneTf,_verifyTf,_passwordTf,_surePwdTf];
     for (UITextField *tf in _tfAr) {
         tf.delegate = self;
@@ -166,6 +169,22 @@
     WECompletInfoController *vc = [[WECompletInfoController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+
+#pragma  mark - TextField
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSUInteger length = kInputLengthMax;
+    if ([textField isEqual:self.phoneTf]) {
+        length = kPhoneNumberLength;
+    }
+    else if ([textField isEqual:self.passwordTf]) {
+        length = kPasswordLengthMax;
+    }
+    else if ([textField isEqual:self.verifyTf]) {
+        length = kVCodeNumberLength;
+    }
+    
+    return (range.location < length);
 }
 
 

@@ -40,6 +40,7 @@
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     self.usernameTextField.text = [ud objectForKey:kUserName];
+    self.usernameTextField.keyboardType = UIKeyboardTypeNumberPad;
 }
 
 - (IBAction)login:(UIButton *)sender {
