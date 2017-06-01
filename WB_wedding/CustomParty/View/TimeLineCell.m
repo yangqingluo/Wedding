@@ -6,18 +6,18 @@
 //  Copyright © 2017年 龙山科技. All rights reserved.
 //
 
-#import "WETimeLineCell.h"
+#import "TimeLineCell.h"
 #import "UIImage+Color.h"
 
 #define m_height  60.0
 
 #define default_labelFontSize 14.0
 
-@interface WETimeLineCell ()
+@interface TimeLineCell ()
 
 @end
 
-@implementation WETimeLineCell
+@implementation TimeLineCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

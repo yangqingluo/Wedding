@@ -201,7 +201,6 @@
 		5D9E498C1E2CAF8000B9C88C /* WEMyChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9E498B1E2CAF8000B9C88C /* WEMyChatController.xib */; };
 		5D9E498F1E2CB3AF00B9C88C /* WETestChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E498E1E2CB3AF00B9C88C /* WETestChatViewController.m */; };
 		5D9E49921E2CB48600B9C88C /* WETimeLineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E49911E2CB48600B9C88C /* WETimeLineController.m */; };
-		5D9E49961E2CB66400B9C88C /* WETimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E49941E2CB66400B9C88C /* WETimeLineCell.m */; };
 		5D9E499A1E2CB8A300B9C88C /* WETimeLineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E49991E2CB8A300B9C88C /* WETimeLineHeaderView.m */; };
 		5D9E499C1E2CB8AF00B9C88C /* WETimeLineHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9E499B1E2CB8AF00B9C88C /* WETimeLineHeaderView.xib */; };
 		5D9E499F1E2CBDBC00B9C88C /* WERecoderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E499E1E2CBDBC00B9C88C /* WERecoderView.m */; };
@@ -292,6 +291,7 @@
 		FCA11FED1ECB02FD005C5305 /* cell_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA11FEC1ECB02FD005C5305 /* cell_delete@2x.png */; };
 		FCA11FF01ECB35B1005C5305 /* NSData+HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FEF1ECB35B1005C5305 /* NSData+HTTPRequest.m */; };
 		FCA3BB731EDFBB5E0005EC5E /* UserTimeLineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3BB721EDFBB5E0005EC5E /* UserTimeLineVC.m */; };
+		FCA3BB761EDFC3600005EC5E /* TimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3BB751EDFC3600005EC5E /* TimeLineCell.m */; };
 		FCA9C1471EC4C1FA0003ECCF /* infoItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */; };
 		FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */; };
 		FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */; };
@@ -813,8 +813,6 @@
 		5D9E498E1E2CB3AF00B9C88C /* WETestChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETestChatViewController.m; sourceTree = "<group>"; };
 		5D9E49901E2CB48600B9C88C /* WETimeLineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETimeLineController.h; sourceTree = "<group>"; };
 		5D9E49911E2CB48600B9C88C /* WETimeLineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETimeLineController.m; sourceTree = "<group>"; };
-		5D9E49931E2CB66400B9C88C /* WETimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETimeLineCell.h; sourceTree = "<group>"; };
-		5D9E49941E2CB66400B9C88C /* WETimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETimeLineCell.m; sourceTree = "<group>"; };
 		5D9E49981E2CB8A300B9C88C /* WETimeLineHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETimeLineHeaderView.h; sourceTree = "<group>"; };
 		5D9E49991E2CB8A300B9C88C /* WETimeLineHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETimeLineHeaderView.m; sourceTree = "<group>"; };
 		5D9E499B1E2CB8AF00B9C88C /* WETimeLineHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WETimeLineHeaderView.xib; sourceTree = "<group>"; };
@@ -974,6 +972,8 @@
 		FCA11FEF1ECB35B1005C5305 /* NSData+HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HTTPRequest.m"; sourceTree = "<group>"; };
 		FCA3BB711EDFBB5E0005EC5E /* UserTimeLineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTimeLineVC.h; sourceTree = "<group>"; };
 		FCA3BB721EDFBB5E0005EC5E /* UserTimeLineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTimeLineVC.m; sourceTree = "<group>"; };
+		FCA3BB741EDFC3600005EC5E /* TimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineCell.h; sourceTree = "<group>"; };
+		FCA3BB751EDFC3600005EC5E /* TimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineCell.m; sourceTree = "<group>"; };
 		FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = infoItems.txt; sourceTree = "<group>"; };
 		FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
@@ -1974,8 +1974,6 @@
 		5D793B471E1B447E00236506 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5D9E49931E2CB66400B9C88C /* WETimeLineCell.h */,
-				5D9E49941E2CB66400B9C88C /* WETimeLineCell.m */,
 				5D9E49981E2CB8A300B9C88C /* WETimeLineHeaderView.h */,
 				5D9E49991E2CB8A300B9C88C /* WETimeLineHeaderView.m */,
 				5D9E499B1E2CB8AF00B9C88C /* WETimeLineHeaderView.xib */,
@@ -2686,6 +2684,8 @@
 				FC875FAC1ECD6E2600158552 /* LongPressFlowLayout.m */,
 				FCB669BB1EDC666000EA5822 /* TwiceDetailCell.h */,
 				FCB669BC1EDC666000EA5822 /* TwiceDetailCell.m */,
+				FCA3BB741EDFC3600005EC5E /* TimeLineCell.h */,
+				FCA3BB751EDFC3600005EC5E /* TimeLineCell.m */,
 				FC3F10A61ECE9421002E2806 /* SomeOneLikeCell.h */,
 				FC3F10A51ECE9421002E2806 /* SomeOneLikeCell.m */,
 				FC3F10A41ECE9421002E2806 /* SomeOneLikeCell.xib */,
@@ -2944,7 +2944,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D746A5E1E2E238F001FE1A1 /* WEBianjiSelfInfoController.m in Sources */,
-				5D9E49961E2CB66400B9C88C /* WETimeLineCell.m in Sources */,
 				5D3814741E4C3EF1009F4553 /* WEHomeCacheTool.m in Sources */,
 				57FEBD141EB8E884008D6AE1 /* EaseBaseMessageCell.m in Sources */,
 				FCB7EC241ECC7FDC0059D409 /* TZVideoPlayerController.m in Sources */,
@@ -2999,6 +2998,7 @@
 				57FEBCBD1EB8E884008D6AE1 /* EMVoiceConverter.mm in Sources */,
 				FC875FC71ECD8E4100158552 /* SWUtilityButtonView.m in Sources */,
 				57FEBCFD1EB8E884008D6AE1 /* EaseConversationModel.m in Sources */,
+				FCA3BB761EDFC3600005EC5E /* TimeLineCell.m in Sources */,
 				5D6F98E21E2F38FB001E5D06 /* TTRangeSlider.m in Sources */,
 				57FEBD021EB8E884008D6AE1 /* NSString+Valid.m in Sources */,
 				57FE2E291E97EDDC003AE287 /* OpenLikeAnswerVC.m in Sources */,

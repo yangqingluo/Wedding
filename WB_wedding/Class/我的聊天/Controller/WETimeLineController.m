@@ -7,7 +7,7 @@
 //
 
 #import "WETimeLineController.h"
-#import "WETimeLineCell.h"
+#import "TimeLineCell.h"
 #import "WETimeLineHeaderView.h"
 #import "WERecoderView.h"
 #import "WEMyChatTool.h"
@@ -359,7 +359,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [WETimeLineCell tableView:tableView heightForRowAtIndexPath:indexPath withData:self.dataSource[indexPath.row]];
+    return [TimeLineCell tableView:tableView heightForRowAtIndexPath:indexPath withData:self.dataSource[indexPath.row]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -373,10 +373,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *cellIndentifier = @"timelineCell";
-    WETimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+    TimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
     
     if (!cell) {
-        cell = [[WETimeLineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+        cell = [[TimeLineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     

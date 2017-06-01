@@ -11,7 +11,7 @@
 /**
  *  时间轴的控制器
  */
-@interface WETimeLineCell : UITableViewCell
+@interface TimeLineCell : UITableViewCell
 
 @property (nonatomic, strong) UIView *tipView;
 @property (nonatomic, strong) UIView *upLineView;

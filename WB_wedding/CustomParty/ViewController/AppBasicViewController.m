@@ -40,6 +40,7 @@
     
     self.navBottomLine = [[UIView alloc]initWithFrame:CGRectMake(0, _navigationBarView.bounds.size.height - 0.5, _navigationBarView.bounds.size.width, 0.5)];
     self.navBottomLine.backgroundColor = separaterColor;
+    self.navBottomLine.hidden = YES;
     [_navigationBarView addSubview:self.navBottomLine];
     
     _navView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, StatusbarSize, self.view.width, 44.f)];

@@ -7,7 +7,8 @@
 //
 
 #import "WETestChatViewController.h"
-#import "WETimeLineController.h"
+#import "UserTimeLineVC.h"
+
 @interface WETestChatViewController ()
 
 @end
@@ -19,7 +20,7 @@
     
     __weak typeof(self)weakSelf = self;
     [self setNavigationRightBtnWithTitle:@"时间轴" actionBack:^{
-        WETimeLineController *vc = [[WETimeLineController alloc]init];
+        UserTimeLineVC *vc = [[UserTimeLineVC alloc]init];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
 }
