@@ -60,6 +60,10 @@ NSString *imageUrlStringWithImagePath(NSString *path){
     return [NSString stringWithFormat:@"%@%@", appImageUrlAddress, path];
 }
 
+NSURL *imageURLWithPath(NSString *path){
+    return [NSURL URLWithString:imageUrlStringWithImagePath(path)];
+}
+
 
 NSString *generateUuidString(){
     // create a new UUID which you own

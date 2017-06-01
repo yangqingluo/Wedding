@@ -291,6 +291,7 @@
 		FCA11FEB1ECB02AF005C5305 /* QKBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FE91ECB02AF005C5305 /* QKBaseCollectionViewCell.m */; };
 		FCA11FED1ECB02FD005C5305 /* cell_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA11FEC1ECB02FD005C5305 /* cell_delete@2x.png */; };
 		FCA11FF01ECB35B1005C5305 /* NSData+HTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA11FEF1ECB35B1005C5305 /* NSData+HTTPRequest.m */; };
+		FCA3BB731EDFBB5E0005EC5E /* UserTimeLineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3BB721EDFBB5E0005EC5E /* UserTimeLineVC.m */; };
 		FCA9C1471EC4C1FA0003ECCF /* infoItems.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */; };
 		FCA9C1531EC4C2730003ECCF /* bottom_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */; };
 		FCA9C1541EC4C2730003ECCF /* cell_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */; };
@@ -971,6 +972,8 @@
 		FCA11FEC1ECB02FD005C5305 /* cell_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_delete@2x.png"; sourceTree = "<group>"; };
 		FCA11FEE1ECB35B1005C5305 /* NSData+HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+HTTPRequest.h"; sourceTree = "<group>"; };
 		FCA11FEF1ECB35B1005C5305 /* NSData+HTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HTTPRequest.m"; sourceTree = "<group>"; };
+		FCA3BB711EDFBB5E0005EC5E /* UserTimeLineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTimeLineVC.h; sourceTree = "<group>"; };
+		FCA3BB721EDFBB5E0005EC5E /* UserTimeLineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTimeLineVC.m; sourceTree = "<group>"; };
 		FCA9C1461EC4C1FA0003ECCF /* infoItems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = infoItems.txt; sourceTree = "<group>"; };
 		FCA9C1491EC4C2730003ECCF /* bottom_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom_location@2x.png"; sourceTree = "<group>"; };
 		FCA9C14A1EC4C2730003ECCF /* cell_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_next@2x.png"; sourceTree = "<group>"; };
@@ -2445,10 +2448,10 @@
 		FC3F10931ECE9325002E2806 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				FC3F10941ECE9325002E2806 /* MessageDetailVC.h */,
-				FC3F10951ECE9325002E2806 /* MessageDetailVC.m */,
 				FC3F10961ECE9325002E2806 /* UserMessageVC.h */,
 				FC3F10971ECE9325002E2806 /* UserMessageVC.m */,
+				FC3F10941ECE9325002E2806 /* MessageDetailVC.h */,
+				FC3F10951ECE9325002E2806 /* MessageDetailVC.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2513,6 +2516,15 @@
 				FC875FC11ECD8E4100158552 /* SWUtilityButtonView.m */,
 			);
 			path = SWTableViewCell;
+			sourceTree = "<group>";
+		};
+		FCA3BB701EDFB2DF0005EC5E /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3BB711EDFBB5E0005EC5E /* UserTimeLineVC.h */,
+				FCA3BB721EDFBB5E0005EC5E /* UserTimeLineVC.m */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		FCA9C1481EC4C2730003ECCF /* Pictures */ = {
@@ -2725,6 +2737,7 @@
 				FCA11FD31EC98B7D005C5305 /* PublicSelectionVC.m */,
 				FCC2C10B1ECDDA47001265F1 /* PublicWebViewController.h */,
 				FCC2C10C1ECDDA47001265F1 /* PublicWebViewController.m */,
+				FCA3BB701EDFB2DF0005EC5E /* Chat */,
 				FC875FA51ECD6D5900158552 /* Letters */,
 				FC875FA11ECD5C1E00158552 /* SomeOneLike */,
 				FCA9C1611EC556B50003ECCF /* Account */,
@@ -2970,6 +2983,7 @@
 				FCB7EC1F1ECC7FDC0059D409 /* TZImagePickerController.m in Sources */,
 				5D3085F81E276E6400CA138C /* WECommentCell.m in Sources */,
 				5D435ABE1E31BE4C00326659 /* JLDragCardView.m in Sources */,
+				FCA3BB731EDFBB5E0005EC5E /* UserTimeLineVC.m in Sources */,
 				FCD3AAFA1EBCE4DC005AC352 /* UIImage+Color.m in Sources */,
 				5D746A1C1E2E0308001FE1A1 /* PhotoPickerCollectionViewCell.m in Sources */,
 				5D15F82D1E4876E8008A6A2F /* WEYourMessageTool.m in Sources */,

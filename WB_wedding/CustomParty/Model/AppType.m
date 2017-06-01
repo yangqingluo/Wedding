@@ -61,6 +61,10 @@
     return nil;
 }
 
+- (BOOL)hasLover{
+    return self.loverId.length > 0;
+}
+
 - (BOOL)isVip{
     if (self.vipEndTime) {
         return [self.vipEndTime longLongValue] > 1000 * [[NSDate date] timeIntervalSince1970];
@@ -202,6 +206,19 @@
 @end
 
 @implementation UserWalletDetailData
+
+
+@end
+
+
+@implementation UserTimeLineData
+
+
+
+@end
+
+@implementation UserTimeLineEventData
+
 
 
 @end

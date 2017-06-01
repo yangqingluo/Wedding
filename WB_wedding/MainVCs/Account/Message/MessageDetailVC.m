@@ -39,14 +39,49 @@
 }
 
 - (void)sendMessageReaded{
+    QKWEAKSELF;
     [[QKNetworkSingleton sharedManager] Get:@{@"messageId":self.messageData.ID} HeadParm:nil URLFooter:@"/mymessage/readmessage" completion:^(id responseBody, NSError *error){
-        
         if (!error) {
             if (isHttpSuccess([responseBody[@"success"] intValue])) {
-                self.messageData.isMessageRead = @"1";
+                weakself.messageData.isMessageRead = @"1";
             }
         }
     }];
+}
+
+- (void)sendMessageGetLove{
+    [self showHudInView:self.view hint:nil];
+    
+    QKWEAKSELF;
+    [[QKNetworkSingleton sharedManager] Get:@{@"myId":[AppPublic getInstance].userData.ID, @"hisOrHerId" : self.messageData.otherId} HeadParm:nil URLFooter:@"/mymessage/getlove" completion:^(id responseBody, NSError *error){
+        [weakself hideHud];
+        
+        if (!error) {
+            if (isHttpSuccess([responseBody[@"success"] intValue])) {
+                
+            }
+            else {
+                [weakself showHint:responseBody[@"msg"]];
+            }
+        }
+        else{
+            [weakself showHint:@"网络出错"];
+        }
+        
+    }];
+}
+
+- (void)acceptButtonAction{
+    switch (self.messageData.msgType) {
+        case UserMessageTypeLove:
+        case UserMessageTypeReLove:{
+            [self sendMessageGetLove];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma tableview
@@ -123,7 +158,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 1) {
-        
+        [self acceptButtonAction];
     }
 }
 

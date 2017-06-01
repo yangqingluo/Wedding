@@ -73,7 +73,7 @@
 
 + (NSString *)showRelationTimeWithTimeString:(NSString *)string;
 
-
+- (BOOL)hasLover;
 - (BOOL)isVip;
 - (NSString *)showStringOfSex;
 - (NSString *)subItemStringWithKey:(NSString *)string;
@@ -137,5 +137,29 @@ typedef enum {
 @property (strong, nonatomic) NSString *time;
 @property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *vipEndTime;
+
+@end
+
+@interface UserTimeLineData : AppType
+
+@property (strong, nonatomic) NSString *backgroundUrl;
+@property (strong, nonatomic) NSString *loversId;
+@property (strong, nonatomic) NSString *relationTime;
+
+@end
+
+@interface UserTimeLineEventData : AppType
+
+@property (strong, nonatomic) NSString *boysNote;
+@property (strong, nonatomic) NSString *city;
+@property (strong, nonatomic) NSString *eventContent;
+@property (strong, nonatomic) NSString *eventTime;
+@property (strong, nonatomic) NSString *girlsNote;
+@property (strong, nonatomic) NSArray *imgArray;
+@property (strong, nonatomic) NSString *imgs;
+@property (strong, nonatomic) NSString *isBoyDelete;
+@property (strong, nonatomic) NSString *isGirlDelete;
+@property (strong, nonatomic) NSString *location;
+@property (strong, nonatomic) NSString *timeEventId;
 
 @end

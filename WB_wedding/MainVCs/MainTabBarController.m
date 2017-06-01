@@ -17,8 +17,8 @@
 
 @interface MainTabBarController ()
 
-@property (nonatomic, strong) NSArray *tabItemArray;
-@property (nonatomic, strong) UIButton *centralButton;
+@property (strong, nonatomic) NSArray *tabItemArray;
+@property (strong, nonatomic) UIButton *centralButton;
 
 @end
 
@@ -142,7 +142,7 @@
 
 #pragma public
 - (void)updateTabBarItemEnabled{
-    BOOL hasLover = ([AppPublic getInstance].userData.loverId.length > 0);
+    BOOL hasLover = [[AppPublic getInstance].userData hasLover];
     
     int i = 0;
     for (UITabBarItem *item in self.tabBar.items) {

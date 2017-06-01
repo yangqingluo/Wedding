@@ -23,6 +23,8 @@ BOOL isHttpSuccess(int state);
 NSString *httpRespString(NSError *error, NSObject *object);
 NSString *urlStringWithService(NSString *service);
 NSString *imageUrlStringWithImagePath(NSString *path);
+NSURL *imageURLWithPath(NSString *path);
+
 
 + (QKNetworkSingleton *)sharedManager;
 

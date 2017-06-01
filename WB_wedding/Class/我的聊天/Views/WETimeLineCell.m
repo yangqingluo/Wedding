@@ -67,9 +67,9 @@
     return self;
 }
 
-+ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withData:(NSDictionary *)data{
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withData:(UserTimeLineEventData *)data{
     
-    NSString *eventString = data[@"eventContent"];
+    NSString *eventString = data.eventContent;
     CGFloat height = [AppPublic textSizeWithString:eventString font:[UIFont systemFontOfSize:14.0] constantWidth:0.5 * screen_width].height;
     
     return MAX(m_height, (height  + kEdgeMiddle) / 0.5);
@@ -89,14 +89,14 @@ NSAttributedString *timelineAddressAttributedString(NSString *city, NSString *ad
 }
 
 #pragma setter
-- (void)setData:(NSDictionary *)data{
+- (void)setData:(UserTimeLineEventData *)data{
     _data = data;
 
-    NSString *eventString = data[@"eventContent"];
+    NSString *eventString = data.eventContent;
     
-    self.addressLabel.attributedText = timelineAddressAttributedString(data[@"city"], [NSString stringWithFormat:@"\t%@", data[@"location"]]);
+    self.addressLabel.attributedText = timelineAddressAttributedString(data.city, [NSString stringWithFormat:@"\t%@", data.location]);
     self.eventLabel.text = eventString;
-    NSString *time = [NSString stringWithFormat:@"%@", data[@"eventTime"]];
+    NSString *time = [NSString stringWithFormat:@"%@", data.eventTime];
     NSDate *date = [[NSDate alloc]initWithTimeIntervalSince1970:[time longLongValue] / 1000.0];
     
     self.timeLabel.text = [NSString stringWithFormat:@"%@\n%@", stringFromDate(date, @"yyyy年MM月dd日"), stringFromDate(date, @"HH: mm")];

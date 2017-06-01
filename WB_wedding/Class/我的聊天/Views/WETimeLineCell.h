@@ -21,9 +21,9 @@
 @property (nonatomic, strong) UILabel *eventLabel;
 @property (nonatomic, strong) UILabel *addressLabel;
 
-@property (nonatomic, strong) NSDictionary *data;
+@property (nonatomic, strong) UserTimeLineEventData *data;
 
-+ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withData:(NSDictionary *)data;
++ (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath withData:(UserTimeLineEventData *)data;
 
 
 @end

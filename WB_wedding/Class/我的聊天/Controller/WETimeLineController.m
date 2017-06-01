@@ -18,27 +18,34 @@
 #import "ImagePickerController.h"
 #import "UIImage+Color.h"
 
-@interface WETimeLineController ()<UITableViewDelegate,UITableViewDataSource,WETimeLineHeaderViewDelegate,WERecoderViewDelegate,UIAlertViewDelegate>
+@interface WETimeLineController ()<UITableViewDelegate,UITableViewDataSource,WETimeLineHeaderViewDelegate,WERecoderViewDelegate,UIAlertViewDelegate>{
+    NSUInteger currentPage;
+    NSUInteger m_total;
+}
 
-@property (nonatomic,strong)UITableView     *tableView;
-@property (nonatomic,strong) UIView         *contenView;
-@property (nonatomic,strong)NSDictionary        *infoDic;
-@property (nonatomic,strong)NSMutableArray      *dataSource;
-@property (nonatomic,strong)  WETimeLineHeaderView *headrView;
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIView *contenView;
+
+@property (strong, nonatomic) NSMutableArray *dataSource;
+@property (strong, nonatomic) WETimeLineHeaderView *headrView;
+
+@property (strong, nonatomic) UserTimeLineData *data;
 
 @end
 
 @implementation WETimeLineController
 
+- (void)dealloc{
+    [KNotiCenter removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self configUserInterface];
-    
     [self setupNav];
-//    [self configDataSource];
+    
     // 发布成功 刷新数据
-    [KNotiCenter addObserver:self selector:@selector(configNewData) name:@"PostSuccess" object:nil];
+    [KNotiCenter addObserver:self selector:@selector(refreshData) name:@"PostSuccess" object:nil];
+    [self pullTimeEvent];
 }
 
 - (void)setupNav {
@@ -68,66 +75,86 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
--(void)configNewData{
-    self.dataSource = [NSMutableArray array];
-   
+- (void)pullTimeEvent{
+    NSDictionary *m_dic = @{@"myId" : [AppPublic getInstance].userData.ID,
+                            @"hisOrHerId" : [AppPublic getInstance].userData.loverId
+                            };
     
+    [self showHudInView:self.view hint:nil];
     
-    if ([KUserDefaults objectForKey:KHisHerID]==nil) {
-        [self showHint:@"你还没有匹配的人"];
-        return;
-    }
-    NSDictionary *dic = @{
-                          @"myId":[XWUserModel getUserInfoFromlocal].xw_id,
-                          @"hisOrHerId":[KUserDefaults objectForKey:KHisHerID]
-                          
-                          };
-    
-     [self showHudInView:self.view hint:nil];
-    [HQBaseNetManager GET:BASEURL(@"/timeevent/find") parameters:dic completionHandler:^(id responseObj, NSError *error) {
-        if ([responseObj[@"msg"]isEqualToString:@"请求成功"]) {
-            // 这里设置背景图片
-            [self hideHud];
-            self.infoDic  = responseObj[@"data"];
-            
-            
-            NSURL *imagURL =[NSURL URLWithString: [NSString stringWithFormat:@"%@/tebg/%@",ImageURL, self.infoDic[@"backgroundUrl"]]];
-            
-            
-            [self.headrView.bgInamegView sd_setImageWithURL:imagURL placeholderImage:[UIImage imageNamed:downloadImagePlace]];
-
-            
-            NSDictionary *dicc = @{
-                                   @"timeEventId":self.infoDic[@"id"],
-                                   @"page":@"1",
-                                   @"size":@"200"
-                                   };
-            [HQBaseNetManager GET:BASEURL(@"/timeevent/findevent") parameters:dicc completionHandler:^(id responseObjsss, NSError *error) {
-                [self.dataSource removeAllObjects];
-                NSArray  *array = responseObjsss[@"data"][@"content"];
-                [self.dataSource addObjectsFromArray:array];
-                [self.tableView reloadData];
-                [self hideHud];
-                [self.tableView.mj_header endRefreshing];
-                
-            }];
-            
-        }else{
-            [self hideHud];
-            [self.tableView.mj_header endRefreshing];
-            
+    QKWEAKSELF;
+    [[QKNetworkSingleton sharedManager] Get:m_dic HeadParm:nil URLFooter:@"/timeevent/find" completion:^(id responseBody, NSError *error){
+        [weakself hideHud];
+        
+        if (!error) {
+            if (isHttpSuccess([responseBody[@"success"] intValue])) {
+                weakself.data = [UserTimeLineData mj_objectWithKeyValues:responseBody[@"data"]];
+                [weakself configUserInterface];
+                [weakself refreshData];
+            }
+            else {
+                [weakself showHint:responseBody[@"msg"]];
+            }
         }
-          [self.tableView.mj_header endRefreshing];
-        
-        
+        else{
+            [weakself showHint:@"网络出错"];
+        }
     }];
-    
-    
+}
 
+- (void)refreshData{
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)loadFirstPageData{
+    [self loadInfoData:1];
 }
 
 
+- (void)loadMoreData{
+    [self loadInfoData:++currentPage];
+}
+
+- (void)loadInfoData:(NSUInteger)page{
+    QKWEAKSELF;
+    [[QKNetworkSingleton sharedManager] Get:@{@"timeEventId" : self.data.ID, @"page" : @(page), @"size" : @20} HeadParm:nil URLFooter:@"/timeevent/findevent" completion:^(id responseBody, NSError *error){
+        [weakself endRefreshing];
+        
+        if (!error) {
+            if (isHttpSuccess([responseBody[@"success"] intValue])) {
+                if (page == 1) {
+                    [weakself.dataSource removeAllObjects];
+                }
+                currentPage = page;
+                
+                NSDictionary *data = responseBody[@"data"];
+                if (data.count) {
+                    [weakself.dataSource addObjectsFromArray:[UserTimeLineEventData mj_objectArrayWithKeyValuesArray:data[@"content"]]];
+                    
+                    m_total = [data[@"totalElements"] integerValue];
+                    if (weakself.dataSource.count >= m_total) {
+                        [weakself.tableView.mj_footer endRefreshingWithNoMoreData];
+                    }
+                }
+                
+                [weakself.tableView reloadData];
+            }
+            else {
+                [weakself showHint:responseBody[@"msg"]];
+            }
+        }
+        else{
+            [weakself showHint:@"网络出错"];
+        }
+        
+    }];
+}
+
+- (void)endRefreshing{
+    //记录刷新时间
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+}
 
 - (void)configUserInterface{
     
@@ -151,14 +178,17 @@
     [self.view addSubview:self.tableView];
 
     
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(configNewData)];
-   
+    //设置下拉刷新回调
+    QKWEAKSELF;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakself loadFirstPageData];
+    }];
     
-    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakself loadMoreData];
+    }];
     self.tableView.mj_header.automaticallyChangeAlpha = YES;
 
-    
-    [self.tableView.mj_header beginRefreshing];
     
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -172,23 +202,16 @@
     [AppPublic roundCornerRadius:btn];
     [self.view addSubview:btn];
     
+    [self.headrView.bgInamegView sd_setImageWithURL:imageURLWithPath([NSString stringWithFormat:@"tebg/%@", self.data.backgroundUrl]) placeholderImage:[UIImage imageNamed:downloadImagePlace]];
 
-    
 }
 
 #pragma mark -- 记录时间轴
 - (void)btnClick:(UIButton *)sender{
-    
-    if ([KUserDefaults objectForKey:KHisHerID]==nil) {
-        [self showHint:@"你还没有匹配的人"];
-        return;
-    }
     WEPostTimeLineController  *vc = [[WEPostTimeLineController alloc]init];
-    vc.infoDic = self.infoDic;
+    vc.infoDic = [self.data mj_keyValues];
+    
     [self.navigationController pushViewController:vc animated:YES];
-    
-    
-    
     
 }
 - (void)didSureBtnClick:(NSString *)adress event:(NSString *)envent{
@@ -206,19 +229,15 @@
 
 #pragma mark-- 换背景
 - (void)didChangeBgBtn:(UIButton *)sender{
- 
-    
-    
     JKAlert *alert = [[JKAlert alloc]initWithTitle:@"温馨提示" andMessage:@"选择一张照片" style:STYLE_ACTION_SHEET];
     [alert addButton:ITEM_OK withTitle:@"从相册选择" handler:^(JKAlertItem *item) {
         ImagePickerController *vc = [[ImagePickerController alloc]init];
         [vc cameraSourceType:UIImagePickerControllerSourceTypePhotoLibrary onFinishingBlock:^(UIImagePickerController *picker, NSDictionary *info, UIImage *originalImage, UIImage *editedImage) {
         
             
-            
-            if (self.infoDic) {
+            if (self.data) {
                 [self showHudInView:self.view hint:nil];
-                [WEMyChatTool postBgPicWithtimeEventId:self.infoDic[@"id"] imag:originalImage success:^(id model) {
+                [WEMyChatTool postBgPicWithtimeEventId:self.data.ID imag:originalImage success:^(id model) {
                     self.headrView.bgInamegView.image = originalImage;
                     [self hideHud];
                     [self showHint:@"上传成功"];
@@ -251,9 +270,9 @@
             
             
             
-            if (self.infoDic) {
+            if (self.data) {
                 [self showHudInView:self.view hint:nil];
-                [WEMyChatTool postBgPicWithtimeEventId:self.infoDic[@"id"] imag:originalImage success:^(id model) {
+                [WEMyChatTool postBgPicWithtimeEventId:self.data.ID imag:originalImage success:^(id model) {
                     self.headrView.bgInamegView.image = originalImage;
                     [self hideHud];
                     [self showHint:@"上传成功"];
@@ -294,13 +313,6 @@
 - (void)didLocationBtn:(UIButton *)sender{
     NSLog(@"点击了定位");
     
-    if ([KUserDefaults objectForKey:KHisHerID]==nil) {
-        [self showHint:@"你还没有匹配的人"];
-        return;
-    }
-
-    
-    
     UIAlertView  *view = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您同意开放定位么？如果Ta也同意即可互看定位！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [view show];
   
@@ -312,19 +324,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-
-
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
         [self showHudInView:self.view hint:nil];
-        XWUserModel  *mdoel = [XWUserModel getUserInfoFromlocal];
         
-        NSString *hisrID = [KUserDefaults objectForKey:KHisHerID];
+        NSString *hisrID = [AppPublic getInstance].userData.loverId;
         
         
-        [WEMyChatTool openLocationWithMyId:mdoel.xw_id hisOrHerId:hisrID success:^(NSString  *model) {
+        [WEMyChatTool openLocationWithMyId:[AppPublic getInstance].userData.ID hisOrHerId:hisrID success:^(NSString  *model) {
             [self hideHud];
             if ([model isEqualToString:@"2"] ) {
                 [self showHint:@"已经向对方申请"];
@@ -382,13 +389,20 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     WETimeLineDetailController *vc = [[WETimeLineDetailController alloc]init];
     
-    NSDictionary *dic =  self.dataSource[indexPath.row];
+    NSDictionary *dic =  [self.dataSource[indexPath.row] mj_keyValues];
     vc.dic = dic;
     
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 
-
+#pragma getter
+- (NSMutableArray *)dataSource{
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray new];
+    }
+    
+    return _dataSource;
+}
 
 @end

@@ -36,26 +36,6 @@
     [super viewDidLoad];
     self.title = @"我的聊天";
     
-//    
-//    [self.missView addSubview:({
-//        XWTitleBottomBtn *btn = [XWTitleBottomBtn buttonWithType:UIButtonTypeCustom];
-//        [btn setTitle:@"想Ta" forState:UIControlStateNormal];
-//        [btn setImage:[UIImage imageNamed:@"miss48"] forState:UIControlStateNormal];
-//        [btn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
-//        btn.bounds = CGRectMake(0, 0, 80, 80);
-//        btn.center = self.missView.center;
-//        btn;
-//    })];
-//    [self.chatView addSubview:({
-//        XWTitleBottomBtn *btn = [XWTitleBottomBtn buttonWithType:UIButtonTypeCustom];
-//        [btn setTitle:@"想Ta" forState:UIControlStateNormal];
-//        [btn setImage:[UIImage imageNamed:@"talk48"] forState:UIControlStateNormal];
-//        [btn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
-//        btn.bounds = CGRectMake(0, 0, 80, 80);
-//        btn.center = self.missView.center;
-//        btn;
-//    })];
-    
     __weak typeof(self)weakSefl = self;
     [self setNavigationRightBtnWithImageName:@"shengluehao" actionBack:^{
         
@@ -72,8 +52,8 @@
     }];
     self.topScrollView.localizationImageNamesGroup = @[@"baby", downloadImagePlace, downloadImagePlace];
     
-    XWUserModel *model = [XWUserModel getUserInfoFromlocal];
-//    
+//    XWUserModel *model = [XWUserModel getUserInfoFromlocal];
+//
 //    if (![model.loverId isEqualToString:@""]&&model.loverId != nil) {
 //        
 //        self.topScrollView.hidden = NO;
@@ -130,15 +110,6 @@
 - (IBAction)talk:(UIButton *)sender {
     WETestChatViewController *vc = [[WETestChatViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
-
-//    if (loverPhone.length == 0) {
-//        SVPERROR(@"还没请求到爱人消息");
-//        return;
-//    }
-//    EaseMessageViewController *chatVC = [[EaseMessageViewController alloc] initWithConversationChatter:@"18190019728" conversationType:EMConversationTypeChat];
-//    [self.navigationController pushViewController:chatVC animated:YES];
-    
-    
 }
 
 
