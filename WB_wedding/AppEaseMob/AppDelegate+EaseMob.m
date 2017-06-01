@@ -11,6 +11,7 @@
  */
 
 #import "AppDelegate+EaseMob.h"
+#import "JPUSHService.h"
 
 #import "ChatDemoHelper.h"
 
@@ -48,20 +49,19 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 #pragma mark - App Delegate
 
 // 将得到的deviceToken传给SDK
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    [JPUSHService registerDeviceToken:deviceToken];
     [[EMClient sharedClient] bindDeviceToken:deviceToken];
 }
 
 // 注册deviceToken失败，此处失败，与环信SDK无关，一般是您的环境配置或者证书配置有误
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
-{
-    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"apns.failToRegisterApns", Fail to register apns)
-    //                                                    message:error.description
-    //                                                   delegate:nil
-    //                                          cancelButtonTitle:NSLocalizedString(@"ok", @"OK")
-    //                                          otherButtonTitles:nil];
-    //    [alert show];
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"apns.failToRegisterApns", Fail to register apns)
+//                                                    message:error.description
+//                                                   delegate:nil
+//                                          cancelButtonTitle:NSLocalizedString(@"ok", @"OK")
+//                                          otherButtonTitles:nil];
+//    [alert show];
 }
 
 #pragma mark - EMPushManagerDelegateDevice

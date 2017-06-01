@@ -49,7 +49,6 @@ static NSString *const MOB_AppSecret = @"dae490978de8f0daae85538b95be78aa";
     [self configMOB];
     [self configBaiduMap];
     [self configLocation];
-    [self configJPush];
     
     NSString *apnsCertName = nil;
 #if DEBUG
@@ -79,10 +78,31 @@ didFinishLaunchingWithOptions:launchOptions
     NSTimer *time = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(ffff) userInfo:nil repeats:YES];
     [[NSRunLoop  currentRunLoop] addTimer:time  forMode:NSDefaultRunLoopMode];
     
-#pragma mark=============这里注册几个通知，用于检验极光推送是否正常接收==============
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupNoti:) name:kJPFNetworkDidSetupNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(closeNoti:) name:kJPFNetworkDidCloseNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(registSuccessNoti:) name:kJPFNetworkDidRegisterNotification object:nil];
+    
+    //Required
+    //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    
+    
+    // Required
+    // init Push
+    // notice: 2.1.5版本的SDK新增的注册方法，改成可上报IDFA，如果没有使用IDFA直接传nil
+    // 如需继续使用pushConfig.plist文件声明appKey等配置内容，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化。
+    [JPUSHService setupWithOption:launchOptions appKey:@"64be46b9453a642f86fbe513"
+                          channel:JPushChannel
+                 apsForProduction:NO
+            advertisingIdentifier:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupNoti:) name:kJPFNetworkDidSetupNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeNoti:) name:kJPFNetworkDidCloseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registSuccessNoti:) name:kJPFNetworkDidRegisterNotification object:nil];
     
     
     
@@ -101,12 +121,6 @@ didFinishLaunchingWithOptions:launchOptions
                                                           UIRemoteNotificationTypeAlert)
                                               categories:nil];
     }
-    // a714f48a1c44d5733b8ec887
-    //如不需要使用IDFA，advertisingIdentifier 可为nil 测试  ab09c15bf09aefb6eaee3393
-    [JPUSHService setupWithOption:launchOptions appKey:@"64be46b9453a642f86fbe513"
-                          channel:JPushChannel
-                 apsForProduction:YES
-            advertisingIdentifier:nil];
     
     if (IOS_VERSION >= 8.0) {
         //注册远端消息通知获取device token
@@ -257,10 +271,6 @@ didFinishLaunchingWithOptions:launchOptions
     }
 }
 
-- (void)configJPush {
-    
-    
-}
 
 - (void)requireLocationRight {
     [[QJCLLocationTool locationTool] getUserLocation];
@@ -329,54 +339,31 @@ didFinishLaunchingWithOptions:launchOptions
     return YES;
 }
 
-
-
-#pragma mark --- 极光
-
-//获取token
-- (void)application:(UIApplication *)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
-    NSLog(@"%@", [NSString stringWithFormat:@"Device Token: %@", deviceToken]);
-    [JPUSHService registerDeviceToken:deviceToken];
-}
-
-//错误时
-- (void)application:(UIApplication *)application
-didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
-}
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_1
-- (void)application:(UIApplication *)application
-didRegisterUserNotificationSettings:
-(UIUserNotificationSettings *)notificationSettings {
+#pragma mark- JPUSHRegisterDelegate
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
 }
 
-// Called when your app has been activated by the user selecting an action from
-// a local notification.
-// A nil action identifier indicates the default action.
-// You should call the completion handler as soon as you've finished handling
-// the action.
-- (void)application:(UIApplication *)application
-handleActionWithIdentifier:(NSString *)identifier
-forLocalNotification:(UILocalNotification *)notification
-  completionHandler:(void (^)())completionHandler {
-}
-
-// Called when your app has been activated by the user selecting an action from
-// a remote notification.
-// A nil action identifier indicates the default action.
-// You should call the completion handler as soon as you've finished handling
-// the action.
-- (void)application:(UIApplication *)application
-handleActionWithIdentifier:(NSString *)identifier
-forRemoteNotification:(NSDictionary *)userInfo
-  completionHandler:(void (^)())completionHandler {
-    
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
 }
 #endif
-
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    // Required,For systems with less than or equal to iOS6
     [JPUSHService handleRemoteNotification:userInfo];
     
     NSLog(@"%@收到通知:%@",userInfo, [self logDic:userInfo]);
@@ -384,7 +371,7 @@ forRemoteNotification:(NSDictionary *)userInfo
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    
+    // Required, iOS 7 Support
     [JPUSHService handleRemoteNotification:userInfo];
     NSLog(@"收到通知:%@", [self logDic:userInfo]);
     

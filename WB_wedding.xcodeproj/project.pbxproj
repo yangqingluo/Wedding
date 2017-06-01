@@ -930,6 +930,7 @@
 		FC3F10AE1ECE9788002E2806 /* UserLoveRecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoveRecordVC.m; sourceTree = "<group>"; };
 		FC46636F1EDF0932005C4C04 /* QJCLLocationTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJCLLocationTool.m; sourceTree = "<group>"; };
 		FC4663701EDF0932005C4C04 /* QJCLLocationTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QJCLLocationTool.h; sourceTree = "<group>"; };
+		FC4663741EDF237C005C4C04 /* WB_wedding.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = WB_wedding.entitlements; sourceTree = "<group>"; };
 		FC875F9B1ECD438600158552 /* AppPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPickerView.h; sourceTree = "<group>"; };
 		FC875F9C1ECD438600158552 /* AppPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPickerView.m; sourceTree = "<group>"; };
 		FC875F9E1ECD48B500158552 /* AppDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDatePickerView.m; sourceTree = "<group>"; };
@@ -1715,6 +1716,7 @@
 		5D793B1B1E1B429100236506 /* WB_wedding */ = {
 			isa = PBXGroup;
 			children = (
+				FC4663741EDF237C005C4C04 /* WB_wedding.entitlements */,
 				5D793B1F1E1B429100236506 /* AppDelegate.h */,
 				5D793B201E1B429100236506 /* AppDelegate.m */,
 				FCD3AB031EBD72CE005AC352 /* MainVCs */,
@@ -2767,7 +2769,7 @@
 				TargetAttributes = {
 					5D793B181E1B429100236506 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = S3FZ755F5S;
+						DevelopmentTeam = EE9CJ26R9U;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3274,9 +3276,10 @@
 			baseConfigurationReference = D378E25EABE89FDC8E3C94DA /* Pods-WB_wedding.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WB_wedding/WB_wedding.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = S3FZ755F5S;
+				DEVELOPMENT_TEAM = EE9CJ26R9U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3320,7 +3323,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.7kers.LS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WBWedding.LS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3334,9 +3337,10 @@
 			baseConfigurationReference = 285BD90A9029ABE3ABF95D14 /* Pods-WB_wedding.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WB_wedding/WB_wedding.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = S3FZ755F5S;
+				DEVELOPMENT_TEAM = EE9CJ26R9U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3380,7 +3384,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.7kers.LS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WBWedding.LS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
